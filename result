@@ -1,0 +1,198 @@
+
+-----------------------------------------------------------------------------------
+** CAPSTONE - Cycle Accurate Parallel Simulator Technologgy for On-Chip Networks **
+ This is simIris. A second version of Capstone.
+-- Computer Architecture and Systems Lab                                         --
+-- Georgia Institute of Technology                                               --
+-----------------------------------------------------------------------------------
+Cmd line: ./simMc2Mesh_debug config/generic.cfg 
+ vcs:	2
+ ports:	5
+ buffer_size:	10
+ credits:	1
+ no_nodes( spread over a 2D Mesh topology):	4
+ grid size:	2
+ links:  	16
+ no_of_mcs:	0
+ no_of_traces:	14
+
+ router[0] packets: 220
+ router[0] flits: 888
+ router[0] packet latency: 1988
+ router[0] flits/packets: 4.03636
+ router[0] average packet latency: 9.03636
+ router[0] last_flit_out_cycle: 1997 
+
+ interface[1] flits_in: 443
+ interface[1] packets_in: 110
+ interface[1] flits_out: 445
+ interface[1] packets_out: 111
+ interface[1] total_packets_in_time: 0
+
+ router[1] packets: 220
+ router[1] flits: 884
+ router[1] packet latency: 1963
+ router[1] flits/packets: 4.01818
+ router[1] average packet latency: 8.92273
+ router[1] last_flit_out_cycle: 1999 
+
+ interface[4] flits_in: 442
+ interface[4] packets_in: 110
+ interface[4] flits_out: 441
+ interface[4] packets_out: 110
+ interface[4] total_packets_in_time: 0
+
+ router[2] packets: 1
+ router[2] flits: 8
+ router[2] packet latency: 38
+ router[2] flits/packets: 8
+ router[2] average packet latency: 38
+ router[2] last_flit_out_cycle: 42 
+
+ interface[7] flits_in: 0
+ interface[7] packets_in: 0
+ interface[7] flits_out: 7
+ interface[7] packets_out: 1
+ interface[7] total_packets_in_time: 0
+
+ router[3] packets: 0
+ router[3] flits: 3
+ router[3] packet latency: 3
+ router[3] flits/packets: inf
+ router[3] average packet latency: inf
+ router[3] last_flit_out_cycle: 9 
+
+ interface[10] flits_in: 0
+ interface[10] packets_in: 0
+ interface[10] flits_out: 3
+ interface[10] packets_out: 0
+ interface[10] total_packets_in_time: 0
+GenericLink: 	address: 100	input_connection: 0	output_connection: 0
+ link[100] flits_passed: 444
+ link[100] credits_passed: 443. 
+
+GenericLink: 	address: 200	input_connection: 0	output_connection: 0
+ link[200] flits_passed: 443
+ link[200] credits_passed: 442. 
+
+GenericLink: 	address: 101	input_connection: 1	output_connection: 1
+ link[101] flits_passed: 441
+ link[101] credits_passed: 439. 
+
+GenericLink: 	address: 201	input_connection: 1	output_connection: 1
+ link[201] flits_passed: 442
+ link[201] credits_passed: 442. 
+
+GenericLink: 	address: 102	input_connection: 2	output_connection: 2
+ link[102] flits_passed: 7
+ link[102] credits_passed: 5. 
+
+GenericLink: 	address: 202	input_connection: 2	output_connection: 2
+ link[202] flits_passed: 0
+ link[202] credits_passed: 0. 
+
+GenericLink: 	address: 103	input_connection: 3	output_connection: 3
+ link[103] flits_passed: 3
+ link[103] credits_passed: 1. 
+
+GenericLink: 	address: 203	input_connection: 3	output_connection: 3
+ link[203] flits_passed: 0
+ link[203] credits_passed: 0. 
+
+GenericLink: 	address: 104	output_connection: 0
+ link[104] flits_passed: 0
+ link[104] credits_passed: 0. 
+
+GenericLink: 	address: 204	input_connection: 0
+ link[204] flits_passed: 0
+ link[204] credits_passed: 0. 
+
+GenericLink: 	address: 105	input_connection: 0	output_connection: 1
+ link[105] flits_passed: 443
+ link[105] credits_passed: 442. 
+
+GenericLink: 	address: 205	input_connection: 1	output_connection: 0
+ link[205] flits_passed: 439
+ link[205] credits_passed: 439. 
+
+GenericLink: 	address: 106	output_connection: 2
+ link[106] flits_passed: 0
+ link[106] credits_passed: 0. 
+
+GenericLink: 	address: 206	input_connection: 2
+ link[206] flits_passed: 0
+ link[206] credits_passed: 0. 
+
+GenericLink: 	address: 107	input_connection: 2	output_connection: 3
+ link[107] flits_passed: 0
+ link[107] credits_passed: 0. 
+
+GenericLink: 	address: 207	input_connection: 3	output_connection: 2
+ link[207] flits_passed: 1
+ link[207] credits_passed: 0. 
+
+GenericLink: 	address: 108	input_connection: 1
+ link[108] flits_passed: 0
+ link[108] credits_passed: 0. 
+
+GenericLink: 	address: 208	output_connection: 1
+ link[208] flits_passed: 0
+ link[208] credits_passed: 0. 
+
+GenericLink: 	address: 109	input_connection: 3
+ link[109] flits_passed: 0
+ link[109] credits_passed: 0. 
+
+GenericLink: 	address: 209	output_connection: 3
+ link[209] flits_passed: 0
+ link[209] credits_passed: 0. 
+
+GenericLink: 	address: 110	output_connection: 0
+ link[110] flits_passed: 0
+ link[110] credits_passed: 0. 
+
+GenericLink: 	address: 210	input_connection: 0
+ link[210] flits_passed: 0
+ link[210] credits_passed: 0. 
+
+GenericLink: 	address: 111	output_connection: 1
+ link[111] flits_passed: 0
+ link[111] credits_passed: 0. 
+
+GenericLink: 	address: 211	input_connection: 1
+ link[211] flits_passed: 0
+ link[211] credits_passed: 0. 
+
+GenericLink: 	address: 112	input_connection: 0	output_connection: 2
+ link[112] flits_passed: 0
+ link[112] credits_passed: 0. 
+
+GenericLink: 	address: 212	input_connection: 2	output_connection: 0
+ link[212] flits_passed: 5
+ link[212] credits_passed: 4. 
+
+GenericLink: 	address: 113	input_connection: 1	output_connection: 3
+ link[113] flits_passed: 0
+ link[113] credits_passed: 0. 
+
+GenericLink: 	address: 213	input_connection: 3	output_connection: 1
+ link[213] flits_passed: 0
+ link[213] credits_passed: 0. 
+
+GenericLink: 	address: 114	input_connection: 2
+ link[114] flits_passed: 0
+ link[114] credits_passed: 0. 
+
+GenericLink: 	address: 214	output_connection: 2
+ link[214] flits_passed: 0
+ link[214] credits_passed: 0. 
+
+GenericLink: 	address: 115	input_connection: 3
+ link[115] flits_passed: 0
+ link[115] credits_passed: 0. 
+
+GenericLink: 	address: 215	output_connection: 3
+ link[215] flits_passed: 0
+ link[215] credits_passed: 0. 
+
+------------ End SimIris ---------------------
