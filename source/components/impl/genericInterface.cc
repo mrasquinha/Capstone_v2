@@ -171,7 +171,7 @@ GenericInterface::process_event(IrisEvent* e)
 void
 GenericInterface::handle_ready_event( IrisEvent* e)
 {
-    /*  These are credits from the processor and hence do not update flow
+    /*! \brief  These are credits from the processor and hence do not update flow
      *  control state. Flow control state is updated at the link arrival event
      *  for a credit. */
 
