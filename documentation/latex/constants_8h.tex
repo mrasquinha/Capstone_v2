@@ -1,0 +1,566 @@
+\hypertarget{constants_8h}{
+\section{source/memctrl/constants.h File Reference}
+\label{constants_8h}\index{source/memctrl/constants.h@{source/memctrl/constants.h}}
+}
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{constants_8h_d72dbcf6d0153db1b8d8a58001feed83}{DEBUG}~1
+\item 
+\#define \hyperlink{constants_8h_98846f5e42d3145d826f8b664ec13f80}{DEEP\_\-DEBUG}~1
+\item 
+\#define \hyperlink{constants_8h_4ab10c9656ea1507d1714d591563fb0d}{OPEN\_\-PAGE\_\-POLICY}~1
+\item 
+\#define \hyperlink{constants_8h_1c40033f478d74027a1f64719990a911}{FC\_\-FS}~1
+\item 
+\#define \hyperlink{constants_8h_61c5f1dcf31df05b79f2a640a8ca3c83}{PAGE\_\-INTERLEAVING}~1
+\item 
+\#define \hyperlink{constants_8h_3f030219b10d33352beebbc28e878f42}{NO\_\-OF\_\-THREADS}~4
+\item 
+\#define \hyperlink{constants_8h_c60f68d55e472737b2890684e0d41ab9}{NO\_\-OF\_\-CHANNELS}~1
+\item 
+\#define \hyperlink{constants_8h_138cd8ed0a99edf6058080756390e576}{NO\_\-OF\_\-RANKS}~2
+\item 
+\#define \hyperlink{constants_8h_9c2092fb2ee9f0a0776a00cc2cf0101f}{NO\_\-OF\_\-BANKS}~8
+\item 
+\#define \hyperlink{constants_8h_a9f2d328954a62b047317e13f33bda12}{NO\_\-OF\_\-BUFFERS}~NO\_\-OF\_\-BANKS
+\item 
+\#define \hyperlink{constants_8h_0a7e6a7eaff7c02b4098eb1ce3920d20}{NO\_\-OF\_\-ROWS}~4096
+\item 
+\#define \hyperlink{constants_8h_5b7d618f874e1731d1b531c75305fbfb}{NO\_\-OF\_\-COLUMNS}~256
+\item 
+\#define \hyperlink{constants_8h_21bae1e9d54eb89cfdf55678040c26b7}{COLUMN\_\-SIZE}~16
+\item 
+\#define \hyperlink{constants_8h_049e7586f4dee8bf82b0db100e1c36d4}{BLOCKS\_\-PER\_\-ROW}~64
+\item 
+\#define \hyperlink{constants_8h_9e92828e1e7a7cc03003c00282384f96}{CACHE\_\-BLOCK\_\-SIZE}~64
+\item 
+\#define \hyperlink{constants_8h_a4d030604a90c8d019d90fc721900d63}{ROW\_\-SIZE}~NO\_\-OF\_\-COLUMNS$\ast$COLUMN\_\-SIZE
+\item 
+\#define \hyperlink{constants_8h_4e35909b44ea391fbb7bb146992bb84d}{DRAM\_\-SIZE}~NO\_\-OF\_\-CHANNELS$\ast$NO\_\-OF\_\-RANKS$\ast$NO\_\-OF\_\-BANKS$\ast$NO\_\-OF\_\-ROWS$\ast$ROW\_\-SIZE
+\item 
+\#define \hyperlink{constants_8h_273bfff4ad6c875e1d4ca56b70a23137}{TAG\_\-BITS}~8
+\item 
+\#define \hyperlink{constants_8h_260d6a766c30c60e67e98d73de2f0cc4}{THREAD\_\-BITS\_\-POSITION}~12
+\item 
+\#define \hyperlink{constants_8h_d4d796b98c583d49e83adabd74a63bf6}{MAX\_\-BUFFER\_\-SIZE}~8
+\item 
+\#define \hyperlink{constants_8h_c68da12756b7440a3b472ec3cf7b9e20}{MAX\_\-CMD\_\-BUFFER\_\-SIZE}~4
+\item 
+\#define \hyperlink{constants_8h_3d9d93e9a53461ba2177521472b761c4}{RESPONSE\_\-BUFFER\_\-SIZE}~(NO\_\-OF\_\-CHANNELS $\ast$ (NO\_\-OF\_\-BANKS$\ast$NO\_\-OF\_\-RANKS + MAX\_\-CMD\_\-BUFFER\_\-SIZE)) / 2
+\item 
+\#define \hyperlink{constants_8h_e7e3459c7023f3a7dcd68b382db8da3d}{BATCH\_\-FORM\_\-TIME}~2000;
+\item 
+\#define \hyperlink{constants_8h_5d10e69bcfc7ad99f2b0d4256715aae2}{MAX\_\-BATCH\_\-TIME}~2000;
+\item 
+\#define \hyperlink{constants_8h_18373cd65e0761a3bd4e760a8e015baa}{MAX\_\-BATCH\_\-SIZE}~5
+\item 
+\#define \hyperlink{constants_8h_807dcc509b3155f4be5d3979e3d910dd}{MAX\_\-READ\_\-OV\_\-WRITE}~8
+\item 
+\#define \hyperlink{constants_8h_8f3a5746d22adbc2a68091b4292978a2}{NETWORK\_\-ADDRESS\_\-BITS}~32
+\item 
+\#define \hyperlink{constants_8h_3c72cb2ceba9fd5ec9d765851a065e23}{NETWORK\_\-THREADID\_\-BITS}~5
+\item 
+\#define \hyperlink{constants_8h_bfff7a5c1aab66967a8f2f26595dd59c}{NETWORK\_\-COMMAND\_\-BITS}~3
+\item 
+\#define \hyperlink{constants_8h_86e1969b50e55e5d506233078ca0fa4c}{READ\_\-SIZE}~CACHE\_\-BLOCK\_\-SIZE
+\item 
+\#define \hyperlink{constants_8h_dffc7bcd50015cae98ad6b1f3e240c03}{WRITE\_\-SIZE}~CACHE\_\-BLOCK\_\-SIZE
+\item 
+\#define \hyperlink{constants_8h_9c2cf5515858ee2f97a157ca23de784f}{PREFETCH\_\-SIZE}~CACHE\_\-BLOCK\_\-SIZE
+\item 
+\#define \hyperlink{constants_8h_9117e1b8ef1ac1f3fea5da3f3b883c9d}{WRITEBACK\_\-SIZE}~CACHE\_\-BLOCK\_\-SIZE
+\item 
+\#define \hyperlink{constants_8h_4ca70e92b8b779d01eed94f5f07a03ed}{REFRESH\_\-PERIOD}~CORE\_\-SPEED$\ast$64000
+\item 
+\#define \hyperlink{constants_8h_aebf6da1474d52a416fbf00608e500cd}{REFRESH\_\-INC}~floor(REFRESH\_\-PERIOD/(NO\_\-OF\_\-ROWS$\ast$NO\_\-OF\_\-RANKS)) - BUS\_\-CYCLE
+\item 
+\#define \hyperlink{constants_8h_09c4492c4f9e8f1fc3cce094d15cffcb}{DDR\_\-BUS\_\-WIDTH}~8
+\item 
+\#define \hyperlink{constants_8h_0703c48aced43db01cfd05859ec6b1d0}{BUS\_\-SPEED}~266
+\item 
+\#define \hyperlink{constants_8h_17f67d81ec6ca63acdd9ffa7fed8a503}{CORE\_\-SPEED}~3000
+\item 
+\#define \hyperlink{constants_8h_e6133cbb505a6b58822bd8dfbbca32ae}{MEM\_\-SPEED}~533
+\item 
+\#define \hyperlink{constants_8h_f3ca76157ad0063166fc1d77e0f04b02}{MEM\_\-CYCLE}~(CORE\_\-SPEED$\ast$1.0 / MEM\_\-SPEED)
+\item 
+\#define \hyperlink{constants_8h_b2d4e03c1adc636fe758a2eee8831db4}{BUS\_\-CYCLE}~(CORE\_\-SPEED$\ast$1.0 / BUS\_\-SPEED)
+\item 
+\#define \hyperlink{constants_8h_e1ab38102bb8953580ddb7d8e1ed4749}{CYCLE\_\-2\_\-NS}~(CORE\_\-SPEED$\ast$1.0 / 1000)
+\item 
+\#define \hyperlink{constants_8h_328952d73d403dc8f77007661c28061d}{t\_\-CMD}~ceil (1.0 $\ast$ BUS\_\-CYCLE)
+\item 
+\#define \hyperlink{constants_8h_a0b4c1284510d2df0ab953cd34c60184}{t\_\-RCD}~ceil (15 $\ast$ CYCLE\_\-2\_\-NS)
+\item 
+\#define \hyperlink{constants_8h_adb9eb810bb8613f1f3c2e12d7a3eea4}{t\_\-RRD}~ceil (6 $\ast$ CYCLE\_\-2\_\-NS)
+\item 
+\#define \hyperlink{constants_8h_bb7e28a6922969171c07a4f6db3554d8}{t\_\-RAS}~ceil (40 $\ast$ CYCLE\_\-2\_\-NS)
+\item 
+\#define \hyperlink{constants_8h_55e640defd9da0a9449fedac1ebf18dd}{t\_\-CAS}~4 $\ast$ ceil (1.0 $\ast$ MEM\_\-CYCLE)
+\item 
+\#define \hyperlink{constants_8h_1dea73a184a0cdad796580ae336a80af}{t\_\-RTRS}~ceil (1.0 $\ast$ MEM\_\-CYCLE)
+\item 
+\#define \hyperlink{constants_8h_3c868ed7f1728ac93fd7870fde85c868}{t\_\-OST}~ceil (1.0 $\ast$ MEM\_\-CYCLE)
+\item 
+\#define \hyperlink{constants_8h_7437ca1e4f03ea9a7a1582aa7e214366}{t\_\-WR}~ceil (15 $\ast$ CYCLE\_\-2\_\-NS)
+\item 
+\#define \hyperlink{constants_8h_4744fcfb7a1ce70653926d5a319fded9}{t\_\-WTR}~ceil (t\_\-WR / 2)
+\item 
+\#define \hyperlink{constants_8h_3535fb1e2afd53a154572f38c021205e}{t\_\-RP}~ceil (15 $\ast$ CYCLE\_\-2\_\-NS)
+\item 
+\#define \hyperlink{constants_8h_bc1e2abf1e234423a808c337c58ae1f2}{t\_\-CCD}~ceil (DDR\_\-BUS\_\-WIDTH/2 $\ast$ BUS\_\-CYCLE)
+\item 
+\#define \hyperlink{constants_8h_b1fecfcc74e0faf867dbe8fb5f87cbc5}{t\_\-AL}~0
+\item 
+\#define \hyperlink{constants_8h_eb3062b89e3edd2d47ba039499c11d86}{t\_\-CWD}~t\_\-CAS-t\_\-CMD
+\item 
+\#define \hyperlink{constants_8h_c51f5b19db00f0a249c65fb71718b712}{t\_\-RC}~ceil (55 $\ast$ CYCLE\_\-2\_\-NS)
+\item 
+\#define \hyperlink{constants_8h_6a8aab4cde7a1bbf20a4847d91b98d68}{t\_\-RTP}~ceil (3.0 $\ast$ MEM\_\-CYCLE)
+\item 
+\#define \hyperlink{constants_8h_2950f4322cfae4dd9a1af1d6ec877da2}{t\_\-RFC}~ceil (105 $\ast$ CYCLE\_\-2\_\-NS)
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef unsigned long long int \hyperlink{constants_8h_a475e5c84e5eb0fe317942dc62553f7e}{Time}
+\item 
+typedef unsigned long long int \hyperlink{constants_8h_51badf0ffa6471a1e529c69852e56f57}{Addr\_\-t}
+\item 
+typedef unsigned int \hyperlink{constants_8h_ba0996d26f7be2572973245b51852757}{UInt}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{constants_8h_e7e3459c7023f3a7dcd68b382db8da3d}{
+\index{constants.h@{constants.h}!BATCH\_\-FORM\_\-TIME@{BATCH\_\-FORM\_\-TIME}}
+\index{BATCH\_\-FORM\_\-TIME@{BATCH\_\-FORM\_\-TIME}!constants.h@{constants.h}}
+\subsubsection[{BATCH\_\-FORM\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define BATCH\_\-FORM\_\-TIME~2000;}}
+\label{constants_8h_e7e3459c7023f3a7dcd68b382db8da3d}
+
+
+\hypertarget{constants_8h_049e7586f4dee8bf82b0db100e1c36d4}{
+\index{constants.h@{constants.h}!BLOCKS\_\-PER\_\-ROW@{BLOCKS\_\-PER\_\-ROW}}
+\index{BLOCKS\_\-PER\_\-ROW@{BLOCKS\_\-PER\_\-ROW}!constants.h@{constants.h}}
+\subsubsection[{BLOCKS\_\-PER\_\-ROW}]{\setlength{\rightskip}{0pt plus 5cm}\#define BLOCKS\_\-PER\_\-ROW~64}}
+\label{constants_8h_049e7586f4dee8bf82b0db100e1c36d4}
+
+
+\hypertarget{constants_8h_b2d4e03c1adc636fe758a2eee8831db4}{
+\index{constants.h@{constants.h}!BUS\_\-CYCLE@{BUS\_\-CYCLE}}
+\index{BUS\_\-CYCLE@{BUS\_\-CYCLE}!constants.h@{constants.h}}
+\subsubsection[{BUS\_\-CYCLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUS\_\-CYCLE~(CORE\_\-SPEED$\ast$1.0 / BUS\_\-SPEED)}}
+\label{constants_8h_b2d4e03c1adc636fe758a2eee8831db4}
+
+
+\hypertarget{constants_8h_0703c48aced43db01cfd05859ec6b1d0}{
+\index{constants.h@{constants.h}!BUS\_\-SPEED@{BUS\_\-SPEED}}
+\index{BUS\_\-SPEED@{BUS\_\-SPEED}!constants.h@{constants.h}}
+\subsubsection[{BUS\_\-SPEED}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUS\_\-SPEED~266}}
+\label{constants_8h_0703c48aced43db01cfd05859ec6b1d0}
+
+
+\hypertarget{constants_8h_9e92828e1e7a7cc03003c00282384f96}{
+\index{constants.h@{constants.h}!CACHE\_\-BLOCK\_\-SIZE@{CACHE\_\-BLOCK\_\-SIZE}}
+\index{CACHE\_\-BLOCK\_\-SIZE@{CACHE\_\-BLOCK\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{CACHE\_\-BLOCK\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define CACHE\_\-BLOCK\_\-SIZE~64}}
+\label{constants_8h_9e92828e1e7a7cc03003c00282384f96}
+
+
+\hypertarget{constants_8h_21bae1e9d54eb89cfdf55678040c26b7}{
+\index{constants.h@{constants.h}!COLUMN\_\-SIZE@{COLUMN\_\-SIZE}}
+\index{COLUMN\_\-SIZE@{COLUMN\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{COLUMN\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define COLUMN\_\-SIZE~16}}
+\label{constants_8h_21bae1e9d54eb89cfdf55678040c26b7}
+
+
+\hypertarget{constants_8h_17f67d81ec6ca63acdd9ffa7fed8a503}{
+\index{constants.h@{constants.h}!CORE\_\-SPEED@{CORE\_\-SPEED}}
+\index{CORE\_\-SPEED@{CORE\_\-SPEED}!constants.h@{constants.h}}
+\subsubsection[{CORE\_\-SPEED}]{\setlength{\rightskip}{0pt plus 5cm}\#define CORE\_\-SPEED~3000}}
+\label{constants_8h_17f67d81ec6ca63acdd9ffa7fed8a503}
+
+
+\hypertarget{constants_8h_e1ab38102bb8953580ddb7d8e1ed4749}{
+\index{constants.h@{constants.h}!CYCLE\_\-2\_\-NS@{CYCLE\_\-2\_\-NS}}
+\index{CYCLE\_\-2\_\-NS@{CYCLE\_\-2\_\-NS}!constants.h@{constants.h}}
+\subsubsection[{CYCLE\_\-2\_\-NS}]{\setlength{\rightskip}{0pt plus 5cm}\#define CYCLE\_\-2\_\-NS~(CORE\_\-SPEED$\ast$1.0 / 1000)}}
+\label{constants_8h_e1ab38102bb8953580ddb7d8e1ed4749}
+
+
+\hypertarget{constants_8h_09c4492c4f9e8f1fc3cce094d15cffcb}{
+\index{constants.h@{constants.h}!DDR\_\-BUS\_\-WIDTH@{DDR\_\-BUS\_\-WIDTH}}
+\index{DDR\_\-BUS\_\-WIDTH@{DDR\_\-BUS\_\-WIDTH}!constants.h@{constants.h}}
+\subsubsection[{DDR\_\-BUS\_\-WIDTH}]{\setlength{\rightskip}{0pt plus 5cm}\#define DDR\_\-BUS\_\-WIDTH~8}}
+\label{constants_8h_09c4492c4f9e8f1fc3cce094d15cffcb}
+
+
+\hypertarget{constants_8h_d72dbcf6d0153db1b8d8a58001feed83}{
+\index{constants.h@{constants.h}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!constants.h@{constants.h}}
+\subsubsection[{DEBUG}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG~1}}
+\label{constants_8h_d72dbcf6d0153db1b8d8a58001feed83}
+
+
+\hypertarget{constants_8h_98846f5e42d3145d826f8b664ec13f80}{
+\index{constants.h@{constants.h}!DEEP\_\-DEBUG@{DEEP\_\-DEBUG}}
+\index{DEEP\_\-DEBUG@{DEEP\_\-DEBUG}!constants.h@{constants.h}}
+\subsubsection[{DEEP\_\-DEBUG}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEEP\_\-DEBUG~1}}
+\label{constants_8h_98846f5e42d3145d826f8b664ec13f80}
+
+
+\hypertarget{constants_8h_4e35909b44ea391fbb7bb146992bb84d}{
+\index{constants.h@{constants.h}!DRAM\_\-SIZE@{DRAM\_\-SIZE}}
+\index{DRAM\_\-SIZE@{DRAM\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{DRAM\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DRAM\_\-SIZE~NO\_\-OF\_\-CHANNELS$\ast$NO\_\-OF\_\-RANKS$\ast$NO\_\-OF\_\-BANKS$\ast$NO\_\-OF\_\-ROWS$\ast$ROW\_\-SIZE}}
+\label{constants_8h_4e35909b44ea391fbb7bb146992bb84d}
+
+
+\hypertarget{constants_8h_1c40033f478d74027a1f64719990a911}{
+\index{constants.h@{constants.h}!FC\_\-FS@{FC\_\-FS}}
+\index{FC\_\-FS@{FC\_\-FS}!constants.h@{constants.h}}
+\subsubsection[{FC\_\-FS}]{\setlength{\rightskip}{0pt plus 5cm}\#define FC\_\-FS~1}}
+\label{constants_8h_1c40033f478d74027a1f64719990a911}
+
+
+\hypertarget{constants_8h_18373cd65e0761a3bd4e760a8e015baa}{
+\index{constants.h@{constants.h}!MAX\_\-BATCH\_\-SIZE@{MAX\_\-BATCH\_\-SIZE}}
+\index{MAX\_\-BATCH\_\-SIZE@{MAX\_\-BATCH\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{MAX\_\-BATCH\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-BATCH\_\-SIZE~5}}
+\label{constants_8h_18373cd65e0761a3bd4e760a8e015baa}
+
+
+\hypertarget{constants_8h_5d10e69bcfc7ad99f2b0d4256715aae2}{
+\index{constants.h@{constants.h}!MAX\_\-BATCH\_\-TIME@{MAX\_\-BATCH\_\-TIME}}
+\index{MAX\_\-BATCH\_\-TIME@{MAX\_\-BATCH\_\-TIME}!constants.h@{constants.h}}
+\subsubsection[{MAX\_\-BATCH\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-BATCH\_\-TIME~2000;}}
+\label{constants_8h_5d10e69bcfc7ad99f2b0d4256715aae2}
+
+
+\hypertarget{constants_8h_d4d796b98c583d49e83adabd74a63bf6}{
+\index{constants.h@{constants.h}!MAX\_\-BUFFER\_\-SIZE@{MAX\_\-BUFFER\_\-SIZE}}
+\index{MAX\_\-BUFFER\_\-SIZE@{MAX\_\-BUFFER\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{MAX\_\-BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-BUFFER\_\-SIZE~8}}
+\label{constants_8h_d4d796b98c583d49e83adabd74a63bf6}
+
+
+\hypertarget{constants_8h_c68da12756b7440a3b472ec3cf7b9e20}{
+\index{constants.h@{constants.h}!MAX\_\-CMD\_\-BUFFER\_\-SIZE@{MAX\_\-CMD\_\-BUFFER\_\-SIZE}}
+\index{MAX\_\-CMD\_\-BUFFER\_\-SIZE@{MAX\_\-CMD\_\-BUFFER\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{MAX\_\-CMD\_\-BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-CMD\_\-BUFFER\_\-SIZE~4}}
+\label{constants_8h_c68da12756b7440a3b472ec3cf7b9e20}
+
+
+\hypertarget{constants_8h_807dcc509b3155f4be5d3979e3d910dd}{
+\index{constants.h@{constants.h}!MAX\_\-READ\_\-OV\_\-WRITE@{MAX\_\-READ\_\-OV\_\-WRITE}}
+\index{MAX\_\-READ\_\-OV\_\-WRITE@{MAX\_\-READ\_\-OV\_\-WRITE}!constants.h@{constants.h}}
+\subsubsection[{MAX\_\-READ\_\-OV\_\-WRITE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-READ\_\-OV\_\-WRITE~8}}
+\label{constants_8h_807dcc509b3155f4be5d3979e3d910dd}
+
+
+\hypertarget{constants_8h_f3ca76157ad0063166fc1d77e0f04b02}{
+\index{constants.h@{constants.h}!MEM\_\-CYCLE@{MEM\_\-CYCLE}}
+\index{MEM\_\-CYCLE@{MEM\_\-CYCLE}!constants.h@{constants.h}}
+\subsubsection[{MEM\_\-CYCLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define MEM\_\-CYCLE~(CORE\_\-SPEED$\ast$1.0 / MEM\_\-SPEED)}}
+\label{constants_8h_f3ca76157ad0063166fc1d77e0f04b02}
+
+
+\hypertarget{constants_8h_e6133cbb505a6b58822bd8dfbbca32ae}{
+\index{constants.h@{constants.h}!MEM\_\-SPEED@{MEM\_\-SPEED}}
+\index{MEM\_\-SPEED@{MEM\_\-SPEED}!constants.h@{constants.h}}
+\subsubsection[{MEM\_\-SPEED}]{\setlength{\rightskip}{0pt plus 5cm}\#define MEM\_\-SPEED~533}}
+\label{constants_8h_e6133cbb505a6b58822bd8dfbbca32ae}
+
+
+\hypertarget{constants_8h_8f3a5746d22adbc2a68091b4292978a2}{
+\index{constants.h@{constants.h}!NETWORK\_\-ADDRESS\_\-BITS@{NETWORK\_\-ADDRESS\_\-BITS}}
+\index{NETWORK\_\-ADDRESS\_\-BITS@{NETWORK\_\-ADDRESS\_\-BITS}!constants.h@{constants.h}}
+\subsubsection[{NETWORK\_\-ADDRESS\_\-BITS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NETWORK\_\-ADDRESS\_\-BITS~32}}
+\label{constants_8h_8f3a5746d22adbc2a68091b4292978a2}
+
+
+\hypertarget{constants_8h_bfff7a5c1aab66967a8f2f26595dd59c}{
+\index{constants.h@{constants.h}!NETWORK\_\-COMMAND\_\-BITS@{NETWORK\_\-COMMAND\_\-BITS}}
+\index{NETWORK\_\-COMMAND\_\-BITS@{NETWORK\_\-COMMAND\_\-BITS}!constants.h@{constants.h}}
+\subsubsection[{NETWORK\_\-COMMAND\_\-BITS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NETWORK\_\-COMMAND\_\-BITS~3}}
+\label{constants_8h_bfff7a5c1aab66967a8f2f26595dd59c}
+
+
+\hypertarget{constants_8h_3c72cb2ceba9fd5ec9d765851a065e23}{
+\index{constants.h@{constants.h}!NETWORK\_\-THREADID\_\-BITS@{NETWORK\_\-THREADID\_\-BITS}}
+\index{NETWORK\_\-THREADID\_\-BITS@{NETWORK\_\-THREADID\_\-BITS}!constants.h@{constants.h}}
+\subsubsection[{NETWORK\_\-THREADID\_\-BITS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NETWORK\_\-THREADID\_\-BITS~5}}
+\label{constants_8h_3c72cb2ceba9fd5ec9d765851a065e23}
+
+
+\hypertarget{constants_8h_9c2092fb2ee9f0a0776a00cc2cf0101f}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-BANKS@{NO\_\-OF\_\-BANKS}}
+\index{NO\_\-OF\_\-BANKS@{NO\_\-OF\_\-BANKS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-BANKS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-BANKS~8}}
+\label{constants_8h_9c2092fb2ee9f0a0776a00cc2cf0101f}
+
+
+\hypertarget{constants_8h_a9f2d328954a62b047317e13f33bda12}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-BUFFERS@{NO\_\-OF\_\-BUFFERS}}
+\index{NO\_\-OF\_\-BUFFERS@{NO\_\-OF\_\-BUFFERS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-BUFFERS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-BUFFERS~NO\_\-OF\_\-BANKS}}
+\label{constants_8h_a9f2d328954a62b047317e13f33bda12}
+
+
+\hypertarget{constants_8h_c60f68d55e472737b2890684e0d41ab9}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-CHANNELS@{NO\_\-OF\_\-CHANNELS}}
+\index{NO\_\-OF\_\-CHANNELS@{NO\_\-OF\_\-CHANNELS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-CHANNELS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-CHANNELS~1}}
+\label{constants_8h_c60f68d55e472737b2890684e0d41ab9}
+
+
+\hypertarget{constants_8h_5b7d618f874e1731d1b531c75305fbfb}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-COLUMNS@{NO\_\-OF\_\-COLUMNS}}
+\index{NO\_\-OF\_\-COLUMNS@{NO\_\-OF\_\-COLUMNS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-COLUMNS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-COLUMNS~256}}
+\label{constants_8h_5b7d618f874e1731d1b531c75305fbfb}
+
+
+\hypertarget{constants_8h_138cd8ed0a99edf6058080756390e576}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-RANKS@{NO\_\-OF\_\-RANKS}}
+\index{NO\_\-OF\_\-RANKS@{NO\_\-OF\_\-RANKS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-RANKS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-RANKS~2}}
+\label{constants_8h_138cd8ed0a99edf6058080756390e576}
+
+
+\hypertarget{constants_8h_0a7e6a7eaff7c02b4098eb1ce3920d20}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-ROWS@{NO\_\-OF\_\-ROWS}}
+\index{NO\_\-OF\_\-ROWS@{NO\_\-OF\_\-ROWS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-ROWS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-ROWS~4096}}
+\label{constants_8h_0a7e6a7eaff7c02b4098eb1ce3920d20}
+
+
+\hypertarget{constants_8h_3f030219b10d33352beebbc28e878f42}{
+\index{constants.h@{constants.h}!NO\_\-OF\_\-THREADS@{NO\_\-OF\_\-THREADS}}
+\index{NO\_\-OF\_\-THREADS@{NO\_\-OF\_\-THREADS}!constants.h@{constants.h}}
+\subsubsection[{NO\_\-OF\_\-THREADS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-THREADS~4}}
+\label{constants_8h_3f030219b10d33352beebbc28e878f42}
+
+
+\hypertarget{constants_8h_4ab10c9656ea1507d1714d591563fb0d}{
+\index{constants.h@{constants.h}!OPEN\_\-PAGE\_\-POLICY@{OPEN\_\-PAGE\_\-POLICY}}
+\index{OPEN\_\-PAGE\_\-POLICY@{OPEN\_\-PAGE\_\-POLICY}!constants.h@{constants.h}}
+\subsubsection[{OPEN\_\-PAGE\_\-POLICY}]{\setlength{\rightskip}{0pt plus 5cm}\#define OPEN\_\-PAGE\_\-POLICY~1}}
+\label{constants_8h_4ab10c9656ea1507d1714d591563fb0d}
+
+
+\hypertarget{constants_8h_61c5f1dcf31df05b79f2a640a8ca3c83}{
+\index{constants.h@{constants.h}!PAGE\_\-INTERLEAVING@{PAGE\_\-INTERLEAVING}}
+\index{PAGE\_\-INTERLEAVING@{PAGE\_\-INTERLEAVING}!constants.h@{constants.h}}
+\subsubsection[{PAGE\_\-INTERLEAVING}]{\setlength{\rightskip}{0pt plus 5cm}\#define PAGE\_\-INTERLEAVING~1}}
+\label{constants_8h_61c5f1dcf31df05b79f2a640a8ca3c83}
+
+
+\hypertarget{constants_8h_9c2cf5515858ee2f97a157ca23de784f}{
+\index{constants.h@{constants.h}!PREFETCH\_\-SIZE@{PREFETCH\_\-SIZE}}
+\index{PREFETCH\_\-SIZE@{PREFETCH\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{PREFETCH\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define PREFETCH\_\-SIZE~CACHE\_\-BLOCK\_\-SIZE}}
+\label{constants_8h_9c2cf5515858ee2f97a157ca23de784f}
+
+
+\hypertarget{constants_8h_86e1969b50e55e5d506233078ca0fa4c}{
+\index{constants.h@{constants.h}!READ\_\-SIZE@{READ\_\-SIZE}}
+\index{READ\_\-SIZE@{READ\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{READ\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define READ\_\-SIZE~CACHE\_\-BLOCK\_\-SIZE}}
+\label{constants_8h_86e1969b50e55e5d506233078ca0fa4c}
+
+
+\hypertarget{constants_8h_aebf6da1474d52a416fbf00608e500cd}{
+\index{constants.h@{constants.h}!REFRESH\_\-INC@{REFRESH\_\-INC}}
+\index{REFRESH\_\-INC@{REFRESH\_\-INC}!constants.h@{constants.h}}
+\subsubsection[{REFRESH\_\-INC}]{\setlength{\rightskip}{0pt plus 5cm}\#define REFRESH\_\-INC~floor(REFRESH\_\-PERIOD/(NO\_\-OF\_\-ROWS$\ast$NO\_\-OF\_\-RANKS)) - BUS\_\-CYCLE}}
+\label{constants_8h_aebf6da1474d52a416fbf00608e500cd}
+
+
+\hypertarget{constants_8h_4ca70e92b8b779d01eed94f5f07a03ed}{
+\index{constants.h@{constants.h}!REFRESH\_\-PERIOD@{REFRESH\_\-PERIOD}}
+\index{REFRESH\_\-PERIOD@{REFRESH\_\-PERIOD}!constants.h@{constants.h}}
+\subsubsection[{REFRESH\_\-PERIOD}]{\setlength{\rightskip}{0pt plus 5cm}\#define REFRESH\_\-PERIOD~CORE\_\-SPEED$\ast$64000}}
+\label{constants_8h_4ca70e92b8b779d01eed94f5f07a03ed}
+
+
+\hypertarget{constants_8h_3d9d93e9a53461ba2177521472b761c4}{
+\index{constants.h@{constants.h}!RESPONSE\_\-BUFFER\_\-SIZE@{RESPONSE\_\-BUFFER\_\-SIZE}}
+\index{RESPONSE\_\-BUFFER\_\-SIZE@{RESPONSE\_\-BUFFER\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{RESPONSE\_\-BUFFER\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define RESPONSE\_\-BUFFER\_\-SIZE~(NO\_\-OF\_\-CHANNELS $\ast$ (NO\_\-OF\_\-BANKS$\ast$NO\_\-OF\_\-RANKS + MAX\_\-CMD\_\-BUFFER\_\-SIZE)) / 2}}
+\label{constants_8h_3d9d93e9a53461ba2177521472b761c4}
+
+
+\hypertarget{constants_8h_a4d030604a90c8d019d90fc721900d63}{
+\index{constants.h@{constants.h}!ROW\_\-SIZE@{ROW\_\-SIZE}}
+\index{ROW\_\-SIZE@{ROW\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{ROW\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define ROW\_\-SIZE~NO\_\-OF\_\-COLUMNS$\ast$COLUMN\_\-SIZE}}
+\label{constants_8h_a4d030604a90c8d019d90fc721900d63}
+
+
+\hypertarget{constants_8h_b1fecfcc74e0faf867dbe8fb5f87cbc5}{
+\index{constants.h@{constants.h}!t\_\-AL@{t\_\-AL}}
+\index{t\_\-AL@{t\_\-AL}!constants.h@{constants.h}}
+\subsubsection[{t\_\-AL}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-AL~0}}
+\label{constants_8h_b1fecfcc74e0faf867dbe8fb5f87cbc5}
+
+
+\hypertarget{constants_8h_55e640defd9da0a9449fedac1ebf18dd}{
+\index{constants.h@{constants.h}!t\_\-CAS@{t\_\-CAS}}
+\index{t\_\-CAS@{t\_\-CAS}!constants.h@{constants.h}}
+\subsubsection[{t\_\-CAS}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-CAS~4 $\ast$ ceil (1.0 $\ast$ MEM\_\-CYCLE)}}
+\label{constants_8h_55e640defd9da0a9449fedac1ebf18dd}
+
+
+\hypertarget{constants_8h_bc1e2abf1e234423a808c337c58ae1f2}{
+\index{constants.h@{constants.h}!t\_\-CCD@{t\_\-CCD}}
+\index{t\_\-CCD@{t\_\-CCD}!constants.h@{constants.h}}
+\subsubsection[{t\_\-CCD}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-CCD~ceil (DDR\_\-BUS\_\-WIDTH/2 $\ast$ BUS\_\-CYCLE)}}
+\label{constants_8h_bc1e2abf1e234423a808c337c58ae1f2}
+
+
+\hypertarget{constants_8h_328952d73d403dc8f77007661c28061d}{
+\index{constants.h@{constants.h}!t\_\-CMD@{t\_\-CMD}}
+\index{t\_\-CMD@{t\_\-CMD}!constants.h@{constants.h}}
+\subsubsection[{t\_\-CMD}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-CMD~ceil (1.0 $\ast$ BUS\_\-CYCLE)}}
+\label{constants_8h_328952d73d403dc8f77007661c28061d}
+
+
+\hypertarget{constants_8h_eb3062b89e3edd2d47ba039499c11d86}{
+\index{constants.h@{constants.h}!t\_\-CWD@{t\_\-CWD}}
+\index{t\_\-CWD@{t\_\-CWD}!constants.h@{constants.h}}
+\subsubsection[{t\_\-CWD}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-CWD~t\_\-CAS-t\_\-CMD}}
+\label{constants_8h_eb3062b89e3edd2d47ba039499c11d86}
+
+
+\hypertarget{constants_8h_3c868ed7f1728ac93fd7870fde85c868}{
+\index{constants.h@{constants.h}!t\_\-OST@{t\_\-OST}}
+\index{t\_\-OST@{t\_\-OST}!constants.h@{constants.h}}
+\subsubsection[{t\_\-OST}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-OST~ceil (1.0 $\ast$ MEM\_\-CYCLE)}}
+\label{constants_8h_3c868ed7f1728ac93fd7870fde85c868}
+
+
+\hypertarget{constants_8h_bb7e28a6922969171c07a4f6db3554d8}{
+\index{constants.h@{constants.h}!t\_\-RAS@{t\_\-RAS}}
+\index{t\_\-RAS@{t\_\-RAS}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RAS}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RAS~ceil (40 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_bb7e28a6922969171c07a4f6db3554d8}
+
+
+\hypertarget{constants_8h_c51f5b19db00f0a249c65fb71718b712}{
+\index{constants.h@{constants.h}!t\_\-RC@{t\_\-RC}}
+\index{t\_\-RC@{t\_\-RC}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RC}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RC~ceil (55 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_c51f5b19db00f0a249c65fb71718b712}
+
+
+\hypertarget{constants_8h_a0b4c1284510d2df0ab953cd34c60184}{
+\index{constants.h@{constants.h}!t\_\-RCD@{t\_\-RCD}}
+\index{t\_\-RCD@{t\_\-RCD}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RCD}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RCD~ceil (15 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_a0b4c1284510d2df0ab953cd34c60184}
+
+
+\hypertarget{constants_8h_2950f4322cfae4dd9a1af1d6ec877da2}{
+\index{constants.h@{constants.h}!t\_\-RFC@{t\_\-RFC}}
+\index{t\_\-RFC@{t\_\-RFC}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RFC}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RFC~ceil (105 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_2950f4322cfae4dd9a1af1d6ec877da2}
+
+
+\hypertarget{constants_8h_3535fb1e2afd53a154572f38c021205e}{
+\index{constants.h@{constants.h}!t\_\-RP@{t\_\-RP}}
+\index{t\_\-RP@{t\_\-RP}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RP}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RP~ceil (15 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_3535fb1e2afd53a154572f38c021205e}
+
+
+\hypertarget{constants_8h_adb9eb810bb8613f1f3c2e12d7a3eea4}{
+\index{constants.h@{constants.h}!t\_\-RRD@{t\_\-RRD}}
+\index{t\_\-RRD@{t\_\-RRD}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RRD}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RRD~ceil (6 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_adb9eb810bb8613f1f3c2e12d7a3eea4}
+
+
+\hypertarget{constants_8h_6a8aab4cde7a1bbf20a4847d91b98d68}{
+\index{constants.h@{constants.h}!t\_\-RTP@{t\_\-RTP}}
+\index{t\_\-RTP@{t\_\-RTP}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RTP}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RTP~ceil (3.0 $\ast$ MEM\_\-CYCLE)}}
+\label{constants_8h_6a8aab4cde7a1bbf20a4847d91b98d68}
+
+
+\hypertarget{constants_8h_1dea73a184a0cdad796580ae336a80af}{
+\index{constants.h@{constants.h}!t\_\-RTRS@{t\_\-RTRS}}
+\index{t\_\-RTRS@{t\_\-RTRS}!constants.h@{constants.h}}
+\subsubsection[{t\_\-RTRS}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-RTRS~ceil (1.0 $\ast$ MEM\_\-CYCLE)}}
+\label{constants_8h_1dea73a184a0cdad796580ae336a80af}
+
+
+\hypertarget{constants_8h_7437ca1e4f03ea9a7a1582aa7e214366}{
+\index{constants.h@{constants.h}!t\_\-WR@{t\_\-WR}}
+\index{t\_\-WR@{t\_\-WR}!constants.h@{constants.h}}
+\subsubsection[{t\_\-WR}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-WR~ceil (15 $\ast$ CYCLE\_\-2\_\-NS)}}
+\label{constants_8h_7437ca1e4f03ea9a7a1582aa7e214366}
+
+
+\hypertarget{constants_8h_4744fcfb7a1ce70653926d5a319fded9}{
+\index{constants.h@{constants.h}!t\_\-WTR@{t\_\-WTR}}
+\index{t\_\-WTR@{t\_\-WTR}!constants.h@{constants.h}}
+\subsubsection[{t\_\-WTR}]{\setlength{\rightskip}{0pt plus 5cm}\#define t\_\-WTR~ceil (t\_\-WR / 2)}}
+\label{constants_8h_4744fcfb7a1ce70653926d5a319fded9}
+
+
+\hypertarget{constants_8h_273bfff4ad6c875e1d4ca56b70a23137}{
+\index{constants.h@{constants.h}!TAG\_\-BITS@{TAG\_\-BITS}}
+\index{TAG\_\-BITS@{TAG\_\-BITS}!constants.h@{constants.h}}
+\subsubsection[{TAG\_\-BITS}]{\setlength{\rightskip}{0pt plus 5cm}\#define TAG\_\-BITS~8}}
+\label{constants_8h_273bfff4ad6c875e1d4ca56b70a23137}
+
+
+\hypertarget{constants_8h_260d6a766c30c60e67e98d73de2f0cc4}{
+\index{constants.h@{constants.h}!THREAD\_\-BITS\_\-POSITION@{THREAD\_\-BITS\_\-POSITION}}
+\index{THREAD\_\-BITS\_\-POSITION@{THREAD\_\-BITS\_\-POSITION}!constants.h@{constants.h}}
+\subsubsection[{THREAD\_\-BITS\_\-POSITION}]{\setlength{\rightskip}{0pt plus 5cm}\#define THREAD\_\-BITS\_\-POSITION~12}}
+\label{constants_8h_260d6a766c30c60e67e98d73de2f0cc4}
+
+
+\hypertarget{constants_8h_dffc7bcd50015cae98ad6b1f3e240c03}{
+\index{constants.h@{constants.h}!WRITE\_\-SIZE@{WRITE\_\-SIZE}}
+\index{WRITE\_\-SIZE@{WRITE\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{WRITE\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define WRITE\_\-SIZE~CACHE\_\-BLOCK\_\-SIZE}}
+\label{constants_8h_dffc7bcd50015cae98ad6b1f3e240c03}
+
+
+\hypertarget{constants_8h_9117e1b8ef1ac1f3fea5da3f3b883c9d}{
+\index{constants.h@{constants.h}!WRITEBACK\_\-SIZE@{WRITEBACK\_\-SIZE}}
+\index{WRITEBACK\_\-SIZE@{WRITEBACK\_\-SIZE}!constants.h@{constants.h}}
+\subsubsection[{WRITEBACK\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define WRITEBACK\_\-SIZE~CACHE\_\-BLOCK\_\-SIZE}}
+\label{constants_8h_9117e1b8ef1ac1f3fea5da3f3b883c9d}
+
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{constants_8h_51badf0ffa6471a1e529c69852e56f57}{
+\index{constants.h@{constants.h}!Addr\_\-t@{Addr\_\-t}}
+\index{Addr\_\-t@{Addr\_\-t}!constants.h@{constants.h}}
+\subsubsection[{Addr\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long long int {\bf Addr\_\-t}}}
+\label{constants_8h_51badf0ffa6471a1e529c69852e56f57}
+
+
+\hypertarget{constants_8h_a475e5c84e5eb0fe317942dc62553f7e}{
+\index{constants.h@{constants.h}!Time@{Time}}
+\index{Time@{Time}!constants.h@{constants.h}}
+\subsubsection[{Time}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long long int {\bf Time}}}
+\label{constants_8h_a475e5c84e5eb0fe317942dc62553f7e}
+
+
+\hypertarget{constants_8h_ba0996d26f7be2572973245b51852757}{
+\index{constants.h@{constants.h}!UInt@{UInt}}
+\index{UInt@{UInt}!constants.h@{constants.h}}
+\subsubsection[{UInt}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf UInt}}}
+\label{constants_8h_ba0996d26f7be2572973245b51852757}
+
+

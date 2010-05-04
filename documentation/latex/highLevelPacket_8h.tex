@@ -1,0 +1,98 @@
+\hypertarget{highLevelPacket_8h}{
+\section{source/data\_\-types/impl/highLevelPacket.h File Reference}
+\label{highLevelPacket_8h}\index{source/data\_\-types/impl/highLevelPacket.h@{source/data\_\-types/impl/highLevelPacket.h}}
+}
+{\tt \#include \char`\"{}../../components/interfaces/genericComponentHeader.h\char`\"{}}\par
+{\tt \#include \char`\"{}lowLevelPacket.h\char`\"{}}\par
+{\tt \#include \char`\"{}../../kernel/simulator.h\char`\"{}}\par
+{\tt \#include $<$sstream$>$}\par
+{\tt \#include $<$string$>$}\par
+{\tt \#include $<$math.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classHighLevelPacket}{HighLevelPacket}
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96}{virtual\_\-network} \{ \hyperlink{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e965a2c02cda17c1d1485f54eb64a089c7e}{VN0}, 
+\hyperlink{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96fd42715ed367a6ef720bfa3be9036a8b}{VN1}, 
+\hyperlink{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e966135954823d9c9f5666429f69bc17fe3}{VN2}
+ \}
+\item 
+enum \hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4}{message\_\-class} \{ \par
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4d896097cce41fbb011c884a235a1a50a}{HOM}, 
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef49cc1568febffcc05f9bd8d60bc18e599}{SNP}, 
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4d743fb4be72b0f4e3e9d0a0c0d655c86}{NDR}, 
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef44e5614517fa22f23ef45ae06cbac46ed}{DRS}, 
+\par
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef445bc282baa5e929961eab4b6d9a9de58}{NCB}, 
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4b54dec0f4ab860ce3bccf6cdbcb48ad4}{NCS}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4}{
+\index{highLevelPacket.h@{highLevelPacket.h}!message\_\-class@{message\_\-class}}
+\index{message\_\-class@{message\_\-class}!highLevelPacket.h@{highLevelPacket.h}}
+\subsubsection[{message\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf message\_\-class}}}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{HOM@{HOM}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!HOM@{HOM}}\item[{\em 
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4d896097cce41fbb011c884a235a1a50a}{
+HOM}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4d896097cce41fbb011c884a235a1a50a}
+}]\index{SNP@{SNP}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!SNP@{SNP}}\item[{\em 
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef49cc1568febffcc05f9bd8d60bc18e599}{
+SNP}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef49cc1568febffcc05f9bd8d60bc18e599}
+}]\index{NDR@{NDR}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!NDR@{NDR}}\item[{\em 
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4d743fb4be72b0f4e3e9d0a0c0d655c86}{
+NDR}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4d743fb4be72b0f4e3e9d0a0c0d655c86}
+}]\index{DRS@{DRS}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!DRS@{DRS}}\item[{\em 
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef44e5614517fa22f23ef45ae06cbac46ed}{
+DRS}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef44e5614517fa22f23ef45ae06cbac46ed}
+}]\index{NCB@{NCB}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!NCB@{NCB}}\item[{\em 
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef445bc282baa5e929961eab4b6d9a9de58}{
+NCB}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef445bc282baa5e929961eab4b6d9a9de58}
+}]\index{NCS@{NCS}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!NCS@{NCS}}\item[{\em 
+\hypertarget{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4b54dec0f4ab860ce3bccf6cdbcb48ad4}{
+NCS}
+\label{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4b54dec0f4ab860ce3bccf6cdbcb48ad4}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96}{
+\index{highLevelPacket.h@{highLevelPacket.h}!virtual\_\-network@{virtual\_\-network}}
+\index{virtual\_\-network@{virtual\_\-network}!highLevelPacket.h@{highLevelPacket.h}}
+\subsubsection[{virtual\_\-network}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf virtual\_\-network}}}
+\label{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{VN0@{VN0}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!VN0@{VN0}}\item[{\em 
+\hypertarget{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e965a2c02cda17c1d1485f54eb64a089c7e}{
+VN0}
+\label{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e965a2c02cda17c1d1485f54eb64a089c7e}
+}]\index{VN1@{VN1}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!VN1@{VN1}}\item[{\em 
+\hypertarget{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96fd42715ed367a6ef720bfa3be9036a8b}{
+VN1}
+\label{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96fd42715ed367a6ef720bfa3be9036a8b}
+}]\index{VN2@{VN2}!highLevelPacket.h@{highLevelPacket.h}}\index{highLevelPacket.h@{highLevelPacket.h}!VN2@{VN2}}\item[{\em 
+\hypertarget{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e966135954823d9c9f5666429f69bc17fe3}{
+VN2}
+\label{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e966135954823d9c9f5666429f69bc17fe3}
+}]\end{description}
+\end{Desc}
+

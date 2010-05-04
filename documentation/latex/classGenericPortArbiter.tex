@@ -1,0 +1,332 @@
+\hypertarget{classGenericPortArbiter}{
+\section{GenericPortArbiter Class Reference}
+\label{classGenericPortArbiter}\index{GenericPortArbiter@{GenericPortArbiter}}
+}
+{\tt \#include $<$genericPortArbiter.h$>$}
+
+Inheritance diagram for GenericPortArbiter::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classGenericPortArbiter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGenericPortArbiter_d7a567eb5055a68231d045583ed8d5a7}{GenericPortArbiter} ()
+\item 
+\hyperlink{classGenericPortArbiter_2bd7c52f5d2a71863f73f6922520fef8}{$\sim$GenericPortArbiter} ()
+\item 
+void \hyperlink{classGenericPortArbiter_c4375af1ce810c31e11c03a3b3ffc426}{destroy} ()
+\item 
+bool \hyperlink{classGenericPortArbiter_a01546e85da0a6d1c1194fbf82f013bb}{is\_\-empty} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericPortArbiter_3b94b47628229ee3142907005020eb86}{resize} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ports)
+\item 
+void \hyperlink{classGenericPortArbiter_1480ee32b7d8003479d2404a4b279c56}{request} (\hyperlink{classFlit}{Flit} $\ast$f, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} port, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} vc)
+\item 
+void \hyperlink{classGenericPortArbiter_50daec6e98669e01d74557dfb84b462f}{set\_\-req\_\-queue\_\-size} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericPortArbiter_f58d4de9d0b9e07a44f3f7185f4d11d9}{get\_\-no\_\-requests} ()
+\item 
+bool \hyperlink{classGenericPortArbiter_b94c8e8e707e00e3265008691fd7c696}{is\_\-requested} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} port, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericPortArbiter_528c492e74ec10b4ffa2a87d1454b446}{pick\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{classFlit}{Flit} $\ast$ \hyperlink{classGenericPortArbiter_6cc8ecf3ac1cda783e762dc9c139fe01}{pull\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericPortArbiter_0ae12cea5cad66f5ef59129e93248e11}{clear} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericPortArbiter_63d8b70b6215000469874aa5659cc416}{clear\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+vector$<$ \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $>$ \hyperlink{classGenericPortArbiter_cd5a78f1bf96701f5371bbcd601d9e53}{get\_\-requests} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+string \hyperlink{classGenericPortArbiter_1ceacc98efaee4d98b4f65a401ea10e2}{toString} () const 
+\item 
+void \hyperlink{classGenericPortArbiter_b593b8edfe4586255c61cb0219f3fb86}{flush\_\-all\_\-requests} ()
+\item 
+\hyperlink{classGenericPortArbiter_d7a567eb5055a68231d045583ed8d5a7}{GenericPortArbiter} ()
+\item 
+\hyperlink{classGenericPortArbiter_2bd7c52f5d2a71863f73f6922520fef8}{$\sim$GenericPortArbiter} ()
+\item 
+void \hyperlink{classGenericPortArbiter_c4375af1ce810c31e11c03a3b3ffc426}{destroy} ()
+\item 
+bool \hyperlink{classGenericPortArbiter_a01546e85da0a6d1c1194fbf82f013bb}{is\_\-empty} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericPortArbiter_3b94b47628229ee3142907005020eb86}{resize} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ports)
+\item 
+void \hyperlink{classGenericPortArbiter_1480ee32b7d8003479d2404a4b279c56}{request} (\hyperlink{classFlit}{Flit} $\ast$f, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} port, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} vc)
+\item 
+void \hyperlink{classGenericPortArbiter_50daec6e98669e01d74557dfb84b462f}{set\_\-req\_\-queue\_\-size} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericPortArbiter_f58d4de9d0b9e07a44f3f7185f4d11d9}{get\_\-no\_\-requests} ()
+\item 
+bool \hyperlink{classGenericPortArbiter_b94c8e8e707e00e3265008691fd7c696}{is\_\-requested} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} port, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericPortArbiter_528c492e74ec10b4ffa2a87d1454b446}{pick\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{classFlit}{Flit} $\ast$ \hyperlink{classGenericPortArbiter_443e4f87ec15a53c4381d8870154b74d}{pull\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericPortArbiter_0ae12cea5cad66f5ef59129e93248e11}{clear} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericPortArbiter_63d8b70b6215000469874aa5659cc416}{clear\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+vector$<$ \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $>$ \hyperlink{classGenericPortArbiter_cd5a78f1bf96701f5371bbcd601d9e53}{get\_\-requests} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+string \hyperlink{classGenericPortArbiter_1ceacc98efaee4d98b4f65a401ea10e2}{toString} () const 
+\item 
+void \hyperlink{classGenericPortArbiter_b593b8edfe4586255c61cb0219f3fb86}{flush\_\-all\_\-requests} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+unsigned long long int \hyperlink{classGenericPortArbiter_bccdf314a1920de58357e0d2f62f427e}{write\_\-time}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGenericPortArbiter_d7a567eb5055a68231d045583ed8d5a7}{
+\index{GenericPortArbiter@{GenericPortArbiter}!GenericPortArbiter@{GenericPortArbiter}}
+\index{GenericPortArbiter@{GenericPortArbiter}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{GenericPortArbiter}]{\setlength{\rightskip}{0pt plus 5cm}GenericPortArbiter::GenericPortArbiter ()}}
+\label{classGenericPortArbiter_d7a567eb5055a68231d045583ed8d5a7}
+
+
+\hypertarget{classGenericPortArbiter_2bd7c52f5d2a71863f73f6922520fef8}{
+\index{GenericPortArbiter@{GenericPortArbiter}!$\sim$GenericPortArbiter@{$\sim$GenericPortArbiter}}
+\index{$\sim$GenericPortArbiter@{$\sim$GenericPortArbiter}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{$\sim$GenericPortArbiter}]{\setlength{\rightskip}{0pt plus 5cm}GenericPortArbiter::$\sim$GenericPortArbiter ()}}
+\label{classGenericPortArbiter_2bd7c52f5d2a71863f73f6922520fef8}
+
+
+\hypertarget{classGenericPortArbiter_d7a567eb5055a68231d045583ed8d5a7}{
+\index{GenericPortArbiter@{GenericPortArbiter}!GenericPortArbiter@{GenericPortArbiter}}
+\index{GenericPortArbiter@{GenericPortArbiter}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{GenericPortArbiter}]{\setlength{\rightskip}{0pt plus 5cm}GenericPortArbiter::GenericPortArbiter ()}}
+\label{classGenericPortArbiter_d7a567eb5055a68231d045583ed8d5a7}
+
+
+\hypertarget{classGenericPortArbiter_2bd7c52f5d2a71863f73f6922520fef8}{
+\index{GenericPortArbiter@{GenericPortArbiter}!$\sim$GenericPortArbiter@{$\sim$GenericPortArbiter}}
+\index{$\sim$GenericPortArbiter@{$\sim$GenericPortArbiter}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{$\sim$GenericPortArbiter}]{\setlength{\rightskip}{0pt plus 5cm}GenericPortArbiter::$\sim$GenericPortArbiter ()}}
+\label{classGenericPortArbiter_2bd7c52f5d2a71863f73f6922520fef8}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGenericPortArbiter_0ae12cea5cad66f5ef59129e93248e11}{
+\index{GenericPortArbiter@{GenericPortArbiter}!clear@{clear}}
+\index{clear@{clear}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::clear ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_0ae12cea5cad66f5ef59129e93248e11}
+
+
+\hypertarget{classGenericPortArbiter_0ae12cea5cad66f5ef59129e93248e11}{
+\index{GenericPortArbiter@{GenericPortArbiter}!clear@{clear}}
+\index{clear@{clear}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::clear ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_0ae12cea5cad66f5ef59129e93248e11}
+
+
+\hypertarget{classGenericPortArbiter_63d8b70b6215000469874aa5659cc416}{
+\index{GenericPortArbiter@{GenericPortArbiter}!clear\_\-winner@{clear\_\-winner}}
+\index{clear\_\-winner@{clear\_\-winner}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{clear\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::clear\_\-winner ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_63d8b70b6215000469874aa5659cc416}
+
+
+\hypertarget{classGenericPortArbiter_63d8b70b6215000469874aa5659cc416}{
+\index{GenericPortArbiter@{GenericPortArbiter}!clear\_\-winner@{clear\_\-winner}}
+\index{clear\_\-winner@{clear\_\-winner}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{clear\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::clear\_\-winner ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_63d8b70b6215000469874aa5659cc416}
+
+
+\hypertarget{classGenericPortArbiter_c4375af1ce810c31e11c03a3b3ffc426}{
+\index{GenericPortArbiter@{GenericPortArbiter}!destroy@{destroy}}
+\index{destroy@{destroy}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::destroy ()}}
+\label{classGenericPortArbiter_c4375af1ce810c31e11c03a3b3ffc426}
+
+
+\hypertarget{classGenericPortArbiter_c4375af1ce810c31e11c03a3b3ffc426}{
+\index{GenericPortArbiter@{GenericPortArbiter}!destroy@{destroy}}
+\index{destroy@{destroy}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::destroy ()}}
+\label{classGenericPortArbiter_c4375af1ce810c31e11c03a3b3ffc426}
+
+
+\hypertarget{classGenericPortArbiter_b593b8edfe4586255c61cb0219f3fb86}{
+\index{GenericPortArbiter@{GenericPortArbiter}!flush\_\-all\_\-requests@{flush\_\-all\_\-requests}}
+\index{flush\_\-all\_\-requests@{flush\_\-all\_\-requests}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{flush\_\-all\_\-requests}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::flush\_\-all\_\-requests ()}}
+\label{classGenericPortArbiter_b593b8edfe4586255c61cb0219f3fb86}
+
+
+\hypertarget{classGenericPortArbiter_b593b8edfe4586255c61cb0219f3fb86}{
+\index{GenericPortArbiter@{GenericPortArbiter}!flush\_\-all\_\-requests@{flush\_\-all\_\-requests}}
+\index{flush\_\-all\_\-requests@{flush\_\-all\_\-requests}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{flush\_\-all\_\-requests}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::flush\_\-all\_\-requests ()}}
+\label{classGenericPortArbiter_b593b8edfe4586255c61cb0219f3fb86}
+
+
+\hypertarget{classGenericPortArbiter_f58d4de9d0b9e07a44f3f7185f4d11d9}{
+\index{GenericPortArbiter@{GenericPortArbiter}!get\_\-no\_\-requests@{get\_\-no\_\-requests}}
+\index{get\_\-no\_\-requests@{get\_\-no\_\-requests}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{get\_\-no\_\-requests}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericPortArbiter::get\_\-no\_\-requests ()}}
+\label{classGenericPortArbiter_f58d4de9d0b9e07a44f3f7185f4d11d9}
+
+
+\hypertarget{classGenericPortArbiter_f58d4de9d0b9e07a44f3f7185f4d11d9}{
+\index{GenericPortArbiter@{GenericPortArbiter}!get\_\-no\_\-requests@{get\_\-no\_\-requests}}
+\index{get\_\-no\_\-requests@{get\_\-no\_\-requests}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{get\_\-no\_\-requests}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericPortArbiter::get\_\-no\_\-requests ()}}
+\label{classGenericPortArbiter_f58d4de9d0b9e07a44f3f7185f4d11d9}
+
+
+\hypertarget{classGenericPortArbiter_cd5a78f1bf96701f5371bbcd601d9e53}{
+\index{GenericPortArbiter@{GenericPortArbiter}!get\_\-requests@{get\_\-requests}}
+\index{get\_\-requests@{get\_\-requests}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{get\_\-requests}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf uint}$>$ GenericPortArbiter::get\_\-requests ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_cd5a78f1bf96701f5371bbcd601d9e53}
+
+
+\hypertarget{classGenericPortArbiter_cd5a78f1bf96701f5371bbcd601d9e53}{
+\index{GenericPortArbiter@{GenericPortArbiter}!get\_\-requests@{get\_\-requests}}
+\index{get\_\-requests@{get\_\-requests}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{get\_\-requests}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf uint}$>$ GenericPortArbiter::get\_\-requests ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_cd5a78f1bf96701f5371bbcd601d9e53}
+
+
+\hypertarget{classGenericPortArbiter_a01546e85da0a6d1c1194fbf82f013bb}{
+\index{GenericPortArbiter@{GenericPortArbiter}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericPortArbiter::is\_\-empty ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_a01546e85da0a6d1c1194fbf82f013bb}
+
+
+\hypertarget{classGenericPortArbiter_a01546e85da0a6d1c1194fbf82f013bb}{
+\index{GenericPortArbiter@{GenericPortArbiter}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericPortArbiter::is\_\-empty ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_a01546e85da0a6d1c1194fbf82f013bb}
+
+
+\hypertarget{classGenericPortArbiter_b94c8e8e707e00e3265008691fd7c696}{
+\index{GenericPortArbiter@{GenericPortArbiter}!is\_\-requested@{is\_\-requested}}
+\index{is\_\-requested@{is\_\-requested}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{is\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericPortArbiter::is\_\-requested ({\bf uint} {\em port}, \/  {\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_b94c8e8e707e00e3265008691fd7c696}
+
+
+\hypertarget{classGenericPortArbiter_b94c8e8e707e00e3265008691fd7c696}{
+\index{GenericPortArbiter@{GenericPortArbiter}!is\_\-requested@{is\_\-requested}}
+\index{is\_\-requested@{is\_\-requested}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{is\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericPortArbiter::is\_\-requested ({\bf uint} {\em port}, \/  {\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_b94c8e8e707e00e3265008691fd7c696}
+
+
+\hypertarget{classGenericPortArbiter_528c492e74ec10b4ffa2a87d1454b446}{
+\index{GenericPortArbiter@{GenericPortArbiter}!pick\_\-winner@{pick\_\-winner}}
+\index{pick\_\-winner@{pick\_\-winner}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{pick\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericPortArbiter::pick\_\-winner ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_528c492e74ec10b4ffa2a87d1454b446}
+
+
+\hypertarget{classGenericPortArbiter_528c492e74ec10b4ffa2a87d1454b446}{
+\index{GenericPortArbiter@{GenericPortArbiter}!pick\_\-winner@{pick\_\-winner}}
+\index{pick\_\-winner@{pick\_\-winner}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{pick\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericPortArbiter::pick\_\-winner ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_528c492e74ec10b4ffa2a87d1454b446}
+
+
+\hypertarget{classGenericPortArbiter_443e4f87ec15a53c4381d8870154b74d}{
+\index{GenericPortArbiter@{GenericPortArbiter}!pull\_\-winner@{pull\_\-winner}}
+\index{pull\_\-winner@{pull\_\-winner}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{pull\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flit}$\ast$ GenericPortArbiter::pull\_\-winner ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_443e4f87ec15a53c4381d8870154b74d}
+
+
+\hypertarget{classGenericPortArbiter_6cc8ecf3ac1cda783e762dc9c139fe01}{
+\index{GenericPortArbiter@{GenericPortArbiter}!pull\_\-winner@{pull\_\-winner}}
+\index{pull\_\-winner@{pull\_\-winner}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{pull\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flit} $\ast$ GenericPortArbiter::pull\_\-winner ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_6cc8ecf3ac1cda783e762dc9c139fe01}
+
+
+\hypertarget{classGenericPortArbiter_1480ee32b7d8003479d2404a4b279c56}{
+\index{GenericPortArbiter@{GenericPortArbiter}!request@{request}}
+\index{request@{request}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{request}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::request ({\bf Flit} $\ast$ {\em f}, \/  {\bf uint} {\em port}, \/  {\bf uint} {\em vc})}}
+\label{classGenericPortArbiter_1480ee32b7d8003479d2404a4b279c56}
+
+
+\hypertarget{classGenericPortArbiter_1480ee32b7d8003479d2404a4b279c56}{
+\index{GenericPortArbiter@{GenericPortArbiter}!request@{request}}
+\index{request@{request}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{request}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::request ({\bf Flit} $\ast$ {\em f}, \/  {\bf uint} {\em port}, \/  {\bf uint} {\em vc})}}
+\label{classGenericPortArbiter_1480ee32b7d8003479d2404a4b279c56}
+
+
+\hypertarget{classGenericPortArbiter_3b94b47628229ee3142907005020eb86}{
+\index{GenericPortArbiter@{GenericPortArbiter}!resize@{resize}}
+\index{resize@{resize}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::resize ({\bf uint} {\em ports})}}
+\label{classGenericPortArbiter_3b94b47628229ee3142907005020eb86}
+
+
+\hypertarget{classGenericPortArbiter_3b94b47628229ee3142907005020eb86}{
+\index{GenericPortArbiter@{GenericPortArbiter}!resize@{resize}}
+\index{resize@{resize}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::resize ({\bf uint} {\em ports})}}
+\label{classGenericPortArbiter_3b94b47628229ee3142907005020eb86}
+
+
+\hypertarget{classGenericPortArbiter_50daec6e98669e01d74557dfb84b462f}{
+\index{GenericPortArbiter@{GenericPortArbiter}!set\_\-req\_\-queue\_\-size@{set\_\-req\_\-queue\_\-size}}
+\index{set\_\-req\_\-queue\_\-size@{set\_\-req\_\-queue\_\-size}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{set\_\-req\_\-queue\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::set\_\-req\_\-queue\_\-size ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_50daec6e98669e01d74557dfb84b462f}
+
+
+\hypertarget{classGenericPortArbiter_50daec6e98669e01d74557dfb84b462f}{
+\index{GenericPortArbiter@{GenericPortArbiter}!set\_\-req\_\-queue\_\-size@{set\_\-req\_\-queue\_\-size}}
+\index{set\_\-req\_\-queue\_\-size@{set\_\-req\_\-queue\_\-size}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{set\_\-req\_\-queue\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}void GenericPortArbiter::set\_\-req\_\-queue\_\-size ({\bf uint} {\em ch})}}
+\label{classGenericPortArbiter_50daec6e98669e01d74557dfb84b462f}
+
+
+\hypertarget{classGenericPortArbiter_1ceacc98efaee4d98b4f65a401ea10e2}{
+\index{GenericPortArbiter@{GenericPortArbiter}!toString@{toString}}
+\index{toString@{toString}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericPortArbiter::toString () const}}
+\label{classGenericPortArbiter_1ceacc98efaee4d98b4f65a401ea10e2}
+
+
+\hypertarget{classGenericPortArbiter_1ceacc98efaee4d98b4f65a401ea10e2}{
+\index{GenericPortArbiter@{GenericPortArbiter}!toString@{toString}}
+\index{toString@{toString}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericPortArbiter::toString () const}}
+\label{classGenericPortArbiter_1ceacc98efaee4d98b4f65a401ea10e2}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGenericPortArbiter_bccdf314a1920de58357e0d2f62f427e}{
+\index{GenericPortArbiter@{GenericPortArbiter}!write\_\-time@{write\_\-time}}
+\index{write\_\-time@{write\_\-time}!GenericPortArbiter@{GenericPortArbiter}}
+\subsubsection[{write\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long int {\bf GenericPortArbiter::write\_\-time}}}
+\label{classGenericPortArbiter_bccdf314a1920de58357e0d2f62f427e}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/impl/backup/\hyperlink{impl_2backup_2genericPortArbiter_8h}{genericPortArbiter.h}\item 
+source/components/none/\hyperlink{none_2genericPortArbiter_8h}{genericPortArbiter.h}\item 
+source/components/impl/backup/\hyperlink{impl_2backup_2genericPortArbiter_8cc}{genericPortArbiter.cc}\item 
+source/components/none/\hyperlink{none_2genericPortArbiter_8cc}{genericPortArbiter.cc}\end{CompactItemize}

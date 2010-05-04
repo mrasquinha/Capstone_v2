@@ -1,0 +1,64 @@
+\hypertarget{simulator_8h}{
+\section{source/kernel/simulator.h File Reference}
+\label{simulator_8h}\index{source/kernel/simulator.h@{source/kernel/simulator.h}}
+}
+{\tt \#include $<$set$>$}\par
+{\tt \#include $<$map$>$}\par
+{\tt \#include \char`\"{}component.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classEventBase}{EventBase}
+\item 
+class \hyperlink{classEventId}{EventId}
+\item 
+class \hyperlink{classEvent0}{Event0$<$ T, OBJ $>$}
+\item 
+class \hyperlink{classEvent1}{Event1$<$ T, OBJ, U1, T1 $>$}
+\item 
+class \hyperlink{classEvent2}{Event2$<$ T, OBJ, U1, T1, U2, T2 $>$}
+\item 
+class \hyperlink{classEvent3}{Event3$<$ T, OBJ, U1, T1, U2, T2, U3, T3 $>$}
+\item 
+class \hyperlink{classEvent4}{Event4$<$ T, OBJ, U1, T1, U2, T2, U3, T3, U4, T4 $>$}
+\item 
+class \hyperlink{classEvent0Stat}{Event0Stat}
+\item 
+class \hyperlink{classEvent1Stat}{Event1Stat$<$ U1, T1 $>$}
+\item 
+class \hyperlink{classEvent2Stat}{Event2Stat$<$ U1, T1, U2, T2 $>$}
+\item 
+class \hyperlink{classEvent3Stat}{Event3Stat$<$ U1, T1, U2, T2, U3, T3 $>$}
+\item 
+class \hyperlink{classEvent4Stat}{Event4Stat$<$ U1, T1, U2, T2, U3, T3, U4, T4 $>$}
+\item 
+class \hyperlink{classevent__less}{event\_\-less}
+\item 
+class \hyperlink{classComponentDescription}{ComponentDescription}
+\item 
+class \hyperlink{classSimulator}{Simulator}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef std::set$<$ \hyperlink{classEventBase}{EventBase} $\ast$, \hyperlink{classevent__less}{event\_\-less} $>$ \hyperlink{simulator_8h_3c276bab52587098dc0bd9e0e115e5bc}{EventSet\_\-t}
+\item 
+typedef std::map$<$ int, \hyperlink{classComponentDescription}{ComponentDescription} $\ast$ $>$ \hyperlink{simulator_8h_4dc8b9729445847e674fbfebf12d6c7e}{ComponentMap\_\-t}
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{simulator_8h_4dc8b9729445847e674fbfebf12d6c7e}{
+\index{simulator.h@{simulator.h}!ComponentMap\_\-t@{ComponentMap\_\-t}}
+\index{ComponentMap\_\-t@{ComponentMap\_\-t}!simulator.h@{simulator.h}}
+\subsubsection[{ComponentMap\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::map$<$int, {\bf ComponentDescription}$\ast$$>$ {\bf ComponentMap\_\-t}}}
+\label{simulator_8h_4dc8b9729445847e674fbfebf12d6c7e}
+
+
+\hypertarget{simulator_8h_3c276bab52587098dc0bd9e0e115e5bc}{
+\index{simulator.h@{simulator.h}!EventSet\_\-t@{EventSet\_\-t}}
+\index{EventSet\_\-t@{EventSet\_\-t}!simulator.h@{simulator.h}}
+\subsubsection[{EventSet\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::set$<${\bf EventBase}$\ast$, {\bf event\_\-less}$>$ {\bf EventSet\_\-t}}}
+\label{simulator_8h_3c276bab52587098dc0bd9e0e115e5bc}
+
+

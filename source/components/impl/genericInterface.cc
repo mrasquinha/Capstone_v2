@@ -230,7 +230,7 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
             event->vc = uptr->vc;
             event->event_data.push_back(arrival);
             event->src_id = address;
-            Simulator::Schedule( floor(Simulator::Now())+1, 
+            Simulator::Schedule( ceil(Simulator::Now())+1, 
                                  &NetworkComponent::process_event, input_connection, event);
     }
     else if ( uptr->type == CREDIT_ID)

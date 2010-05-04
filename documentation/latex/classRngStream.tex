@@ -1,0 +1,132 @@
+\hypertarget{classRngStream}{
+\section{RngStream Class Reference}
+\label{classRngStream}\index{RngStream@{RngStream}}
+}
+{\tt \#include $<$RngStream.hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classRngStream_c44014ddf4c23196a1a846067b0e7399}{RngStream} ()
+\item 
+void \hyperlink{classRngStream_9b32b5d96cb85b42790c5eae2f452375}{ResetStartStream} ()
+\item 
+void \hyperlink{classRngStream_b2ffe916a1c584726a7c26ea1defe103}{ResetStartSubstream} ()
+\item 
+void \hyperlink{classRngStream_da321a36888d4159d84d72247a11ed2e}{ResetNextSubstream} ()
+\item 
+void \hyperlink{classRngStream_72bf0888332be543e618d63d8909b3a8}{SetAntithetic} (bool a)
+\item 
+void \hyperlink{classRngStream_47bdd7a00652f604510c71acf4158467}{IncreasedPrecis} (bool incp)
+\item 
+bool \hyperlink{classRngStream_53e007f5ffda8a9cbc05f5facdfd1993}{SetSeed} (const unsigned long seed\mbox{[}6\mbox{]})
+\item 
+void \hyperlink{classRngStream_33e7544ccab8902fe6e9014a301f4ae3}{AdvanceState} (long e, long c)
+\item 
+void \hyperlink{classRngStream_2549af41becd68ac560a26614878aac8}{GetState} (unsigned long seed\mbox{[}6\mbox{]}) const 
+\item 
+double \hyperlink{classRngStream_0c65488978d5f889a5ce202ad062f4cf}{RandU01} ()
+\item 
+long \hyperlink{classRngStream_81b1022e20b49d2c40e6090a09af833b}{RandInt} (long i, long j)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static bool \hyperlink{classRngStream_e68a1093e1b53b5d461e44535f3c3170}{CheckSeed} (const unsigned long seed\mbox{[}6\mbox{]})
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRngStream_c44014ddf4c23196a1a846067b0e7399}{
+\index{RngStream@{RngStream}!RngStream@{RngStream}}
+\index{RngStream@{RngStream}!RngStream@{RngStream}}
+\subsubsection[{RngStream}]{\setlength{\rightskip}{0pt plus 5cm}RngStream::RngStream ()}}
+\label{classRngStream_c44014ddf4c23196a1a846067b0e7399}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRngStream_33e7544ccab8902fe6e9014a301f4ae3}{
+\index{RngStream@{RngStream}!AdvanceState@{AdvanceState}}
+\index{AdvanceState@{AdvanceState}!RngStream@{RngStream}}
+\subsubsection[{AdvanceState}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::AdvanceState (long {\em e}, \/  long {\em c})}}
+\label{classRngStream_33e7544ccab8902fe6e9014a301f4ae3}
+
+
+\hypertarget{classRngStream_e68a1093e1b53b5d461e44535f3c3170}{
+\index{RngStream@{RngStream}!CheckSeed@{CheckSeed}}
+\index{CheckSeed@{CheckSeed}!RngStream@{RngStream}}
+\subsubsection[{CheckSeed}]{\setlength{\rightskip}{0pt plus 5cm}bool RngStream::CheckSeed (const unsigned long {\em seed}\mbox{[}6\mbox{]})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classRngStream_e68a1093e1b53b5d461e44535f3c3170}
+
+
+\hypertarget{classRngStream_2549af41becd68ac560a26614878aac8}{
+\index{RngStream@{RngStream}!GetState@{GetState}}
+\index{GetState@{GetState}!RngStream@{RngStream}}
+\subsubsection[{GetState}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::GetState (unsigned long {\em seed}\mbox{[}6\mbox{]}) const}}
+\label{classRngStream_2549af41becd68ac560a26614878aac8}
+
+
+\hypertarget{classRngStream_47bdd7a00652f604510c71acf4158467}{
+\index{RngStream@{RngStream}!IncreasedPrecis@{IncreasedPrecis}}
+\index{IncreasedPrecis@{IncreasedPrecis}!RngStream@{RngStream}}
+\subsubsection[{IncreasedPrecis}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::IncreasedPrecis (bool {\em incp})}}
+\label{classRngStream_47bdd7a00652f604510c71acf4158467}
+
+
+\hypertarget{classRngStream_81b1022e20b49d2c40e6090a09af833b}{
+\index{RngStream@{RngStream}!RandInt@{RandInt}}
+\index{RandInt@{RandInt}!RngStream@{RngStream}}
+\subsubsection[{RandInt}]{\setlength{\rightskip}{0pt plus 5cm}long RngStream::RandInt (long {\em i}, \/  long {\em j})}}
+\label{classRngStream_81b1022e20b49d2c40e6090a09af833b}
+
+
+\hypertarget{classRngStream_0c65488978d5f889a5ce202ad062f4cf}{
+\index{RngStream@{RngStream}!RandU01@{RandU01}}
+\index{RandU01@{RandU01}!RngStream@{RngStream}}
+\subsubsection[{RandU01}]{\setlength{\rightskip}{0pt plus 5cm}double RngStream::RandU01 ()}}
+\label{classRngStream_0c65488978d5f889a5ce202ad062f4cf}
+
+
+\hypertarget{classRngStream_da321a36888d4159d84d72247a11ed2e}{
+\index{RngStream@{RngStream}!ResetNextSubstream@{ResetNextSubstream}}
+\index{ResetNextSubstream@{ResetNextSubstream}!RngStream@{RngStream}}
+\subsubsection[{ResetNextSubstream}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::ResetNextSubstream ()}}
+\label{classRngStream_da321a36888d4159d84d72247a11ed2e}
+
+
+\hypertarget{classRngStream_9b32b5d96cb85b42790c5eae2f452375}{
+\index{RngStream@{RngStream}!ResetStartStream@{ResetStartStream}}
+\index{ResetStartStream@{ResetStartStream}!RngStream@{RngStream}}
+\subsubsection[{ResetStartStream}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::ResetStartStream ()}}
+\label{classRngStream_9b32b5d96cb85b42790c5eae2f452375}
+
+
+\hypertarget{classRngStream_b2ffe916a1c584726a7c26ea1defe103}{
+\index{RngStream@{RngStream}!ResetStartSubstream@{ResetStartSubstream}}
+\index{ResetStartSubstream@{ResetStartSubstream}!RngStream@{RngStream}}
+\subsubsection[{ResetStartSubstream}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::ResetStartSubstream ()}}
+\label{classRngStream_b2ffe916a1c584726a7c26ea1defe103}
+
+
+\hypertarget{classRngStream_72bf0888332be543e618d63d8909b3a8}{
+\index{RngStream@{RngStream}!SetAntithetic@{SetAntithetic}}
+\index{SetAntithetic@{SetAntithetic}!RngStream@{RngStream}}
+\subsubsection[{SetAntithetic}]{\setlength{\rightskip}{0pt plus 5cm}void RngStream::SetAntithetic (bool {\em a})}}
+\label{classRngStream_72bf0888332be543e618d63d8909b3a8}
+
+
+\hypertarget{classRngStream_53e007f5ffda8a9cbc05f5facdfd1993}{
+\index{RngStream@{RngStream}!SetSeed@{SetSeed}}
+\index{SetSeed@{SetSeed}!RngStream@{RngStream}}
+\subsubsection[{SetSeed}]{\setlength{\rightskip}{0pt plus 5cm}bool RngStream::SetSeed (const unsigned long {\em seed}\mbox{[}6\mbox{]})}}
+\label{classRngStream_53e007f5ffda8a9cbc05f5facdfd1993}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/randomNumbers/impl/\hyperlink{RngStream_8hpp}{RngStream.hpp}\item 
+source/randomNumbers/impl/\hyperlink{RngStream_8cpp}{RngStream.cpp}\end{CompactItemize}

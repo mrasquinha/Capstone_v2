@@ -38,14 +38,14 @@ class Router : public NetworkComponent
         vector <NetworkComponent* > input_connections;
         vector <NetworkComponent* > output_connections;
         virtual void set_no_nodes( unsigned int nodes) = 0;
-        virtual void init() = 0;
-        virtual void set_no_ports (uint a) = 0;
-        virtual void set_no_vcs( uint a ) = 0;
-        virtual void set_buffer_size( uint a ) = 0;
-        virtual void set_no_credits( int a ) = 0;
+        virtual void init(uint p, uint v, uint c, uint b) = 0;
         virtual string toString () const;
         virtual string print_stats() = 0;
 
+        uint ports;
+        uint vcs;
+        uint credits;
+        uint buffer_size;
     protected:
 
     private:

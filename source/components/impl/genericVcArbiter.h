@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  genericVcArbiter.h
+ *       Filename:  GenericVcArbiter.h
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  05/02/2010 01:35:51 AM
+ *        Created:  02/21/2010 02:25:43 AM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -15,12 +15,14 @@
  *
  * =====================================================================================
  */
-#ifndef  _genericvcarbiter_h_INC
-#define  _genericvcarbiter_h_INC
+#ifndef  _GenericVcArbiter_h_INC
+#define  _GenericVcArbiter_h_INC
 
-#include	<vector>
 #include	"../interfaces/arbiter.h"
-#include	"../interfaces/genericComponentHeader.h"
+#include	"../../data_types/impl/flit.h"
+#include	<vector>
+
+using namespace std;
 
 /*
  * =====================================================================================
@@ -28,33 +30,42 @@
  *  Description:  
  * =====================================================================================
  */
-class GenericVcArbiter : public Arbiter
+class GenericVcArbiter: public Arbiter
 {
     public:
-        GenericVcArbiter ();
-        ~GenericVcArbiter();
         uint node_ip;
         uint address;
-        string name;
-        bool is_requested(uint ch);
-        void set_no_vcs( uint ch);
-        void request( uint ch);
+        GenericVcArbiter ();                             /* constructor */
+        ~GenericVcArbiter (); 
+
+        bool is_requested( uint ch );
+        void set_req_queue_size( uint size);
+        void request( Flit* f, uint index );
+        Flit* pull_winner();
         uint get_no_requests();
+
         uint pick_winner();
-        string toString() const;
+        uint pick_winner( vector<bool> ready );
         void clear_winner();
+        unsigned long long int write_time;
+
+        bool empty();
+        bool empty ( vector<bool> ready);
+        string toString() const;
+        vector<uint > next_port;
 
     protected:
 
     private:
-        uint vcs;
-        vector < bool > requests;
+        string name;
+        vector<bool> requests;
+        vector<Flit* > flits;
         uint last_winner;
         bool done;
+        bool arb;
 
 }; /* -----  end of class GenericVcArbiter  ----- */
 
-
-#endif   /* ----- #ifndef _genericvcarbiter_h_INC  ----- */
+#endif   /* ----- #ifndef _GenericVcArbiter_h_INC  ----- */
 
 

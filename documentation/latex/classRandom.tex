@@ -1,0 +1,141 @@
+\hypertarget{classRandom}{
+\section{Random Class Reference}
+\label{classRandom}\index{Random@{Random}}
+}
+{\tt \#include $<$rng.hpp$>$}
+
+Inheritance diagram for Random::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10cm]{classRandom}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classRandom_cb76b49c3903a3c4fb67fd216341f08d}{Random} ()
+\item 
+virtual \hyperlink{classRandom_488c376fe5b7430d5551e44eead99e36}{$\sim$Random} ()
+\item 
+virtual \hyperlink{rng_8hpp_ad41e7f5d86b1109b6a6a032c86cdd3f}{Random\_\-t} \hyperlink{classRandom_4d1c2876c5c78104186e241209d0e11e}{Value} ()
+\item 
+virtual \hyperlink{rng_8hpp_eb0f2eb55a063defa69eab89c6c0f695}{IRandom\_\-t} \hyperlink{classRandom_9ac522e9fe39aefd2cddd88554184b1a}{IntValue} ()
+\item 
+virtual \hyperlink{classRandom}{Random} $\ast$ \hyperlink{classRandom_22b2951acd2008e8ff58fae434ab7ac5}{Copy} () const 
+\item 
+bool \hyperlink{classRandom_afb76e3ca095211f6b527848d46ef24d}{SetSeed} (const \hyperlink{classSeed}{Seed} \&)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void \hyperlink{classRandom_3634f94bc30d04479d5fc7aeaadb00d8}{UseDevRandom} (bool udr=true)
+\item 
+static bool \hyperlink{classRandom_1e80a206ef4c02260fb488cf02990d55}{GlobalSeed} (\hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t}, \hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t}, \hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t}, \hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t}, \hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t}, \hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t})
+\item 
+static bool \hyperlink{classRandom_5ad9a6dc6be2a2a6c0dd8451fa51b10c}{GlobalSeed} (const \hyperlink{classSeed}{Seed} \&)
+\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static unsigned long \hyperlink{classRandom_b24de55aa07bfe9c066f5651e29f2b73}{heuristic\_\-sequence}
+\item 
+static \hyperlink{classRngStream}{RngStream} $\ast$ \hyperlink{classRandom_a6d4b3eed1223426d6267808c6111b1f}{globalRNG}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRandom_cb76b49c3903a3c4fb67fd216341f08d}{
+\index{Random@{Random}!Random@{Random}}
+\index{Random@{Random}!Random@{Random}}
+\subsubsection[{Random}]{\setlength{\rightskip}{0pt plus 5cm}Random::Random ()}}
+\label{classRandom_cb76b49c3903a3c4fb67fd216341f08d}
+
+
+\hypertarget{classRandom_488c376fe5b7430d5551e44eead99e36}{
+\index{Random@{Random}!$\sim$Random@{$\sim$Random}}
+\index{$\sim$Random@{$\sim$Random}!Random@{Random}}
+\subsubsection[{$\sim$Random}]{\setlength{\rightskip}{0pt plus 5cm}virtual Random::$\sim$Random ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classRandom_488c376fe5b7430d5551e44eead99e36}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRandom_22b2951acd2008e8ff58fae434ab7ac5}{
+\index{Random@{Random}!Copy@{Copy}}
+\index{Copy@{Copy}!Random@{Random}}
+\subsubsection[{Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Random} $\ast$ Random::Copy () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classRandom_22b2951acd2008e8ff58fae434ab7ac5}
+
+
+
+
+Reimplemented in \hyperlink{classUniform_11e73242faca88963143bdb3d296a48b}{Uniform}, \hyperlink{classConstant_47fc42d1d87bddf581084ae6b495ab2f}{Constant}, \hyperlink{classSequential_8a26193ea7fa5a8d7266c9a963028fe1}{Sequential}, \hyperlink{classExponential_f7c51eb8cb4fee14f659a55f994e981f}{Exponential}, \hyperlink{classPareto_ec16a6e0b598846a9af58037ea5417d4}{Pareto}, \hyperlink{classWeibull_2a82af828e7ba08035de1d326f714afa}{Weibull}, \hyperlink{classNormal_e59f996a159efc4b26c6e373f672b050}{Normal}, \hyperlink{classEmpirical_d5429fdf863d53d74649cc8c630cfb0b}{Empirical}, \hyperlink{classIntEmpirical_d7e809689f9158c050b8a386eb945636}{IntEmpirical}, and \hyperlink{classDeterministic_4eb4260ecbc55661f1d9c268e6684ea4}{Deterministic}.\hypertarget{classRandom_5ad9a6dc6be2a2a6c0dd8451fa51b10c}{
+\index{Random@{Random}!GlobalSeed@{GlobalSeed}}
+\index{GlobalSeed@{GlobalSeed}!Random@{Random}}
+\subsubsection[{GlobalSeed}]{\setlength{\rightskip}{0pt plus 5cm}bool Random::GlobalSeed (const {\bf Seed} \& {\em s})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classRandom_5ad9a6dc6be2a2a6c0dd8451fa51b10c}
+
+
+\hypertarget{classRandom_1e80a206ef4c02260fb488cf02990d55}{
+\index{Random@{Random}!GlobalSeed@{GlobalSeed}}
+\index{GlobalSeed@{GlobalSeed}!Random@{Random}}
+\subsubsection[{GlobalSeed}]{\setlength{\rightskip}{0pt plus 5cm}bool Random::GlobalSeed ({\bf Seed\_\-t} {\em s0}, \/  {\bf Seed\_\-t} {\em s1}, \/  {\bf Seed\_\-t} {\em s2}, \/  {\bf Seed\_\-t} {\em s3}, \/  {\bf Seed\_\-t} {\em s4}, \/  {\bf Seed\_\-t} {\em s5})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classRandom_1e80a206ef4c02260fb488cf02990d55}
+
+
+\hypertarget{classRandom_9ac522e9fe39aefd2cddd88554184b1a}{
+\index{Random@{Random}!IntValue@{IntValue}}
+\index{IntValue@{IntValue}!Random@{Random}}
+\subsubsection[{IntValue}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf IRandom\_\-t} Random::IntValue ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classRandom_9ac522e9fe39aefd2cddd88554184b1a}
+
+
+
+
+Reimplemented in \hyperlink{classConstant_e7b431ef8fb785186bb846d23b5ccb95}{Constant}, and \hyperlink{classIntEmpirical_71e5695d2c4b6b6a853cbb2992f81d48}{IntEmpirical}.\hypertarget{classRandom_afb76e3ca095211f6b527848d46ef24d}{
+\index{Random@{Random}!SetSeed@{SetSeed}}
+\index{SetSeed@{SetSeed}!Random@{Random}}
+\subsubsection[{SetSeed}]{\setlength{\rightskip}{0pt plus 5cm}bool Random::SetSeed (const {\bf Seed} \& {\em s})}}
+\label{classRandom_afb76e3ca095211f6b527848d46ef24d}
+
+
+\hypertarget{classRandom_3634f94bc30d04479d5fc7aeaadb00d8}{
+\index{Random@{Random}!UseDevRandom@{UseDevRandom}}
+\index{UseDevRandom@{UseDevRandom}!Random@{Random}}
+\subsubsection[{UseDevRandom}]{\setlength{\rightskip}{0pt plus 5cm}static void Random::UseDevRandom (bool {\em udr} = {\tt true})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classRandom_3634f94bc30d04479d5fc7aeaadb00d8}
+
+
+\hypertarget{classRandom_4d1c2876c5c78104186e241209d0e11e}{
+\index{Random@{Random}!Value@{Value}}
+\index{Value@{Value}!Random@{Random}}
+\subsubsection[{Value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Random\_\-t} Random::Value ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classRandom_4d1c2876c5c78104186e241209d0e11e}
+
+
+
+
+Reimplemented in \hyperlink{classUniform_0e0f9905cd20d6e6560d168ac75bbce2}{Uniform}, \hyperlink{classConstant_8c4e39053835302870f15f5bbf0dc29e}{Constant}, \hyperlink{classSequential_d3a1aca0362e90ff3e8f8fc9c96152d8}{Sequential}, \hyperlink{classExponential_c2ad56e3dc3e65673cb54cab95d34a53}{Exponential}, \hyperlink{classPareto_c92998c5176de1ee80e64302ce2eec73}{Pareto}, \hyperlink{classWeibull_1c4aeb6b0efae805a5ae36b072a8f4c6}{Weibull}, \hyperlink{classNormal_f9f5b8c8ba6dff8beb660a70935dd99e}{Normal}, \hyperlink{classEmpirical_76b4c62b6fdcfbe2dbaff2462e4153ad}{Empirical}, and \hyperlink{classDeterministic_5bca3d51cb08d3ec23579e09ce8e713f}{Deterministic}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classRandom_a6d4b3eed1223426d6267808c6111b1f}{
+\index{Random@{Random}!globalRNG@{globalRNG}}
+\index{globalRNG@{globalRNG}!Random@{Random}}
+\subsubsection[{globalRNG}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RngStream} $\ast$ {\bf Random::globalRNG}\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{classRandom_a6d4b3eed1223426d6267808c6111b1f}
+
+
+\hypertarget{classRandom_b24de55aa07bfe9c066f5651e29f2b73}{
+\index{Random@{Random}!heuristic\_\-sequence@{heuristic\_\-sequence}}
+\index{heuristic\_\-sequence@{heuristic\_\-sequence}!Random@{Random}}
+\subsubsection[{heuristic\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long {\bf Random::heuristic\_\-sequence}\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{classRandom_b24de55aa07bfe9c066f5651e29f2b73}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/randomNumbers/impl/\hyperlink{rng_8hpp}{rng.hpp}\item 
+source/randomNumbers/impl/\hyperlink{rng_8cpp}{rng.cpp}\end{CompactItemize}

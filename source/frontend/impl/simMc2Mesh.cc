@@ -23,7 +23,7 @@
 #include	<iostream>
 #include	<fstream>
 #include        "../../components/impl/genericTPG.h"
-#include	"../../components/impl/myRouter.h"
+#include	"../../components/impl/genericRouterNoVcs.h"
 #include	"../../components/impl/genericInterface.h"
 //#include	"../../components/impl/mcFrontEnd.h"
 #include        "../../components/impl/genericRPG.h"
@@ -115,7 +115,7 @@ main ( int argc, char *argv[] )
     /* Create the routers and interfaces */
     for( uint i=0; i<no_nodes; i++)
     {
-        routers.push_back( new MyRouter());
+        routers.push_back( new GenericRouterNoVcs());
         interfaces.push_back ( new GenericInterface());
     }
 
@@ -175,10 +175,6 @@ main ( int argc, char *argv[] )
      * components */
     for ( uint i=0 ; i<no_nodes ; i++ )
     {
-        routers[i]->set_no_ports(ports);
-        routers[i]->set_no_vcs(vcs);
-        routers[i]->set_no_credits(credits);
-        routers[i]->set_buffer_size(buffer_size);
         interfaces[i]->set_no_vcs(vcs);
         interfaces[i]->set_no_credits(credits);
         interfaces[i]->set_buffer_size(credits);
@@ -190,7 +186,7 @@ main ( int argc, char *argv[] )
     {
         processors[i]->setup();
         interfaces[i]->setup();
-        routers[i]->init();
+        routers[i]->init(ports, vcs, credits, buffer_size);
         /* for now the links dont need a setup. They may later */
         // Give the interface a credit
     }
@@ -217,8 +213,8 @@ main ( int argc, char *argv[] )
         for( uint j=0; j < ports ; j++)
             for( uint k=0; k < no_nodes ; k++) // Assuming is a square mesh. 
             {
-                static_cast<MyRouter*>(routers[i])->set_grid_x_location(j,k, grid_x[k]);
-                static_cast<MyRouter*>(routers[i])->set_grid_y_location(j,k, grid_y[k]);
+                static_cast<GenericRouterNoVcs*>(routers[i])->set_grid_x_location(j,k, grid_x[k]);
+                static_cast<GenericRouterNoVcs*>(routers[i])->set_grid_y_location(j,k, grid_y[k]);
             }
 
     // Input and output link connections

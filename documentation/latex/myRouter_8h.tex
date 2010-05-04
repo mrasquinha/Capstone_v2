@@ -1,0 +1,89 @@
+\hypertarget{myRouter_8h}{
+\section{source/components/none/myRouter.h File Reference}
+\label{myRouter_8h}\index{source/components/none/myRouter.h@{source/components/none/myRouter.h}}
+}
+{\tt \#include \char`\"{}../interfaces/router.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericBuffer.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericAddressDecoder.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericVcArbiter.h\char`\"{}}\par
+{\tt \#include \char`\"{}myArbiter.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericCrossbar.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericEvents.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericData.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericLink.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classMessageState}{MessageState}
+\item 
+class \hyperlink{classMyRouter}{MyRouter}
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8}{MyRouterPipeStage} \{ \par
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8ef2863a469df3ea6871d640e3669a2f2}{INVALID}, 
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac82f0d18fc0d0fa4a6cd92dc328501874d}{EMPTY}, 
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac808e83d43ee6d0a9beca8045296f6637c}{IB}, 
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8d08f8ac0aa8dfb59589824359772459e}{FULL}, 
+\par
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8890ee948de6920618010df6c64eb487b}{ROUTED}, 
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8683e811df16a583d0b981a0f025092d0}{SWA\_\-REQUESTED}, 
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8c1055d967f2547ceb92536ecdf62a6ca}{SW\_\-ALLOCATED}, 
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8200bf26d1a70596904b82da10880c2f1}{ST}, 
+\par
+\hyperlink{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8e1c70fb53e295020b36df55a4437b8e8}{REQ\_\-OUTVC\_\-ARB}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8}{
+\index{myRouter.h@{myRouter.h}!MyRouterPipeStage@{MyRouterPipeStage}}
+\index{MyRouterPipeStage@{MyRouterPipeStage}!myRouter.h@{myRouter.h}}
+\subsubsection[{MyRouterPipeStage}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf MyRouterPipeStage}}}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{INVALID@{INVALID}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!INVALID@{INVALID}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8ef2863a469df3ea6871d640e3669a2f2}{
+INVALID}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8ef2863a469df3ea6871d640e3669a2f2}
+}]\index{EMPTY@{EMPTY}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!EMPTY@{EMPTY}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac82f0d18fc0d0fa4a6cd92dc328501874d}{
+EMPTY}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac82f0d18fc0d0fa4a6cd92dc328501874d}
+}]\index{IB@{IB}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!IB@{IB}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac808e83d43ee6d0a9beca8045296f6637c}{
+IB}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac808e83d43ee6d0a9beca8045296f6637c}
+}]\index{FULL@{FULL}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!FULL@{FULL}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8d08f8ac0aa8dfb59589824359772459e}{
+FULL}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8d08f8ac0aa8dfb59589824359772459e}
+}]\index{ROUTED@{ROUTED}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!ROUTED@{ROUTED}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8890ee948de6920618010df6c64eb487b}{
+ROUTED}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8890ee948de6920618010df6c64eb487b}
+}]\index{SWA\_\-REQUESTED@{SWA\_\-REQUESTED}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!SWA\_\-REQUESTED@{SWA\_\-REQUESTED}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8683e811df16a583d0b981a0f025092d0}{
+SWA\_\-REQUESTED}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8683e811df16a583d0b981a0f025092d0}
+}]\index{SW\_\-ALLOCATED@{SW\_\-ALLOCATED}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!SW\_\-ALLOCATED@{SW\_\-ALLOCATED}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8c1055d967f2547ceb92536ecdf62a6ca}{
+SW\_\-ALLOCATED}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8c1055d967f2547ceb92536ecdf62a6ca}
+}]\index{ST@{ST}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!ST@{ST}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8200bf26d1a70596904b82da10880c2f1}{
+ST}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8200bf26d1a70596904b82da10880c2f1}
+}]\index{REQ\_\-OUTVC\_\-ARB@{REQ\_\-OUTVC\_\-ARB}!myRouter.h@{myRouter.h}}\index{myRouter.h@{myRouter.h}!REQ\_\-OUTVC\_\-ARB@{REQ\_\-OUTVC\_\-ARB}}\item[{\em 
+\hypertarget{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8e1c70fb53e295020b36df55a4437b8e8}{
+REQ\_\-OUTVC\_\-ARB}
+\label{myRouter_8h_ffc4ec97b4c53d9d256d3b4ea2f58ac8e1c70fb53e295020b36df55a4437b8e8}
+}]\end{description}
+\end{Desc}
+

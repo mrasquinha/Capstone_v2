@@ -1,0 +1,189 @@
+\hypertarget{classLowLevelPacket}{
+\section{LowLevelPacket Class Reference}
+\label{classLowLevelPacket}\index{LowLevelPacket@{LowLevelPacket}}
+}
+{\tt \#include $<$lowLevelPacket.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classLowLevelPacket_550561f33ccae00163b40e963121c156}{LowLevelPacket} ()
+\item 
+\hyperlink{classLowLevelPacket_52d6041c394872c42cd4211e09ca76d4}{$\sim$LowLevelPacket} ()
+\item 
+void \hyperlink{classLowLevelPacket_726a1d04c62dc4f20de1bcd7bebd031d}{clear} ()
+\item 
+void \hyperlink{classLowLevelPacket_b2d005a02fb4645db9145f699d330656}{add} (\hyperlink{classFlit}{Flit} $\ast$ptr)
+\item 
+\hyperlink{classFlit}{Flit} $\ast$ \hyperlink{classLowLevelPacket_01bcea53e1afb4be73ddaa8503e053dc}{at} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} index)
+\item 
+\hyperlink{classFlit}{Flit} $\ast$ \hyperlink{classLowLevelPacket_508b439358881368b5ef646ef36b4cac}{get\_\-next\_\-flit} ()
+\item 
+string \hyperlink{classLowLevelPacket_5a52563bae0560cb9b0b9a6d44adde6c}{toString} () const 
+\item 
+bool \hyperlink{classLowLevelPacket_1053348a061e1878e90a4f49d383889f}{valid\_\-packet} ()
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classLowLevelPacket_f61b1051a4dbda237dbeb1bd74220d20}{size} ()
+\item 
+void \hyperlink{classLowLevelPacket_5a52c8b9499a757227a71ba51f1ef61a}{operator=} (const \hyperlink{classLowLevelPacket}{LowLevelPacket} $\ast$p)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+deque$<$ \hyperlink{classFlit}{Flit} $\ast$ $>$ \hyperlink{classLowLevelPacket_eee86f15c92fad6be8b7e6bc4df223e3}{flits}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classLowLevelPacket_c7aee6df6db0e4bb8e5be36b061a95bc}{source}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classLowLevelPacket_225808b46aefe4d252c040e91c9411b0}{destination}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classLowLevelPacket_ed8dd9d70bac87be59a61fe8ac4b399d}{transaction\_\-id}
+\item 
+short int \hyperlink{classLowLevelPacket_3fa4ac5563bbf3005a809c0b193f4c84}{virtual\_\-channel}
+\item 
+unsigned long int \hyperlink{classLowLevelPacket_8a51892863d89c8b8b28f75c19fa0199}{sent\_\-time}
+\item 
+unsigned int \hyperlink{classLowLevelPacket_69297a63b62cdce301d004782cc3ef3c}{length}
+\item 
+vector$<$ bool $>$ \hyperlink{classLowLevelPacket_7537b9b0339e77d3d4a2d04998e1a950}{control\_\-bits}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classLowLevelPacket_550561f33ccae00163b40e963121c156}{
+\index{LowLevelPacket@{LowLevelPacket}!LowLevelPacket@{LowLevelPacket}}
+\index{LowLevelPacket@{LowLevelPacket}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{LowLevelPacket}]{\setlength{\rightskip}{0pt plus 5cm}LowLevelPacket::LowLevelPacket ()}}
+\label{classLowLevelPacket_550561f33ccae00163b40e963121c156}
+
+
+\hypertarget{classLowLevelPacket_52d6041c394872c42cd4211e09ca76d4}{
+\index{LowLevelPacket@{LowLevelPacket}!$\sim$LowLevelPacket@{$\sim$LowLevelPacket}}
+\index{$\sim$LowLevelPacket@{$\sim$LowLevelPacket}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{$\sim$LowLevelPacket}]{\setlength{\rightskip}{0pt plus 5cm}LowLevelPacket::$\sim$LowLevelPacket ()}}
+\label{classLowLevelPacket_52d6041c394872c42cd4211e09ca76d4}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classLowLevelPacket_b2d005a02fb4645db9145f699d330656}{
+\index{LowLevelPacket@{LowLevelPacket}!add@{add}}
+\index{add@{add}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}void LowLevelPacket::add ({\bf Flit} $\ast$ {\em ptr})}}
+\label{classLowLevelPacket_b2d005a02fb4645db9145f699d330656}
+
+
+\hypertarget{classLowLevelPacket_01bcea53e1afb4be73ddaa8503e053dc}{
+\index{LowLevelPacket@{LowLevelPacket}!at@{at}}
+\index{at@{at}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flit} $\ast$ LowLevelPacket::at ({\bf uint} {\em index})}}
+\label{classLowLevelPacket_01bcea53e1afb4be73ddaa8503e053dc}
+
+
+\hypertarget{classLowLevelPacket_726a1d04c62dc4f20de1bcd7bebd031d}{
+\index{LowLevelPacket@{LowLevelPacket}!clear@{clear}}
+\index{clear@{clear}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void LowLevelPacket::clear ()}}
+\label{classLowLevelPacket_726a1d04c62dc4f20de1bcd7bebd031d}
+
+
+\hypertarget{classLowLevelPacket_508b439358881368b5ef646ef36b4cac}{
+\index{LowLevelPacket@{LowLevelPacket}!get\_\-next\_\-flit@{get\_\-next\_\-flit}}
+\index{get\_\-next\_\-flit@{get\_\-next\_\-flit}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{get\_\-next\_\-flit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flit} $\ast$ LowLevelPacket::get\_\-next\_\-flit ()}}
+\label{classLowLevelPacket_508b439358881368b5ef646ef36b4cac}
+
+
+\hypertarget{classLowLevelPacket_5a52c8b9499a757227a71ba51f1ef61a}{
+\index{LowLevelPacket@{LowLevelPacket}!operator=@{operator=}}
+\index{operator=@{operator=}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}void LowLevelPacket::operator= (const {\bf LowLevelPacket} $\ast$ {\em p})}}
+\label{classLowLevelPacket_5a52c8b9499a757227a71ba51f1ef61a}
+
+
+\hypertarget{classLowLevelPacket_f61b1051a4dbda237dbeb1bd74220d20}{
+\index{LowLevelPacket@{LowLevelPacket}!size@{size}}
+\index{size@{size}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} LowLevelPacket::size ()}}
+\label{classLowLevelPacket_f61b1051a4dbda237dbeb1bd74220d20}
+
+
+\hypertarget{classLowLevelPacket_5a52563bae0560cb9b0b9a6d44adde6c}{
+\index{LowLevelPacket@{LowLevelPacket}!toString@{toString}}
+\index{toString@{toString}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string LowLevelPacket::toString (void) const}}
+\label{classLowLevelPacket_5a52563bae0560cb9b0b9a6d44adde6c}
+
+
+\hypertarget{classLowLevelPacket_1053348a061e1878e90a4f49d383889f}{
+\index{LowLevelPacket@{LowLevelPacket}!valid\_\-packet@{valid\_\-packet}}
+\index{valid\_\-packet@{valid\_\-packet}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{valid\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}bool LowLevelPacket::valid\_\-packet ()}}
+\label{classLowLevelPacket_1053348a061e1878e90a4f49d383889f}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classLowLevelPacket_7537b9b0339e77d3d4a2d04998e1a950}{
+\index{LowLevelPacket@{LowLevelPacket}!control\_\-bits@{control\_\-bits}}
+\index{control\_\-bits@{control\_\-bits}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{control\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$bool$>$ {\bf LowLevelPacket::control\_\-bits}}}
+\label{classLowLevelPacket_7537b9b0339e77d3d4a2d04998e1a950}
+
+
+\hypertarget{classLowLevelPacket_225808b46aefe4d252c040e91c9411b0}{
+\index{LowLevelPacket@{LowLevelPacket}!destination@{destination}}
+\index{destination@{destination}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{destination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf LowLevelPacket::destination}}}
+\label{classLowLevelPacket_225808b46aefe4d252c040e91c9411b0}
+
+
+\hypertarget{classLowLevelPacket_eee86f15c92fad6be8b7e6bc4df223e3}{
+\index{LowLevelPacket@{LowLevelPacket}!flits@{flits}}
+\index{flits@{flits}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{flits}]{\setlength{\rightskip}{0pt plus 5cm}deque$<${\bf Flit}$\ast$$>$ {\bf LowLevelPacket::flits}}}
+\label{classLowLevelPacket_eee86f15c92fad6be8b7e6bc4df223e3}
+
+
+\hypertarget{classLowLevelPacket_69297a63b62cdce301d004782cc3ef3c}{
+\index{LowLevelPacket@{LowLevelPacket}!length@{length}}
+\index{length@{length}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf LowLevelPacket::length}}}
+\label{classLowLevelPacket_69297a63b62cdce301d004782cc3ef3c}
+
+
+\hypertarget{classLowLevelPacket_8a51892863d89c8b8b28f75c19fa0199}{
+\index{LowLevelPacket@{LowLevelPacket}!sent\_\-time@{sent\_\-time}}
+\index{sent\_\-time@{sent\_\-time}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{sent\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int {\bf LowLevelPacket::sent\_\-time}}}
+\label{classLowLevelPacket_8a51892863d89c8b8b28f75c19fa0199}
+
+
+\hypertarget{classLowLevelPacket_c7aee6df6db0e4bb8e5be36b061a95bc}{
+\index{LowLevelPacket@{LowLevelPacket}!source@{source}}
+\index{source@{source}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf LowLevelPacket::source}}}
+\label{classLowLevelPacket_c7aee6df6db0e4bb8e5be36b061a95bc}
+
+
+\hypertarget{classLowLevelPacket_ed8dd9d70bac87be59a61fe8ac4b399d}{
+\index{LowLevelPacket@{LowLevelPacket}!transaction\_\-id@{transaction\_\-id}}
+\index{transaction\_\-id@{transaction\_\-id}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{transaction\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf LowLevelPacket::transaction\_\-id}}}
+\label{classLowLevelPacket_ed8dd9d70bac87be59a61fe8ac4b399d}
+
+
+\hypertarget{classLowLevelPacket_3fa4ac5563bbf3005a809c0b193f4c84}{
+\index{LowLevelPacket@{LowLevelPacket}!virtual\_\-channel@{virtual\_\-channel}}
+\index{virtual\_\-channel@{virtual\_\-channel}!LowLevelPacket@{LowLevelPacket}}
+\subsubsection[{virtual\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}short int {\bf LowLevelPacket::virtual\_\-channel}}}
+\label{classLowLevelPacket_3fa4ac5563bbf3005a809c0b193f4c84}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/data\_\-types/impl/\hyperlink{lowLevelPacket_8h}{lowLevelPacket.h}\item 
+source/data\_\-types/impl/\hyperlink{lowLevelPacket_8cc}{lowLevelPacket.cc}\end{CompactItemize}

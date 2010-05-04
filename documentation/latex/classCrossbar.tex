@@ -1,0 +1,154 @@
+\hypertarget{classCrossbar}{
+\section{Crossbar Class Reference}
+\label{classCrossbar}\index{Crossbar@{Crossbar}}
+}
+{\tt \#include $<$crossbar.h$>$}
+
+Inheritance diagram for Crossbar::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classCrossbar}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classCrossbar_4093a8bf3894e372d4fa9ce06f2abf3d}{Crossbar} ()
+\item 
+virtual \hyperlink{classCrossbar_7debf5ed12155b31a21b13fff53357a6}{$\sim$Crossbar} ()
+\item 
+virtual void \hyperlink{classCrossbar_3223fa48d2c281d62747e4c10a14e1ba}{set\_\-input\_\-ports} (unsigned int ports)=0
+\item 
+virtual void \hyperlink{classCrossbar_291346aae5dfeee7ef946ee3addc3877}{set\_\-output\_\-ports} (unsigned int ports)=0
+\item 
+virtual unsigned int \hyperlink{classCrossbar_ec960231980043c3669add726b239e50}{get\_\-no\_\-input\_\-ports} ()=0
+\item 
+virtual unsigned int \hyperlink{classCrossbar_fa381d5e1af2576a2aaa5fb392072918}{get\_\-no\_\-output\_\-ports} ()=0
+\item 
+virtual void \hyperlink{classCrossbar_e7da6eea8ab565f26513dfe52d1516f5}{set\_\-no\_\-virtual\_\-channels} (unsigned int number)=0
+\item 
+virtual unsigned int \hyperlink{classCrossbar_a8e1c2a18960f4e6b9c076246239b092}{get\_\-no\_\-channels} ()=0
+\item 
+virtual unsigned int \hyperlink{classCrossbar_b7a6eee3263359c40f24dde01decfa20}{get\_\-map} (unsigned int input\_\-port, unsigned int channel)=0
+\item 
+virtual void \hyperlink{classCrossbar_8a7a059788ee336f171eb1d3c7be3110}{configure\_\-crossbar} (unsigned int input\_\-port, unsigned int output\_\-port, unsigned int channel)=0
+\item 
+virtual bool \hyperlink{classCrossbar_350fd72418bcb525209ae9e10c834468}{is\_\-full} (unsigned int input\_\-port, unsigned int channel)=0
+\item 
+virtual bool \hyperlink{classCrossbar_dc95dc76ac1c9f02a80ce7ada4559ce3}{is\_\-empty} (unsigned int output\_\-port, unsigned int channel)=0
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCrossbar_4093a8bf3894e372d4fa9ce06f2abf3d}{
+\index{Crossbar@{Crossbar}!Crossbar@{Crossbar}}
+\index{Crossbar@{Crossbar}!Crossbar@{Crossbar}}
+\subsubsection[{Crossbar}]{\setlength{\rightskip}{0pt plus 5cm}Crossbar::Crossbar ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classCrossbar_4093a8bf3894e372d4fa9ce06f2abf3d}
+
+
+\hypertarget{classCrossbar_7debf5ed12155b31a21b13fff53357a6}{
+\index{Crossbar@{Crossbar}!$\sim$Crossbar@{$\sim$Crossbar}}
+\index{$\sim$Crossbar@{$\sim$Crossbar}!Crossbar@{Crossbar}}
+\subsubsection[{$\sim$Crossbar}]{\setlength{\rightskip}{0pt plus 5cm}virtual Crossbar::$\sim$Crossbar ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classCrossbar_7debf5ed12155b31a21b13fff53357a6}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCrossbar_8a7a059788ee336f171eb1d3c7be3110}{
+\index{Crossbar@{Crossbar}!configure\_\-crossbar@{configure\_\-crossbar}}
+\index{configure\_\-crossbar@{configure\_\-crossbar}!Crossbar@{Crossbar}}
+\subsubsection[{configure\_\-crossbar}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crossbar::configure\_\-crossbar (unsigned int {\em input\_\-port}, \/  unsigned int {\em output\_\-port}, \/  unsigned int {\em channel})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_8a7a059788ee336f171eb1d3c7be3110}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_50c8203133960f74f6d82649b0c864be}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_50c8203133960f74f6d82649b0c864be}{GenericCrossbar}.\hypertarget{classCrossbar_b7a6eee3263359c40f24dde01decfa20}{
+\index{Crossbar@{Crossbar}!get\_\-map@{get\_\-map}}
+\index{get\_\-map@{get\_\-map}!Crossbar@{Crossbar}}
+\subsubsection[{get\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Crossbar::get\_\-map (unsigned int {\em input\_\-port}, \/  unsigned int {\em channel})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_b7a6eee3263359c40f24dde01decfa20}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_65b435392191561b7a4759e20aacab4e}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_65b435392191561b7a4759e20aacab4e}{GenericCrossbar}.\hypertarget{classCrossbar_a8e1c2a18960f4e6b9c076246239b092}{
+\index{Crossbar@{Crossbar}!get\_\-no\_\-channels@{get\_\-no\_\-channels}}
+\index{get\_\-no\_\-channels@{get\_\-no\_\-channels}!Crossbar@{Crossbar}}
+\subsubsection[{get\_\-no\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Crossbar::get\_\-no\_\-channels ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_a8e1c2a18960f4e6b9c076246239b092}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_945a3d32809787bd2c5ee68714467467}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_945a3d32809787bd2c5ee68714467467}{GenericCrossbar}.\hypertarget{classCrossbar_ec960231980043c3669add726b239e50}{
+\index{Crossbar@{Crossbar}!get\_\-no\_\-input\_\-ports@{get\_\-no\_\-input\_\-ports}}
+\index{get\_\-no\_\-input\_\-ports@{get\_\-no\_\-input\_\-ports}!Crossbar@{Crossbar}}
+\subsubsection[{get\_\-no\_\-input\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Crossbar::get\_\-no\_\-input\_\-ports ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_ec960231980043c3669add726b239e50}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_8758e38060de9899fa70ad069b83e9fc}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_8758e38060de9899fa70ad069b83e9fc}{GenericCrossbar}.\hypertarget{classCrossbar_fa381d5e1af2576a2aaa5fb392072918}{
+\index{Crossbar@{Crossbar}!get\_\-no\_\-output\_\-ports@{get\_\-no\_\-output\_\-ports}}
+\index{get\_\-no\_\-output\_\-ports@{get\_\-no\_\-output\_\-ports}!Crossbar@{Crossbar}}
+\subsubsection[{get\_\-no\_\-output\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Crossbar::get\_\-no\_\-output\_\-ports ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_fa381d5e1af2576a2aaa5fb392072918}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_6ca09eb5520228b39d718e3994a5b84f}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_6ca09eb5520228b39d718e3994a5b84f}{GenericCrossbar}.\hypertarget{classCrossbar_dc95dc76ac1c9f02a80ce7ada4559ce3}{
+\index{Crossbar@{Crossbar}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!Crossbar@{Crossbar}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Crossbar::is\_\-empty (unsigned int {\em output\_\-port}, \/  unsigned int {\em channel})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_dc95dc76ac1c9f02a80ce7ada4559ce3}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_b1dc236c4543805ac9fd50f25adcc27e}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_b1dc236c4543805ac9fd50f25adcc27e}{GenericCrossbar}.\hypertarget{classCrossbar_350fd72418bcb525209ae9e10c834468}{
+\index{Crossbar@{Crossbar}!is\_\-full@{is\_\-full}}
+\index{is\_\-full@{is\_\-full}!Crossbar@{Crossbar}}
+\subsubsection[{is\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Crossbar::is\_\-full (unsigned int {\em input\_\-port}, \/  unsigned int {\em channel})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_350fd72418bcb525209ae9e10c834468}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_1949b9db3b5b1950ad6a2c9e46103024}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_1949b9db3b5b1950ad6a2c9e46103024}{GenericCrossbar}.\hypertarget{classCrossbar_3223fa48d2c281d62747e4c10a14e1ba}{
+\index{Crossbar@{Crossbar}!set\_\-input\_\-ports@{set\_\-input\_\-ports}}
+\index{set\_\-input\_\-ports@{set\_\-input\_\-ports}!Crossbar@{Crossbar}}
+\subsubsection[{set\_\-input\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crossbar::set\_\-input\_\-ports (unsigned int {\em ports})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_3223fa48d2c281d62747e4c10a14e1ba}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_c97249405a9bc78f2c1c9c28ad660472}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_c97249405a9bc78f2c1c9c28ad660472}{GenericCrossbar}.\hypertarget{classCrossbar_e7da6eea8ab565f26513dfe52d1516f5}{
+\index{Crossbar@{Crossbar}!set\_\-no\_\-virtual\_\-channels@{set\_\-no\_\-virtual\_\-channels}}
+\index{set\_\-no\_\-virtual\_\-channels@{set\_\-no\_\-virtual\_\-channels}!Crossbar@{Crossbar}}
+\subsubsection[{set\_\-no\_\-virtual\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crossbar::set\_\-no\_\-virtual\_\-channels (unsigned int {\em number})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_e7da6eea8ab565f26513dfe52d1516f5}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_e9d67e36be87ea3169baa80ae52044e3}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_e9d67e36be87ea3169baa80ae52044e3}{GenericCrossbar}.\hypertarget{classCrossbar_291346aae5dfeee7ef946ee3addc3877}{
+\index{Crossbar@{Crossbar}!set\_\-output\_\-ports@{set\_\-output\_\-ports}}
+\index{set\_\-output\_\-ports@{set\_\-output\_\-ports}!Crossbar@{Crossbar}}
+\subsubsection[{set\_\-output\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Crossbar::set\_\-output\_\-ports (unsigned int {\em ports})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classCrossbar_291346aae5dfeee7ef946ee3addc3877}
+
+
+
+
+Implemented in \hyperlink{classGenericCrossbar_5b9a2875ec8a1bb19683304ae31e3364}{GenericCrossbar}, and \hyperlink{classGenericCrossbar_5b9a2875ec8a1bb19683304ae31e3364}{GenericCrossbar}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+source/components/interfaces/\hyperlink{crossbar_8h}{crossbar.h}\end{CompactItemize}

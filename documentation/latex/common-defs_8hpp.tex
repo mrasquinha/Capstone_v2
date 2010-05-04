@@ -1,0 +1,418 @@
+\hypertarget{common-defs_8hpp}{
+\section{source/randomNumbers/impl/common-defs.hpp File Reference}
+\label{common-defs_8hpp}\index{source/randomNumbers/impl/common-defs.hpp@{source/randomNumbers/impl/common-defs.hpp}}
+}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{common-defs_8hpp_eef12456483291005b5a0a8e8d2c1256}{ALLBITS}~((\hyperlink{common-defs_8hpp_e7a428d359769031670ad716f9182c17}{Bitmap\_\-t})0xffffffffl)
+\item 
+\#define \hyperlink{common-defs_8hpp_bc4b2e3531c4992f2ae4b8c0f9751544}{IPADDR\_\-NONE}~((\hyperlink{common-defs_8hpp_780b971097907a80d4d34b4a32eceed8}{IPAddr\_\-t})0x0)
+\item 
+\#define \hyperlink{common-defs_8hpp_97d79bc575f6aa07f65b65c3d64dbd9a}{NO\_\-PORT}~((\hyperlink{common-defs_8hpp_86c518e080cd022223ea3a6b521f6d5d}{PortId\_\-t})0x0)
+\item 
+\#define \hyperlink{common-defs_8hpp_1d4b2f1f2500bf78dd35c3be18693241}{MASK\_\-ALL}~((\hyperlink{common-defs_8hpp_af75856d762bf510c1154d2a7c3513f0}{Mask\_\-t})0xffffffffl)
+\item 
+\#define \hyperlink{common-defs_8hpp_e14eaaed1fe7cdf491da54a714c426b3}{MAX\_\-COUNT}~((\hyperlink{common-defs_8hpp_bdd4d02aefa61ef2e943e2c6a09566c6}{Count\_\-t})0xffffffffl)
+\item 
+\#define \hyperlink{common-defs_8hpp_1b42e58f4612fce6b5ffe2617f35173f}{NODE\_\-NONE}~((\hyperlink{common-defs_8hpp_b5bc3678439fa7c82ce3d7d6c59fe456}{NodeId\_\-t})0xffffffffl)
+\item 
+\#define \hyperlink{common-defs_8hpp_d6d23821ba98486c430e44681e2cb4c2}{INFINITE\_\-TIME}~((\hyperlink{common-defs_8hpp_80b23eab88362163e2edd1a8b8238ef1}{Time\_\-t})1e307)
+\item 
+\#define \hyperlink{common-defs_8hpp_b815de57d686525ec9a18eb67bede3cf}{INFINITE\_\-VALUE}~1e307
+\item 
+\#define \hyperlink{common-defs_8hpp_4ad362d24482ad4f50118d6e5775a02b}{SPEED\_\-LIGHT}~((\hyperlink{common-defs_8hpp_aa50d474d62a11178d02ca3d8a2af82e}{Mult\_\-t})299792458.0)
+\item 
+\#define \hyperlink{common-defs_8hpp_7a7ca81d2a85873283b5ec82953b1b25}{nil}~0
+\item 
+\#define \hyperlink{common-defs_8hpp_9c7b069fee3c8184e14a7de8e5da2dc6}{PRECISION}~1e-10
+\item 
+\#define \hyperlink{common-defs_8hpp_dbba0f726fc66d7100916c683b7568ae}{GCC\_\-VERSION}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef double \hyperlink{common-defs_8hpp_80b23eab88362163e2edd1a8b8238ef1}{Time\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_16fb8086ae850e7968b56e59bfaa7f35}{SimulatorUid\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_791d339cfe093569d92ea6526b10a377}{Event\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_175449b3edd44f9b188a394a3a8f73fa}{HandlerId\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_bdd4d02aefa61ef2e943e2c6a09566c6}{Count\_\-t}
+\item 
+typedef long \hyperlink{common-defs_8hpp_31e0a34115bd71ae4a58792bf9a3dc0a}{NCount\_\-t}
+\item 
+typedef double \hyperlink{common-defs_8hpp_5ded3df8359d37f8dc0cf27e278512dd}{DCount\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_d52ae22edd21f664ee80fd139812d0df}{FId\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_e631ad947c732f67fcea3e3ab2450129}{Size\_\-t}
+\item 
+typedef double \hyperlink{common-defs_8hpp_d63eeae723a00a223db6ad616379eb2c}{Rate\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_780b971097907a80d4d34b4a32eceed8}{IPAddr\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_af75856d762bf510c1154d2a7c3513f0}{Mask\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_49d9c9c2901bafeb04c3b5e74c455314}{Proto\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_79f4b76bcd848dd7d2871f7702e54018}{Priority\_\-t}
+\item 
+typedef unsigned int \hyperlink{common-defs_8hpp_6b55d1d138de1a78feb4a6a917b2ec43}{Layer\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_813d8523655f78183719cbc0e7c82541}{Version\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_b5bc3678439fa7c82ce3d7d6c59fe456}{NodeId\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_86c518e080cd022223ea3a6b521f6d5d}{PortId\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_e7a428d359769031670ad716f9182c17}{Bitmap\_\-t}
+\item 
+typedef unsigned short \hyperlink{common-defs_8hpp_6326115cea41e302927063216072e3a9}{Byte\_\-t}
+\item 
+typedef unsigned short \hyperlink{common-defs_8hpp_2faaec994dd9b0abd6e90d6aaa6c7c4d}{Word\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_6d5c77eeb312c52c33f2e61f19b4cb5c}{Long\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_3cfa4cbb39cc1d42ae586be87e656254}{Seq\_\-t}
+\item 
+typedef double \hyperlink{common-defs_8hpp_aa50d474d62a11178d02ca3d8a2af82e}{Mult\_\-t}
+\item 
+typedef float \hyperlink{common-defs_8hpp_d17b2eb8faf940e1065bcf4dfd4a183f}{Weight\_\-t}
+\item 
+typedef double \hyperlink{common-defs_8hpp_43389a05a56fa84a5e74e54a1fcebd91}{Meters\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_fe0afe6b36e35e8d45006a657839c325}{Dist\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_68053561cd6a94bd54c100e22bff9566}{SystemId\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_f70bc9ff95ac0ba77c41c2781897885b}{Color\_\-t}
+\item 
+typedef double \hyperlink{common-defs_8hpp_65eb9e4da148e3744f9a3a9d3c3dc4bd}{Angle\_\-t}
+\item 
+typedef double \hyperlink{common-defs_8hpp_93dff162ebd5bf144310233559276f90}{Joules\_\-t}
+\item 
+typedef unsigned long \hyperlink{common-defs_8hpp_5dd53b5a388385a659ea00401af0378c}{MPId\_\-t}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{common-defs_8hpp_eef12456483291005b5a0a8e8d2c1256}{
+\index{common-defs.hpp@{common-defs.hpp}!ALLBITS@{ALLBITS}}
+\index{ALLBITS@{ALLBITS}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{ALLBITS}]{\setlength{\rightskip}{0pt plus 5cm}\#define ALLBITS~(({\bf Bitmap\_\-t})0xffffffffl)}}
+\label{common-defs_8hpp_eef12456483291005b5a0a8e8d2c1256}
+
+
+\hypertarget{common-defs_8hpp_dbba0f726fc66d7100916c683b7568ae}{
+\index{common-defs.hpp@{common-defs.hpp}!GCC\_\-VERSION@{GCC\_\-VERSION}}
+\index{GCC\_\-VERSION@{GCC\_\-VERSION}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{GCC\_\-VERSION}]{\setlength{\rightskip}{0pt plus 5cm}\#define GCC\_\-VERSION}}
+\label{common-defs_8hpp_dbba0f726fc66d7100916c683b7568ae}
+
+
+\textbf{Value:}
+
+\begin{Code}\begin{verbatim}(__GNUC__ * 10000 + __GNUC_MINOR__ * 100 \
+                        + __GNUC_PATCHLEVEL__)
+\end{verbatim}
+\end{Code}
+\hypertarget{common-defs_8hpp_d6d23821ba98486c430e44681e2cb4c2}{
+\index{common-defs.hpp@{common-defs.hpp}!INFINITE\_\-TIME@{INFINITE\_\-TIME}}
+\index{INFINITE\_\-TIME@{INFINITE\_\-TIME}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{INFINITE\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define INFINITE\_\-TIME~(({\bf Time\_\-t})1e307)}}
+\label{common-defs_8hpp_d6d23821ba98486c430e44681e2cb4c2}
+
+
+\hypertarget{common-defs_8hpp_b815de57d686525ec9a18eb67bede3cf}{
+\index{common-defs.hpp@{common-defs.hpp}!INFINITE\_\-VALUE@{INFINITE\_\-VALUE}}
+\index{INFINITE\_\-VALUE@{INFINITE\_\-VALUE}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{INFINITE\_\-VALUE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INFINITE\_\-VALUE~1e307}}
+\label{common-defs_8hpp_b815de57d686525ec9a18eb67bede3cf}
+
+
+\hypertarget{common-defs_8hpp_bc4b2e3531c4992f2ae4b8c0f9751544}{
+\index{common-defs.hpp@{common-defs.hpp}!IPADDR\_\-NONE@{IPADDR\_\-NONE}}
+\index{IPADDR\_\-NONE@{IPADDR\_\-NONE}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{IPADDR\_\-NONE}]{\setlength{\rightskip}{0pt plus 5cm}\#define IPADDR\_\-NONE~(({\bf IPAddr\_\-t})0x0)}}
+\label{common-defs_8hpp_bc4b2e3531c4992f2ae4b8c0f9751544}
+
+
+\hypertarget{common-defs_8hpp_1d4b2f1f2500bf78dd35c3be18693241}{
+\index{common-defs.hpp@{common-defs.hpp}!MASK\_\-ALL@{MASK\_\-ALL}}
+\index{MASK\_\-ALL@{MASK\_\-ALL}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{MASK\_\-ALL}]{\setlength{\rightskip}{0pt plus 5cm}\#define MASK\_\-ALL~(({\bf Mask\_\-t})0xffffffffl)}}
+\label{common-defs_8hpp_1d4b2f1f2500bf78dd35c3be18693241}
+
+
+\hypertarget{common-defs_8hpp_e14eaaed1fe7cdf491da54a714c426b3}{
+\index{common-defs.hpp@{common-defs.hpp}!MAX\_\-COUNT@{MAX\_\-COUNT}}
+\index{MAX\_\-COUNT@{MAX\_\-COUNT}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{MAX\_\-COUNT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-COUNT~(({\bf Count\_\-t})0xffffffffl)}}
+\label{common-defs_8hpp_e14eaaed1fe7cdf491da54a714c426b3}
+
+
+\hypertarget{common-defs_8hpp_7a7ca81d2a85873283b5ec82953b1b25}{
+\index{common-defs.hpp@{common-defs.hpp}!nil@{nil}}
+\index{nil@{nil}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{nil}]{\setlength{\rightskip}{0pt plus 5cm}\#define nil~0}}
+\label{common-defs_8hpp_7a7ca81d2a85873283b5ec82953b1b25}
+
+
+\hypertarget{common-defs_8hpp_97d79bc575f6aa07f65b65c3d64dbd9a}{
+\index{common-defs.hpp@{common-defs.hpp}!NO\_\-PORT@{NO\_\-PORT}}
+\index{NO\_\-PORT@{NO\_\-PORT}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{NO\_\-PORT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-PORT~(({\bf PortId\_\-t})0x0)}}
+\label{common-defs_8hpp_97d79bc575f6aa07f65b65c3d64dbd9a}
+
+
+\hypertarget{common-defs_8hpp_1b42e58f4612fce6b5ffe2617f35173f}{
+\index{common-defs.hpp@{common-defs.hpp}!NODE\_\-NONE@{NODE\_\-NONE}}
+\index{NODE\_\-NONE@{NODE\_\-NONE}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{NODE\_\-NONE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NODE\_\-NONE~(({\bf NodeId\_\-t})0xffffffffl)}}
+\label{common-defs_8hpp_1b42e58f4612fce6b5ffe2617f35173f}
+
+
+\hypertarget{common-defs_8hpp_9c7b069fee3c8184e14a7de8e5da2dc6}{
+\index{common-defs.hpp@{common-defs.hpp}!PRECISION@{PRECISION}}
+\index{PRECISION@{PRECISION}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{PRECISION}]{\setlength{\rightskip}{0pt plus 5cm}\#define PRECISION~1e-10}}
+\label{common-defs_8hpp_9c7b069fee3c8184e14a7de8e5da2dc6}
+
+
+\hypertarget{common-defs_8hpp_4ad362d24482ad4f50118d6e5775a02b}{
+\index{common-defs.hpp@{common-defs.hpp}!SPEED\_\-LIGHT@{SPEED\_\-LIGHT}}
+\index{SPEED\_\-LIGHT@{SPEED\_\-LIGHT}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{SPEED\_\-LIGHT}]{\setlength{\rightskip}{0pt plus 5cm}\#define SPEED\_\-LIGHT~(({\bf Mult\_\-t})299792458.0)}}
+\label{common-defs_8hpp_4ad362d24482ad4f50118d6e5775a02b}
+
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{common-defs_8hpp_65eb9e4da148e3744f9a3a9d3c3dc4bd}{
+\index{common-defs.hpp@{common-defs.hpp}!Angle\_\-t@{Angle\_\-t}}
+\index{Angle\_\-t@{Angle\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Angle\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Angle\_\-t}}}
+\label{common-defs_8hpp_65eb9e4da148e3744f9a3a9d3c3dc4bd}
+
+
+\hypertarget{common-defs_8hpp_e7a428d359769031670ad716f9182c17}{
+\index{common-defs.hpp@{common-defs.hpp}!Bitmap\_\-t@{Bitmap\_\-t}}
+\index{Bitmap\_\-t@{Bitmap\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Bitmap\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Bitmap\_\-t}}}
+\label{common-defs_8hpp_e7a428d359769031670ad716f9182c17}
+
+
+\hypertarget{common-defs_8hpp_6326115cea41e302927063216072e3a9}{
+\index{common-defs.hpp@{common-defs.hpp}!Byte\_\-t@{Byte\_\-t}}
+\index{Byte\_\-t@{Byte\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Byte\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short {\bf Byte\_\-t}}}
+\label{common-defs_8hpp_6326115cea41e302927063216072e3a9}
+
+
+\hypertarget{common-defs_8hpp_f70bc9ff95ac0ba77c41c2781897885b}{
+\index{common-defs.hpp@{common-defs.hpp}!Color\_\-t@{Color\_\-t}}
+\index{Color\_\-t@{Color\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Color\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Color\_\-t}}}
+\label{common-defs_8hpp_f70bc9ff95ac0ba77c41c2781897885b}
+
+
+\hypertarget{common-defs_8hpp_bdd4d02aefa61ef2e943e2c6a09566c6}{
+\index{common-defs.hpp@{common-defs.hpp}!Count\_\-t@{Count\_\-t}}
+\index{Count\_\-t@{Count\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Count\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Count\_\-t}}}
+\label{common-defs_8hpp_bdd4d02aefa61ef2e943e2c6a09566c6}
+
+
+\hypertarget{common-defs_8hpp_5ded3df8359d37f8dc0cf27e278512dd}{
+\index{common-defs.hpp@{common-defs.hpp}!DCount\_\-t@{DCount\_\-t}}
+\index{DCount\_\-t@{DCount\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{DCount\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf DCount\_\-t}}}
+\label{common-defs_8hpp_5ded3df8359d37f8dc0cf27e278512dd}
+
+
+\hypertarget{common-defs_8hpp_fe0afe6b36e35e8d45006a657839c325}{
+\index{common-defs.hpp@{common-defs.hpp}!Dist\_\-t@{Dist\_\-t}}
+\index{Dist\_\-t@{Dist\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Dist\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Dist\_\-t}}}
+\label{common-defs_8hpp_fe0afe6b36e35e8d45006a657839c325}
+
+
+\hypertarget{common-defs_8hpp_791d339cfe093569d92ea6526b10a377}{
+\index{common-defs.hpp@{common-defs.hpp}!Event\_\-t@{Event\_\-t}}
+\index{Event\_\-t@{Event\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Event\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Event\_\-t}}}
+\label{common-defs_8hpp_791d339cfe093569d92ea6526b10a377}
+
+
+\hypertarget{common-defs_8hpp_d52ae22edd21f664ee80fd139812d0df}{
+\index{common-defs.hpp@{common-defs.hpp}!FId\_\-t@{FId\_\-t}}
+\index{FId\_\-t@{FId\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{FId\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf FId\_\-t}}}
+\label{common-defs_8hpp_d52ae22edd21f664ee80fd139812d0df}
+
+
+\hypertarget{common-defs_8hpp_175449b3edd44f9b188a394a3a8f73fa}{
+\index{common-defs.hpp@{common-defs.hpp}!HandlerId\_\-t@{HandlerId\_\-t}}
+\index{HandlerId\_\-t@{HandlerId\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{HandlerId\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf HandlerId\_\-t}}}
+\label{common-defs_8hpp_175449b3edd44f9b188a394a3a8f73fa}
+
+
+\hypertarget{common-defs_8hpp_780b971097907a80d4d34b4a32eceed8}{
+\index{common-defs.hpp@{common-defs.hpp}!IPAddr\_\-t@{IPAddr\_\-t}}
+\index{IPAddr\_\-t@{IPAddr\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{IPAddr\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf IPAddr\_\-t}}}
+\label{common-defs_8hpp_780b971097907a80d4d34b4a32eceed8}
+
+
+\hypertarget{common-defs_8hpp_93dff162ebd5bf144310233559276f90}{
+\index{common-defs.hpp@{common-defs.hpp}!Joules\_\-t@{Joules\_\-t}}
+\index{Joules\_\-t@{Joules\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Joules\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Joules\_\-t}}}
+\label{common-defs_8hpp_93dff162ebd5bf144310233559276f90}
+
+
+\hypertarget{common-defs_8hpp_6b55d1d138de1a78feb4a6a917b2ec43}{
+\index{common-defs.hpp@{common-defs.hpp}!Layer\_\-t@{Layer\_\-t}}
+\index{Layer\_\-t@{Layer\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Layer\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf Layer\_\-t}}}
+\label{common-defs_8hpp_6b55d1d138de1a78feb4a6a917b2ec43}
+
+
+\hypertarget{common-defs_8hpp_6d5c77eeb312c52c33f2e61f19b4cb5c}{
+\index{common-defs.hpp@{common-defs.hpp}!Long\_\-t@{Long\_\-t}}
+\index{Long\_\-t@{Long\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Long\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Long\_\-t}}}
+\label{common-defs_8hpp_6d5c77eeb312c52c33f2e61f19b4cb5c}
+
+
+\hypertarget{common-defs_8hpp_af75856d762bf510c1154d2a7c3513f0}{
+\index{common-defs.hpp@{common-defs.hpp}!Mask\_\-t@{Mask\_\-t}}
+\index{Mask\_\-t@{Mask\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Mask\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Mask\_\-t}}}
+\label{common-defs_8hpp_af75856d762bf510c1154d2a7c3513f0}
+
+
+\hypertarget{common-defs_8hpp_43389a05a56fa84a5e74e54a1fcebd91}{
+\index{common-defs.hpp@{common-defs.hpp}!Meters\_\-t@{Meters\_\-t}}
+\index{Meters\_\-t@{Meters\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Meters\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Meters\_\-t}}}
+\label{common-defs_8hpp_43389a05a56fa84a5e74e54a1fcebd91}
+
+
+\hypertarget{common-defs_8hpp_5dd53b5a388385a659ea00401af0378c}{
+\index{common-defs.hpp@{common-defs.hpp}!MPId\_\-t@{MPId\_\-t}}
+\index{MPId\_\-t@{MPId\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{MPId\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf MPId\_\-t}}}
+\label{common-defs_8hpp_5dd53b5a388385a659ea00401af0378c}
+
+
+\hypertarget{common-defs_8hpp_aa50d474d62a11178d02ca3d8a2af82e}{
+\index{common-defs.hpp@{common-defs.hpp}!Mult\_\-t@{Mult\_\-t}}
+\index{Mult\_\-t@{Mult\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Mult\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Mult\_\-t}}}
+\label{common-defs_8hpp_aa50d474d62a11178d02ca3d8a2af82e}
+
+
+\hypertarget{common-defs_8hpp_31e0a34115bd71ae4a58792bf9a3dc0a}{
+\index{common-defs.hpp@{common-defs.hpp}!NCount\_\-t@{NCount\_\-t}}
+\index{NCount\_\-t@{NCount\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{NCount\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef long {\bf NCount\_\-t}}}
+\label{common-defs_8hpp_31e0a34115bd71ae4a58792bf9a3dc0a}
+
+
+\hypertarget{common-defs_8hpp_b5bc3678439fa7c82ce3d7d6c59fe456}{
+\index{common-defs.hpp@{common-defs.hpp}!NodeId\_\-t@{NodeId\_\-t}}
+\index{NodeId\_\-t@{NodeId\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{NodeId\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf NodeId\_\-t}}}
+\label{common-defs_8hpp_b5bc3678439fa7c82ce3d7d6c59fe456}
+
+
+\hypertarget{common-defs_8hpp_86c518e080cd022223ea3a6b521f6d5d}{
+\index{common-defs.hpp@{common-defs.hpp}!PortId\_\-t@{PortId\_\-t}}
+\index{PortId\_\-t@{PortId\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{PortId\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf PortId\_\-t}}}
+\label{common-defs_8hpp_86c518e080cd022223ea3a6b521f6d5d}
+
+
+\hypertarget{common-defs_8hpp_79f4b76bcd848dd7d2871f7702e54018}{
+\index{common-defs.hpp@{common-defs.hpp}!Priority\_\-t@{Priority\_\-t}}
+\index{Priority\_\-t@{Priority\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Priority\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Priority\_\-t}}}
+\label{common-defs_8hpp_79f4b76bcd848dd7d2871f7702e54018}
+
+
+\hypertarget{common-defs_8hpp_49d9c9c2901bafeb04c3b5e74c455314}{
+\index{common-defs.hpp@{common-defs.hpp}!Proto\_\-t@{Proto\_\-t}}
+\index{Proto\_\-t@{Proto\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Proto\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Proto\_\-t}}}
+\label{common-defs_8hpp_49d9c9c2901bafeb04c3b5e74c455314}
+
+
+\hypertarget{common-defs_8hpp_d63eeae723a00a223db6ad616379eb2c}{
+\index{common-defs.hpp@{common-defs.hpp}!Rate\_\-t@{Rate\_\-t}}
+\index{Rate\_\-t@{Rate\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Rate\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Rate\_\-t}}}
+\label{common-defs_8hpp_d63eeae723a00a223db6ad616379eb2c}
+
+
+\hypertarget{common-defs_8hpp_3cfa4cbb39cc1d42ae586be87e656254}{
+\index{common-defs.hpp@{common-defs.hpp}!Seq\_\-t@{Seq\_\-t}}
+\index{Seq\_\-t@{Seq\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Seq\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Seq\_\-t}}}
+\label{common-defs_8hpp_3cfa4cbb39cc1d42ae586be87e656254}
+
+
+\hypertarget{common-defs_8hpp_16fb8086ae850e7968b56e59bfaa7f35}{
+\index{common-defs.hpp@{common-defs.hpp}!SimulatorUid\_\-t@{SimulatorUid\_\-t}}
+\index{SimulatorUid\_\-t@{SimulatorUid\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{SimulatorUid\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf SimulatorUid\_\-t}}}
+\label{common-defs_8hpp_16fb8086ae850e7968b56e59bfaa7f35}
+
+
+\hypertarget{common-defs_8hpp_e631ad947c732f67fcea3e3ab2450129}{
+\index{common-defs.hpp@{common-defs.hpp}!Size\_\-t@{Size\_\-t}}
+\index{Size\_\-t@{Size\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Size\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Size\_\-t}}}
+\label{common-defs_8hpp_e631ad947c732f67fcea3e3ab2450129}
+
+
+\hypertarget{common-defs_8hpp_68053561cd6a94bd54c100e22bff9566}{
+\index{common-defs.hpp@{common-defs.hpp}!SystemId\_\-t@{SystemId\_\-t}}
+\index{SystemId\_\-t@{SystemId\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{SystemId\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf SystemId\_\-t}}}
+\label{common-defs_8hpp_68053561cd6a94bd54c100e22bff9566}
+
+
+\hypertarget{common-defs_8hpp_80b23eab88362163e2edd1a8b8238ef1}{
+\index{common-defs.hpp@{common-defs.hpp}!Time\_\-t@{Time\_\-t}}
+\index{Time\_\-t@{Time\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Time\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Time\_\-t}}}
+\label{common-defs_8hpp_80b23eab88362163e2edd1a8b8238ef1}
+
+
+\hypertarget{common-defs_8hpp_813d8523655f78183719cbc0e7c82541}{
+\index{common-defs.hpp@{common-defs.hpp}!Version\_\-t@{Version\_\-t}}
+\index{Version\_\-t@{Version\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Version\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Version\_\-t}}}
+\label{common-defs_8hpp_813d8523655f78183719cbc0e7c82541}
+
+
+\hypertarget{common-defs_8hpp_d17b2eb8faf940e1065bcf4dfd4a183f}{
+\index{common-defs.hpp@{common-defs.hpp}!Weight\_\-t@{Weight\_\-t}}
+\index{Weight\_\-t@{Weight\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Weight\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef float {\bf Weight\_\-t}}}
+\label{common-defs_8hpp_d17b2eb8faf940e1065bcf4dfd4a183f}
+
+
+\hypertarget{common-defs_8hpp_2faaec994dd9b0abd6e90d6aaa6c7c4d}{
+\index{common-defs.hpp@{common-defs.hpp}!Word\_\-t@{Word\_\-t}}
+\index{Word\_\-t@{Word\_\-t}!common-defs.hpp@{common-defs.hpp}}
+\subsubsection[{Word\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short {\bf Word\_\-t}}}
+\label{common-defs_8hpp_2faaec994dd9b0abd6e90d6aaa6c7c4d}
+
+

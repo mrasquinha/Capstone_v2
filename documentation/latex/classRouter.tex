@@ -1,0 +1,151 @@
+\hypertarget{classRouter}{
+\section{Router Class Reference}
+\label{classRouter}\index{Router@{Router}}
+}
+{\tt \#include $<$router.h$>$}
+
+Inheritance diagram for Router::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.2cm]{classRouter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classRouter_555428efbf07e22776889b8d9b88027f}{Router} ()
+\item 
+\hyperlink{classRouter_26d13a6259937e330488653e8e16f921}{$\sim$Router} ()
+\item 
+virtual void \hyperlink{classRouter_33073537e883e8bea1a25690bcb70049}{set\_\-no\_\-nodes} (unsigned int nodes)=0
+\item 
+virtual void \hyperlink{classRouter_7c551f11fcda9accb02da87c671c4065}{init} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} v, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} b)=0
+\item 
+virtual string \hyperlink{classRouter_1e749a51dcf6cbd6925ac677473c7f58}{toString} () const 
+\item 
+virtual string \hyperlink{classRouter_75995624d8bd533a9d3eb8c06a62ce07}{print\_\-stats} ()=0
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+vector$<$ \hyperlink{classNetworkComponent}{NetworkComponent} $\ast$ $>$ \hyperlink{classRouter_31d7125efdcf288bfc1627ddba9dcb15}{input\_\-connections}
+\item 
+vector$<$ \hyperlink{classNetworkComponent}{NetworkComponent} $\ast$ $>$ \hyperlink{classRouter_2da504d3b4c98ee90964c9367f7f0ad3}{output\_\-connections}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classRouter_fd8e8adaf03e17b3fdbf7adc758c8f48}{ports}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classRouter_ebaf2bc63bd99effe6520f9718120a1e}{vcs}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classRouter_d747f5b948a9ef1497de6d4bb97b8f03}{credits}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classRouter_b456618374083b8f2ec3c8e889d45bac}{buffer\_\-size}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRouter_555428efbf07e22776889b8d9b88027f}{
+\index{Router@{Router}!Router@{Router}}
+\index{Router@{Router}!Router@{Router}}
+\subsubsection[{Router}]{\setlength{\rightskip}{0pt plus 5cm}Router::Router ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classRouter_555428efbf07e22776889b8d9b88027f}
+
+
+\hypertarget{classRouter_26d13a6259937e330488653e8e16f921}{
+\index{Router@{Router}!$\sim$Router@{$\sim$Router}}
+\index{$\sim$Router@{$\sim$Router}!Router@{Router}}
+\subsubsection[{$\sim$Router}]{\setlength{\rightskip}{0pt plus 5cm}Router::$\sim$Router ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classRouter_26d13a6259937e330488653e8e16f921}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRouter_7c551f11fcda9accb02da87c671c4065}{
+\index{Router@{Router}!init@{init}}
+\index{init@{init}!Router@{Router}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Router::init ({\bf uint} {\em p}, \/  {\bf uint} {\em v}, \/  {\bf uint} {\em c}, \/  {\bf uint} {\em b})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classRouter_7c551f11fcda9accb02da87c671c4065}
+
+
+
+
+Implemented in \hyperlink{classGenericRouterNoVcs_d0abf72a39438d7b23b9b03029d75da2}{GenericRouterNoVcs}, and \hyperlink{classGenericRouterNoVcs_d0abf72a39438d7b23b9b03029d75da2}{GenericRouterNoVcs}.\hypertarget{classRouter_75995624d8bd533a9d3eb8c06a62ce07}{
+\index{Router@{Router}!print\_\-stats@{print\_\-stats}}
+\index{print\_\-stats@{print\_\-stats}!Router@{Router}}
+\subsubsection[{print\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Router::print\_\-stats ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classRouter_75995624d8bd533a9d3eb8c06a62ce07}
+
+
+
+
+Implemented in \hyperlink{classGenericRouterNoVcs_897a642767b5ecf17ec45220d201b7e6}{GenericRouterNoVcs}, \hyperlink{classRouterFourStageVcs_22248991584f945954ef5f520b786c15}{RouterFourStageVcs}, \hyperlink{classGenericRouterNoVcs_897a642767b5ecf17ec45220d201b7e6}{GenericRouterNoVcs}, \hyperlink{classMyRouter_ce28b171a1f2f93fa96f9d6a65fadbbe}{MyRouter}, and \hyperlink{classRouterFourStageVcs_22248991584f945954ef5f520b786c15}{RouterFourStageVcs}.\hypertarget{classRouter_33073537e883e8bea1a25690bcb70049}{
+\index{Router@{Router}!set\_\-no\_\-nodes@{set\_\-no\_\-nodes}}
+\index{set\_\-no\_\-nodes@{set\_\-no\_\-nodes}!Router@{Router}}
+\subsubsection[{set\_\-no\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Router::set\_\-no\_\-nodes (unsigned int {\em nodes})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classRouter_33073537e883e8bea1a25690bcb70049}
+
+
+
+
+Implemented in \hyperlink{classGenericRouterNoVcs_877a1b3fac555ef48ad7690429b2be28}{GenericRouterNoVcs}, \hyperlink{classRouterFourStageVcs_991fb1adc65124da8dc100855835a193}{RouterFourStageVcs}, \hyperlink{classGenericRouterNoVcs_877a1b3fac555ef48ad7690429b2be28}{GenericRouterNoVcs}, \hyperlink{classMyRouter_ceb204776c6ed1fcbc0179b1d57e0ba3}{MyRouter}, and \hyperlink{classRouterFourStageVcs_991fb1adc65124da8dc100855835a193}{RouterFourStageVcs}.\hypertarget{classRouter_1e749a51dcf6cbd6925ac677473c7f58}{
+\index{Router@{Router}!toString@{toString}}
+\index{toString@{toString}!Router@{Router}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string Router::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classRouter_1e749a51dcf6cbd6925ac677473c7f58}
+
+
+
+
+Reimplemented from \hyperlink{classNetworkComponent_9bb9874e1f5705588cb3d9c201d8fc6f}{NetworkComponent}.
+
+Reimplemented in \hyperlink{classGenericRouterNoVcs_59307c319fbca5732d750630be9ee27c}{GenericRouterNoVcs}, \hyperlink{classRouterFourStageVcs_0f2d0c3bcd780832ec371374eb3950fd}{RouterFourStageVcs}, \hyperlink{classGenericRouterNoVcs_59307c319fbca5732d750630be9ee27c}{GenericRouterNoVcs}, \hyperlink{classMyRouter_9b40e1d62a4638fb84f31aff143d970d}{MyRouter}, and \hyperlink{classRouterFourStageVcs_0f2d0c3bcd780832ec371374eb3950fd}{RouterFourStageVcs}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classRouter_b456618374083b8f2ec3c8e889d45bac}{
+\index{Router@{Router}!buffer\_\-size@{buffer\_\-size}}
+\index{buffer\_\-size@{buffer\_\-size}!Router@{Router}}
+\subsubsection[{buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf Router::buffer\_\-size}}}
+\label{classRouter_b456618374083b8f2ec3c8e889d45bac}
+
+
+\hypertarget{classRouter_d747f5b948a9ef1497de6d4bb97b8f03}{
+\index{Router@{Router}!credits@{credits}}
+\index{credits@{credits}!Router@{Router}}
+\subsubsection[{credits}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf Router::credits}}}
+\label{classRouter_d747f5b948a9ef1497de6d4bb97b8f03}
+
+
+\hypertarget{classRouter_31d7125efdcf288bfc1627ddba9dcb15}{
+\index{Router@{Router}!input\_\-connections@{input\_\-connections}}
+\index{input\_\-connections@{input\_\-connections}!Router@{Router}}
+\subsubsection[{input\_\-connections}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf NetworkComponent}$\ast$ $>$ {\bf Router::input\_\-connections}}}
+\label{classRouter_31d7125efdcf288bfc1627ddba9dcb15}
+
+
+\hypertarget{classRouter_2da504d3b4c98ee90964c9367f7f0ad3}{
+\index{Router@{Router}!output\_\-connections@{output\_\-connections}}
+\index{output\_\-connections@{output\_\-connections}!Router@{Router}}
+\subsubsection[{output\_\-connections}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf NetworkComponent}$\ast$ $>$ {\bf Router::output\_\-connections}}}
+\label{classRouter_2da504d3b4c98ee90964c9367f7f0ad3}
+
+
+\hypertarget{classRouter_fd8e8adaf03e17b3fdbf7adc758c8f48}{
+\index{Router@{Router}!ports@{ports}}
+\index{ports@{ports}!Router@{Router}}
+\subsubsection[{ports}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf Router::ports}}}
+\label{classRouter_fd8e8adaf03e17b3fdbf7adc758c8f48}
+
+
+\hypertarget{classRouter_ebaf2bc63bd99effe6520f9718120a1e}{
+\index{Router@{Router}!vcs@{vcs}}
+\index{vcs@{vcs}!Router@{Router}}
+\subsubsection[{vcs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf Router::vcs}}}
+\label{classRouter_ebaf2bc63bd99effe6520f9718120a1e}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/interfaces/\hyperlink{router_8h}{router.h}\item 
+source/components/interfaces/\hyperlink{router_8cc}{router.cc}\end{CompactItemize}

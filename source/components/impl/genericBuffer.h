@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  genericOutputBuffer.h
+ *       Filename:  genericbuffer.h
  *
  *    Description:  
  *
@@ -16,8 +16,8 @@
  * =====================================================================================
  */
 
-#ifndef  _genericoutputbuffer_h_INC
-#define  _genericoutputbuffer_h_INC
+#ifndef  _genericbuffer_h_INC
+#define  _genericbuffer_h_INC
 
 #include	"../interfaces/outputBuffer.h"
 #include	"../../data_types/impl/flit.h"
@@ -27,15 +27,15 @@
 
 /*
  * =====================================================================================
- *        Class:  GenericOutputBuffer
+ *        Class:  GenericBuffer
  *  Description:  
  * =====================================================================================
  */
-class GenericOutputBuffer: public OutputBuffer
+class GenericBuffer: public OutputBuffer
 {
     public:
-        GenericOutputBuffer ();                             /* constructor */
-        ~GenericOutputBuffer ();                             /* constructor */
+        GenericBuffer ();                             /* constructor */
+        ~GenericBuffer ();                             /* constructor */
         void push( Flit* f );
         uint buffer_size;
         unsigned long long int write_time;
@@ -67,7 +67,7 @@ class GenericOutputBuffer: public OutputBuffer
         uint pull_channel;
         uint push_channel;
 
-}; /* -----  end of class GenericOutputBuffer  ----- */
+}; /* -----  end of class GenericBuffer  ----- */
 
-#endif   /* ----- #ifndef _genericoutputbuffer_h_INC  ----- */
+#endif   /* ----- #ifndef _genericbuffer_h_INC  ----- */
 

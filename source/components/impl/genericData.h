@@ -83,5 +83,13 @@ class RouteEntry
 
 }; /* -----  end of class RouteEntry  ----- */
 
+class SA_unit
+{
+    public:
+        SA_unit(){};
+        uint port;
+        uint ch;
+};
+
 #endif   /* ----- #ifndef _genericdata_h_INC  ----- */
 

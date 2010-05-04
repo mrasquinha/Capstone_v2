@@ -1,0 +1,77 @@
+\hypertarget{classBuffer}{
+\section{Buffer Class Reference}
+\label{classBuffer}\index{Buffer@{Buffer}}
+}
+{\tt \#include $<$buffer.h$>$}
+
+Inheritance diagram for Buffer::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classBuffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classBuffer_e7ef2cd201190fde551dcb902627112b}{Buffer} ()
+\item 
+\hyperlink{classBuffer_59b8743e4a5f731bdd0c4185c9ef263b}{$\sim$Buffer} ()
+\item 
+virtual void \hyperlink{classBuffer_c9dce1860c655146f000df30314caaa9}{push} (\hyperlink{classFlit}{Flit} $\ast$f)=0
+\item 
+virtual \hyperlink{classFlit}{Flit} $\ast$ \hyperlink{classBuffer_95f5c230f9c261bc13ddcfafcc340e7e}{pull} ()=0
+\item 
+virtual \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classBuffer_af4e2d4031945429ae58350b5897570a}{get\_\-occupancy} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} channel) const =0
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBuffer_e7ef2cd201190fde551dcb902627112b}{
+\index{Buffer@{Buffer}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!Buffer@{Buffer}}
+\subsubsection[{Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Buffer::Buffer ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBuffer_e7ef2cd201190fde551dcb902627112b}
+
+
+\hypertarget{classBuffer_59b8743e4a5f731bdd0c4185c9ef263b}{
+\index{Buffer@{Buffer}!$\sim$Buffer@{$\sim$Buffer}}
+\index{$\sim$Buffer@{$\sim$Buffer}!Buffer@{Buffer}}
+\subsubsection[{$\sim$Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Buffer::$\sim$Buffer ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBuffer_59b8743e4a5f731bdd0c4185c9ef263b}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBuffer_af4e2d4031945429ae58350b5897570a}{
+\index{Buffer@{Buffer}!get\_\-occupancy@{get\_\-occupancy}}
+\index{get\_\-occupancy@{get\_\-occupancy}!Buffer@{Buffer}}
+\subsubsection[{get\_\-occupancy}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf uint} Buffer::get\_\-occupancy ({\bf uint} {\em channel}) const\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classBuffer_af4e2d4031945429ae58350b5897570a}
+
+
+
+
+Implemented in \hyperlink{classGenericBuffer_f2f85cf979616bab9dad5373d25d7813}{GenericBuffer}, and \hyperlink{classGenericOutputBuffer_0b8b70b9b3ab71195eea8d0d810dce94}{GenericOutputBuffer}.\hypertarget{classBuffer_95f5c230f9c261bc13ddcfafcc340e7e}{
+\index{Buffer@{Buffer}!pull@{pull}}
+\index{pull@{pull}!Buffer@{Buffer}}
+\subsubsection[{pull}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Flit}$\ast$ Buffer::pull ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classBuffer_95f5c230f9c261bc13ddcfafcc340e7e}
+
+
+
+
+Implemented in \hyperlink{classGenericBuffer_6ce6f151eb6f65ec1fffafffb04a8f0e}{GenericBuffer}, and \hyperlink{classGenericOutputBuffer_3c3f1b425635f59b0539805945ddb1bd}{GenericOutputBuffer}.\hypertarget{classBuffer_c9dce1860c655146f000df30314caaa9}{
+\index{Buffer@{Buffer}!push@{push}}
+\index{push@{push}!Buffer@{Buffer}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Buffer::push ({\bf Flit} $\ast$ {\em f})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classBuffer_c9dce1860c655146f000df30314caaa9}
+
+
+
+
+Implemented in \hyperlink{classGenericBuffer_c5a0781106485f9567898b49021f6346}{GenericBuffer}, and \hyperlink{classGenericOutputBuffer_f2b4047e054df5bb9b624ce0b0bbf0e2}{GenericOutputBuffer}.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+source/components/interfaces/\hyperlink{buffer_8h}{buffer.h}\end{CompactItemize}

@@ -1,0 +1,167 @@
+\hypertarget{classGenericAddressDecoder}{
+\section{GenericAddressDecoder Class Reference}
+\label{classGenericAddressDecoder}\index{GenericAddressDecoder@{GenericAddressDecoder}}
+}
+{\tt \#include $<$genericAddressDecoder.h$>$}
+
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \textbf{Address}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGenericAddressDecoder_c9f3d12b792ee1821499d4e332b52690}{GenericAddressDecoder} ()
+\item 
+\hyperlink{classGenericAddressDecoder_9d20e3a126b7aa5ec9865ee6a4e1a6eb}{$\sim$GenericAddressDecoder} ()
+\item 
+void \hyperlink{classGenericAddressDecoder_8a2cc1c7e48dbbf11b03c49a3ce3e1d9}{push} (\hyperlink{classFlit}{Flit} $\ast$f, unsigned int vc)
+\item 
+unsigned int \hyperlink{classGenericAddressDecoder_3bab82f615b42ee907d37a6f601bd527}{get\_\-output\_\-port} (unsigned int channel)
+\item 
+unsigned int \hyperlink{classGenericAddressDecoder_d7d7f4cb63e720fd70d886eb6d11e812}{speculate\_\-port} (\hyperlink{classFlit}{Flit} $\ast$f, unsigned int ch)
+\item 
+unsigned int \hyperlink{classGenericAddressDecoder_81457cd722fd50e8297078e0729ea6b5}{speculate\_\-channel} (\hyperlink{classFlit}{Flit} $\ast$f, unsigned int ch)
+\item 
+unsigned int \hyperlink{classGenericAddressDecoder_99bfff56c04910dd0e3e397f8168d489}{get\_\-virtual\_\-channel} (unsigned int ch)
+\item 
+void \hyperlink{classGenericAddressDecoder_8473f733b74bc46dbcda7a5a4cdd4420}{set\_\-no\_\-virtual\_\-channels} (unsigned int ch)
+\item 
+unsigned int \hyperlink{classGenericAddressDecoder_339ae939c2361faac88813f1af3ce796}{get\_\-no\_\-channels} ()
+\item 
+bool \hyperlink{classGenericAddressDecoder_c11da10c5593e9677c0a19b6dfea46d8}{is\_\-empty} ()
+\item 
+string \hyperlink{classGenericAddressDecoder_5b4395166709804b6dd9cb784bc45a1d}{toString} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericAddressDecoder_9b8fd8a1cc36e6ab4b398b2a9a4f74bd}{node\_\-ip}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericAddressDecoder_e4958f1eabb1f538cbfa4f49a70819ee}{address}
+\item 
+vector$<$ \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $>$ \hyperlink{classGenericAddressDecoder_7b34be1b61592aa81a59122776d35d0a}{grid\_\-xloc}
+\item 
+vector$<$ \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $>$ \hyperlink{classGenericAddressDecoder_1ba45f3ca9054494e325c9ab49b61da8}{grid\_\-yloc}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGenericAddressDecoder_c9f3d12b792ee1821499d4e332b52690}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!GenericAddressDecoder@{GenericAddressDecoder}}
+\index{GenericAddressDecoder@{GenericAddressDecoder}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{GenericAddressDecoder}]{\setlength{\rightskip}{0pt plus 5cm}GenericAddressDecoder::GenericAddressDecoder ()}}
+\label{classGenericAddressDecoder_c9f3d12b792ee1821499d4e332b52690}
+
+
+\hypertarget{classGenericAddressDecoder_9d20e3a126b7aa5ec9865ee6a4e1a6eb}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!$\sim$GenericAddressDecoder@{$\sim$GenericAddressDecoder}}
+\index{$\sim$GenericAddressDecoder@{$\sim$GenericAddressDecoder}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{$\sim$GenericAddressDecoder}]{\setlength{\rightskip}{0pt plus 5cm}GenericAddressDecoder::$\sim$GenericAddressDecoder ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classGenericAddressDecoder_9d20e3a126b7aa5ec9865ee6a4e1a6eb}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGenericAddressDecoder_339ae939c2361faac88813f1af3ce796}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!get\_\-no\_\-channels@{get\_\-no\_\-channels}}
+\index{get\_\-no\_\-channels@{get\_\-no\_\-channels}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{get\_\-no\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericAddressDecoder::get\_\-no\_\-channels ()}}
+\label{classGenericAddressDecoder_339ae939c2361faac88813f1af3ce796}
+
+
+\hypertarget{classGenericAddressDecoder_3bab82f615b42ee907d37a6f601bd527}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!get\_\-output\_\-port@{get\_\-output\_\-port}}
+\index{get\_\-output\_\-port@{get\_\-output\_\-port}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{get\_\-output\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericAddressDecoder::get\_\-output\_\-port (unsigned int {\em channel})}}
+\label{classGenericAddressDecoder_3bab82f615b42ee907d37a6f601bd527}
+
+
+\hypertarget{classGenericAddressDecoder_99bfff56c04910dd0e3e397f8168d489}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!get\_\-virtual\_\-channel@{get\_\-virtual\_\-channel}}
+\index{get\_\-virtual\_\-channel@{get\_\-virtual\_\-channel}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{get\_\-virtual\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericAddressDecoder::get\_\-virtual\_\-channel (unsigned int {\em ch})}}
+\label{classGenericAddressDecoder_99bfff56c04910dd0e3e397f8168d489}
+
+
+\hypertarget{classGenericAddressDecoder_c11da10c5593e9677c0a19b6dfea46d8}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericAddressDecoder::is\_\-empty ()}}
+\label{classGenericAddressDecoder_c11da10c5593e9677c0a19b6dfea46d8}
+
+
+\hypertarget{classGenericAddressDecoder_8a2cc1c7e48dbbf11b03c49a3ce3e1d9}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!push@{push}}
+\index{push@{push}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void GenericAddressDecoder::push ({\bf Flit} $\ast$ {\em f}, \/  unsigned int {\em vc})}}
+\label{classGenericAddressDecoder_8a2cc1c7e48dbbf11b03c49a3ce3e1d9}
+
+
+\hypertarget{classGenericAddressDecoder_8473f733b74bc46dbcda7a5a4cdd4420}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!set\_\-no\_\-virtual\_\-channels@{set\_\-no\_\-virtual\_\-channels}}
+\index{set\_\-no\_\-virtual\_\-channels@{set\_\-no\_\-virtual\_\-channels}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{set\_\-no\_\-virtual\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}void GenericAddressDecoder::set\_\-no\_\-virtual\_\-channels (unsigned int {\em ch})}}
+\label{classGenericAddressDecoder_8473f733b74bc46dbcda7a5a4cdd4420}
+
+
+\hypertarget{classGenericAddressDecoder_81457cd722fd50e8297078e0729ea6b5}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!speculate\_\-channel@{speculate\_\-channel}}
+\index{speculate\_\-channel@{speculate\_\-channel}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{speculate\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int GenericAddressDecoder::speculate\_\-channel ({\bf Flit} $\ast$ {\em f}, \/  unsigned int {\em ch})}}
+\label{classGenericAddressDecoder_81457cd722fd50e8297078e0729ea6b5}
+
+
+\hypertarget{classGenericAddressDecoder_d7d7f4cb63e720fd70d886eb6d11e812}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!speculate\_\-port@{speculate\_\-port}}
+\index{speculate\_\-port@{speculate\_\-port}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{speculate\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int GenericAddressDecoder::speculate\_\-port ({\bf Flit} $\ast$ {\em f}, \/  unsigned int {\em ch})}}
+\label{classGenericAddressDecoder_d7d7f4cb63e720fd70d886eb6d11e812}
+
+
+\hypertarget{classGenericAddressDecoder_5b4395166709804b6dd9cb784bc45a1d}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!toString@{toString}}
+\index{toString@{toString}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericAddressDecoder::toString () const}}
+\label{classGenericAddressDecoder_5b4395166709804b6dd9cb784bc45a1d}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGenericAddressDecoder_e4958f1eabb1f538cbfa4f49a70819ee}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!address@{address}}
+\index{address@{address}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf GenericAddressDecoder::address}}}
+\label{classGenericAddressDecoder_e4958f1eabb1f538cbfa4f49a70819ee}
+
+
+\hypertarget{classGenericAddressDecoder_7b34be1b61592aa81a59122776d35d0a}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!grid\_\-xloc@{grid\_\-xloc}}
+\index{grid\_\-xloc@{grid\_\-xloc}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{grid\_\-xloc}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf uint} $>$ {\bf GenericAddressDecoder::grid\_\-xloc}}}
+\label{classGenericAddressDecoder_7b34be1b61592aa81a59122776d35d0a}
+
+
+\hypertarget{classGenericAddressDecoder_1ba45f3ca9054494e325c9ab49b61da8}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!grid\_\-yloc@{grid\_\-yloc}}
+\index{grid\_\-yloc@{grid\_\-yloc}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{grid\_\-yloc}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf uint} $>$ {\bf GenericAddressDecoder::grid\_\-yloc}}}
+\label{classGenericAddressDecoder_1ba45f3ca9054494e325c9ab49b61da8}
+
+
+\hypertarget{classGenericAddressDecoder_9b8fd8a1cc36e6ab4b398b2a9a4f74bd}{
+\index{GenericAddressDecoder@{GenericAddressDecoder}!node\_\-ip@{node\_\-ip}}
+\index{node\_\-ip@{node\_\-ip}!GenericAddressDecoder@{GenericAddressDecoder}}
+\subsubsection[{node\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf GenericAddressDecoder::node\_\-ip}}}
+\label{classGenericAddressDecoder_9b8fd8a1cc36e6ab4b398b2a9a4f74bd}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/none/\hyperlink{genericAddressDecoder_8h}{genericAddressDecoder.h}\item 
+source/components/none/\hyperlink{genericAddressDecoder_8cc}{genericAddressDecoder.cc}\end{CompactItemize}

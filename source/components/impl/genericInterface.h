@@ -28,7 +28,7 @@
 #include	"../interfaces/genericComponentHeader.h"
 #include	"genericEvents.h"
 #include	"genericBuffer.h"
-#include	"genericArbiter.h"
+#include	"genericVcArbiter.h"
 #include	"genericData.h"
 #include	<queue>
 #include	<vector>
@@ -64,10 +64,10 @@ class GenericInterface : public Interface
         int credits;
 
         bool ticking;
-        GenericOutputBuffer out_buffer;
-        GenericArbiter out_arbiter;
-        GenericArbiter in_arbiter;
-        GenericOutputBuffer in_buffer;
+        GenericBuffer out_buffer;
+        GenericVcArbiter out_arbiter;
+        GenericVcArbiter in_arbiter;
+        GenericBuffer in_buffer;
         vector < int > downstream_credits;
 
         /* The current packet being pushed into the output buffers */

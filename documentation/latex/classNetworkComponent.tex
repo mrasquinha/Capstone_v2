@@ -1,0 +1,153 @@
+\hypertarget{classNetworkComponent}{
+\section{NetworkComponent Class Reference}
+\label{classNetworkComponent}\index{NetworkComponent@{NetworkComponent}}
+}
+{\tt \#include $<$networkComponent.h$>$}
+
+Inheritance diagram for NetworkComponent::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.6875cm]{classNetworkComponent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{classNetworkComponent_de3a046109ffaae8ea087feaf879b331}{types} \{ \hyperlink{classNetworkComponent_de3a046109ffaae8ea087feaf879b3310af6940aa4e653f8c152d92670a4370c}{processor}, 
+\hyperlink{classNetworkComponent_de3a046109ffaae8ea087feaf879b331a5fd9b1f5cc536ac79e394578ed0a9f1}{interface}, 
+\hyperlink{classNetworkComponent_de3a046109ffaae8ea087feaf879b331380174d2fb34d464f89e0f470b33102a}{link}, 
+\hyperlink{classNetworkComponent_de3a046109ffaae8ea087feaf879b3318f51c4a212c73a9b847767591aa7828e}{router}
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classNetworkComponent_fbc5367d657f132a271f4e48c1523790}{NetworkComponent} ()
+\item 
+virtual \hyperlink{classNetworkComponent_05adbdf1cb3611bbfd937887065d3feb}{$\sim$NetworkComponent} ()
+\item 
+virtual string \hyperlink{classNetworkComponent_9bb9874e1f5705588cb3d9c201d8fc6f}{toString} () const 
+\item 
+virtual void \hyperlink{classNetworkComponent_c93793eea1e2d424abe86e110ca8b399}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)=0
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{classNetworkComponent_de3a046109ffaae8ea087feaf879b331}{types} \hyperlink{classNetworkComponent_702663f5fd8d99b8a62449a1106e0ed6}{type}
+\item 
+string \hyperlink{classNetworkComponent_377732efece6236958869713b6f30044}{name}
+\item 
+\hyperlink{ringSim_8cc_880960a57c549f69d77cf01237366978}{uniqueId} \hyperlink{classNetworkComponent_0428749bde908497630b506071d52191}{address}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classNetworkComponent_56599b3484333fb78af1b6c33f77cf16}{node\_\-ip}
+\end{CompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classNetworkComponent_de3a046109ffaae8ea087feaf879b331}{
+\index{NetworkComponent@{NetworkComponent}!types@{types}}
+\index{types@{types}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{types}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NetworkComponent::types}}}
+\label{classNetworkComponent_de3a046109ffaae8ea087feaf879b331}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{processor@{processor}!NetworkComponent@{NetworkComponent}}\index{NetworkComponent@{NetworkComponent}!processor@{processor}}\item[{\em 
+\hypertarget{classNetworkComponent_de3a046109ffaae8ea087feaf879b3310af6940aa4e653f8c152d92670a4370c}{
+processor}
+\label{classNetworkComponent_de3a046109ffaae8ea087feaf879b3310af6940aa4e653f8c152d92670a4370c}
+}]\index{interface@{interface}!NetworkComponent@{NetworkComponent}}\index{NetworkComponent@{NetworkComponent}!interface@{interface}}\item[{\em 
+\hypertarget{classNetworkComponent_de3a046109ffaae8ea087feaf879b331a5fd9b1f5cc536ac79e394578ed0a9f1}{
+interface}
+\label{classNetworkComponent_de3a046109ffaae8ea087feaf879b331a5fd9b1f5cc536ac79e394578ed0a9f1}
+}]\index{link@{link}!NetworkComponent@{NetworkComponent}}\index{NetworkComponent@{NetworkComponent}!link@{link}}\item[{\em 
+\hypertarget{classNetworkComponent_de3a046109ffaae8ea087feaf879b331380174d2fb34d464f89e0f470b33102a}{
+link}
+\label{classNetworkComponent_de3a046109ffaae8ea087feaf879b331380174d2fb34d464f89e0f470b33102a}
+}]\index{router@{router}!NetworkComponent@{NetworkComponent}}\index{NetworkComponent@{NetworkComponent}!router@{router}}\item[{\em 
+\hypertarget{classNetworkComponent_de3a046109ffaae8ea087feaf879b3318f51c4a212c73a9b847767591aa7828e}{
+router}
+\label{classNetworkComponent_de3a046109ffaae8ea087feaf879b3318f51c4a212c73a9b847767591aa7828e}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNetworkComponent_fbc5367d657f132a271f4e48c1523790}{
+\index{NetworkComponent@{NetworkComponent}!NetworkComponent@{NetworkComponent}}
+\index{NetworkComponent@{NetworkComponent}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{NetworkComponent}]{\setlength{\rightskip}{0pt plus 5cm}NetworkComponent::NetworkComponent ()}}
+\label{classNetworkComponent_fbc5367d657f132a271f4e48c1523790}
+
+
+\hypertarget{classNetworkComponent_05adbdf1cb3611bbfd937887065d3feb}{
+\index{NetworkComponent@{NetworkComponent}!$\sim$NetworkComponent@{$\sim$NetworkComponent}}
+\index{$\sim$NetworkComponent@{$\sim$NetworkComponent}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{$\sim$NetworkComponent}]{\setlength{\rightskip}{0pt plus 5cm}NetworkComponent::$\sim$NetworkComponent ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classNetworkComponent_05adbdf1cb3611bbfd937887065d3feb}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classNetworkComponent_c93793eea1e2d424abe86e110ca8b399}{
+\index{NetworkComponent@{NetworkComponent}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}virtual void NetworkComponent::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classNetworkComponent_c93793eea1e2d424abe86e110ca8b399}
+
+
+
+
+Implemented in \hyperlink{classGenericRouterNoVcs_a2c52d53e127c9a3a029194e77f9f80c}{GenericRouterNoVcs}, \hyperlink{classGenericRPG_72d08c87beeb16514c6c81af3296f6af}{GenericRPG}, \hyperlink{classMCFrontEnd_cc935494693a9b02addf8ea8c04f81b3}{MCFrontEnd}, \hyperlink{classRouterFourStageVcs_81562fa747c216e200476ab1f85699bf}{RouterFourStageVcs}, \hyperlink{classGenericInterface_d56b8876204889d3c096fccd61b16b9e}{GenericInterface}, \hyperlink{classGenericLink_c09533f8445eb3c550c744fd4ada7324}{GenericLink}, \hyperlink{classGenericRouterNoVcs_a2c52d53e127c9a3a029194e77f9f80c}{GenericRouterNoVcs}, \hyperlink{classGenericRPG_72d08c87beeb16514c6c81af3296f6af}{GenericRPG}, \hyperlink{classGenericSink_a0beb58f52adfe869ba47f4b51537409}{GenericSink}, \hyperlink{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{GenericTPG}, \hyperlink{classInterface_baaaeb823b1e0fd7ddc1bb32c2f016fb}{Interface}, \hyperlink{classIrisLink_9c5494bc5716aedf3affe748f3a542c1}{IrisLink}, \hyperlink{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}{Processor}, \hyperlink{classGenericInterface_d56b8876204889d3c096fccd61b16b9e}{GenericInterface}, \hyperlink{classGenericLink_c09533f8445eb3c550c744fd4ada7324}{GenericLink}, \hyperlink{classGenericRPG_72d08c87beeb16514c6c81af3296f6af}{GenericRPG}, \hyperlink{classGenericSink_a0beb58f52adfe869ba47f4b51537409}{GenericSink}, \hyperlink{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{GenericTPG}, \hyperlink{classMCFrontEnd_cc935494693a9b02addf8ea8c04f81b3}{MCFrontEnd}, \hyperlink{classMyRouter_5dcfef46ad281c05de8e8c1bdf236a4a}{MyRouter}, \hyperlink{classRouterFourStageVcs_81562fa747c216e200476ab1f85699bf}{RouterFourStageVcs}, \hyperlink{classGenericNetworkSource_a67be5ac0f97b7e0b38eba909cecaa64}{GenericNetworkSource}, \hyperlink{classRandomPacketGenerator_127a1f17b384e0418f055b0c22eb925a}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_ce34c9fd6ca6893af23d1167348ee0c9}{TraceHandler}.\hypertarget{classNetworkComponent_9bb9874e1f5705588cb3d9c201d8fc6f}{
+\index{NetworkComponent@{NetworkComponent}!toString@{toString}}
+\index{toString@{toString}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string NetworkComponent::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classNetworkComponent_9bb9874e1f5705588cb3d9c201d8fc6f}
+
+
+
+
+Reimplemented in \hyperlink{classGenericRouterNoVcs_59307c319fbca5732d750630be9ee27c}{GenericRouterNoVcs}, \hyperlink{classGenericRPG_a4303867728559ab6e6ae3d1390ede71}{GenericRPG}, \hyperlink{classMCFrontEnd_9dda980a7ae732e6cb6da7121bc4f539}{MCFrontEnd}, \hyperlink{classRouterFourStageVcs_0f2d0c3bcd780832ec371374eb3950fd}{RouterFourStageVcs}, \hyperlink{classGenericInterface_ae1400fce0c7ba48965596ec172e474b}{GenericInterface}, \hyperlink{classGenericLink_64dad2c98848fb48b3b572887031167b}{GenericLink}, \hyperlink{classGenericRouterNoVcs_59307c319fbca5732d750630be9ee27c}{GenericRouterNoVcs}, \hyperlink{classGenericRPG_a4303867728559ab6e6ae3d1390ede71}{GenericRPG}, \hyperlink{classGenericSink_a1703a08208816130a4ee2f4d4a8334f}{GenericSink}, \hyperlink{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{GenericTPG}, \hyperlink{classInterface_137cdb3bca46eb2ae0bbf017d1efb66e}{Interface}, \hyperlink{classIrisLink_d25db1c98385d7abd82180e5746813a6}{IrisLink}, \hyperlink{classProcessor_d3bdbedfbb00b05f61504e411a418106}{Processor}, \hyperlink{classRouter_1e749a51dcf6cbd6925ac677473c7f58}{Router}, \hyperlink{classGenericInterface_ae1400fce0c7ba48965596ec172e474b}{GenericInterface}, \hyperlink{classGenericLink_64dad2c98848fb48b3b572887031167b}{GenericLink}, \hyperlink{classGenericRPG_a4303867728559ab6e6ae3d1390ede71}{GenericRPG}, \hyperlink{classGenericSink_a1703a08208816130a4ee2f4d4a8334f}{GenericSink}, \hyperlink{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{GenericTPG}, \hyperlink{classMCFrontEnd_9dda980a7ae732e6cb6da7121bc4f539}{MCFrontEnd}, \hyperlink{classMyRouter_9b40e1d62a4638fb84f31aff143d970d}{MyRouter}, \hyperlink{classRouterFourStageVcs_0f2d0c3bcd780832ec371374eb3950fd}{RouterFourStageVcs}, \hyperlink{classGenericNetworkSource_8d8c0760eb634da3ccc3d4083e9415b9}{GenericNetworkSource}, \hyperlink{classRandomPacketGenerator_4031f11000db9e2693c761f7f47a4c88}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_e2a56abded1637aba10677483fee4e32}{TraceHandler}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classNetworkComponent_0428749bde908497630b506071d52191}{
+\index{NetworkComponent@{NetworkComponent}!address@{address}}
+\index{address@{address}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uniqueId} {\bf NetworkComponent::address}}}
+\label{classNetworkComponent_0428749bde908497630b506071d52191}
+
+
+
+
+Reimplemented in \hyperlink{classGenericRPG_12a401de0099f5d1e2486886d3a99f0f}{GenericRPG}, \hyperlink{classGenericSink_ccb1d47a4bec1322b3e8c996933e4aaf}{GenericSink}, \hyperlink{classRandomPacketGenerator_b173df66cb0c2f96937e8e71319a510e}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_ea33725c91bfe1fa432e76eade7712ed}{TraceHandler}.\hypertarget{classNetworkComponent_377732efece6236958869713b6f30044}{
+\index{NetworkComponent@{NetworkComponent}!name@{name}}
+\index{name@{name}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf NetworkComponent::name}}}
+\label{classNetworkComponent_377732efece6236958869713b6f30044}
+
+
+\hypertarget{classNetworkComponent_56599b3484333fb78af1b6c33f77cf16}{
+\index{NetworkComponent@{NetworkComponent}!node\_\-ip@{node\_\-ip}}
+\index{node\_\-ip@{node\_\-ip}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{node\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf NetworkComponent::node\_\-ip}}}
+\label{classNetworkComponent_56599b3484333fb78af1b6c33f77cf16}
+
+
+
+
+Reimplemented in \hyperlink{classMCFrontEnd_99eed4a2a554a84018c06637e863b525}{MCFrontEnd}, \hyperlink{classGenericNetworkSource_90d400349086508bb6b2b46fbd24ed9b}{GenericNetworkSource}, \hyperlink{classRandomPacketGenerator_072334e770d2a5a5ee77c7a859fad16b}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_b54df7fbf5273b6132975f3e5bf26057}{TraceHandler}.\hypertarget{classNetworkComponent_702663f5fd8d99b8a62449a1106e0ed6}{
+\index{NetworkComponent@{NetworkComponent}!type@{type}}
+\index{type@{type}!NetworkComponent@{NetworkComponent}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf types} {\bf NetworkComponent::type}}}
+\label{classNetworkComponent_702663f5fd8d99b8a62449a1106e0ed6}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/interfaces/\hyperlink{networkComponent_8h}{networkComponent.h}\item 
+source/components/interfaces/\hyperlink{networkComponent_8cc}{networkComponent.cc}\end{CompactItemize}

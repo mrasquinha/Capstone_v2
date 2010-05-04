@@ -1,0 +1,233 @@
+\hypertarget{classMSHR__H}{
+\section{MSHR\_\-H Class Reference}
+\label{classMSHR__H}\index{MSHR\_\-H@{MSHR\_\-H}}
+}
+{\tt \#include $<$mshr.h$>$}
+
+Inheritance diagram for MSHR\_\-H::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classMSHR__H}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classMSHR__H_ed75aac9537ffb4d5814b337c1099e82}{MSHR\_\-H} ()
+\item 
+\hyperlink{classMSHR__H_cbe3ee20d72b496c43ef9f6375f4da1b}{$\sim$MSHR\_\-H} ()
+\item 
+\hyperlink{constants_8h_51badf0ffa6471a1e529c69852e56f57}{Addr\_\-t} \hyperlink{classMSHR__H_3c9cdbe3938dcfd521f48678b335b839}{GlobalAddrMap} (\hyperlink{constants_8h_51badf0ffa6471a1e529c69852e56f57}{Addr\_\-t} addr, \hyperlink{constants_8h_ba0996d26f7be2572973245b51852757}{UInt} threadId)
+\item 
+void \hyperlink{classMSHR__H_1dff946e7d92eae286b8f72df7dc0f03}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)
+\item 
+std::string \hyperlink{classMSHR__H_778e0a25bf58c2ccbe506a4c635f953f}{toString} ()
+\item 
+\hyperlink{classMSHR__H_ed75aac9537ffb4d5814b337c1099e82}{MSHR\_\-H} ()
+\item 
+\hyperlink{classMSHR__H_cbe3ee20d72b496c43ef9f6375f4da1b}{$\sim$MSHR\_\-H} ()
+\item 
+\hyperlink{constants_8h_51badf0ffa6471a1e529c69852e56f57}{Addr\_\-t} \hyperlink{classMSHR__H_3c9cdbe3938dcfd521f48678b335b839}{GlobalAddrMap} (\hyperlink{constants_8h_51badf0ffa6471a1e529c69852e56f57}{Addr\_\-t} addr, \hyperlink{constants_8h_ba0996d26f7be2572973245b51852757}{UInt} threadId)
+\item 
+void \hyperlink{classMSHR__H_1dff946e7d92eae286b8f72df7dc0f03}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)
+\item 
+std::string \hyperlink{classMSHR__H_778e0a25bf58c2ccbe506a4c635f953f}{toString} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{constants_8h_a475e5c84e5eb0fe317942dc62553f7e}{Time} \hyperlink{classMSHR__H_9e26b7281b5d4ec954954209aae9ebfa}{unsink}
+\item 
+\hyperlink{constants_8h_a475e5c84e5eb0fe317942dc62553f7e}{Time} \hyperlink{classMSHR__H_adfd06c0a14ec47c72e3b3e0c436d62e}{lastFinishTime}
+\item 
+\hyperlink{constants_8h_a475e5c84e5eb0fe317942dc62553f7e}{Time} \hyperlink{classMSHR__H_08f7e602a70bcf8d0e991d46e19265a2}{globalUnSink}
+\item 
+bool \hyperlink{classMSHR__H_4cd1713ebd3ab9038ed231781b4bc36a}{done}
+\item 
+vector$<$ \hyperlink{classRequest}{Request} $>$ \hyperlink{classMSHR__H_a46028543e0902980f6732c2ec1460e1}{mshr}
+\item 
+vector$<$ \hyperlink{classRequest}{Request} $>$ \hyperlink{classMSHR__H_4b93a7397177a907d0ee3a3cebcbbbda}{writeQueue}
+\item 
+ifstream \hyperlink{classMSHR__H_6e19d2203f1ad9bf624596e00d600516}{trace\_\-filename}
+\item 
+char $\ast$ \hyperlink{classMSHR__H_1121ad69747b53dbe515b58094ac7f08}{filename}
+\item 
+unsigned int \hyperlink{classMSHR__H_97b745c7aeca64268c19411dd6ba5354}{id}
+\item 
+unsigned int \hyperlink{classMSHR__H_fd269df00bf476b2b151516b64cf7388}{lastScheduledIndex}
+\item 
+\hyperlink{classComponent}{Component} $\ast$ \hyperlink{classMSHR__H_db1067e0a44f5878fe6c1b7c437f9d93}{parent}
+\item 
+\hyperlink{classComponent}{Component} $\ast$ \hyperlink{classMSHR__H_66d8569d9e2ea71eb62ef9478761db02}{child}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMSHR__H_ed75aac9537ffb4d5814b337c1099e82}{
+\index{MSHR\_\-H@{MSHR\_\-H}!MSHR\_\-H@{MSHR\_\-H}}
+\index{MSHR\_\-H@{MSHR\_\-H}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{MSHR\_\-H}]{\setlength{\rightskip}{0pt plus 5cm}MSHR\_\-H::MSHR\_\-H ()}}
+\label{classMSHR__H_ed75aac9537ffb4d5814b337c1099e82}
+
+
+\hypertarget{classMSHR__H_cbe3ee20d72b496c43ef9f6375f4da1b}{
+\index{MSHR\_\-H@{MSHR\_\-H}!$\sim$MSHR\_\-H@{$\sim$MSHR\_\-H}}
+\index{$\sim$MSHR\_\-H@{$\sim$MSHR\_\-H}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{$\sim$MSHR\_\-H}]{\setlength{\rightskip}{0pt plus 5cm}MSHR\_\-H::$\sim$MSHR\_\-H ()}}
+\label{classMSHR__H_cbe3ee20d72b496c43ef9f6375f4da1b}
+
+
+\hypertarget{classMSHR__H_ed75aac9537ffb4d5814b337c1099e82}{
+\index{MSHR\_\-H@{MSHR\_\-H}!MSHR\_\-H@{MSHR\_\-H}}
+\index{MSHR\_\-H@{MSHR\_\-H}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{MSHR\_\-H}]{\setlength{\rightskip}{0pt plus 5cm}MSHR\_\-H::MSHR\_\-H ()}}
+\label{classMSHR__H_ed75aac9537ffb4d5814b337c1099e82}
+
+
+\hypertarget{classMSHR__H_cbe3ee20d72b496c43ef9f6375f4da1b}{
+\index{MSHR\_\-H@{MSHR\_\-H}!$\sim$MSHR\_\-H@{$\sim$MSHR\_\-H}}
+\index{$\sim$MSHR\_\-H@{$\sim$MSHR\_\-H}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{$\sim$MSHR\_\-H}]{\setlength{\rightskip}{0pt plus 5cm}MSHR\_\-H::$\sim$MSHR\_\-H ()}}
+\label{classMSHR__H_cbe3ee20d72b496c43ef9f6375f4da1b}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMSHR__H_3c9cdbe3938dcfd521f48678b335b839}{
+\index{MSHR\_\-H@{MSHR\_\-H}!GlobalAddrMap@{GlobalAddrMap}}
+\index{GlobalAddrMap@{GlobalAddrMap}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{GlobalAddrMap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Addr\_\-t} MSHR\_\-H::GlobalAddrMap ({\bf Addr\_\-t} {\em addr}, \/  {\bf UInt} {\em threadId})}}
+\label{classMSHR__H_3c9cdbe3938dcfd521f48678b335b839}
+
+
+\hypertarget{classMSHR__H_3c9cdbe3938dcfd521f48678b335b839}{
+\index{MSHR\_\-H@{MSHR\_\-H}!GlobalAddrMap@{GlobalAddrMap}}
+\index{GlobalAddrMap@{GlobalAddrMap}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{GlobalAddrMap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Addr\_\-t} MSHR\_\-H::GlobalAddrMap ({\bf Addr\_\-t} {\em addr}, \/  {\bf UInt} {\em threadId})}}
+\label{classMSHR__H_3c9cdbe3938dcfd521f48678b335b839}
+
+
+\hypertarget{classMSHR__H_1dff946e7d92eae286b8f72df7dc0f03}{
+\index{MSHR\_\-H@{MSHR\_\-H}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void MSHR\_\-H::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})}}
+\label{classMSHR__H_1dff946e7d92eae286b8f72df7dc0f03}
+
+
+\hypertarget{classMSHR__H_1dff946e7d92eae286b8f72df7dc0f03}{
+\index{MSHR\_\-H@{MSHR\_\-H}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void MSHR\_\-H::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})}}
+\label{classMSHR__H_1dff946e7d92eae286b8f72df7dc0f03}
+
+
+\hypertarget{classMSHR__H_778e0a25bf58c2ccbe506a4c635f953f}{
+\index{MSHR\_\-H@{MSHR\_\-H}!toString@{toString}}
+\index{toString@{toString}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}std::string MSHR\_\-H::toString ()}}
+\label{classMSHR__H_778e0a25bf58c2ccbe506a4c635f953f}
+
+
+\hypertarget{classMSHR__H_778e0a25bf58c2ccbe506a4c635f953f}{
+\index{MSHR\_\-H@{MSHR\_\-H}!toString@{toString}}
+\index{toString@{toString}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}std::string MSHR\_\-H::toString ()}}
+\label{classMSHR__H_778e0a25bf58c2ccbe506a4c635f953f}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMSHR__H_66d8569d9e2ea71eb62ef9478761db02}{
+\index{MSHR\_\-H@{MSHR\_\-H}!child@{child}}
+\index{child@{child}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Component} $\ast$ {\bf MSHR\_\-H::child}}}
+\label{classMSHR__H_66d8569d9e2ea71eb62ef9478761db02}
+
+
+\hypertarget{classMSHR__H_4cd1713ebd3ab9038ed231781b4bc36a}{
+\index{MSHR\_\-H@{MSHR\_\-H}!done@{done}}
+\index{done@{done}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{done}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf MSHR\_\-H::done}}}
+\label{classMSHR__H_4cd1713ebd3ab9038ed231781b4bc36a}
+
+
+\hypertarget{classMSHR__H_1121ad69747b53dbe515b58094ac7f08}{
+\index{MSHR\_\-H@{MSHR\_\-H}!filename@{filename}}
+\index{filename@{filename}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ {\bf MSHR\_\-H::filename}}}
+\label{classMSHR__H_1121ad69747b53dbe515b58094ac7f08}
+
+
+\hypertarget{classMSHR__H_08f7e602a70bcf8d0e991d46e19265a2}{
+\index{MSHR\_\-H@{MSHR\_\-H}!globalUnSink@{globalUnSink}}
+\index{globalUnSink@{globalUnSink}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{globalUnSink}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time} {\bf MSHR\_\-H::globalUnSink}}}
+\label{classMSHR__H_08f7e602a70bcf8d0e991d46e19265a2}
+
+
+\hypertarget{classMSHR__H_97b745c7aeca64268c19411dd6ba5354}{
+\index{MSHR\_\-H@{MSHR\_\-H}!id@{id}}
+\index{id@{id}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf MSHR\_\-H::id}}}
+\label{classMSHR__H_97b745c7aeca64268c19411dd6ba5354}
+
+
+\hypertarget{classMSHR__H_adfd06c0a14ec47c72e3b3e0c436d62e}{
+\index{MSHR\_\-H@{MSHR\_\-H}!lastFinishTime@{lastFinishTime}}
+\index{lastFinishTime@{lastFinishTime}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{lastFinishTime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time} {\bf MSHR\_\-H::lastFinishTime}}}
+\label{classMSHR__H_adfd06c0a14ec47c72e3b3e0c436d62e}
+
+
+\hypertarget{classMSHR__H_fd269df00bf476b2b151516b64cf7388}{
+\index{MSHR\_\-H@{MSHR\_\-H}!lastScheduledIndex@{lastScheduledIndex}}
+\index{lastScheduledIndex@{lastScheduledIndex}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{lastScheduledIndex}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf MSHR\_\-H::lastScheduledIndex}}}
+\label{classMSHR__H_fd269df00bf476b2b151516b64cf7388}
+
+
+\hypertarget{classMSHR__H_a46028543e0902980f6732c2ec1460e1}{
+\index{MSHR\_\-H@{MSHR\_\-H}!mshr@{mshr}}
+\index{mshr@{mshr}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{mshr}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Request} $>$ {\bf MSHR\_\-H::mshr}}}
+\label{classMSHR__H_a46028543e0902980f6732c2ec1460e1}
+
+
+\hypertarget{classMSHR__H_db1067e0a44f5878fe6c1b7c437f9d93}{
+\index{MSHR\_\-H@{MSHR\_\-H}!parent@{parent}}
+\index{parent@{parent}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Component} $\ast$ {\bf MSHR\_\-H::parent}}}
+\label{classMSHR__H_db1067e0a44f5878fe6c1b7c437f9d93}
+
+
+\hypertarget{classMSHR__H_6e19d2203f1ad9bf624596e00d600516}{
+\index{MSHR\_\-H@{MSHR\_\-H}!trace\_\-filename@{trace\_\-filename}}
+\index{trace\_\-filename@{trace\_\-filename}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{trace\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}ifstream {\bf MSHR\_\-H::trace\_\-filename}}}
+\label{classMSHR__H_6e19d2203f1ad9bf624596e00d600516}
+
+
+\hypertarget{classMSHR__H_9e26b7281b5d4ec954954209aae9ebfa}{
+\index{MSHR\_\-H@{MSHR\_\-H}!unsink@{unsink}}
+\index{unsink@{unsink}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{unsink}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time} {\bf MSHR\_\-H::unsink}}}
+\label{classMSHR__H_9e26b7281b5d4ec954954209aae9ebfa}
+
+
+\hypertarget{classMSHR__H_4b93a7397177a907d0ee3a3cebcbbbda}{
+\index{MSHR\_\-H@{MSHR\_\-H}!writeQueue@{writeQueue}}
+\index{writeQueue@{writeQueue}!MSHR_H@{MSHR\_\-H}}
+\subsubsection[{writeQueue}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Request} $>$ {\bf MSHR\_\-H::writeQueue}}}
+\label{classMSHR__H_4b93a7397177a907d0ee3a3cebcbbbda}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/impl/\hyperlink{impl_2mshr_8h}{mshr.h}\item 
+source/components/none/\hyperlink{none_2mshr_8h}{mshr.h}\item 
+source/components/impl/\hyperlink{impl_2mshr_8cc}{mshr.cc}\item 
+source/components/none/\hyperlink{none_2mshr_8cc}{mshr.cc}\end{CompactItemize}

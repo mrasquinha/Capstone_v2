@@ -1,0 +1,177 @@
+\hypertarget{testTraceMesh_8cc}{
+\section{source/tests/testTraceMesh.cc File Reference}
+\label{testTraceMesh_8cc}\index{source/tests/testTraceMesh.cc@{source/tests/testTraceMesh.cc}}
+}
+{\tt \#include \char`\"{}networkSource.h\char`\"{}}\par
+{\tt \#include \char`\"{}packetSource.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/genericInterface.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/genericSink.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/genericLink.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/genericRouter.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/genericTPG.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/genericRPG.h\char`\"{}}\par
+{\tt \#include \char`\"{}../components/impl/mcFrontEnd.h\char`\"{}}\par
+{\tt \#include \char`\"{}../MemCtrl/MC.h\char`\"{}}\par
+{\tt \#include \char`\"{}../kernel/simulator.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{testTraceMesh_8cc_152fc5203b90b1cff03b7b78579b8f52}{\_\-DEBUG}~1
+\item 
+\#define \hyperlink{testTraceMesh_8cc_9afe02103541425bbfadd6a23f6764b7}{NO\_\-OF\_\-NODES}~4
+\item 
+\#define \hyperlink{testTraceMesh_8cc_34447a0ead5276aa045c4c11d14482f8}{NO\_\-OF\_\-MC}~1
+\item 
+\#define \hyperlink{testTraceMesh_8cc_2889f45119a9518cf5bae7ee4fffd810}{INJ\_\-PTS}~NO\_\-OF\_\-NODES - NO\_\-OF\_\-MC
+\item 
+\#define \hyperlink{testTraceMesh_8cc_08246606c233e7785a497c09672f366f}{GRID\_\-SIZE}~2
+\item 
+\#define \hyperlink{testTraceMesh_8cc_5ab4f1b55c6c3f27899336cbc5b5b523}{NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS}~(5+(GRID\_\-SIZE-1)$\ast$4)+((4+(GRID\_\-SIZE-1)$\ast$3)$\ast$(GRID\_\-SIZE-1))
+\item 
+\#define \hyperlink{testTraceMesh_8cc_e4b1f80f40f20c3c197f1af6e542abc0}{PORTS}~5
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{testTraceMesh_8cc_9ebf0fcb1a0c46ba7dc6aaace3ae54f8}{set\_\-connections} ()
+\item 
+void \hyperlink{testTraceMesh_8cc_071e395e4888c8a3d59cc1156427856d}{generic\_\-mesh\_\-test} ()
+\item 
+int \hyperlink{testTraceMesh_8cc_0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+string \hyperlink{testTraceMesh_8cc_81838a8dbc1e9d8c69553d0dc09f997d}{trace}
+\item 
+vector$<$ \hyperlink{classRouter}{Router} $\ast$ $>$ \hyperlink{testTraceMesh_8cc_aa2ad44b53b1acf6bb61136bc6012a48}{routers}
+\item 
+vector$<$ \hyperlink{classProcessor}{Processor} $\ast$ $>$ \hyperlink{testTraceMesh_8cc_6d56155de1f4158f47b742a7abbab3ff}{end\_\-sink\_\-source}
+\item 
+vector$<$ \hyperlink{classInterface}{Interface} $\ast$ $>$ \hyperlink{testTraceMesh_8cc_783fe3b93645da114ee802b298fa620c}{interfaces}
+\item 
+vector$<$ \hyperlink{classGenericLink}{GenericLink} $\ast$ $>$ \hyperlink{testTraceMesh_8cc_5517bb4c578f182646cf20eaae5eefee}{link\_\-a}
+\item 
+vector$<$ \hyperlink{classGenericLink}{GenericLink} $\ast$ $>$ \hyperlink{testTraceMesh_8cc_5a144d0169b9e820d2d0c59e5033aae3}{link\_\-b}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{testTraceMesh_8cc_152fc5203b90b1cff03b7b78579b8f52}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!\_\-DEBUG@{\_\-DEBUG}}
+\index{\_\-DEBUG@{\_\-DEBUG}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{\_\-DEBUG}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-DEBUG~1}}
+\label{testTraceMesh_8cc_152fc5203b90b1cff03b7b78579b8f52}
+
+
+\hypertarget{testTraceMesh_8cc_08246606c233e7785a497c09672f366f}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!GRID\_\-SIZE@{GRID\_\-SIZE}}
+\index{GRID\_\-SIZE@{GRID\_\-SIZE}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{GRID\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define GRID\_\-SIZE~2}}
+\label{testTraceMesh_8cc_08246606c233e7785a497c09672f366f}
+
+
+\hypertarget{testTraceMesh_8cc_2889f45119a9518cf5bae7ee4fffd810}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!INJ\_\-PTS@{INJ\_\-PTS}}
+\index{INJ\_\-PTS@{INJ\_\-PTS}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{INJ\_\-PTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define INJ\_\-PTS~NO\_\-OF\_\-NODES - NO\_\-OF\_\-MC}}
+\label{testTraceMesh_8cc_2889f45119a9518cf5bae7ee4fffd810}
+
+
+\hypertarget{testTraceMesh_8cc_34447a0ead5276aa045c4c11d14482f8}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!NO\_\-OF\_\-MC@{NO\_\-OF\_\-MC}}
+\index{NO\_\-OF\_\-MC@{NO\_\-OF\_\-MC}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{NO\_\-OF\_\-MC}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-MC~1}}
+\label{testTraceMesh_8cc_34447a0ead5276aa045c4c11d14482f8}
+
+
+\hypertarget{testTraceMesh_8cc_9afe02103541425bbfadd6a23f6764b7}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!NO\_\-OF\_\-NODES@{NO\_\-OF\_\-NODES}}
+\index{NO\_\-OF\_\-NODES@{NO\_\-OF\_\-NODES}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{NO\_\-OF\_\-NODES}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-NODES~4}}
+\label{testTraceMesh_8cc_9afe02103541425bbfadd6a23f6764b7}
+
+
+\hypertarget{testTraceMesh_8cc_5ab4f1b55c6c3f27899336cbc5b5b523}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS@{NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS}}
+\index{NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS@{NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-OF\_\-UNIDIRECTIONAL\_\-LINKS~(5+(GRID\_\-SIZE-1)$\ast$4)+((4+(GRID\_\-SIZE-1)$\ast$3)$\ast$(GRID\_\-SIZE-1))}}
+\label{testTraceMesh_8cc_5ab4f1b55c6c3f27899336cbc5b5b523}
+
+
+\hypertarget{testTraceMesh_8cc_e4b1f80f40f20c3c197f1af6e542abc0}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!PORTS@{PORTS}}
+\index{PORTS@{PORTS}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{PORTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define PORTS~5}}
+\label{testTraceMesh_8cc_e4b1f80f40f20c3c197f1af6e542abc0}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{testTraceMesh_8cc_071e395e4888c8a3d59cc1156427856d}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!generic\_\-mesh\_\-test@{generic\_\-mesh\_\-test}}
+\index{generic\_\-mesh\_\-test@{generic\_\-mesh\_\-test}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{generic\_\-mesh\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void generic\_\-mesh\_\-test ()}}
+\label{testTraceMesh_8cc_071e395e4888c8a3d59cc1156427856d}
+
+
+\hypertarget{testTraceMesh_8cc_0ddf1224851353fc92bfbff6f499fa97}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!main@{main}}
+\index{main@{main}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{testTraceMesh_8cc_0ddf1224851353fc92bfbff6f499fa97}
+
+
+\hypertarget{testTraceMesh_8cc_9ebf0fcb1a0c46ba7dc6aaace3ae54f8}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!set\_\-connections@{set\_\-connections}}
+\index{set\_\-connections@{set\_\-connections}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{set\_\-connections}]{\setlength{\rightskip}{0pt plus 5cm}void set\_\-connections ()}}
+\label{testTraceMesh_8cc_9ebf0fcb1a0c46ba7dc6aaace3ae54f8}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{testTraceMesh_8cc_6d56155de1f4158f47b742a7abbab3ff}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!end\_\-sink\_\-source@{end\_\-sink\_\-source}}
+\index{end\_\-sink\_\-source@{end\_\-sink\_\-source}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{end\_\-sink\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Processor}$\ast$$>$ {\bf end\_\-sink\_\-source}}}
+\label{testTraceMesh_8cc_6d56155de1f4158f47b742a7abbab3ff}
+
+
+\hypertarget{testTraceMesh_8cc_783fe3b93645da114ee802b298fa620c}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!interfaces@{interfaces}}
+\index{interfaces@{interfaces}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{interfaces}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Interface}$\ast$$>$ {\bf interfaces}}}
+\label{testTraceMesh_8cc_783fe3b93645da114ee802b298fa620c}
+
+
+\hypertarget{testTraceMesh_8cc_5517bb4c578f182646cf20eaae5eefee}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!link\_\-a@{link\_\-a}}
+\index{link\_\-a@{link\_\-a}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{link\_\-a}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf GenericLink}$\ast$$>$ {\bf link\_\-a}}}
+\label{testTraceMesh_8cc_5517bb4c578f182646cf20eaae5eefee}
+
+
+\hypertarget{testTraceMesh_8cc_5a144d0169b9e820d2d0c59e5033aae3}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!link\_\-b@{link\_\-b}}
+\index{link\_\-b@{link\_\-b}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{link\_\-b}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf GenericLink}$\ast$$>$ {\bf link\_\-b}}}
+\label{testTraceMesh_8cc_5a144d0169b9e820d2d0c59e5033aae3}
+
+
+\hypertarget{testTraceMesh_8cc_aa2ad44b53b1acf6bb61136bc6012a48}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!routers@{routers}}
+\index{routers@{routers}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{routers}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Router}$\ast$$>$ {\bf routers}}}
+\label{testTraceMesh_8cc_aa2ad44b53b1acf6bb61136bc6012a48}
+
+
+\hypertarget{testTraceMesh_8cc_81838a8dbc1e9d8c69553d0dc09f997d}{
+\index{testTraceMesh.cc@{testTraceMesh.cc}!trace@{trace}}
+\index{trace@{trace}!testTraceMesh.cc@{testTraceMesh.cc}}
+\subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf trace}}}
+\label{testTraceMesh_8cc_81838a8dbc1e9d8c69553d0dc09f997d}
+
+

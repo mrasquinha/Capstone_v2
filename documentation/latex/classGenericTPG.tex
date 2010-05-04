@@ -1,0 +1,314 @@
+\hypertarget{classGenericTPG}{
+\section{GenericTPG Class Reference}
+\label{classGenericTPG}\index{GenericTPG@{GenericTPG}}
+}
+{\tt \#include $<$genericTPG.h$>$}
+
+Inheritance diagram for GenericTPG::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classGenericTPG}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGenericTPG_4caf5cdc5c95a600391ecd2eb2c071fc}{GenericTPG} ()
+\item 
+\hyperlink{classGenericTPG_f1c645245af41d6b21eef232ff65587a}{$\sim$GenericTPG} ()
+\item 
+void \hyperlink{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}{setup} ()
+\item 
+void \hyperlink{classGenericTPG_8dd8fa2cd2721789a63084d8fe912366}{finish} ()
+\item 
+void \hyperlink{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)
+\item 
+string \hyperlink{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{toString} () const 
+\item 
+void \hyperlink{classGenericTPG_fe1f30bce868ee2caa01d3f7a2229945}{set\_\-trace\_\-filename} (string filename)
+\item 
+void \hyperlink{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}{set\_\-no\_\-vcs} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} v)
+\item 
+bool \hyperlink{classGenericTPG_d26b3d9a264ebe07d44b9194626c98d7}{compare} ()
+\item 
+set$<$ \hyperlink{classHighLevelPacket}{HighLevelPacket} $>$ \hyperlink{classGenericTPG_2b424dd4b2f5aa07a0231d69d5790470}{get\_\-all\_\-sent} ()
+\item 
+set$<$ \hyperlink{classHighLevelPacket}{HighLevelPacket} $>$ \hyperlink{classGenericTPG_aca7529b0e19d664ee40392b7761e338}{get\_\-all\_\-recv} ()
+\item 
+bool \hyperlink{classGenericTPG_e0d0461b59107eb3b4facb4d29ada948}{GetNewRequest} (\hyperlink{classRequest}{Request} $\ast$req)
+\item 
+\hyperlink{classRequest}{Request} $\ast$ \hyperlink{classGenericTPG_ec1a1105fdd72ac3ba86ab577c1f5226}{GetRequest} ()
+\item 
+\hyperlink{classGenericTPG_4caf5cdc5c95a600391ecd2eb2c071fc}{GenericTPG} ()
+\item 
+\hyperlink{classGenericTPG_f1c645245af41d6b21eef232ff65587a}{$\sim$GenericTPG} ()
+\item 
+void \hyperlink{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}{setup} ()
+\item 
+void \hyperlink{classGenericTPG_8dd8fa2cd2721789a63084d8fe912366}{finish} ()
+\item 
+void \hyperlink{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)
+\item 
+string \hyperlink{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{toString} () const 
+\item 
+void \hyperlink{classGenericTPG_fe1f30bce868ee2caa01d3f7a2229945}{set\_\-trace\_\-filename} (string filename)
+\item 
+void \hyperlink{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}{set\_\-no\_\-vcs} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} v)
+\item 
+bool \hyperlink{classGenericTPG_d26b3d9a264ebe07d44b9194626c98d7}{compare} ()
+\item 
+set$<$ \hyperlink{classHighLevelPacket}{HighLevelPacket} $>$ \hyperlink{classGenericTPG_2b424dd4b2f5aa07a0231d69d5790470}{get\_\-all\_\-sent} ()
+\item 
+set$<$ \hyperlink{classHighLevelPacket}{HighLevelPacket} $>$ \hyperlink{classGenericTPG_aca7529b0e19d664ee40392b7761e338}{get\_\-all\_\-recv} ()
+\item 
+bool \hyperlink{classGenericTPG_e0d0461b59107eb3b4facb4d29ada948}{GetNewRequest} (\hyperlink{classRequest}{Request} $\ast$req)
+\item 
+\hyperlink{classRequest}{Request} $\ast$ \hyperlink{classGenericTPG_2e30905e10685209af2c6ff15bb4f07a}{GetRequest} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+unsigned int \hyperlink{classGenericTPG_373e1e2904c42be961f521c8b32e9f1e}{packets}
+\item 
+\hyperlink{classMSHR__H}{MSHR\_\-H} $\ast$ \hyperlink{classGenericTPG_03a0346d54282502eae314c9525da513}{mshrHandler}
+\item 
+unsigned long long int \hyperlink{classGenericTPG_f2b6690d9c38e72a408cde91480fe13e}{max\_\-time}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGenericTPG_4caf5cdc5c95a600391ecd2eb2c071fc}{
+\index{GenericTPG@{GenericTPG}!GenericTPG@{GenericTPG}}
+\index{GenericTPG@{GenericTPG}!GenericTPG@{GenericTPG}}
+\subsubsection[{GenericTPG}]{\setlength{\rightskip}{0pt plus 5cm}GenericTPG::GenericTPG ()}}
+\label{classGenericTPG_4caf5cdc5c95a600391ecd2eb2c071fc}
+
+
+\hypertarget{classGenericTPG_f1c645245af41d6b21eef232ff65587a}{
+\index{GenericTPG@{GenericTPG}!$\sim$GenericTPG@{$\sim$GenericTPG}}
+\index{$\sim$GenericTPG@{$\sim$GenericTPG}!GenericTPG@{GenericTPG}}
+\subsubsection[{$\sim$GenericTPG}]{\setlength{\rightskip}{0pt plus 5cm}GenericTPG::$\sim$GenericTPG ()}}
+\label{classGenericTPG_f1c645245af41d6b21eef232ff65587a}
+
+
+\hypertarget{classGenericTPG_4caf5cdc5c95a600391ecd2eb2c071fc}{
+\index{GenericTPG@{GenericTPG}!GenericTPG@{GenericTPG}}
+\index{GenericTPG@{GenericTPG}!GenericTPG@{GenericTPG}}
+\subsubsection[{GenericTPG}]{\setlength{\rightskip}{0pt plus 5cm}GenericTPG::GenericTPG ()}}
+\label{classGenericTPG_4caf5cdc5c95a600391ecd2eb2c071fc}
+
+
+\hypertarget{classGenericTPG_f1c645245af41d6b21eef232ff65587a}{
+\index{GenericTPG@{GenericTPG}!$\sim$GenericTPG@{$\sim$GenericTPG}}
+\index{$\sim$GenericTPG@{$\sim$GenericTPG}!GenericTPG@{GenericTPG}}
+\subsubsection[{$\sim$GenericTPG}]{\setlength{\rightskip}{0pt plus 5cm}GenericTPG::$\sim$GenericTPG ()}}
+\label{classGenericTPG_f1c645245af41d6b21eef232ff65587a}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGenericTPG_d26b3d9a264ebe07d44b9194626c98d7}{
+\index{GenericTPG@{GenericTPG}!compare@{compare}}
+\index{compare@{compare}!GenericTPG@{GenericTPG}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericTPG::compare ()}}
+\label{classGenericTPG_d26b3d9a264ebe07d44b9194626c98d7}
+
+
+\hypertarget{classGenericTPG_d26b3d9a264ebe07d44b9194626c98d7}{
+\index{GenericTPG@{GenericTPG}!compare@{compare}}
+\index{compare@{compare}!GenericTPG@{GenericTPG}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericTPG::compare ()}}
+\label{classGenericTPG_d26b3d9a264ebe07d44b9194626c98d7}
+
+
+\hypertarget{classGenericTPG_8dd8fa2cd2721789a63084d8fe912366}{
+\index{GenericTPG@{GenericTPG}!finish@{finish}}
+\index{finish@{finish}!GenericTPG@{GenericTPG}}
+\subsubsection[{finish}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::finish ()}}
+\label{classGenericTPG_8dd8fa2cd2721789a63084d8fe912366}
+
+
+\hypertarget{classGenericTPG_8dd8fa2cd2721789a63084d8fe912366}{
+\index{GenericTPG@{GenericTPG}!finish@{finish}}
+\index{finish@{finish}!GenericTPG@{GenericTPG}}
+\subsubsection[{finish}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::finish ()}}
+\label{classGenericTPG_8dd8fa2cd2721789a63084d8fe912366}
+
+
+\hypertarget{classGenericTPG_aca7529b0e19d664ee40392b7761e338}{
+\index{GenericTPG@{GenericTPG}!get\_\-all\_\-recv@{get\_\-all\_\-recv}}
+\index{get\_\-all\_\-recv@{get\_\-all\_\-recv}!GenericTPG@{GenericTPG}}
+\subsubsection[{get\_\-all\_\-recv}]{\setlength{\rightskip}{0pt plus 5cm}set$<$ {\bf HighLevelPacket} $>$ GenericTPG::get\_\-all\_\-recv ()}}
+\label{classGenericTPG_aca7529b0e19d664ee40392b7761e338}
+
+
+\hypertarget{classGenericTPG_aca7529b0e19d664ee40392b7761e338}{
+\index{GenericTPG@{GenericTPG}!get\_\-all\_\-recv@{get\_\-all\_\-recv}}
+\index{get\_\-all\_\-recv@{get\_\-all\_\-recv}!GenericTPG@{GenericTPG}}
+\subsubsection[{get\_\-all\_\-recv}]{\setlength{\rightskip}{0pt plus 5cm}set$<$ {\bf HighLevelPacket} $>$ GenericTPG::get\_\-all\_\-recv ()}}
+\label{classGenericTPG_aca7529b0e19d664ee40392b7761e338}
+
+
+\hypertarget{classGenericTPG_2b424dd4b2f5aa07a0231d69d5790470}{
+\index{GenericTPG@{GenericTPG}!get\_\-all\_\-sent@{get\_\-all\_\-sent}}
+\index{get\_\-all\_\-sent@{get\_\-all\_\-sent}!GenericTPG@{GenericTPG}}
+\subsubsection[{get\_\-all\_\-sent}]{\setlength{\rightskip}{0pt plus 5cm}set$<$ {\bf HighLevelPacket} $>$ GenericTPG::get\_\-all\_\-sent ()}}
+\label{classGenericTPG_2b424dd4b2f5aa07a0231d69d5790470}
+
+
+\hypertarget{classGenericTPG_2b424dd4b2f5aa07a0231d69d5790470}{
+\index{GenericTPG@{GenericTPG}!get\_\-all\_\-sent@{get\_\-all\_\-sent}}
+\index{get\_\-all\_\-sent@{get\_\-all\_\-sent}!GenericTPG@{GenericTPG}}
+\subsubsection[{get\_\-all\_\-sent}]{\setlength{\rightskip}{0pt plus 5cm}set$<$ {\bf HighLevelPacket} $>$ GenericTPG::get\_\-all\_\-sent ()}}
+\label{classGenericTPG_2b424dd4b2f5aa07a0231d69d5790470}
+
+
+\hypertarget{classGenericTPG_e0d0461b59107eb3b4facb4d29ada948}{
+\index{GenericTPG@{GenericTPG}!GetNewRequest@{GetNewRequest}}
+\index{GetNewRequest@{GetNewRequest}!GenericTPG@{GenericTPG}}
+\subsubsection[{GetNewRequest}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericTPG::GetNewRequest ({\bf Request} $\ast$ {\em req})}}
+\label{classGenericTPG_e0d0461b59107eb3b4facb4d29ada948}
+
+
+\hypertarget{classGenericTPG_e0d0461b59107eb3b4facb4d29ada948}{
+\index{GenericTPG@{GenericTPG}!GetNewRequest@{GetNewRequest}}
+\index{GetNewRequest@{GetNewRequest}!GenericTPG@{GenericTPG}}
+\subsubsection[{GetNewRequest}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericTPG::GetNewRequest ({\bf Request} $\ast$ {\em req})}}
+\label{classGenericTPG_e0d0461b59107eb3b4facb4d29ada948}
+
+
+\hypertarget{classGenericTPG_2e30905e10685209af2c6ff15bb4f07a}{
+\index{GenericTPG@{GenericTPG}!GetRequest@{GetRequest}}
+\index{GetRequest@{GetRequest}!GenericTPG@{GenericTPG}}
+\subsubsection[{GetRequest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Request}$\ast$ GenericTPG::GetRequest ()}}
+\label{classGenericTPG_2e30905e10685209af2c6ff15bb4f07a}
+
+
+\hypertarget{classGenericTPG_ec1a1105fdd72ac3ba86ab577c1f5226}{
+\index{GenericTPG@{GenericTPG}!GetRequest@{GetRequest}}
+\index{GetRequest@{GetRequest}!GenericTPG@{GenericTPG}}
+\subsubsection[{GetRequest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Request} $\ast$ GenericTPG::GetRequest ()}}
+\label{classGenericTPG_ec1a1105fdd72ac3ba86ab577c1f5226}
+
+
+\hypertarget{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{
+\index{GenericTPG@{GenericTPG}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!GenericTPG@{GenericTPG}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_a2e59f102384206268808835bcb9d5b5}
+
+
+
+
+Implements \hyperlink{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}{Processor}.\hypertarget{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{
+\index{GenericTPG@{GenericTPG}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!GenericTPG@{GenericTPG}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_a2e59f102384206268808835bcb9d5b5}
+
+
+
+
+Implements \hyperlink{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}{Processor}.\hypertarget{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}{
+\index{GenericTPG@{GenericTPG}!set\_\-no\_\-vcs@{set\_\-no\_\-vcs}}
+\index{set\_\-no\_\-vcs@{set\_\-no\_\-vcs}!GenericTPG@{GenericTPG}}
+\subsubsection[{set\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::set\_\-no\_\-vcs ({\bf uint} {\em v})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}
+
+
+
+
+Implements \hyperlink{classProcessor_3280abfe3637712e09cc651b2d09732e}{Processor}.\hypertarget{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}{
+\index{GenericTPG@{GenericTPG}!set\_\-no\_\-vcs@{set\_\-no\_\-vcs}}
+\index{set\_\-no\_\-vcs@{set\_\-no\_\-vcs}!GenericTPG@{GenericTPG}}
+\subsubsection[{set\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::set\_\-no\_\-vcs ({\bf uint} {\em v})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}
+
+
+
+
+Implements \hyperlink{classProcessor_3280abfe3637712e09cc651b2d09732e}{Processor}.\hypertarget{classGenericTPG_fe1f30bce868ee2caa01d3f7a2229945}{
+\index{GenericTPG@{GenericTPG}!set\_\-trace\_\-filename@{set\_\-trace\_\-filename}}
+\index{set\_\-trace\_\-filename@{set\_\-trace\_\-filename}!GenericTPG@{GenericTPG}}
+\subsubsection[{set\_\-trace\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::set\_\-trace\_\-filename (string {\em filename})}}
+\label{classGenericTPG_fe1f30bce868ee2caa01d3f7a2229945}
+
+
+\hypertarget{classGenericTPG_fe1f30bce868ee2caa01d3f7a2229945}{
+\index{GenericTPG@{GenericTPG}!set\_\-trace\_\-filename@{set\_\-trace\_\-filename}}
+\index{set\_\-trace\_\-filename@{set\_\-trace\_\-filename}!GenericTPG@{GenericTPG}}
+\subsubsection[{set\_\-trace\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::set\_\-trace\_\-filename (string {\em filename})}}
+\label{classGenericTPG_fe1f30bce868ee2caa01d3f7a2229945}
+
+
+\hypertarget{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}{
+\index{GenericTPG@{GenericTPG}!setup@{setup}}
+\index{setup@{setup}!GenericTPG@{GenericTPG}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::setup ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}
+
+
+
+
+Implements \hyperlink{classProcessor_495fad01358e2d9760c526d6e2db53ea}{Processor}.\hypertarget{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}{
+\index{GenericTPG@{GenericTPG}!setup@{setup}}
+\index{setup@{setup}!GenericTPG@{GenericTPG}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void GenericTPG::setup ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}
+
+
+
+
+Implements \hyperlink{classProcessor_495fad01358e2d9760c526d6e2db53ea}{Processor}.\hypertarget{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{
+\index{GenericTPG@{GenericTPG}!toString@{toString}}
+\index{toString@{toString}!GenericTPG@{GenericTPG}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericTPG::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}
+
+
+
+
+Reimplemented from \hyperlink{classProcessor_d3bdbedfbb00b05f61504e411a418106}{Processor}.\hypertarget{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{
+\index{GenericTPG@{GenericTPG}!toString@{toString}}
+\index{toString@{toString}!GenericTPG@{GenericTPG}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericTPG::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}
+
+
+
+
+Reimplemented from \hyperlink{classProcessor_d3bdbedfbb00b05f61504e411a418106}{Processor}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classGenericTPG_f2b6690d9c38e72a408cde91480fe13e}{
+\index{GenericTPG@{GenericTPG}!max\_\-time@{max\_\-time}}
+\index{max\_\-time@{max\_\-time}!GenericTPG@{GenericTPG}}
+\subsubsection[{max\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long int {\bf GenericTPG::max\_\-time}}}
+\label{classGenericTPG_f2b6690d9c38e72a408cde91480fe13e}
+
+
+\hypertarget{classGenericTPG_03a0346d54282502eae314c9525da513}{
+\index{GenericTPG@{GenericTPG}!mshrHandler@{mshrHandler}}
+\index{mshrHandler@{mshrHandler}!GenericTPG@{GenericTPG}}
+\subsubsection[{mshrHandler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MSHR\_\-H} $\ast$ {\bf GenericTPG::mshrHandler}}}
+\label{classGenericTPG_03a0346d54282502eae314c9525da513}
+
+
+\hypertarget{classGenericTPG_373e1e2904c42be961f521c8b32e9f1e}{
+\index{GenericTPG@{GenericTPG}!packets@{packets}}
+\index{packets@{packets}!GenericTPG@{GenericTPG}}
+\subsubsection[{packets}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf GenericTPG::packets}}}
+\label{classGenericTPG_373e1e2904c42be961f521c8b32e9f1e}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/impl/\hyperlink{impl_2genericTPG_8h}{genericTPG.h}\item 
+source/components/none/\hyperlink{none_2genericTPG_8h}{genericTPG.h}\item 
+source/components/impl/\hyperlink{impl_2genericTPG_8cc}{genericTPG.cc}\item 
+source/components/impl/\hyperlink{impl_2genericTPG__temp_8cc}{genericTPG\_\-temp.cc}\item 
+source/components/none/\hyperlink{none_2genericTPG_8cc}{genericTPG.cc}\item 
+source/components/none/\hyperlink{none_2genericTPG__temp_8cc}{genericTPG\_\-temp.cc}\end{CompactItemize}

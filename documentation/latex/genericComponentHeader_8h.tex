@@ -1,0 +1,179 @@
+\hypertarget{genericComponentHeader_8h}{
+\section{source/components/interfaces/genericComponentHeader.h File Reference}
+\label{genericComponentHeader_8h}\index{source/components/interfaces/genericComponentHeader.h@{source/components/interfaces/genericComponentHeader.h}}
+}
+{\tt \#include $<$cstdlib$>$}\par
+{\tt \#include $<$cassert$>$}\par
+{\tt \#include \char`\"{}../../data\_\-types/impl/util.h\char`\"{}}\par
+{\tt \#include \char`\"{}../../data\_\-types/impl/util.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{genericComponentHeader_8h_838ee749ec1dfd8d73187bb32e9ec427}{DEFAULT\_\-ADDRESS}~0
+\item 
+\#define \hyperlink{genericComponentHeader_8h_4cd25c48b8874affbec9785d9d4ba055}{DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES}~1
+\item 
+\#define \hyperlink{genericComponentHeader_8h_68de9030c39965958f08402f7d452ad9}{NO\_\-DATA}~true
+\item 
+\#define \hyperlink{genericComponentHeader_8h_4c17fe87d84664c123df538e6be7fa5c}{FLIT\_\-ID}~9800
+\item 
+\#define \hyperlink{genericComponentHeader_8h_2d879516eff32a88299e25eb5a377fee}{CREDIT\_\-ID}~9801
+\item 
+\#define \hyperlink{genericComponentHeader_8h_d8e040466c3a1ce9fc07153e7360ba21}{MAX\_\-SIM\_\-TIME}~10000000
+\item 
+\#define \hyperlink{genericComponentHeader_8h_0fee446a4a4ef6536664bc1ff47ff694}{LOC}~std::cout $<$$<$ \char`\"{}$\backslash$nTime:\char`\"{} $<$$<$ Simulator::Now() $<$$<$\char`\"{} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} \char`\"{} $<$$<$ address $<$$<$ \char`\"{} \char`\"{} $<$$<$ node\_\-ip $<$$<$ \char`\"{} \char`\"{};
+\item 
+\#define \hyperlink{genericComponentHeader_8h_db8be0abb314b4cd0da20a9aa45a473e}{\_\-DBG}(fmt,...)~LOC printf(fmt,\_\-\_\-VA\_\-ARGS\_\-\_\-);
+\item 
+\#define \hyperlink{genericComponentHeader_8h_34e0f121e3b717b1a15c6f90dae9f5d5}{\_\-DBG\_\-NOARG}(fmt)~LOC printf(fmt);
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef unsigned long int \hyperlink{genericComponentHeader_8h_880960a57c549f69d77cf01237366978}{uniqueId}
+\item 
+typedef unsigned long long int \hyperlink{genericComponentHeader_8h_d88faca783e7aa496cda721d9029a2e3}{simTime}
+\item 
+typedef unsigned int \hyperlink{genericComponentHeader_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const unsigned int \hyperlink{genericComponentHeader_8h_a11688d7b68d9e3b60784e388b3a94c8}{max\_\-network\_\-node\_\-bits} = 8
+\item 
+const unsigned int \hyperlink{genericComponentHeader_8h_e9d4ad2616273861c9fba6d0aadef06c}{max\_\-phy\_\-link\_\-bits} = 20
+\item 
+const unsigned int \hyperlink{genericComponentHeader_8h_df297dfc5bd1387de6bec325bfa30f23}{max\_\-transaction\_\-id\_\-bits} = 8
+\item 
+const unsigned int \hyperlink{genericComponentHeader_8h_5865e4b460e585b9a53f2dfa6a5839ae}{max\_\-tail\_\-length\_\-bits} = 8
+\item 
+const unsigned int \hyperlink{genericComponentHeader_8h_3c2da81fd84ab0358092e3b47aac3b3c}{max\_\-control\_\-bits} = 8
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{genericComponentHeader_8h_db8be0abb314b4cd0da20a9aa45a473e}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!\_\-DBG@{\_\-DBG}}
+\index{\_\-DBG@{\_\-DBG}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{\_\-DBG}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-DBG(fmt, \/   {\em ...})~LOC printf(fmt,\_\-\_\-VA\_\-ARGS\_\-\_\-);}}
+\label{genericComponentHeader_8h_db8be0abb314b4cd0da20a9aa45a473e}
+
+
+\hypertarget{genericComponentHeader_8h_34e0f121e3b717b1a15c6f90dae9f5d5}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!\_\-DBG\_\-NOARG@{\_\-DBG\_\-NOARG}}
+\index{\_\-DBG\_\-NOARG@{\_\-DBG\_\-NOARG}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{\_\-DBG\_\-NOARG}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-DBG\_\-NOARG(fmt)~LOC printf(fmt);}}
+\label{genericComponentHeader_8h_34e0f121e3b717b1a15c6f90dae9f5d5}
+
+
+\hypertarget{genericComponentHeader_8h_2d879516eff32a88299e25eb5a377fee}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!CREDIT\_\-ID@{CREDIT\_\-ID}}
+\index{CREDIT\_\-ID@{CREDIT\_\-ID}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{CREDIT\_\-ID}]{\setlength{\rightskip}{0pt plus 5cm}\#define CREDIT\_\-ID~9801}}
+\label{genericComponentHeader_8h_2d879516eff32a88299e25eb5a377fee}
+
+
+\hypertarget{genericComponentHeader_8h_838ee749ec1dfd8d73187bb32e9ec427}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!DEFAULT\_\-ADDRESS@{DEFAULT\_\-ADDRESS}}
+\index{DEFAULT\_\-ADDRESS@{DEFAULT\_\-ADDRESS}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{DEFAULT\_\-ADDRESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-ADDRESS~0}}
+\label{genericComponentHeader_8h_838ee749ec1dfd8d73187bb32e9ec427}
+
+
+\hypertarget{genericComponentHeader_8h_4cd25c48b8874affbec9785d9d4ba055}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES@{DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES}}
+\index{DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES@{DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-CONVERT\_\-PACKET\_\-CYCLES~1}}
+\label{genericComponentHeader_8h_4cd25c48b8874affbec9785d9d4ba055}
+
+
+\hypertarget{genericComponentHeader_8h_4c17fe87d84664c123df538e6be7fa5c}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!FLIT\_\-ID@{FLIT\_\-ID}}
+\index{FLIT\_\-ID@{FLIT\_\-ID}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{FLIT\_\-ID}]{\setlength{\rightskip}{0pt plus 5cm}\#define FLIT\_\-ID~9800}}
+\label{genericComponentHeader_8h_4c17fe87d84664c123df538e6be7fa5c}
+
+
+\hypertarget{genericComponentHeader_8h_0fee446a4a4ef6536664bc1ff47ff694}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!LOC@{LOC}}
+\index{LOC@{LOC}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{LOC}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOC~std::cout $<$$<$ \char`\"{}$\backslash$nTime:\char`\"{} $<$$<$ Simulator::Now() $<$$<$\char`\"{} \char`\"{} $<$$<$ name $<$$<$ \char`\"{} \char`\"{} $<$$<$ address $<$$<$ \char`\"{} \char`\"{} $<$$<$ node\_\-ip $<$$<$ \char`\"{} \char`\"{};}}
+\label{genericComponentHeader_8h_0fee446a4a4ef6536664bc1ff47ff694}
+
+
+\hypertarget{genericComponentHeader_8h_d8e040466c3a1ce9fc07153e7360ba21}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!MAX\_\-SIM\_\-TIME@{MAX\_\-SIM\_\-TIME}}
+\index{MAX\_\-SIM\_\-TIME@{MAX\_\-SIM\_\-TIME}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{MAX\_\-SIM\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-SIM\_\-TIME~10000000}}
+\label{genericComponentHeader_8h_d8e040466c3a1ce9fc07153e7360ba21}
+
+
+\hypertarget{genericComponentHeader_8h_68de9030c39965958f08402f7d452ad9}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!NO\_\-DATA@{NO\_\-DATA}}
+\index{NO\_\-DATA@{NO\_\-DATA}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{NO\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-DATA~true}}
+\label{genericComponentHeader_8h_68de9030c39965958f08402f7d452ad9}
+
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{genericComponentHeader_8h_d88faca783e7aa496cda721d9029a2e3}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!simTime@{simTime}}
+\index{simTime@{simTime}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{simTime}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long long int {\bf simTime}}}
+\label{genericComponentHeader_8h_d88faca783e7aa496cda721d9029a2e3}
+
+
+\hypertarget{genericComponentHeader_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!uint@{uint}}
+\index{uint@{uint}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{uint}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf uint}}}
+\label{genericComponentHeader_8h_91ad9478d81a7aaf2593e8d9c3d06a14}
+
+
+\hypertarget{genericComponentHeader_8h_880960a57c549f69d77cf01237366978}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!uniqueId@{uniqueId}}
+\index{uniqueId@{uniqueId}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{uniqueId}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long int {\bf uniqueId}}}
+\label{genericComponentHeader_8h_880960a57c549f69d77cf01237366978}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{genericComponentHeader_8h_3c2da81fd84ab0358092e3b47aac3b3c}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!max\_\-control\_\-bits@{max\_\-control\_\-bits}}
+\index{max\_\-control\_\-bits@{max\_\-control\_\-bits}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{max\_\-control\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int {\bf max\_\-control\_\-bits} = 8}}
+\label{genericComponentHeader_8h_3c2da81fd84ab0358092e3b47aac3b3c}
+
+
+\hypertarget{genericComponentHeader_8h_a11688d7b68d9e3b60784e388b3a94c8}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!max\_\-network\_\-node\_\-bits@{max\_\-network\_\-node\_\-bits}}
+\index{max\_\-network\_\-node\_\-bits@{max\_\-network\_\-node\_\-bits}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{max\_\-network\_\-node\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int {\bf max\_\-network\_\-node\_\-bits} = 8}}
+\label{genericComponentHeader_8h_a11688d7b68d9e3b60784e388b3a94c8}
+
+
+\hypertarget{genericComponentHeader_8h_e9d4ad2616273861c9fba6d0aadef06c}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!max\_\-phy\_\-link\_\-bits@{max\_\-phy\_\-link\_\-bits}}
+\index{max\_\-phy\_\-link\_\-bits@{max\_\-phy\_\-link\_\-bits}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{max\_\-phy\_\-link\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int {\bf max\_\-phy\_\-link\_\-bits} = 20}}
+\label{genericComponentHeader_8h_e9d4ad2616273861c9fba6d0aadef06c}
+
+
+\hypertarget{genericComponentHeader_8h_5865e4b460e585b9a53f2dfa6a5839ae}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!max\_\-tail\_\-length\_\-bits@{max\_\-tail\_\-length\_\-bits}}
+\index{max\_\-tail\_\-length\_\-bits@{max\_\-tail\_\-length\_\-bits}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{max\_\-tail\_\-length\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int {\bf max\_\-tail\_\-length\_\-bits} = 8}}
+\label{genericComponentHeader_8h_5865e4b460e585b9a53f2dfa6a5839ae}
+
+
+\hypertarget{genericComponentHeader_8h_df297dfc5bd1387de6bec325bfa30f23}{
+\index{genericComponentHeader.h@{genericComponentHeader.h}!max\_\-transaction\_\-id\_\-bits@{max\_\-transaction\_\-id\_\-bits}}
+\index{max\_\-transaction\_\-id\_\-bits@{max\_\-transaction\_\-id\_\-bits}!genericComponentHeader.h@{genericComponentHeader.h}}
+\subsubsection[{max\_\-transaction\_\-id\_\-bits}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int {\bf max\_\-transaction\_\-id\_\-bits} = 8}}
+\label{genericComponentHeader_8h_df297dfc5bd1387de6bec325bfa30f23}
+
+

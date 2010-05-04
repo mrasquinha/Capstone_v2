@@ -1,0 +1,153 @@
+\hypertarget{classMyArbiter}{
+\section{MyArbiter Class Reference}
+\label{classMyArbiter}\index{MyArbiter@{MyArbiter}}
+}
+{\tt \#include $<$myArbiter.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classMyArbiter_7050348ffbfcaba0645ec071d9695600}{MyArbiter} ()
+\item 
+\hyperlink{classMyArbiter_ba1f0d2abd1a1c993f3970a1c135a3c1}{$\sim$MyArbiter} ()
+\item 
+void \hyperlink{classMyArbiter_a2ae3de19a21c39f6bccf332976d2c81}{resize} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c)
+\item 
+bool \hyperlink{classMyArbiter_4fe8d6a9091e160c2c500bceb455ba71}{is\_\-requested} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} inp, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} inch, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c)
+\item 
+void \hyperlink{classMyArbiter_565ff83b3e9dbca9b2d92cdec6c1f5da}{request} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} inp, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} inch)
+\item 
+\hyperlink{classVCA__unit}{VCA\_\-unit} \hyperlink{classMyArbiter_9ae248e0ec7f01d68b0ca4108f954d77}{pick\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c)
+\item 
+void \hyperlink{classMyArbiter_871cdb7c56ea8d1d28f05baea1e985b1}{clear\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ip, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ic)
+\item 
+bool \hyperlink{classMyArbiter_26d587edddcee3e79772109317124927}{is\_\-empty} ()
+\item 
+bool \hyperlink{classMyArbiter_5c29ed3eee201fbb92f61e6debc1ba91}{is\_\-empty\_\-for\_\-ch} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classMyArbiter_e4e3428f44129f79fc10c5b0f4cd51f4}{no\_\-requests\_\-ch} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+string \hyperlink{classMyArbiter_170c7d52952f17cf6e6a00130b503455}{toString} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classMyArbiter_4e879ce8ea05c997de5a71af66bae3a5}{address}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classMyArbiter_0d635db925d8b449f5978ebeb1cfe923}{name}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classMyArbiter_49b1876be705a202c9243f6ec560eae0}{node\_\-ip}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMyArbiter_7050348ffbfcaba0645ec071d9695600}{
+\index{MyArbiter@{MyArbiter}!MyArbiter@{MyArbiter}}
+\index{MyArbiter@{MyArbiter}!MyArbiter@{MyArbiter}}
+\subsubsection[{MyArbiter}]{\setlength{\rightskip}{0pt plus 5cm}MyArbiter::MyArbiter ()}}
+\label{classMyArbiter_7050348ffbfcaba0645ec071d9695600}
+
+
+\hypertarget{classMyArbiter_ba1f0d2abd1a1c993f3970a1c135a3c1}{
+\index{MyArbiter@{MyArbiter}!$\sim$MyArbiter@{$\sim$MyArbiter}}
+\index{$\sim$MyArbiter@{$\sim$MyArbiter}!MyArbiter@{MyArbiter}}
+\subsubsection[{$\sim$MyArbiter}]{\setlength{\rightskip}{0pt plus 5cm}MyArbiter::$\sim$MyArbiter ()}}
+\label{classMyArbiter_ba1f0d2abd1a1c993f3970a1c135a3c1}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMyArbiter_871cdb7c56ea8d1d28f05baea1e985b1}{
+\index{MyArbiter@{MyArbiter}!clear\_\-winner@{clear\_\-winner}}
+\index{clear\_\-winner@{clear\_\-winner}!MyArbiter@{MyArbiter}}
+\subsubsection[{clear\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}void MyArbiter::clear\_\-winner ({\bf uint} {\em p}, \/  {\bf uint} {\em c}, \/  {\bf uint} {\em ip}, \/  {\bf uint} {\em ic})}}
+\label{classMyArbiter_871cdb7c56ea8d1d28f05baea1e985b1}
+
+
+\hypertarget{classMyArbiter_26d587edddcee3e79772109317124927}{
+\index{MyArbiter@{MyArbiter}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!MyArbiter@{MyArbiter}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}bool MyArbiter::is\_\-empty ()}}
+\label{classMyArbiter_26d587edddcee3e79772109317124927}
+
+
+\hypertarget{classMyArbiter_5c29ed3eee201fbb92f61e6debc1ba91}{
+\index{MyArbiter@{MyArbiter}!is\_\-empty\_\-for\_\-ch@{is\_\-empty\_\-for\_\-ch}}
+\index{is\_\-empty\_\-for\_\-ch@{is\_\-empty\_\-for\_\-ch}!MyArbiter@{MyArbiter}}
+\subsubsection[{is\_\-empty\_\-for\_\-ch}]{\setlength{\rightskip}{0pt plus 5cm}bool MyArbiter::is\_\-empty\_\-for\_\-ch ({\bf uint} {\em ch})}}
+\label{classMyArbiter_5c29ed3eee201fbb92f61e6debc1ba91}
+
+
+\hypertarget{classMyArbiter_4fe8d6a9091e160c2c500bceb455ba71}{
+\index{MyArbiter@{MyArbiter}!is\_\-requested@{is\_\-requested}}
+\index{is\_\-requested@{is\_\-requested}!MyArbiter@{MyArbiter}}
+\subsubsection[{is\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}bool MyArbiter::is\_\-requested ({\bf uint} {\em inp}, \/  {\bf uint} {\em inch}, \/  {\bf uint} {\em p}, \/  {\bf uint} {\em c})}}
+\label{classMyArbiter_4fe8d6a9091e160c2c500bceb455ba71}
+
+
+\hypertarget{classMyArbiter_e4e3428f44129f79fc10c5b0f4cd51f4}{
+\index{MyArbiter@{MyArbiter}!no\_\-requests\_\-ch@{no\_\-requests\_\-ch}}
+\index{no\_\-requests\_\-ch@{no\_\-requests\_\-ch}!MyArbiter@{MyArbiter}}
+\subsubsection[{no\_\-requests\_\-ch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} MyArbiter::no\_\-requests\_\-ch ({\bf uint} {\em ch})}}
+\label{classMyArbiter_e4e3428f44129f79fc10c5b0f4cd51f4}
+
+
+\hypertarget{classMyArbiter_9ae248e0ec7f01d68b0ca4108f954d77}{
+\index{MyArbiter@{MyArbiter}!pick\_\-winner@{pick\_\-winner}}
+\index{pick\_\-winner@{pick\_\-winner}!MyArbiter@{MyArbiter}}
+\subsubsection[{pick\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VCA\_\-unit} MyArbiter::pick\_\-winner ({\bf uint} {\em p}, \/  {\bf uint} {\em c})}}
+\label{classMyArbiter_9ae248e0ec7f01d68b0ca4108f954d77}
+
+
+\hypertarget{classMyArbiter_565ff83b3e9dbca9b2d92cdec6c1f5da}{
+\index{MyArbiter@{MyArbiter}!request@{request}}
+\index{request@{request}!MyArbiter@{MyArbiter}}
+\subsubsection[{request}]{\setlength{\rightskip}{0pt plus 5cm}void MyArbiter::request ({\bf uint} {\em p}, \/  {\bf uint} {\em c}, \/  {\bf uint} {\em inp}, \/  {\bf uint} {\em inch})}}
+\label{classMyArbiter_565ff83b3e9dbca9b2d92cdec6c1f5da}
+
+
+\hypertarget{classMyArbiter_a2ae3de19a21c39f6bccf332976d2c81}{
+\index{MyArbiter@{MyArbiter}!resize@{resize}}
+\index{resize@{resize}!MyArbiter@{MyArbiter}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}void MyArbiter::resize ({\bf uint} {\em p}, \/  {\bf uint} {\em c})}}
+\label{classMyArbiter_a2ae3de19a21c39f6bccf332976d2c81}
+
+
+\hypertarget{classMyArbiter_170c7d52952f17cf6e6a00130b503455}{
+\index{MyArbiter@{MyArbiter}!toString@{toString}}
+\index{toString@{toString}!MyArbiter@{MyArbiter}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string MyArbiter::toString () const}}
+\label{classMyArbiter_170c7d52952f17cf6e6a00130b503455}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMyArbiter_4e879ce8ea05c997de5a71af66bae3a5}{
+\index{MyArbiter@{MyArbiter}!address@{address}}
+\index{address@{address}!MyArbiter@{MyArbiter}}
+\subsubsection[{address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf MyArbiter::address}}}
+\label{classMyArbiter_4e879ce8ea05c997de5a71af66bae3a5}
+
+
+\hypertarget{classMyArbiter_0d635db925d8b449f5978ebeb1cfe923}{
+\index{MyArbiter@{MyArbiter}!name@{name}}
+\index{name@{name}!MyArbiter@{MyArbiter}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf MyArbiter::name}}}
+\label{classMyArbiter_0d635db925d8b449f5978ebeb1cfe923}
+
+
+\hypertarget{classMyArbiter_49b1876be705a202c9243f6ec560eae0}{
+\index{MyArbiter@{MyArbiter}!node\_\-ip@{node\_\-ip}}
+\index{node\_\-ip@{node\_\-ip}!MyArbiter@{MyArbiter}}
+\subsubsection[{node\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf MyArbiter::node\_\-ip}}}
+\label{classMyArbiter_49b1876be705a202c9243f6ec560eae0}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/none/\hyperlink{myArbiter_8h}{myArbiter.h}\item 
+source/components/none/\hyperlink{myArbiter_8cc}{myArbiter.cc}\end{CompactItemize}

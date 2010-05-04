@@ -1,0 +1,180 @@
+\hypertarget{classHighLevelPacket}{
+\section{HighLevelPacket Class Reference}
+\label{classHighLevelPacket}\index{HighLevelPacket@{HighLevelPacket}}
+}
+{\tt \#include $<$highLevelPacket.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classHighLevelPacket_e6f7a4ec429537928d24f6a2199a3f8d}{HighLevelPacket} ()
+\item 
+\hyperlink{classHighLevelPacket_dc29e5ebbbb6e7c3b1d1a53b0ea14142}{$\sim$HighLevelPacket} ()
+\item 
+\hyperlink{genericComponentHeader_8h_d88faca783e7aa496cda721d9029a2e3}{simTime} \hyperlink{classHighLevelPacket_0ddd2a5fd2195c2ce43198c82163522c}{get\_\-transit\_\-time} ()
+\item 
+void \hyperlink{classHighLevelPacket_03017f87443d346d08e8ebb4281073c1}{to\_\-low\_\-level\_\-packet} (\hyperlink{classLowLevelPacket}{LowLevelPacket} $\ast$llp)
+\item 
+void \hyperlink{classHighLevelPacket_6a4e25020ea0c66aab015e9c2a2c8c85}{from\_\-low\_\-level\_\-packet} (\hyperlink{classLowLevelPacket}{LowLevelPacket} $\ast$llp)
+\item 
+string \hyperlink{classHighLevelPacket_a2292ef0554d515cf08aeed8ca46d419}{toString} () const 
+\item 
+bool \hyperlink{classHighLevelPacket_08e3560b71bab8b1ff31844d8ddff819}{operator==} (const \hyperlink{classHighLevelPacket}{HighLevelPacket} $\ast$p)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classHighLevelPacket_d09485039d19ea9f0f58697e9fdf6450}{source}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classHighLevelPacket_abe7a75c784f1824211ba194819e0d4e}{destination}
+\item 
+\hyperlink{highLevelPacket_8h_2f11671ee174f5c324e71f348aef6e96}{virtual\_\-network} \hyperlink{classHighLevelPacket_0e554b43c609ab77758300f332679a29}{vn}
+\item 
+\hyperlink{highLevelPacket_8h_155eefa40b3e6db305cb151f7bb6bef4}{message\_\-class} \hyperlink{classHighLevelPacket_4bddc51ad584c87c2241b800f6b2f0c9}{mc}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classHighLevelPacket_0e369f54800e9bb403f8277b94cbaa96}{virtual\_\-channel}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classHighLevelPacket_287c21f9e31f882ffe8c8ff353dab087}{transaction\_\-id}
+\item 
+\hyperlink{genericComponentHeader_8h_d88faca783e7aa496cda721d9029a2e3}{simTime} \hyperlink{classHighLevelPacket_eed2f14fb0b689f35a92c054a831867c}{sent\_\-time}
+\item 
+\hyperlink{genericComponentHeader_8h_d88faca783e7aa496cda721d9029a2e3}{simTime} \hyperlink{classHighLevelPacket_5de1d4d144aa5e9fdac1a3988384d92f}{recv\_\-time}
+\item 
+unsigned int \hyperlink{classHighLevelPacket_c7bf05e9b1560991d60ca12fd0d309a3}{data\_\-payload\_\-length}
+\item 
+vector$<$ bool $>$ \hyperlink{classHighLevelPacket_340b7688df206e49a62301e2dae093de}{data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classHighLevelPacket_e6f7a4ec429537928d24f6a2199a3f8d}{
+\index{HighLevelPacket@{HighLevelPacket}!HighLevelPacket@{HighLevelPacket}}
+\index{HighLevelPacket@{HighLevelPacket}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{HighLevelPacket}]{\setlength{\rightskip}{0pt plus 5cm}HighLevelPacket::HighLevelPacket ()}}
+\label{classHighLevelPacket_e6f7a4ec429537928d24f6a2199a3f8d}
+
+
+\hypertarget{classHighLevelPacket_dc29e5ebbbb6e7c3b1d1a53b0ea14142}{
+\index{HighLevelPacket@{HighLevelPacket}!$\sim$HighLevelPacket@{$\sim$HighLevelPacket}}
+\index{$\sim$HighLevelPacket@{$\sim$HighLevelPacket}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{$\sim$HighLevelPacket}]{\setlength{\rightskip}{0pt plus 5cm}HighLevelPacket::$\sim$HighLevelPacket ()}}
+\label{classHighLevelPacket_dc29e5ebbbb6e7c3b1d1a53b0ea14142}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHighLevelPacket_6a4e25020ea0c66aab015e9c2a2c8c85}{
+\index{HighLevelPacket@{HighLevelPacket}!from\_\-low\_\-level\_\-packet@{from\_\-low\_\-level\_\-packet}}
+\index{from\_\-low\_\-level\_\-packet@{from\_\-low\_\-level\_\-packet}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{from\_\-low\_\-level\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}void HighLevelPacket::from\_\-low\_\-level\_\-packet ({\bf LowLevelPacket} $\ast$ {\em llp})}}
+\label{classHighLevelPacket_6a4e25020ea0c66aab015e9c2a2c8c85}
+
+
+\hypertarget{classHighLevelPacket_0ddd2a5fd2195c2ce43198c82163522c}{
+\index{HighLevelPacket@{HighLevelPacket}!get\_\-transit\_\-time@{get\_\-transit\_\-time}}
+\index{get\_\-transit\_\-time@{get\_\-transit\_\-time}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{get\_\-transit\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf simTime} HighLevelPacket::get\_\-transit\_\-time ()}}
+\label{classHighLevelPacket_0ddd2a5fd2195c2ce43198c82163522c}
+
+
+\hypertarget{classHighLevelPacket_08e3560b71bab8b1ff31844d8ddff819}{
+\index{HighLevelPacket@{HighLevelPacket}!operator==@{operator==}}
+\index{operator==@{operator==}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool HighLevelPacket::operator== (const {\bf HighLevelPacket} $\ast$ {\em p})}}
+\label{classHighLevelPacket_08e3560b71bab8b1ff31844d8ddff819}
+
+
+\hypertarget{classHighLevelPacket_03017f87443d346d08e8ebb4281073c1}{
+\index{HighLevelPacket@{HighLevelPacket}!to\_\-low\_\-level\_\-packet@{to\_\-low\_\-level\_\-packet}}
+\index{to\_\-low\_\-level\_\-packet@{to\_\-low\_\-level\_\-packet}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{to\_\-low\_\-level\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}void HighLevelPacket::to\_\-low\_\-level\_\-packet ({\bf LowLevelPacket} $\ast$ {\em llp})}}
+\label{classHighLevelPacket_03017f87443d346d08e8ebb4281073c1}
+
+
+\hypertarget{classHighLevelPacket_a2292ef0554d515cf08aeed8ca46d419}{
+\index{HighLevelPacket@{HighLevelPacket}!toString@{toString}}
+\index{toString@{toString}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string HighLevelPacket::toString () const}}
+\label{classHighLevelPacket_a2292ef0554d515cf08aeed8ca46d419}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classHighLevelPacket_340b7688df206e49a62301e2dae093de}{
+\index{HighLevelPacket@{HighLevelPacket}!data@{data}}
+\index{data@{data}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$bool$>$ {\bf HighLevelPacket::data}}}
+\label{classHighLevelPacket_340b7688df206e49a62301e2dae093de}
+
+
+\hypertarget{classHighLevelPacket_c7bf05e9b1560991d60ca12fd0d309a3}{
+\index{HighLevelPacket@{HighLevelPacket}!data\_\-payload\_\-length@{data\_\-payload\_\-length}}
+\index{data\_\-payload\_\-length@{data\_\-payload\_\-length}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{data\_\-payload\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf HighLevelPacket::data\_\-payload\_\-length}}}
+\label{classHighLevelPacket_c7bf05e9b1560991d60ca12fd0d309a3}
+
+
+\hypertarget{classHighLevelPacket_abe7a75c784f1824211ba194819e0d4e}{
+\index{HighLevelPacket@{HighLevelPacket}!destination@{destination}}
+\index{destination@{destination}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{destination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf HighLevelPacket::destination}}}
+\label{classHighLevelPacket_abe7a75c784f1824211ba194819e0d4e}
+
+
+\hypertarget{classHighLevelPacket_4bddc51ad584c87c2241b800f6b2f0c9}{
+\index{HighLevelPacket@{HighLevelPacket}!mc@{mc}}
+\index{mc@{mc}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{mc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf message\_\-class} {\bf HighLevelPacket::mc}}}
+\label{classHighLevelPacket_4bddc51ad584c87c2241b800f6b2f0c9}
+
+
+\hypertarget{classHighLevelPacket_5de1d4d144aa5e9fdac1a3988384d92f}{
+\index{HighLevelPacket@{HighLevelPacket}!recv\_\-time@{recv\_\-time}}
+\index{recv\_\-time@{recv\_\-time}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{recv\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf simTime} {\bf HighLevelPacket::recv\_\-time}}}
+\label{classHighLevelPacket_5de1d4d144aa5e9fdac1a3988384d92f}
+
+
+\hypertarget{classHighLevelPacket_eed2f14fb0b689f35a92c054a831867c}{
+\index{HighLevelPacket@{HighLevelPacket}!sent\_\-time@{sent\_\-time}}
+\index{sent\_\-time@{sent\_\-time}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{sent\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf simTime} {\bf HighLevelPacket::sent\_\-time}}}
+\label{classHighLevelPacket_eed2f14fb0b689f35a92c054a831867c}
+
+
+\hypertarget{classHighLevelPacket_d09485039d19ea9f0f58697e9fdf6450}{
+\index{HighLevelPacket@{HighLevelPacket}!source@{source}}
+\index{source@{source}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf HighLevelPacket::source}}}
+\label{classHighLevelPacket_d09485039d19ea9f0f58697e9fdf6450}
+
+
+\hypertarget{classHighLevelPacket_287c21f9e31f882ffe8c8ff353dab087}{
+\index{HighLevelPacket@{HighLevelPacket}!transaction\_\-id@{transaction\_\-id}}
+\index{transaction\_\-id@{transaction\_\-id}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{transaction\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf HighLevelPacket::transaction\_\-id}}}
+\label{classHighLevelPacket_287c21f9e31f882ffe8c8ff353dab087}
+
+
+\hypertarget{classHighLevelPacket_0e369f54800e9bb403f8277b94cbaa96}{
+\index{HighLevelPacket@{HighLevelPacket}!virtual\_\-channel@{virtual\_\-channel}}
+\index{virtual\_\-channel@{virtual\_\-channel}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{virtual\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf HighLevelPacket::virtual\_\-channel}}}
+\label{classHighLevelPacket_0e369f54800e9bb403f8277b94cbaa96}
+
+
+\hypertarget{classHighLevelPacket_0e554b43c609ab77758300f332679a29}{
+\index{HighLevelPacket@{HighLevelPacket}!vn@{vn}}
+\index{vn@{vn}!HighLevelPacket@{HighLevelPacket}}
+\subsubsection[{vn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf virtual\_\-network} {\bf HighLevelPacket::vn}}}
+\label{classHighLevelPacket_0e554b43c609ab77758300f332679a29}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/data\_\-types/impl/\hyperlink{highLevelPacket_8h}{highLevelPacket.h}\item 
+source/data\_\-types/impl/\hyperlink{highLevelPacket_8cc}{highLevelPacket.cc}\end{CompactItemize}

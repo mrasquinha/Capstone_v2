@@ -1,0 +1,241 @@
+\hypertarget{classlibRandom_1_1randomNumberGenerator}{
+\section{libRandom::randomNumberGenerator Class Reference}
+\label{classlibRandom_1_1randomNumberGenerator}\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+}
+{\tt \#include $<$libRandom.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562}{distribution} \{ \hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562ff9a3f865ed4ada2d51450b598c8f493}{uniform}, 
+\hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a5555629f72ee28c5e162e252084d6e0b1544c8}{gaussian}, 
+\hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562c9eda99f85863c727b4f12aaa8d33038}{poisson}, 
+\hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a5555624ed43f9f13bc62ac6ba1caf981dbc90a}{hotSpot}
+ \}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classlibRandom_1_1randomNumberGenerator_51655653697a9179d26c0059bf4581ba}{randomNumberGenerator} ()
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_00143c7923d43f02088e9e7055114534}{seed} (unsigned int value, bool random=false)
+\item 
+unsigned int \hyperlink{classlibRandom_1_1randomNumberGenerator_4adc688e3551a76d63bd5d5d83e2416e}{address} ()
+\item 
+unsigned int \hyperlink{classlibRandom_1_1randomNumberGenerator_5b360c7a906759126af0c3448c55665c}{length} ()
+\item 
+unsigned int \hyperlink{classlibRandom_1_1randomNumberGenerator_5bb117331bfebed3e79cc053ea5825f7}{delay} ()
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_9294756c2fadecd72dae9ac8bef46ed8}{delayRange} (unsigned int min, unsigned int max)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_89781d80f95a9dee3cba6e0833b711f5}{lengthRange} (unsigned int min, unsigned int max)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_60fc099a5657350b9b0a176fbea5af33}{addressRange} (unsigned int min, unsigned int max)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_a14eb74994240473cc7670cf34d2890a}{addressLamda} (double l)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_6d64b08e866628293422187ee4c91ce5}{lengthLamda} (double l)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_0827267ed2292a67fa14d77be35b58bc}{delayLamda} (double l)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_57d06cd2af1eaac82bec9d1d1ed24f46}{addressHotSpotRange} (unsigned int min, unsigned int max, unsigned int number)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_c1a9329975b50675d340ffd4d788a794}{delayHotSpotRange} (unsigned int min, unsigned int max, unsigned int number)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_37e8d447168cfeb82a0256ea69dfdd26}{lengthHotSpotRange} (unsigned int min, unsigned int max, unsigned int number)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_0512eb91f14d32ca127f415d3a51c77a}{newDelayHotSpots} ()
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_b756203d399589ae010b34397d6e47a6}{newLengthHotSpots} ()
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_2ab4ece084ac0ae7b65dff04ce52787b}{newAddressHotSpots} ()
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_7fa20dc1666eecd8615725c32859e8fd}{addressDistribution} (\hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562}{distribution} type)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_80d640f561800b1a4676c5e3324b180a}{delayDistribution} (\hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562}{distribution} type)
+\item 
+void \hyperlink{classlibRandom_1_1randomNumberGenerator_5167967f2fef78e42b6cf203520accaa}{lengthDistribution} (\hyperlink{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562}{distribution} type)
+\end{CompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!distribution@{distribution}}
+\index{distribution@{distribution}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{distribution}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf libRandom::randomNumberGenerator::distribution}}}
+\label{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{uniform@{uniform}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!uniform@{uniform}}\item[{\em 
+\hypertarget{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562ff9a3f865ed4ada2d51450b598c8f493}{
+uniform}
+\label{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562ff9a3f865ed4ada2d51450b598c8f493}
+}]\index{gaussian@{gaussian}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!gaussian@{gaussian}}\item[{\em 
+\hypertarget{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a5555629f72ee28c5e162e252084d6e0b1544c8}{
+gaussian}
+\label{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a5555629f72ee28c5e162e252084d6e0b1544c8}
+}]\index{poisson@{poisson}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!poisson@{poisson}}\item[{\em 
+\hypertarget{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562c9eda99f85863c727b4f12aaa8d33038}{
+poisson}
+\label{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a555562c9eda99f85863c727b4f12aaa8d33038}
+}]\index{hotSpot@{hotSpot}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!hotSpot@{hotSpot}}\item[{\em 
+\hypertarget{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a5555624ed43f9f13bc62ac6ba1caf981dbc90a}{
+hotSpot}
+\label{classlibRandom_1_1randomNumberGenerator_3bfd56b7b47f4593167e59916a5555624ed43f9f13bc62ac6ba1caf981dbc90a}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classlibRandom_1_1randomNumberGenerator_51655653697a9179d26c0059bf4581ba}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!randomNumberGenerator@{randomNumberGenerator}}
+\index{randomNumberGenerator@{randomNumberGenerator}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{randomNumberGenerator}]{\setlength{\rightskip}{0pt plus 5cm}libRandom::randomNumberGenerator::randomNumberGenerator ()}}
+\label{classlibRandom_1_1randomNumberGenerator_51655653697a9179d26c0059bf4581ba}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classlibRandom_1_1randomNumberGenerator_4adc688e3551a76d63bd5d5d83e2416e}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!address@{address}}
+\index{address@{address}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{address}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int libRandom::randomNumberGenerator::address ()}}
+\label{classlibRandom_1_1randomNumberGenerator_4adc688e3551a76d63bd5d5d83e2416e}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_7fa20dc1666eecd8615725c32859e8fd}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!addressDistribution@{addressDistribution}}
+\index{addressDistribution@{addressDistribution}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{addressDistribution}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::addressDistribution ({\bf distribution} {\em type})}}
+\label{classlibRandom_1_1randomNumberGenerator_7fa20dc1666eecd8615725c32859e8fd}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_57d06cd2af1eaac82bec9d1d1ed24f46}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!addressHotSpotRange@{addressHotSpotRange}}
+\index{addressHotSpotRange@{addressHotSpotRange}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{addressHotSpotRange}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::addressHotSpotRange (unsigned int {\em min}, \/  unsigned int {\em max}, \/  unsigned int {\em number})}}
+\label{classlibRandom_1_1randomNumberGenerator_57d06cd2af1eaac82bec9d1d1ed24f46}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_a14eb74994240473cc7670cf34d2890a}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!addressLamda@{addressLamda}}
+\index{addressLamda@{addressLamda}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{addressLamda}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::addressLamda (double {\em l})}}
+\label{classlibRandom_1_1randomNumberGenerator_a14eb74994240473cc7670cf34d2890a}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_60fc099a5657350b9b0a176fbea5af33}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!addressRange@{addressRange}}
+\index{addressRange@{addressRange}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{addressRange}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::addressRange (unsigned int {\em min}, \/  unsigned int {\em max})}}
+\label{classlibRandom_1_1randomNumberGenerator_60fc099a5657350b9b0a176fbea5af33}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_5bb117331bfebed3e79cc053ea5825f7}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!delay@{delay}}
+\index{delay@{delay}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{delay}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int libRandom::randomNumberGenerator::delay ()}}
+\label{classlibRandom_1_1randomNumberGenerator_5bb117331bfebed3e79cc053ea5825f7}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_80d640f561800b1a4676c5e3324b180a}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!delayDistribution@{delayDistribution}}
+\index{delayDistribution@{delayDistribution}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{delayDistribution}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::delayDistribution ({\bf distribution} {\em type})}}
+\label{classlibRandom_1_1randomNumberGenerator_80d640f561800b1a4676c5e3324b180a}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_c1a9329975b50675d340ffd4d788a794}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!delayHotSpotRange@{delayHotSpotRange}}
+\index{delayHotSpotRange@{delayHotSpotRange}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{delayHotSpotRange}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::delayHotSpotRange (unsigned int {\em min}, \/  unsigned int {\em max}, \/  unsigned int {\em number})}}
+\label{classlibRandom_1_1randomNumberGenerator_c1a9329975b50675d340ffd4d788a794}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_0827267ed2292a67fa14d77be35b58bc}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!delayLamda@{delayLamda}}
+\index{delayLamda@{delayLamda}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{delayLamda}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::delayLamda (double {\em l})}}
+\label{classlibRandom_1_1randomNumberGenerator_0827267ed2292a67fa14d77be35b58bc}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_9294756c2fadecd72dae9ac8bef46ed8}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!delayRange@{delayRange}}
+\index{delayRange@{delayRange}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{delayRange}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::delayRange (unsigned int {\em min}, \/  unsigned int {\em max})}}
+\label{classlibRandom_1_1randomNumberGenerator_9294756c2fadecd72dae9ac8bef46ed8}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_5b360c7a906759126af0c3448c55665c}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!length@{length}}
+\index{length@{length}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int libRandom::randomNumberGenerator::length ()}}
+\label{classlibRandom_1_1randomNumberGenerator_5b360c7a906759126af0c3448c55665c}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_5167967f2fef78e42b6cf203520accaa}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!lengthDistribution@{lengthDistribution}}
+\index{lengthDistribution@{lengthDistribution}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{lengthDistribution}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::lengthDistribution ({\bf distribution} {\em type})}}
+\label{classlibRandom_1_1randomNumberGenerator_5167967f2fef78e42b6cf203520accaa}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_37e8d447168cfeb82a0256ea69dfdd26}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!lengthHotSpotRange@{lengthHotSpotRange}}
+\index{lengthHotSpotRange@{lengthHotSpotRange}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{lengthHotSpotRange}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::lengthHotSpotRange (unsigned int {\em min}, \/  unsigned int {\em max}, \/  unsigned int {\em number})}}
+\label{classlibRandom_1_1randomNumberGenerator_37e8d447168cfeb82a0256ea69dfdd26}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_6d64b08e866628293422187ee4c91ce5}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!lengthLamda@{lengthLamda}}
+\index{lengthLamda@{lengthLamda}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{lengthLamda}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::lengthLamda (double {\em l})}}
+\label{classlibRandom_1_1randomNumberGenerator_6d64b08e866628293422187ee4c91ce5}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_89781d80f95a9dee3cba6e0833b711f5}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!lengthRange@{lengthRange}}
+\index{lengthRange@{lengthRange}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{lengthRange}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::lengthRange (unsigned int {\em min}, \/  unsigned int {\em max})}}
+\label{classlibRandom_1_1randomNumberGenerator_89781d80f95a9dee3cba6e0833b711f5}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_2ab4ece084ac0ae7b65dff04ce52787b}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!newAddressHotSpots@{newAddressHotSpots}}
+\index{newAddressHotSpots@{newAddressHotSpots}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{newAddressHotSpots}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::newAddressHotSpots ()}}
+\label{classlibRandom_1_1randomNumberGenerator_2ab4ece084ac0ae7b65dff04ce52787b}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_0512eb91f14d32ca127f415d3a51c77a}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!newDelayHotSpots@{newDelayHotSpots}}
+\index{newDelayHotSpots@{newDelayHotSpots}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{newDelayHotSpots}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::newDelayHotSpots ()}}
+\label{classlibRandom_1_1randomNumberGenerator_0512eb91f14d32ca127f415d3a51c77a}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_b756203d399589ae010b34397d6e47a6}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!newLengthHotSpots@{newLengthHotSpots}}
+\index{newLengthHotSpots@{newLengthHotSpots}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{newLengthHotSpots}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::newLengthHotSpots ()}}
+\label{classlibRandom_1_1randomNumberGenerator_b756203d399589ae010b34397d6e47a6}
+
+
+\hypertarget{classlibRandom_1_1randomNumberGenerator_00143c7923d43f02088e9e7055114534}{
+\index{libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}!seed@{seed}}
+\index{seed@{seed}!libRandom::randomNumberGenerator@{libRandom::randomNumberGenerator}}
+\subsubsection[{seed}]{\setlength{\rightskip}{0pt plus 5cm}void libRandom::randomNumberGenerator::seed (unsigned int {\em value}, \/  bool {\em random} = {\tt false})}}
+\label{classlibRandom_1_1randomNumberGenerator_00143c7923d43f02088e9e7055114534}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/randomNumbers/impl/\hyperlink{libRandom_8hpp}{libRandom.hpp}\item 
+source/randomNumbers/impl/\hyperlink{libRandom_8cpp}{libRandom.cpp}\end{CompactItemize}

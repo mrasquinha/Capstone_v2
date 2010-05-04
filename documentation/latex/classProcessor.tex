@@ -1,0 +1,119 @@
+\hypertarget{classProcessor}{
+\section{Processor Class Reference}
+\label{classProcessor}\index{Processor@{Processor}}
+}
+{\tt \#include $<$processor.h$>$}
+
+Inheritance diagram for Processor::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12cm]{classProcessor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classProcessor_50c89dbf76a073f4fb491628258cf292}{Processor} ()
+\item 
+virtual \hyperlink{classProcessor_cf37952c5b420d4e903a512571678692}{$\sim$Processor} ()
+\item 
+void \hyperlink{classProcessor_22e869ee49d974ad0ee7ee81961ab88f}{init} ()
+\item 
+virtual string \hyperlink{classProcessor_d3bdbedfbb00b05f61504e411a418106}{toString} () const 
+\item 
+virtual void \hyperlink{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)=0
+\item 
+virtual void \hyperlink{classProcessor_495fad01358e2d9760c526d6e2db53ea}{setup} ()=0
+\item 
+virtual void \hyperlink{classProcessor_3280abfe3637712e09cc651b2d09732e}{set\_\-no\_\-vcs} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} v)=0
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+vector$<$ \hyperlink{classInterface}{Interface} $\ast$ $>$ \hyperlink{classProcessor_63351f5faee21f5b43dce853b117ea23}{interface\_\-connections}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classProcessor_50c89dbf76a073f4fb491628258cf292}{
+\index{Processor@{Processor}!Processor@{Processor}}
+\index{Processor@{Processor}!Processor@{Processor}}
+\subsubsection[{Processor}]{\setlength{\rightskip}{0pt plus 5cm}Processor::Processor ()}}
+\label{classProcessor_50c89dbf76a073f4fb491628258cf292}
+
+
+\hypertarget{classProcessor_cf37952c5b420d4e903a512571678692}{
+\index{Processor@{Processor}!$\sim$Processor@{$\sim$Processor}}
+\index{$\sim$Processor@{$\sim$Processor}!Processor@{Processor}}
+\subsubsection[{$\sim$Processor}]{\setlength{\rightskip}{0pt plus 5cm}Processor::$\sim$Processor ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classProcessor_cf37952c5b420d4e903a512571678692}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classProcessor_22e869ee49d974ad0ee7ee81961ab88f}{
+\index{Processor@{Processor}!init@{init}}
+\index{init@{init}!Processor@{Processor}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Processor::init ()}}
+\label{classProcessor_22e869ee49d974ad0ee7ee81961ab88f}
+
+
+
+
+Reimplemented in \hyperlink{classGenericRPG_83b1fba5595a25b24b32374ec8e85020}{GenericRPG}, \hyperlink{classGenericRPG_83b1fba5595a25b24b32374ec8e85020}{GenericRPG}, \hyperlink{classGenericRPG_83b1fba5595a25b24b32374ec8e85020}{GenericRPG}, \hyperlink{classGenericNetworkSource_e875a5cd3f60bd3073812f747c80409e}{GenericNetworkSource}, and \hyperlink{classRandomPacketGenerator_8ede37fd74eea4e7183128d011715cdd}{RandomPacketGenerator}.\hypertarget{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}{
+\index{Processor@{Processor}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!Processor@{Processor}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Processor::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}
+
+
+
+
+Implements \hyperlink{classNetworkComponent_c93793eea1e2d424abe86e110ca8b399}{NetworkComponent}.
+
+Implemented in \hyperlink{classGenericRPG_72d08c87beeb16514c6c81af3296f6af}{GenericRPG}, \hyperlink{classGenericRPG_72d08c87beeb16514c6c81af3296f6af}{GenericRPG}, \hyperlink{classGenericSink_a0beb58f52adfe869ba47f4b51537409}{GenericSink}, \hyperlink{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{GenericTPG}, \hyperlink{classGenericRPG_72d08c87beeb16514c6c81af3296f6af}{GenericRPG}, \hyperlink{classGenericSink_a0beb58f52adfe869ba47f4b51537409}{GenericSink}, \hyperlink{classGenericTPG_a2e59f102384206268808835bcb9d5b5}{GenericTPG}, \hyperlink{classGenericNetworkSource_a67be5ac0f97b7e0b38eba909cecaa64}{GenericNetworkSource}, \hyperlink{classRandomPacketGenerator_127a1f17b384e0418f055b0c22eb925a}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_ce34c9fd6ca6893af23d1167348ee0c9}{TraceHandler}.\hypertarget{classProcessor_3280abfe3637712e09cc651b2d09732e}{
+\index{Processor@{Processor}!set\_\-no\_\-vcs@{set\_\-no\_\-vcs}}
+\index{set\_\-no\_\-vcs@{set\_\-no\_\-vcs}!Processor@{Processor}}
+\subsubsection[{set\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Processor::set\_\-no\_\-vcs ({\bf uint} {\em v})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classProcessor_3280abfe3637712e09cc651b2d09732e}
+
+
+
+
+Implemented in \hyperlink{classGenericRPG_0f15df71a8cb244d55a2dce961b7a972}{GenericRPG}, \hyperlink{classGenericRPG_0f15df71a8cb244d55a2dce961b7a972}{GenericRPG}, \hyperlink{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}{GenericTPG}, \hyperlink{classGenericRPG_0f15df71a8cb244d55a2dce961b7a972}{GenericRPG}, and \hyperlink{classGenericTPG_e95391a655cacb75ba23e7eb8b3cefef}{GenericTPG}.\hypertarget{classProcessor_495fad01358e2d9760c526d6e2db53ea}{
+\index{Processor@{Processor}!setup@{setup}}
+\index{setup@{setup}!Processor@{Processor}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Processor::setup ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classProcessor_495fad01358e2d9760c526d6e2db53ea}
+
+
+
+
+Implemented in \hyperlink{classGenericRPG_e872cb83c70fbf7139fbf1b5cf14310f}{GenericRPG}, \hyperlink{classGenericRPG_e872cb83c70fbf7139fbf1b5cf14310f}{GenericRPG}, \hyperlink{classGenericSink_0ed90ea7e6e66cfa8b9935b50ef0051d}{GenericSink}, \hyperlink{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}{GenericTPG}, \hyperlink{classGenericRPG_e872cb83c70fbf7139fbf1b5cf14310f}{GenericRPG}, \hyperlink{classGenericSink_0ed90ea7e6e66cfa8b9935b50ef0051d}{GenericSink}, \hyperlink{classGenericTPG_5cea355b4db26ed22a7af8e54758de47}{GenericTPG}, \hyperlink{classGenericNetworkSource_a1390d4685120020d9b9564ee19df854}{GenericNetworkSource}, \hyperlink{classRandomPacketGenerator_56eccc2d487bfed691a85afbd0c5b06d}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_9311bd94c5ad0a6e354d2a0bd8b8699a}{TraceHandler}.\hypertarget{classProcessor_d3bdbedfbb00b05f61504e411a418106}{
+\index{Processor@{Processor}!toString@{toString}}
+\index{toString@{toString}!Processor@{Processor}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string Processor::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classProcessor_d3bdbedfbb00b05f61504e411a418106}
+
+
+
+
+Reimplemented from \hyperlink{classNetworkComponent_9bb9874e1f5705588cb3d9c201d8fc6f}{NetworkComponent}.
+
+Reimplemented in \hyperlink{classGenericRPG_a4303867728559ab6e6ae3d1390ede71}{GenericRPG}, \hyperlink{classGenericRPG_a4303867728559ab6e6ae3d1390ede71}{GenericRPG}, \hyperlink{classGenericSink_a1703a08208816130a4ee2f4d4a8334f}{GenericSink}, \hyperlink{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{GenericTPG}, \hyperlink{classGenericRPG_a4303867728559ab6e6ae3d1390ede71}{GenericRPG}, \hyperlink{classGenericSink_a1703a08208816130a4ee2f4d4a8334f}{GenericSink}, \hyperlink{classGenericTPG_c2e1dc7b0de824c846f37c4a1c282303}{GenericTPG}, \hyperlink{classGenericNetworkSource_8d8c0760eb634da3ccc3d4083e9415b9}{GenericNetworkSource}, \hyperlink{classRandomPacketGenerator_4031f11000db9e2693c761f7f47a4c88}{RandomPacketGenerator}, and \hyperlink{classTraceHandler_e2a56abded1637aba10677483fee4e32}{TraceHandler}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classProcessor_63351f5faee21f5b43dce853b117ea23}{
+\index{Processor@{Processor}!interface\_\-connections@{interface\_\-connections}}
+\index{interface\_\-connections@{interface\_\-connections}!Processor@{Processor}}
+\subsubsection[{interface\_\-connections}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Interface}$\ast$ $>$ {\bf Processor::interface\_\-connections}}}
+\label{classProcessor_63351f5faee21f5b43dce853b117ea23}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/interfaces/\hyperlink{processor_8h}{processor.h}\item 
+source/components/interfaces/\hyperlink{processor_8cc}{processor.cc}\end{CompactItemize}

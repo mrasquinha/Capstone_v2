@@ -1,0 +1,143 @@
+\hypertarget{classGenericNetworkSource}{
+\section{GenericNetworkSource Class Reference}
+\label{classGenericNetworkSource}\index{GenericNetworkSource@{GenericNetworkSource}}
+}
+{\tt \#include $<$networkSource.h$>$}
+
+Inheritance diagram for GenericNetworkSource::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classGenericNetworkSource}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGenericNetworkSource_66fa04f8ab4c8ac70192f63249f8b387}{GenericNetworkSource} ()
+\item 
+virtual \hyperlink{classGenericNetworkSource_de83e8c46d7c400be8bdd2cf1e33d765}{$\sim$GenericNetworkSource} ()
+\item 
+unsigned long int \hyperlink{classGenericNetworkSource_a1970b5e7d100e15d282f03358c8ce70}{max\_\-time} ()
+\item 
+void \hyperlink{classGenericNetworkSource_a1390d4685120020d9b9564ee19df854}{setup} ()
+\item 
+void \hyperlink{classGenericNetworkSource_e875a5cd3f60bd3073812f747c80409e}{init} ()
+\item 
+void \hyperlink{classGenericNetworkSource_a67be5ac0f97b7e0b38eba909cecaa64}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)
+\item 
+string \hyperlink{classGenericNetworkSource_8d8c0760eb634da3ccc3d4083e9415b9}{toString} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{classNetworkComponent}{NetworkComponent} $\ast$ \hyperlink{classGenericNetworkSource_394c482da644893d93513f202850cec0}{output\_\-connection}
+\item 
+\hyperlink{classNetworkComponent}{NetworkComponent} $\ast$ \hyperlink{classGenericNetworkSource_49ae0bba9107dfecd501b5ba5ff9ddc1}{input\_\-connection}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericNetworkSource_90d400349086508bb6b2b46fbd24ed9b}{node\_\-ip}
+\item 
+\hyperlink{classGenericOutputBuffer}{GenericOutputBuffer} \hyperlink{classGenericNetworkSource_5d6de27fc38a82fa7efd029ab79e4ab6}{out\_\-buffer}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGenericNetworkSource_66fa04f8ab4c8ac70192f63249f8b387}{
+\index{GenericNetworkSource@{GenericNetworkSource}!GenericNetworkSource@{GenericNetworkSource}}
+\index{GenericNetworkSource@{GenericNetworkSource}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{GenericNetworkSource}]{\setlength{\rightskip}{0pt plus 5cm}GenericNetworkSource::GenericNetworkSource ()}}
+\label{classGenericNetworkSource_66fa04f8ab4c8ac70192f63249f8b387}
+
+
+\hypertarget{classGenericNetworkSource_de83e8c46d7c400be8bdd2cf1e33d765}{
+\index{GenericNetworkSource@{GenericNetworkSource}!$\sim$GenericNetworkSource@{$\sim$GenericNetworkSource}}
+\index{$\sim$GenericNetworkSource@{$\sim$GenericNetworkSource}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{$\sim$GenericNetworkSource}]{\setlength{\rightskip}{0pt plus 5cm}virtual GenericNetworkSource::$\sim$GenericNetworkSource ()\hspace{0.3cm}{\tt  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classGenericNetworkSource_de83e8c46d7c400be8bdd2cf1e33d765}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGenericNetworkSource_e875a5cd3f60bd3073812f747c80409e}{
+\index{GenericNetworkSource@{GenericNetworkSource}!init@{init}}
+\index{init@{init}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void GenericNetworkSource::init ()}}
+\label{classGenericNetworkSource_e875a5cd3f60bd3073812f747c80409e}
+
+
+
+
+Reimplemented from \hyperlink{classProcessor_22e869ee49d974ad0ee7ee81961ab88f}{Processor}.\hypertarget{classGenericNetworkSource_a1970b5e7d100e15d282f03358c8ce70}{
+\index{GenericNetworkSource@{GenericNetworkSource}!max\_\-time@{max\_\-time}}
+\index{max\_\-time@{max\_\-time}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{max\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long int GenericNetworkSource::max\_\-time ()}}
+\label{classGenericNetworkSource_a1970b5e7d100e15d282f03358c8ce70}
+
+
+\hypertarget{classGenericNetworkSource_a67be5ac0f97b7e0b38eba909cecaa64}{
+\index{GenericNetworkSource@{GenericNetworkSource}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void GenericNetworkSource::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericNetworkSource_a67be5ac0f97b7e0b38eba909cecaa64}
+
+
+
+
+Implements \hyperlink{classProcessor_18cdeefafbd8225cb3ad18dd098c0e08}{Processor}.\hypertarget{classGenericNetworkSource_a1390d4685120020d9b9564ee19df854}{
+\index{GenericNetworkSource@{GenericNetworkSource}!setup@{setup}}
+\index{setup@{setup}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void GenericNetworkSource::setup ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericNetworkSource_a1390d4685120020d9b9564ee19df854}
+
+
+
+
+Implements \hyperlink{classProcessor_495fad01358e2d9760c526d6e2db53ea}{Processor}.\hypertarget{classGenericNetworkSource_8d8c0760eb634da3ccc3d4083e9415b9}{
+\index{GenericNetworkSource@{GenericNetworkSource}!toString@{toString}}
+\index{toString@{toString}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericNetworkSource::toString (void) const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericNetworkSource_8d8c0760eb634da3ccc3d4083e9415b9}
+
+
+
+
+Reimplemented from \hyperlink{classProcessor_d3bdbedfbb00b05f61504e411a418106}{Processor}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classGenericNetworkSource_49ae0bba9107dfecd501b5ba5ff9ddc1}{
+\index{GenericNetworkSource@{GenericNetworkSource}!input\_\-connection@{input\_\-connection}}
+\index{input\_\-connection@{input\_\-connection}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{input\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NetworkComponent}$\ast$ {\bf GenericNetworkSource::input\_\-connection}}}
+\label{classGenericNetworkSource_49ae0bba9107dfecd501b5ba5ff9ddc1}
+
+
+\hypertarget{classGenericNetworkSource_90d400349086508bb6b2b46fbd24ed9b}{
+\index{GenericNetworkSource@{GenericNetworkSource}!node\_\-ip@{node\_\-ip}}
+\index{node\_\-ip@{node\_\-ip}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{node\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf GenericNetworkSource::node\_\-ip}}}
+\label{classGenericNetworkSource_90d400349086508bb6b2b46fbd24ed9b}
+
+
+
+
+Reimplemented from \hyperlink{classNetworkComponent_56599b3484333fb78af1b6c33f77cf16}{NetworkComponent}.\hypertarget{classGenericNetworkSource_5d6de27fc38a82fa7efd029ab79e4ab6}{
+\index{GenericNetworkSource@{GenericNetworkSource}!out\_\-buffer@{out\_\-buffer}}
+\index{out\_\-buffer@{out\_\-buffer}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{out\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GenericOutputBuffer} {\bf GenericNetworkSource::out\_\-buffer}}}
+\label{classGenericNetworkSource_5d6de27fc38a82fa7efd029ab79e4ab6}
+
+
+\hypertarget{classGenericNetworkSource_394c482da644893d93513f202850cec0}{
+\index{GenericNetworkSource@{GenericNetworkSource}!output\_\-connection@{output\_\-connection}}
+\index{output\_\-connection@{output\_\-connection}!GenericNetworkSource@{GenericNetworkSource}}
+\subsubsection[{output\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NetworkComponent}$\ast$ {\bf GenericNetworkSource::output\_\-connection}}}
+\label{classGenericNetworkSource_394c482da644893d93513f202850cec0}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/tests/\hyperlink{networkSource_8h}{networkSource.h}\item 
+source/tests/\hyperlink{networkSink_8cc}{networkSink.cc}\item 
+source/tests/\hyperlink{networkSource_8cc}{networkSource.cc}\end{CompactItemize}

@@ -1,0 +1,212 @@
+\hypertarget{classMyRouter}{
+\section{MyRouter Class Reference}
+\label{classMyRouter}\index{MyRouter@{MyRouter}}
+}
+{\tt \#include $<$myRouter.h$>$}
+
+Inheritance diagram for MyRouter::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classMyRouter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classMyRouter_22ab97be4fbffe1aa4e33bd5cd470167}{MyRouter} ()
+\item 
+\hyperlink{classMyRouter_3ffe36f3427a8beeb62007909ece9dc8}{$\sim$MyRouter} ()
+\item 
+void \hyperlink{classMyRouter_8c9be5d944c7cb4c98f3b833e614274c}{init} ()
+\item 
+void \hyperlink{classMyRouter_ce1887c47f021ee3a26f678f00939bf0}{set\_\-no\_\-ports} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p)
+\item 
+void \hyperlink{classMyRouter_b7a91b2d68f0ad85e1ae3801111985c9}{set\_\-no\_\-vcs} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} v)
+\item 
+void \hyperlink{classMyRouter_1136c71870bd451ac24db24612071c92}{set\_\-no\_\-credits} (int c)
+\item 
+void \hyperlink{classMyRouter_ee56704d0e9366dae6c26bdf90bc6343}{set\_\-buffer\_\-size} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} b)
+\item 
+void \hyperlink{classMyRouter_ceb204776c6ed1fcbc0179b1d57e0ba3}{set\_\-no\_\-nodes} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} nodes)
+\item 
+void \hyperlink{classMyRouter_684adfcb9dd9421f75372fe59b8ccc5f}{set\_\-grid\_\-x\_\-location} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} a, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} b, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c)
+\item 
+void \hyperlink{classMyRouter_c5edbdd2f7da6b24f941540e687706c0}{set\_\-grid\_\-y\_\-location} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} a, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} b, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c)
+\item 
+void \hyperlink{classMyRouter_bcfd73d0faaa8a191cd4ece957f3773b}{send\_\-credit\_\-back} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} i)
+\item 
+void \hyperlink{classMyRouter_5dcfef46ad281c05de8e8c1bdf236a4a}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)
+\item 
+string \hyperlink{classMyRouter_9b40e1d62a4638fb84f31aff143d970d}{toString} () const 
+\item 
+string \hyperlink{classMyRouter_ce28b171a1f2f93fa96f9d6a65fadbbe}{print\_\-stats} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+vector$<$ vector$<$ \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} $>$ $>$ \hyperlink{classMyRouter_f15a834dbd27a5070e1b0388c2a40d4c}{downstream\_\-credits}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classMyRouter_32ec6983b42b6efc05af4de71055eac4}{packets}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classMyRouter_a6cc2fffa1841027970fcdb3c948781e}{flits}
+\item 
+double \hyperlink{classMyRouter_081915dc1164141104ffa6ce7dd05ac5}{total\_\-packet\_\-latency}
+\item 
+double \hyperlink{classMyRouter_1b75d62cb9e51e8814704582d787b3ec}{last\_\-flit\_\-out\_\-cycle}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMyRouter_22ab97be4fbffe1aa4e33bd5cd470167}{
+\index{MyRouter@{MyRouter}!MyRouter@{MyRouter}}
+\index{MyRouter@{MyRouter}!MyRouter@{MyRouter}}
+\subsubsection[{MyRouter}]{\setlength{\rightskip}{0pt plus 5cm}MyRouter::MyRouter ()}}
+\label{classMyRouter_22ab97be4fbffe1aa4e33bd5cd470167}
+
+
+\hypertarget{classMyRouter_3ffe36f3427a8beeb62007909ece9dc8}{
+\index{MyRouter@{MyRouter}!$\sim$MyRouter@{$\sim$MyRouter}}
+\index{$\sim$MyRouter@{$\sim$MyRouter}!MyRouter@{MyRouter}}
+\subsubsection[{$\sim$MyRouter}]{\setlength{\rightskip}{0pt plus 5cm}MyRouter::$\sim$MyRouter ()}}
+\label{classMyRouter_3ffe36f3427a8beeb62007909ece9dc8}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMyRouter_8c9be5d944c7cb4c98f3b833e614274c}{
+\index{MyRouter@{MyRouter}!init@{init}}
+\index{init@{init}!MyRouter@{MyRouter}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::init ()}}
+\label{classMyRouter_8c9be5d944c7cb4c98f3b833e614274c}
+
+
+\hypertarget{classMyRouter_ce28b171a1f2f93fa96f9d6a65fadbbe}{
+\index{MyRouter@{MyRouter}!print\_\-stats@{print\_\-stats}}
+\index{print\_\-stats@{print\_\-stats}!MyRouter@{MyRouter}}
+\subsubsection[{print\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}string MyRouter::print\_\-stats ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classMyRouter_ce28b171a1f2f93fa96f9d6a65fadbbe}
+
+
+
+
+Implements \hyperlink{classRouter_75995624d8bd533a9d3eb8c06a62ce07}{Router}.\hypertarget{classMyRouter_5dcfef46ad281c05de8e8c1bdf236a4a}{
+\index{MyRouter@{MyRouter}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!MyRouter@{MyRouter}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classMyRouter_5dcfef46ad281c05de8e8c1bdf236a4a}
+
+
+
+
+Implements \hyperlink{classNetworkComponent_c93793eea1e2d424abe86e110ca8b399}{NetworkComponent}.\hypertarget{classMyRouter_bcfd73d0faaa8a191cd4ece957f3773b}{
+\index{MyRouter@{MyRouter}!send\_\-credit\_\-back@{send\_\-credit\_\-back}}
+\index{send\_\-credit\_\-back@{send\_\-credit\_\-back}!MyRouter@{MyRouter}}
+\subsubsection[{send\_\-credit\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::send\_\-credit\_\-back ({\bf uint} {\em i})}}
+\label{classMyRouter_bcfd73d0faaa8a191cd4ece957f3773b}
+
+
+\hypertarget{classMyRouter_ee56704d0e9366dae6c26bdf90bc6343}{
+\index{MyRouter@{MyRouter}!set\_\-buffer\_\-size@{set\_\-buffer\_\-size}}
+\index{set\_\-buffer\_\-size@{set\_\-buffer\_\-size}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-buffer\_\-size ({\bf uint} {\em b})}}
+\label{classMyRouter_ee56704d0e9366dae6c26bdf90bc6343}
+
+
+\hypertarget{classMyRouter_684adfcb9dd9421f75372fe59b8ccc5f}{
+\index{MyRouter@{MyRouter}!set\_\-grid\_\-x\_\-location@{set\_\-grid\_\-x\_\-location}}
+\index{set\_\-grid\_\-x\_\-location@{set\_\-grid\_\-x\_\-location}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-grid\_\-x\_\-location}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-grid\_\-x\_\-location ({\bf uint} {\em a}, \/  {\bf uint} {\em b}, \/  {\bf uint} {\em c})}}
+\label{classMyRouter_684adfcb9dd9421f75372fe59b8ccc5f}
+
+
+\hypertarget{classMyRouter_c5edbdd2f7da6b24f941540e687706c0}{
+\index{MyRouter@{MyRouter}!set\_\-grid\_\-y\_\-location@{set\_\-grid\_\-y\_\-location}}
+\index{set\_\-grid\_\-y\_\-location@{set\_\-grid\_\-y\_\-location}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-grid\_\-y\_\-location}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-grid\_\-y\_\-location ({\bf uint} {\em a}, \/  {\bf uint} {\em b}, \/  {\bf uint} {\em c})}}
+\label{classMyRouter_c5edbdd2f7da6b24f941540e687706c0}
+
+
+\hypertarget{classMyRouter_1136c71870bd451ac24db24612071c92}{
+\index{MyRouter@{MyRouter}!set\_\-no\_\-credits@{set\_\-no\_\-credits}}
+\index{set\_\-no\_\-credits@{set\_\-no\_\-credits}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-no\_\-credits}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-no\_\-credits (int {\em c})}}
+\label{classMyRouter_1136c71870bd451ac24db24612071c92}
+
+
+\hypertarget{classMyRouter_ceb204776c6ed1fcbc0179b1d57e0ba3}{
+\index{MyRouter@{MyRouter}!set\_\-no\_\-nodes@{set\_\-no\_\-nodes}}
+\index{set\_\-no\_\-nodes@{set\_\-no\_\-nodes}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-no\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-no\_\-nodes ({\bf uint} {\em nodes})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classMyRouter_ceb204776c6ed1fcbc0179b1d57e0ba3}
+
+
+
+
+Implements \hyperlink{classRouter_33073537e883e8bea1a25690bcb70049}{Router}.\hypertarget{classMyRouter_ce1887c47f021ee3a26f678f00939bf0}{
+\index{MyRouter@{MyRouter}!set\_\-no\_\-ports@{set\_\-no\_\-ports}}
+\index{set\_\-no\_\-ports@{set\_\-no\_\-ports}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-no\_\-ports}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-no\_\-ports ({\bf uint} {\em p})}}
+\label{classMyRouter_ce1887c47f021ee3a26f678f00939bf0}
+
+
+\hypertarget{classMyRouter_b7a91b2d68f0ad85e1ae3801111985c9}{
+\index{MyRouter@{MyRouter}!set\_\-no\_\-vcs@{set\_\-no\_\-vcs}}
+\index{set\_\-no\_\-vcs@{set\_\-no\_\-vcs}!MyRouter@{MyRouter}}
+\subsubsection[{set\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}void MyRouter::set\_\-no\_\-vcs ({\bf uint} {\em v})}}
+\label{classMyRouter_b7a91b2d68f0ad85e1ae3801111985c9}
+
+
+\hypertarget{classMyRouter_9b40e1d62a4638fb84f31aff143d970d}{
+\index{MyRouter@{MyRouter}!toString@{toString}}
+\index{toString@{toString}!MyRouter@{MyRouter}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string MyRouter::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classMyRouter_9b40e1d62a4638fb84f31aff143d970d}
+
+
+
+
+Reimplemented from \hyperlink{classRouter_1e749a51dcf6cbd6925ac677473c7f58}{Router}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classMyRouter_f15a834dbd27a5070e1b0388c2a40d4c}{
+\index{MyRouter@{MyRouter}!downstream\_\-credits@{downstream\_\-credits}}
+\index{downstream\_\-credits@{downstream\_\-credits}!MyRouter@{MyRouter}}
+\subsubsection[{downstream\_\-credits}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ vector$<${\bf uint}$>$ $>$ {\bf MyRouter::downstream\_\-credits}}}
+\label{classMyRouter_f15a834dbd27a5070e1b0388c2a40d4c}
+
+
+\hypertarget{classMyRouter_a6cc2fffa1841027970fcdb3c948781e}{
+\index{MyRouter@{MyRouter}!flits@{flits}}
+\index{flits@{flits}!MyRouter@{MyRouter}}
+\subsubsection[{flits}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf MyRouter::flits}}}
+\label{classMyRouter_a6cc2fffa1841027970fcdb3c948781e}
+
+
+\hypertarget{classMyRouter_1b75d62cb9e51e8814704582d787b3ec}{
+\index{MyRouter@{MyRouter}!last\_\-flit\_\-out\_\-cycle@{last\_\-flit\_\-out\_\-cycle}}
+\index{last\_\-flit\_\-out\_\-cycle@{last\_\-flit\_\-out\_\-cycle}!MyRouter@{MyRouter}}
+\subsubsection[{last\_\-flit\_\-out\_\-cycle}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf MyRouter::last\_\-flit\_\-out\_\-cycle}}}
+\label{classMyRouter_1b75d62cb9e51e8814704582d787b3ec}
+
+
+\hypertarget{classMyRouter_32ec6983b42b6efc05af4de71055eac4}{
+\index{MyRouter@{MyRouter}!packets@{packets}}
+\index{packets@{packets}!MyRouter@{MyRouter}}
+\subsubsection[{packets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf MyRouter::packets}}}
+\label{classMyRouter_32ec6983b42b6efc05af4de71055eac4}
+
+
+\hypertarget{classMyRouter_081915dc1164141104ffa6ce7dd05ac5}{
+\index{MyRouter@{MyRouter}!total\_\-packet\_\-latency@{total\_\-packet\_\-latency}}
+\index{total\_\-packet\_\-latency@{total\_\-packet\_\-latency}!MyRouter@{MyRouter}}
+\subsubsection[{total\_\-packet\_\-latency}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf MyRouter::total\_\-packet\_\-latency}}}
+\label{classMyRouter_081915dc1164141104ffa6ce7dd05ac5}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/none/\hyperlink{myRouter_8h}{myRouter.h}\item 
+source/components/none/\hyperlink{myRouter_8cc}{myRouter.cc}\end{CompactItemize}

@@ -1,0 +1,122 @@
+\hypertarget{request_8h}{
+\section{source/memctrl/request.h File Reference}
+\label{request_8h}\index{source/memctrl/request.h@{source/memctrl/request.h}}
+}
+{\tt \#include $<$string$>$}\par
+{\tt \#include $<$sstream$>$}\par
+{\tt \#include $<$iostream$>$}\par
+{\tt \#include $<$cstdlib$>$}\par
+{\tt \#include $<$map$>$}\par
+{\tt \#include \char`\"{}../kernel/component.h\char`\"{}}\par
+{\tt \#include \char`\"{}../kernel/simulator.h\char`\"{}}\par
+{\tt \#include \char`\"{}constants.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structData}{Data}
+\item 
+class \hyperlink{classRequest}{Request}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef \hyperlink{structData}{Data} \hyperlink{request_8h_040fc07acd6f92cd77e65c471e177c8a}{Data}
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{request_8h_8d135869d04d8d8c55c0e45752845cf0}{CStatus} \{ \hyperlink{request_8h_8d135869d04d8d8c55c0e45752845cf00e0143636c29971736eab47415868eae}{OPEN}, 
+\hyperlink{request_8h_8d135869d04d8d8c55c0e45752845cf0929f0327e17604ce9713b2a6117bd603}{CLOSED}, 
+\hyperlink{request_8h_8d135869d04d8d8c55c0e45752845cf03124eeef4801cbb117a96b9e4a0d7eb7}{CONFLICT}, 
+\hyperlink{request_8h_8d135869d04d8d8c55c0e45752845cf0fd6a0e4343048b10646dd2976cc5ad18}{IDLE}
+ \}
+\item 
+enum \hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbd}{Command\_\-t} \{ \par
+\hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbd3db1607181aed3c809ffeec523d5d9e6}{CACHE\_\-NOP}, 
+\hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbda614c7f88fbcfcc7dc4e5e9fd697f585}{CACHE\_\-READ}, 
+\hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbdf31232fbf9e45b41922cf68b09a4a201}{CACHE\_\-WRITE}, 
+\hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbd32d220872fec4028b8b25e094c84837c}{CACHE\_\-WRITEBACK}, 
+\par
+\hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbd37348416545a4253a253b1a4371e6ccf}{CACHE\_\-PREFETCH}, 
+\hyperlink{request_8h_fe8d33d42ee3ed4867090180ef38afbd1418c4911c72f0c5ae1eed401facb41a}{REFRESH}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{request_8h_040fc07acd6f92cd77e65c471e177c8a}{
+\index{request.h@{request.h}!Data@{Data}}
+\index{Data@{Data}!request.h@{request.h}}
+\subsubsection[{Data}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Data} {\bf Data}}}
+\label{request_8h_040fc07acd6f92cd77e65c471e177c8a}
+
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbd}{
+\index{request.h@{request.h}!Command\_\-t@{Command\_\-t}}
+\index{Command\_\-t@{Command\_\-t}!request.h@{request.h}}
+\subsubsection[{Command\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Command\_\-t}}}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbd}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{CACHE\_\-NOP@{CACHE\_\-NOP}!request.h@{request.h}}\index{request.h@{request.h}!CACHE\_\-NOP@{CACHE\_\-NOP}}\item[{\em 
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbd3db1607181aed3c809ffeec523d5d9e6}{
+CACHE\_\-NOP}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbd3db1607181aed3c809ffeec523d5d9e6}
+}]\index{CACHE\_\-READ@{CACHE\_\-READ}!request.h@{request.h}}\index{request.h@{request.h}!CACHE\_\-READ@{CACHE\_\-READ}}\item[{\em 
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbda614c7f88fbcfcc7dc4e5e9fd697f585}{
+CACHE\_\-READ}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbda614c7f88fbcfcc7dc4e5e9fd697f585}
+}]\index{CACHE\_\-WRITE@{CACHE\_\-WRITE}!request.h@{request.h}}\index{request.h@{request.h}!CACHE\_\-WRITE@{CACHE\_\-WRITE}}\item[{\em 
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbdf31232fbf9e45b41922cf68b09a4a201}{
+CACHE\_\-WRITE}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbdf31232fbf9e45b41922cf68b09a4a201}
+}]\index{CACHE\_\-WRITEBACK@{CACHE\_\-WRITEBACK}!request.h@{request.h}}\index{request.h@{request.h}!CACHE\_\-WRITEBACK@{CACHE\_\-WRITEBACK}}\item[{\em 
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbd32d220872fec4028b8b25e094c84837c}{
+CACHE\_\-WRITEBACK}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbd32d220872fec4028b8b25e094c84837c}
+}]\index{CACHE\_\-PREFETCH@{CACHE\_\-PREFETCH}!request.h@{request.h}}\index{request.h@{request.h}!CACHE\_\-PREFETCH@{CACHE\_\-PREFETCH}}\item[{\em 
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbd37348416545a4253a253b1a4371e6ccf}{
+CACHE\_\-PREFETCH}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbd37348416545a4253a253b1a4371e6ccf}
+}]\index{REFRESH@{REFRESH}!request.h@{request.h}}\index{request.h@{request.h}!REFRESH@{REFRESH}}\item[{\em 
+\hypertarget{request_8h_fe8d33d42ee3ed4867090180ef38afbd1418c4911c72f0c5ae1eed401facb41a}{
+REFRESH}
+\label{request_8h_fe8d33d42ee3ed4867090180ef38afbd1418c4911c72f0c5ae1eed401facb41a}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{request_8h_8d135869d04d8d8c55c0e45752845cf0}{
+\index{request.h@{request.h}!CStatus@{CStatus}}
+\index{CStatus@{CStatus}!request.h@{request.h}}
+\subsubsection[{CStatus}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf CStatus}}}
+\label{request_8h_8d135869d04d8d8c55c0e45752845cf0}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{OPEN@{OPEN}!request.h@{request.h}}\index{request.h@{request.h}!OPEN@{OPEN}}\item[{\em 
+\hypertarget{request_8h_8d135869d04d8d8c55c0e45752845cf00e0143636c29971736eab47415868eae}{
+OPEN}
+\label{request_8h_8d135869d04d8d8c55c0e45752845cf00e0143636c29971736eab47415868eae}
+}]\index{CLOSED@{CLOSED}!request.h@{request.h}}\index{request.h@{request.h}!CLOSED@{CLOSED}}\item[{\em 
+\hypertarget{request_8h_8d135869d04d8d8c55c0e45752845cf0929f0327e17604ce9713b2a6117bd603}{
+CLOSED}
+\label{request_8h_8d135869d04d8d8c55c0e45752845cf0929f0327e17604ce9713b2a6117bd603}
+}]\index{CONFLICT@{CONFLICT}!request.h@{request.h}}\index{request.h@{request.h}!CONFLICT@{CONFLICT}}\item[{\em 
+\hypertarget{request_8h_8d135869d04d8d8c55c0e45752845cf03124eeef4801cbb117a96b9e4a0d7eb7}{
+CONFLICT}
+\label{request_8h_8d135869d04d8d8c55c0e45752845cf03124eeef4801cbb117a96b9e4a0d7eb7}
+}]\index{IDLE@{IDLE}!request.h@{request.h}}\index{request.h@{request.h}!IDLE@{IDLE}}\item[{\em 
+\hypertarget{request_8h_8d135869d04d8d8c55c0e45752845cf0fd6a0e4343048b10646dd2976cc5ad18}{
+IDLE}
+\label{request_8h_8d135869d04d8d8c55c0e45752845cf0fd6a0e4343048b10646dd2976cc5ad18}
+}]\end{description}
+\end{Desc}
+

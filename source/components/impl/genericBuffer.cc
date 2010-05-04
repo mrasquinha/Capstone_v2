@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  genericOutputBuffer.cc
+ *       Filename:  genericbuffer.cc
  *
  *    Description:  
  *
@@ -15,30 +15,30 @@
  *
  * =====================================================================================
  */
-#ifndef  _genericoutputbuffer_cc_INC
-#define  _genericoutputbuffer_cc_INC
+#ifndef  _genericbuffer_cc_INC
+#define  _genericbuffer_cc_INC
 
 #include	"genericBuffer.h"
 
-GenericOutputBuffer::GenericOutputBuffer ()
+GenericBuffer::GenericBuffer ()
 {
     pull_channel = 0;
     push_channel = 0;
-}		/* -----  end of function GenericOutputBuffer::GenericOutputBuffer  ----- */
+}		/* -----  end of function GenericBuffer::GenericBuffer  ----- */
 
-GenericOutputBuffer::~GenericOutputBuffer ()
+GenericBuffer::~GenericBuffer ()
 {
 }
 
 void
-GenericOutputBuffer::push ( Flit* f )
+GenericBuffer::push ( Flit* f )
 {
     buffers[push_channel].push(f);
     return;
-}		/* -----  end of function GenericOutputBuffer::push  ----- */
+}		/* -----  end of function GenericBuffer::push  ----- */
 
 Flit*
-GenericOutputBuffer::pull ()
+GenericBuffer::pull ()
 {
     if( pull_channel > buffers.size() || buffers[pull_channel].size() == 0)
     {
@@ -48,16 +48,16 @@ GenericOutputBuffer::pull ()
     Flit* f = buffers[pull_channel].front();
     buffers[pull_channel].pop();
     return f;
-}		/* -----  end of function GenericOutputBuffer::pull  ----- */
+}		/* -----  end of function GenericBuffer::pull  ----- */
 
 uint
-GenericOutputBuffer::get_occupancy ( uint ch ) const
+GenericBuffer::get_occupancy ( uint ch ) const
 {
     return buffers[ch].size();
-}		/* -----  end of function GenericOutputBuffer::get_occupancy  ----- */
+}		/* -----  end of function GenericBuffer::get_occupancy  ----- */
 
 void
-GenericOutputBuffer::set_no_vcs( uint v )
+GenericBuffer::set_no_vcs( uint v )
 {
     /* 
     for ( uint i = vcs; i<buffers.size(); i++ )
@@ -70,10 +70,10 @@ GenericOutputBuffer::set_no_vcs( uint v )
     vcs =v;
     buffers.resize(vcs);
     return;
-}		/* -----  end of function GenericOutputBuffer::change_vcs  ----- */
+}		/* -----  end of function GenericBuffer::change_vcs  ----- */
 
 uint
-GenericOutputBuffer::get_no_vcs() const
+GenericBuffer::get_no_vcs() const
 {
     /*  should be return the pvt variable but for now using this to ensure
      *  init was right and not accessing member variable. */
@@ -81,47 +81,47 @@ GenericOutputBuffer::get_no_vcs() const
 }
 
 void
-GenericOutputBuffer::change_pull_channel ( uint ch )
+GenericBuffer::change_pull_channel ( uint ch )
 {
     pull_channel = ch;
     return;
-}		/* -----  end of function GenericOutputBuffer::change_pull_channel  ----- */
+}		/* -----  end of function GenericBuffer::change_pull_channel  ----- */
 
 void
-GenericOutputBuffer::change_push_channel ( uint ch )
+GenericBuffer::change_push_channel ( uint ch )
 {
     push_channel = ch;
     return;
-}		/* -----  end of function GenericOutputBuffer::change_pull_channel  ----- */
+}		/* -----  end of function GenericBuffer::change_pull_channel  ----- */
 
 
 uint
-GenericOutputBuffer::get_pull_channel () const
+GenericBuffer::get_pull_channel () const
 {
     return pull_channel;
-}		/* -----  end of function GenericOutputBuffer::get_pull_channel  ----- */
+}		/* -----  end of function GenericBuffer::get_pull_channel  ----- */
 
 uint
-GenericOutputBuffer::get_push_channel () const
+GenericBuffer::get_push_channel () const
 {
     return push_channel;
-}		/* -----  end of function GenericOutputBuffer::get_push_channel  ----- */
+}		/* -----  end of function GenericBuffer::get_push_channel  ----- */
 
 bool
-GenericOutputBuffer::is_channel_full ( uint ch ) const
+GenericBuffer::is_channel_full ( uint ch ) const
 {
     /* this is the buffer size that the router is configured for the implementation allow for a bigger buffer[i].size which is the simulation artifact and not the buffer size in the physical router */
     return buffers[ch].size() >= BUFFER_SIZE;  
-}		/* -----  end of function GenericOutputBuffer::full  ----- */
+}		/* -----  end of function GenericBuffer::full  ----- */
 
 bool
-GenericOutputBuffer::is_empty (uint ch ) const
+GenericBuffer::is_empty (uint ch ) const
 {
     return buffers[ch].empty();
-}		/* -----  end of function GenericOutputBuffer::empty  ----- */
+}		/* -----  end of function GenericBuffer::empty  ----- */
 
 string
-GenericOutputBuffer::toString () const
+GenericBuffer::toString () const
 {
     stringstream str;
     str << "GenericBuffer"
@@ -130,7 +130,7 @@ GenericOutputBuffer::toString () const
     for( uint i=0; i<buffers.size() && !buffers[i].empty(); i++)
             str << buffers[i].front()->toString();
     return str.str();
-}		/* -----  end of function GenericOutputBuffer::toString  ----- */
+}		/* -----  end of function GenericBuffer::toString  ----- */
 
-#endif   /* ----- #ifndef _genericoutputbuffer_cc_INC  ----- */
+#endif   /* ----- #ifndef _genericbuffer_cc_INC  ----- */
 

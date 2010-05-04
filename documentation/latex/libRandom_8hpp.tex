@@ -1,0 +1,118 @@
+\hypertarget{libRandom_8hpp}{
+\section{source/randomNumbers/impl/libRandom.hpp File Reference}
+\label{libRandom_8hpp}\index{source/randomNumbers/impl/libRandom.hpp@{source/randomNumbers/impl/libRandom.hpp}}
+}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include \char`\"{}rng.hpp\char`\"{}}\par
+{\tt \#include $<$iostream$>$}\par
+{\tt \#include $<$sstream$>$}\par
+{\tt \#include $<$vector$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classlibRandom_1_1randomNumberGenerator}{libRandom::randomNumberGenerator}
+\end{CompactItemize}
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespacelibRandom}{libRandom}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{libRandom_8hpp_996f7be338ccb40d1a2a5abc1ad61759}{ABS}(x)~( (x ) $>$ 0 ? (x):(-(x)) )
+\item 
+\#define \hyperlink{libRandom_8hpp_35d6c59c6aacffaa26090ebf2a004788}{RMIN}~10.0
+\item 
+\#define \hyperlink{libRandom_8hpp_66d21d4cc0d35bfe93b68f7a5089eb8b}{RMAX}~100.0
+\item 
+\#define \hyperlink{libRandom_8hpp_d4804f5cc70fe7dca06ff64f199f191d}{LAMDA}~3.0
+\item 
+\#define \hyperlink{libRandom_8hpp_9a2bbc66102de668efe5e9c7feb23eaa}{NODE}~3
+\item 
+\#define \hyperlink{libRandom_8hpp_cce0d4c4425d3def3d8448f8734aa370}{RN}~100.0
+\item 
+\#define \hyperlink{libRandom_8hpp_5a392548f2df67370cb15d2a5d75cd7b}{TYPE}~2
+\item 
+\#define \hyperlink{libRandom_8hpp_2de21eb687a4fd2ea6c1d5d7fb3a6e8d}{DEFAULT\_\-SEED}~5
+\item 
+\#define \hyperlink{libRandom_8hpp_e54e8a8542d7fb1790a6a56f8f67b0d7}{ADDRESSES}~10
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{namespacelibRandom_92b1a45f88ea941a0c13e4d0cf2e2ddf}{libRandom::poisson} (double lamda, unsigned int seed)
+\item 
+int \hyperlink{namespacelibRandom_74cde0683301c167495fe532c61019c4}{libRandom::length} (int type, unsigned int seed, double min, double max, double lamda)
+\item 
+std::vector$<$ int $>$ \hyperlink{namespacelibRandom_1e1da172d345c4aeb116147d70273bab}{libRandom::hot\_\-spot} (unsigned int node, unsigned int addresses, unsigned int seed)
+\item 
+int \hyperlink{namespacelibRandom_e429c63198aca37a932730576103d905}{libRandom::destination} (int type, unsigned int seed, unsigned int nodes, unsigned int addresses)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{libRandom_8hpp_996f7be338ccb40d1a2a5abc1ad61759}{
+\index{libRandom.hpp@{libRandom.hpp}!ABS@{ABS}}
+\index{ABS@{ABS}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{ABS}]{\setlength{\rightskip}{0pt plus 5cm}\#define ABS(x)~( (x ) $>$ 0 ? (x):(-(x)) )}}
+\label{libRandom_8hpp_996f7be338ccb40d1a2a5abc1ad61759}
+
+
+\hypertarget{libRandom_8hpp_e54e8a8542d7fb1790a6a56f8f67b0d7}{
+\index{libRandom.hpp@{libRandom.hpp}!ADDRESSES@{ADDRESSES}}
+\index{ADDRESSES@{ADDRESSES}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{ADDRESSES}]{\setlength{\rightskip}{0pt plus 5cm}\#define ADDRESSES~10}}
+\label{libRandom_8hpp_e54e8a8542d7fb1790a6a56f8f67b0d7}
+
+
+\hypertarget{libRandom_8hpp_2de21eb687a4fd2ea6c1d5d7fb3a6e8d}{
+\index{libRandom.hpp@{libRandom.hpp}!DEFAULT\_\-SEED@{DEFAULT\_\-SEED}}
+\index{DEFAULT\_\-SEED@{DEFAULT\_\-SEED}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{DEFAULT\_\-SEED}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-SEED~5}}
+\label{libRandom_8hpp_2de21eb687a4fd2ea6c1d5d7fb3a6e8d}
+
+
+\hypertarget{libRandom_8hpp_d4804f5cc70fe7dca06ff64f199f191d}{
+\index{libRandom.hpp@{libRandom.hpp}!LAMDA@{LAMDA}}
+\index{LAMDA@{LAMDA}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{LAMDA}]{\setlength{\rightskip}{0pt plus 5cm}\#define LAMDA~3.0}}
+\label{libRandom_8hpp_d4804f5cc70fe7dca06ff64f199f191d}
+
+
+\hypertarget{libRandom_8hpp_9a2bbc66102de668efe5e9c7feb23eaa}{
+\index{libRandom.hpp@{libRandom.hpp}!NODE@{NODE}}
+\index{NODE@{NODE}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{NODE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NODE~3}}
+\label{libRandom_8hpp_9a2bbc66102de668efe5e9c7feb23eaa}
+
+
+\hypertarget{libRandom_8hpp_66d21d4cc0d35bfe93b68f7a5089eb8b}{
+\index{libRandom.hpp@{libRandom.hpp}!RMAX@{RMAX}}
+\index{RMAX@{RMAX}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{RMAX}]{\setlength{\rightskip}{0pt plus 5cm}\#define RMAX~100.0}}
+\label{libRandom_8hpp_66d21d4cc0d35bfe93b68f7a5089eb8b}
+
+
+\hypertarget{libRandom_8hpp_35d6c59c6aacffaa26090ebf2a004788}{
+\index{libRandom.hpp@{libRandom.hpp}!RMIN@{RMIN}}
+\index{RMIN@{RMIN}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{RMIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define RMIN~10.0}}
+\label{libRandom_8hpp_35d6c59c6aacffaa26090ebf2a004788}
+
+
+\hypertarget{libRandom_8hpp_cce0d4c4425d3def3d8448f8734aa370}{
+\index{libRandom.hpp@{libRandom.hpp}!RN@{RN}}
+\index{RN@{RN}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{RN}]{\setlength{\rightskip}{0pt plus 5cm}\#define RN~100.0}}
+\label{libRandom_8hpp_cce0d4c4425d3def3d8448f8734aa370}
+
+
+\hypertarget{libRandom_8hpp_5a392548f2df67370cb15d2a5d75cd7b}{
+\index{libRandom.hpp@{libRandom.hpp}!TYPE@{TYPE}}
+\index{TYPE@{TYPE}!libRandom.hpp@{libRandom.hpp}}
+\subsubsection[{TYPE}]{\setlength{\rightskip}{0pt plus 5cm}\#define TYPE~2}}
+\label{libRandom_8hpp_5a392548f2df67370cb15d2a5d75cd7b}
+
+

@@ -1,0 +1,198 @@
+\hypertarget{classSimulator}{
+\section{Simulator Class Reference}
+\label{classSimulator}\index{Simulator@{Simulator}}
+}
+{\tt \#include $<$simulator.h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static void \hyperlink{classSimulator_27e7045e7aa4e29e9d2003aaa09c8326}{Run} ()
+\item 
+static void \hyperlink{classSimulator_d493423e80256f53c715bb59c16ec78e}{Stop} ()
+\item 
+static void \hyperlink{classSimulator_5611e1169517890edfeeb33f91281dd8}{StopAt} (double)
+\item 
+static double \hyperlink{classSimulator_cf5727f517db6743ddf25ae7cc9a8db4}{Now} ()
+\item 
+static bool \hyperlink{classSimulator_f85320c35a3ef59e17244e53047a4501}{Cancel} (\hyperlink{classEventId}{EventId} \&)
+\item 
+static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_b70ac4a1b36c3a20e7548203d22b9c17}{Peek} ()
+\item 
+static \hyperlink{classEventBase}{EventBase} $\ast$ \hyperlink{classSimulator_766aee01e48e500f84af435626ab7004}{GetEarliestEvent} ()
+\item 
+static int \hyperlink{classSimulator_80bffbd51839958866ddd16fde614ecf}{MyRank} ()
+\item 
+{\footnotesize template$<$typename T , typename OBJ $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_2b4be0a76ed9915d4c1c861386d666bc}{Schedule} (double t, void(T::$\ast$handler)(void), OBJ $\ast$obj)
+\item 
+{\footnotesize template$<$typename T , typename OBJ , typename U1 , typename T1 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_f483426f923de97d0f71ff88beceedbe}{Schedule} (double t, void(T::$\ast$handler)(U1), OBJ $\ast$obj, T1 t1)
+\item 
+{\footnotesize template$<$typename T , typename OBJ , typename U1 , typename T1 , typename U2 , typename T2 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_bb9b661fcd4fcbb62c331ef07a53eb7d}{Schedule} (double t, void(T::$\ast$handler)(U1, U2), OBJ $\ast$obj, T1 t1, T2 t2)
+\item 
+{\footnotesize template$<$typename T , typename OBJ , typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_f4102ccb431eea8143497cb92fb499d4}{Schedule} (double t, void(T::$\ast$handler)(U1, U2, U3), OBJ $\ast$obj, T1 t1, T2 t2, T3 t3)
+\item 
+{\footnotesize template$<$typename T , typename OBJ , typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 , typename U4 , typename T4 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_6846b3f0aa16ad7b4a4a1653837c123a}{Schedule} (double t, void(T::$\ast$handler)(U1, U2, U3, U4), OBJ $\ast$obj, T1 t1, T2 t2, T3 t3, T4 t4)
+\item 
+static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_e5e8a4479b8e2a7b4ecdb3eb8561b960}{Schedule} (double t, void($\ast$handler)(void))
+\item 
+{\footnotesize template$<$typename U1 , typename T1 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_e76c104f5cfd844df6054a3c7956a098}{Schedule} (double t, void($\ast$handler)(U1), T1 t1)
+\item 
+{\footnotesize template$<$typename U1 , typename T1 , typename U2 , typename T2 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_612e0d3f87f3461aa116ca3552adf11a}{Schedule} (double t, void($\ast$handler)(U1, U2), T1 t1, T2 t2)
+\item 
+{\footnotesize template$<$typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_2bc6f517e3b3a284b6b52efc47a9da76}{Schedule} (double t, void($\ast$handler)(U1, U2, U3), T1 t1, T2 t2, T3 t3)
+\item 
+{\footnotesize template$<$typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 , typename U4 , typename T4 $>$ }\\static \hyperlink{classEventId}{EventId} \hyperlink{classSimulator_a94a8a5c64b661ad4607517d84c8832e}{Schedule} (double t, void($\ast$handler)(U1, U2, U3, U4), T1 t1, T2 t2, T3 t3, T4 t4)
+\item 
+static void \hyperlink{classSimulator_bc27a87849e9903771b3990c99c750bd}{registerComponent} (\hyperlink{classComponent}{Component} $\ast$obj, int lp)
+\item 
+static \hyperlink{classComponentDescription}{ComponentDescription} $\ast$ \hyperlink{classSimulator_664a4bdb8925e0251e94131192743ff2}{getComponentDesc} (int)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSimulator_f85320c35a3ef59e17244e53047a4501}{
+\index{Simulator@{Simulator}!Cancel@{Cancel}}
+\index{Cancel@{Cancel}!Simulator@{Simulator}}
+\subsubsection[{Cancel}]{\setlength{\rightskip}{0pt plus 5cm}bool Simulator::Cancel ({\bf EventId} \& {\em evid})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_f85320c35a3ef59e17244e53047a4501}
+
+
+\hypertarget{classSimulator_664a4bdb8925e0251e94131192743ff2}{
+\index{Simulator@{Simulator}!getComponentDesc@{getComponentDesc}}
+\index{getComponentDesc@{getComponentDesc}!Simulator@{Simulator}}
+\subsubsection[{getComponentDesc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ComponentDescription} $\ast$ Simulator::getComponentDesc (int {\em compId})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_664a4bdb8925e0251e94131192743ff2}
+
+
+\hypertarget{classSimulator_766aee01e48e500f84af435626ab7004}{
+\index{Simulator@{Simulator}!GetEarliestEvent@{GetEarliestEvent}}
+\index{GetEarliestEvent@{GetEarliestEvent}!Simulator@{Simulator}}
+\subsubsection[{GetEarliestEvent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EventBase} $\ast$ Simulator::GetEarliestEvent ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_766aee01e48e500f84af435626ab7004}
+
+
+\hypertarget{classSimulator_80bffbd51839958866ddd16fde614ecf}{
+\index{Simulator@{Simulator}!MyRank@{MyRank}}
+\index{MyRank@{MyRank}!Simulator@{Simulator}}
+\subsubsection[{MyRank}]{\setlength{\rightskip}{0pt plus 5cm}int Simulator::MyRank ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_80bffbd51839958866ddd16fde614ecf}
+
+
+\hypertarget{classSimulator_cf5727f517db6743ddf25ae7cc9a8db4}{
+\index{Simulator@{Simulator}!Now@{Now}}
+\index{Now@{Now}!Simulator@{Simulator}}
+\subsubsection[{Now}]{\setlength{\rightskip}{0pt plus 5cm}double Simulator::Now ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_cf5727f517db6743ddf25ae7cc9a8db4}
+
+
+\hypertarget{classSimulator_b70ac4a1b36c3a20e7548203d22b9c17}{
+\index{Simulator@{Simulator}!Peek@{Peek}}
+\index{Peek@{Peek}!Simulator@{Simulator}}
+\subsubsection[{Peek}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EventId} Simulator::Peek ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_b70ac4a1b36c3a20e7548203d22b9c17}
+
+
+\hypertarget{classSimulator_bc27a87849e9903771b3990c99c750bd}{
+\index{Simulator@{Simulator}!registerComponent@{registerComponent}}
+\index{registerComponent@{registerComponent}!Simulator@{Simulator}}
+\subsubsection[{registerComponent}]{\setlength{\rightskip}{0pt plus 5cm}void Simulator::registerComponent ({\bf Component} $\ast$ {\em obj}, \/  int {\em lp})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_bc27a87849e9903771b3990c99c750bd}
+
+
+\hypertarget{classSimulator_27e7045e7aa4e29e9d2003aaa09c8326}{
+\index{Simulator@{Simulator}!Run@{Run}}
+\index{Run@{Run}!Simulator@{Simulator}}
+\subsubsection[{Run}]{\setlength{\rightskip}{0pt plus 5cm}void Simulator::Run ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_27e7045e7aa4e29e9d2003aaa09c8326}
+
+
+\hypertarget{classSimulator_a94a8a5c64b661ad4607517d84c8832e}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 , typename U4 , typename T4 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void($\ast$)(U1, U2, U3, U4) {\em handler}, \/  T1 {\em t1}, \/  T2 {\em t2}, \/  T3 {\em t3}, \/  T4 {\em t4})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_a94a8a5c64b661ad4607517d84c8832e}
+
+
+\hypertarget{classSimulator_2bc6f517e3b3a284b6b52efc47a9da76}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void($\ast$)(U1, U2, U3) {\em handler}, \/  T1 {\em t1}, \/  T2 {\em t2}, \/  T3 {\em t3})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_2bc6f517e3b3a284b6b52efc47a9da76}
+
+
+\hypertarget{classSimulator_612e0d3f87f3461aa116ca3552adf11a}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U1 , typename T1 , typename U2 , typename T2 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void($\ast$)(U1, U2) {\em handler}, \/  T1 {\em t1}, \/  T2 {\em t2})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_612e0d3f87f3461aa116ca3552adf11a}
+
+
+\hypertarget{classSimulator_e76c104f5cfd844df6054a3c7956a098}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U1 , typename T1 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void($\ast$)(U1) {\em handler}, \/  T1 {\em t1})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_e76c104f5cfd844df6054a3c7956a098}
+
+
+\hypertarget{classSimulator_e5e8a4479b8e2a7b4ecdb3eb8561b960}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void($\ast$)(void) {\em handler})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_e5e8a4479b8e2a7b4ecdb3eb8561b960}
+
+
+\hypertarget{classSimulator_6846b3f0aa16ad7b4a4a1653837c123a}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename OBJ , typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 , typename U4 , typename T4 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void(T::$\ast$)(U1, U2, U3, U4) {\em handler}, \/  OBJ $\ast$ {\em obj}, \/  T1 {\em t1}, \/  T2 {\em t2}, \/  T3 {\em t3}, \/  T4 {\em t4})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_6846b3f0aa16ad7b4a4a1653837c123a}
+
+
+\hypertarget{classSimulator_f4102ccb431eea8143497cb92fb499d4}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename OBJ , typename U1 , typename T1 , typename U2 , typename T2 , typename U3 , typename T3 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void(T::$\ast$)(U1, U2, U3) {\em handler}, \/  OBJ $\ast$ {\em obj}, \/  T1 {\em t1}, \/  T2 {\em t2}, \/  T3 {\em t3})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_f4102ccb431eea8143497cb92fb499d4}
+
+
+\hypertarget{classSimulator_bb9b661fcd4fcbb62c331ef07a53eb7d}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename OBJ , typename U1 , typename T1 , typename U2 , typename T2 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void(T::$\ast$)(U1, U2) {\em handler}, \/  OBJ $\ast$ {\em obj}, \/  T1 {\em t1}, \/  T2 {\em t2})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_bb9b661fcd4fcbb62c331ef07a53eb7d}
+
+
+\hypertarget{classSimulator_f483426f923de97d0f71ff88beceedbe}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename OBJ , typename U1 , typename T1 $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void(T::$\ast$)(U1) {\em handler}, \/  OBJ $\ast$ {\em obj}, \/  T1 {\em t1})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_f483426f923de97d0f71ff88beceedbe}
+
+
+\hypertarget{classSimulator_2b4be0a76ed9915d4c1c861386d666bc}{
+\index{Simulator@{Simulator}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Simulator@{Simulator}}
+\subsubsection[{Schedule}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename OBJ $>$ static {\bf EventId} Simulator::Schedule (double {\em t}, \/  void(T::$\ast$)(void) {\em handler}, \/  OBJ $\ast$ {\em obj})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSimulator_2b4be0a76ed9915d4c1c861386d666bc}
+
+
+\hypertarget{classSimulator_d493423e80256f53c715bb59c16ec78e}{
+\index{Simulator@{Simulator}!Stop@{Stop}}
+\index{Stop@{Stop}!Simulator@{Simulator}}
+\subsubsection[{Stop}]{\setlength{\rightskip}{0pt plus 5cm}void Simulator::Stop ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_d493423e80256f53c715bb59c16ec78e}
+
+
+\hypertarget{classSimulator_5611e1169517890edfeeb33f91281dd8}{
+\index{Simulator@{Simulator}!StopAt@{StopAt}}
+\index{StopAt@{StopAt}!Simulator@{Simulator}}
+\subsubsection[{StopAt}]{\setlength{\rightskip}{0pt plus 5cm}void Simulator::StopAt (double {\em stopTime})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSimulator_5611e1169517890edfeeb33f91281dd8}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/kernel/\hyperlink{simulator_8h}{simulator.h}\item 
+source/kernel/\hyperlink{simulator_8cc}{simulator.cc}\end{CompactItemize}

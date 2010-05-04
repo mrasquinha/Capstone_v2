@@ -1,0 +1,92 @@
+\hypertarget{rng_8hpp}{
+\section{source/randomNumbers/impl/rng.hpp File Reference}
+\label{rng_8hpp}\index{source/randomNumbers/impl/rng.hpp@{source/randomNumbers/impl/rng.hpp}}
+}
+{\tt \#include $<$vector$>$}\par
+{\tt \#include $<$algorithm$>$}\par
+{\tt \#include \char`\"{}common-defs.hpp\char`\"{}}\par
+{\tt \#include \char`\"{}RngStream.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classSeed}{Seed}
+\item 
+class \hyperlink{classRandomSeed}{RandomSeed}
+\item 
+class \hyperlink{classConstantSeed}{ConstantSeed}
+\item 
+class \hyperlink{classRandom}{Random}
+\item 
+class \hyperlink{classUniform}{Uniform}
+\item 
+class \hyperlink{classConstant}{Constant}
+\item 
+class \hyperlink{classSequential}{Sequential}
+\item 
+class \hyperlink{classExponential}{Exponential}
+\item 
+class \hyperlink{classPareto}{Pareto}
+\item 
+class \hyperlink{classWeibull}{Weibull}
+\item 
+class \hyperlink{classNormal}{Normal}
+\item 
+class \hyperlink{classValueCDF}{ValueCDF}
+\item 
+class \hyperlink{classEmpirical}{Empirical}
+\item 
+class \hyperlink{classIntEmpirical}{IntEmpirical}
+\item 
+class \hyperlink{classDeterministic}{Deterministic}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef double \hyperlink{rng_8hpp_ad41e7f5d86b1109b6a6a032c86cdd3f}{Random\_\-t}
+\item 
+typedef unsigned long \hyperlink{rng_8hpp_eb0f2eb55a063defa69eab89c6c0f695}{IRandom\_\-t}
+\item 
+typedef double \hyperlink{rng_8hpp_68ff29d325e1cb493f27ede4fa99c8e4}{CDF\_\-t}
+\item 
+typedef unsigned long \hyperlink{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{Seed\_\-t}
+\item 
+typedef std::vector$<$ \hyperlink{classValueCDF}{ValueCDF} $>$ \hyperlink{rng_8hpp_6bfb81afadaf29d3b9456e52153c9f42}{ValueCDFVec\_\-t}
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{rng_8hpp_68ff29d325e1cb493f27ede4fa99c8e4}{
+\index{rng.hpp@{rng.hpp}!CDF\_\-t@{CDF\_\-t}}
+\index{CDF\_\-t@{CDF\_\-t}!rng.hpp@{rng.hpp}}
+\subsubsection[{CDF\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf CDF\_\-t}}}
+\label{rng_8hpp_68ff29d325e1cb493f27ede4fa99c8e4}
+
+
+\hypertarget{rng_8hpp_eb0f2eb55a063defa69eab89c6c0f695}{
+\index{rng.hpp@{rng.hpp}!IRandom\_\-t@{IRandom\_\-t}}
+\index{IRandom\_\-t@{IRandom\_\-t}!rng.hpp@{rng.hpp}}
+\subsubsection[{IRandom\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf IRandom\_\-t}}}
+\label{rng_8hpp_eb0f2eb55a063defa69eab89c6c0f695}
+
+
+\hypertarget{rng_8hpp_ad41e7f5d86b1109b6a6a032c86cdd3f}{
+\index{rng.hpp@{rng.hpp}!Random\_\-t@{Random\_\-t}}
+\index{Random\_\-t@{Random\_\-t}!rng.hpp@{rng.hpp}}
+\subsubsection[{Random\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Random\_\-t}}}
+\label{rng_8hpp_ad41e7f5d86b1109b6a6a032c86cdd3f}
+
+
+\hypertarget{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}{
+\index{rng.hpp@{rng.hpp}!Seed\_\-t@{Seed\_\-t}}
+\index{Seed\_\-t@{Seed\_\-t}!rng.hpp@{rng.hpp}}
+\subsubsection[{Seed\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Seed\_\-t}}}
+\label{rng_8hpp_d06dc1c21590adf4036ea4a265d06af8}
+
+
+\hypertarget{rng_8hpp_6bfb81afadaf29d3b9456e52153c9f42}{
+\index{rng.hpp@{rng.hpp}!ValueCDFVec\_\-t@{ValueCDFVec\_\-t}}
+\index{ValueCDFVec\_\-t@{ValueCDFVec\_\-t}!rng.hpp@{rng.hpp}}
+\subsubsection[{ValueCDFVec\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::vector$<${\bf ValueCDF}$>$ {\bf ValueCDFVec\_\-t}}}
+\label{rng_8hpp_6bfb81afadaf29d3b9456e52153c9f42}
+
+

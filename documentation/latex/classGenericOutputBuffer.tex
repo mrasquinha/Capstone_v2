@@ -1,0 +1,244 @@
+\hypertarget{classGenericOutputBuffer}{
+\section{GenericOutputBuffer Class Reference}
+\label{classGenericOutputBuffer}\index{GenericOutputBuffer@{GenericOutputBuffer}}
+}
+{\tt \#include $<$genericBuffer.h$>$}
+
+Inheritance diagram for GenericOutputBuffer::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classGenericOutputBuffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classGenericOutputBuffer_10c4287e27f634982bc28e1de2b31757}{GenericOutputBuffer} ()
+\item 
+\hyperlink{classGenericOutputBuffer_d67316556a00a71d7b98818de74328ff}{$\sim$GenericOutputBuffer} ()
+\item 
+void \hyperlink{classGenericOutputBuffer_f2b4047e054df5bb9b624ce0b0bbf0e2}{push} (\hyperlink{classFlit}{Flit} $\ast$f)
+\item 
+\hyperlink{classFlit}{Flit} $\ast$ \hyperlink{classGenericOutputBuffer_3c3f1b425635f59b0539805945ddb1bd}{pull} ()
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericOutputBuffer_0b8b70b9b3ab71195eea8d0d810dce94}{get\_\-occupancy} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch) const 
+\item 
+void \hyperlink{classGenericOutputBuffer_a0dcb541c9d64d097a21dd8b290c3950}{set\_\-no\_\-vcs} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} vcs)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericOutputBuffer_6f5495e1ddd1b524d105d86b083e85cc}{get\_\-no\_\-vcs} () const 
+\item 
+void \hyperlink{classGenericOutputBuffer_c4f3cf09d07b340af349820bcaed731e}{change\_\-pull\_\-channel} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+void \hyperlink{classGenericOutputBuffer_d7576df13afbc101eb997e35ad417739}{change\_\-push\_\-channel} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericOutputBuffer_c3e3831a4eb7b09b053b511722e89daf}{get\_\-pull\_\-channel} () const 
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericOutputBuffer_d7f10031a96719bc97a11d3a96f4ef6f}{get\_\-push\_\-channel} () const 
+\item 
+bool \hyperlink{classGenericOutputBuffer_cc3ce27817dea583b8c0cb269b3c9cdb}{is\_\-channel\_\-full} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch) const 
+\item 
+bool \hyperlink{classGenericOutputBuffer_df867815a21d8e832ba19aa63fa65e55}{is\_\-empty} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch) const 
+\item 
+string \hyperlink{classGenericOutputBuffer_746612d97dbd6240764632638931d3fa}{toString} () const 
+\item 
+void \hyperlink{classGenericOutputBuffer_a61d09c8b3fcdd15b71f1b01d28ea748}{got\_\-credit} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericOutputBuffer_20a0a495d2b0aa4e6c6539209038ab2c}{get\_\-no\_\-credits} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch) const 
+\item 
+void \hyperlink{classGenericOutputBuffer_632ffda3db2c9729e2d9d6d1645defb3}{set\_\-no\_\-credits} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} no)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classGenericOutputBuffer_98d12e7f17f1ce56b89db973b9efe7b0}{buffer\_\-size}
+\item 
+unsigned long long int \hyperlink{classGenericOutputBuffer_f201a673a51bd864907116c48a053f97}{write\_\-time}
+\item 
+vector$<$ queue$<$ \hyperlink{classFlit}{Flit} $\ast$ $>$ $>$ \hyperlink{classGenericOutputBuffer_561cd725dc95f8c57fda666df9980313}{buffers}
+\item 
+vector$<$ int $>$ \hyperlink{classGenericOutputBuffer_fadacb202322788766670e54b1d8430c}{next\_\-port}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGenericOutputBuffer_10c4287e27f634982bc28e1de2b31757}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!GenericOutputBuffer@{GenericOutputBuffer}}
+\index{GenericOutputBuffer@{GenericOutputBuffer}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{GenericOutputBuffer}]{\setlength{\rightskip}{0pt plus 5cm}GenericOutputBuffer::GenericOutputBuffer ()}}
+\label{classGenericOutputBuffer_10c4287e27f634982bc28e1de2b31757}
+
+
+\hypertarget{classGenericOutputBuffer_d67316556a00a71d7b98818de74328ff}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!$\sim$GenericOutputBuffer@{$\sim$GenericOutputBuffer}}
+\index{$\sim$GenericOutputBuffer@{$\sim$GenericOutputBuffer}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{$\sim$GenericOutputBuffer}]{\setlength{\rightskip}{0pt plus 5cm}GenericOutputBuffer::$\sim$GenericOutputBuffer ()}}
+\label{classGenericOutputBuffer_d67316556a00a71d7b98818de74328ff}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGenericOutputBuffer_c4f3cf09d07b340af349820bcaed731e}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!change\_\-pull\_\-channel@{change\_\-pull\_\-channel}}
+\index{change\_\-pull\_\-channel@{change\_\-pull\_\-channel}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{change\_\-pull\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}void GenericOutputBuffer::change\_\-pull\_\-channel ({\bf uint} {\em ch})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_c4f3cf09d07b340af349820bcaed731e}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_fb8e0a16f34dcff4c0d954201712f762}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_d7576df13afbc101eb997e35ad417739}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!change\_\-push\_\-channel@{change\_\-push\_\-channel}}
+\index{change\_\-push\_\-channel@{change\_\-push\_\-channel}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{change\_\-push\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}void GenericOutputBuffer::change\_\-push\_\-channel ({\bf uint} {\em ch})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_d7576df13afbc101eb997e35ad417739}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_45a685173b5c5cbe6270c9e0ce6d023a}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_20a0a495d2b0aa4e6c6539209038ab2c}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!get\_\-no\_\-credits@{get\_\-no\_\-credits}}
+\index{get\_\-no\_\-credits@{get\_\-no\_\-credits}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{get\_\-no\_\-credits}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericOutputBuffer::get\_\-no\_\-credits ({\bf uint} {\em ch}) const}}
+\label{classGenericOutputBuffer_20a0a495d2b0aa4e6c6539209038ab2c}
+
+
+\hypertarget{classGenericOutputBuffer_6f5495e1ddd1b524d105d86b083e85cc}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!get\_\-no\_\-vcs@{get\_\-no\_\-vcs}}
+\index{get\_\-no\_\-vcs@{get\_\-no\_\-vcs}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{get\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericOutputBuffer::get\_\-no\_\-vcs () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_6f5495e1ddd1b524d105d86b083e85cc}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_21ad5222afd999f390df4a495eb48b0a}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_0b8b70b9b3ab71195eea8d0d810dce94}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!get\_\-occupancy@{get\_\-occupancy}}
+\index{get\_\-occupancy@{get\_\-occupancy}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{get\_\-occupancy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericOutputBuffer::get\_\-occupancy ({\bf uint} {\em ch}) const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_0b8b70b9b3ab71195eea8d0d810dce94}
+
+
+
+
+Implements \hyperlink{classBuffer_af4e2d4031945429ae58350b5897570a}{Buffer}.\hypertarget{classGenericOutputBuffer_c3e3831a4eb7b09b053b511722e89daf}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!get\_\-pull\_\-channel@{get\_\-pull\_\-channel}}
+\index{get\_\-pull\_\-channel@{get\_\-pull\_\-channel}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{get\_\-pull\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericOutputBuffer::get\_\-pull\_\-channel () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_c3e3831a4eb7b09b053b511722e89daf}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_c4460c1a1ac34667c12cc77c57a393b9}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_d7f10031a96719bc97a11d3a96f4ef6f}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!get\_\-push\_\-channel@{get\_\-push\_\-channel}}
+\index{get\_\-push\_\-channel@{get\_\-push\_\-channel}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{get\_\-push\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} GenericOutputBuffer::get\_\-push\_\-channel () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_d7f10031a96719bc97a11d3a96f4ef6f}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_bafd65458146d9b383643fef94b38881}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_a61d09c8b3fcdd15b71f1b01d28ea748}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!got\_\-credit@{got\_\-credit}}
+\index{got\_\-credit@{got\_\-credit}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{got\_\-credit}]{\setlength{\rightskip}{0pt plus 5cm}void GenericOutputBuffer::got\_\-credit ({\bf uint} {\em ch})}}
+\label{classGenericOutputBuffer_a61d09c8b3fcdd15b71f1b01d28ea748}
+
+
+\hypertarget{classGenericOutputBuffer_cc3ce27817dea583b8c0cb269b3c9cdb}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!is\_\-channel\_\-full@{is\_\-channel\_\-full}}
+\index{is\_\-channel\_\-full@{is\_\-channel\_\-full}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{is\_\-channel\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericOutputBuffer::is\_\-channel\_\-full ({\bf uint} {\em ch}) const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_cc3ce27817dea583b8c0cb269b3c9cdb}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_23aaeb2aa62e944596d50a569ed5d859}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_df867815a21d8e832ba19aa63fa65e55}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}bool GenericOutputBuffer::is\_\-empty ({\bf uint} {\em ch}) const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_df867815a21d8e832ba19aa63fa65e55}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_7cba09e2dbb3794d873862b5066fd085}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_3c3f1b425635f59b0539805945ddb1bd}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!pull@{pull}}
+\index{pull@{pull}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{pull}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Flit} $\ast$ GenericOutputBuffer::pull ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_3c3f1b425635f59b0539805945ddb1bd}
+
+
+
+
+Implements \hyperlink{classBuffer_95f5c230f9c261bc13ddcfafcc340e7e}{Buffer}.\hypertarget{classGenericOutputBuffer_f2b4047e054df5bb9b624ce0b0bbf0e2}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!push@{push}}
+\index{push@{push}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}void GenericOutputBuffer::push ({\bf Flit} $\ast$ {\em f})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_f2b4047e054df5bb9b624ce0b0bbf0e2}
+
+
+
+
+Implements \hyperlink{classBuffer_c9dce1860c655146f000df30314caaa9}{Buffer}.\hypertarget{classGenericOutputBuffer_632ffda3db2c9729e2d9d6d1645defb3}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!set\_\-no\_\-credits@{set\_\-no\_\-credits}}
+\index{set\_\-no\_\-credits@{set\_\-no\_\-credits}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{set\_\-no\_\-credits}]{\setlength{\rightskip}{0pt plus 5cm}void GenericOutputBuffer::set\_\-no\_\-credits ({\bf uint} {\em no})}}
+\label{classGenericOutputBuffer_632ffda3db2c9729e2d9d6d1645defb3}
+
+
+\hypertarget{classGenericOutputBuffer_a0dcb541c9d64d097a21dd8b290c3950}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!set\_\-no\_\-vcs@{set\_\-no\_\-vcs}}
+\index{set\_\-no\_\-vcs@{set\_\-no\_\-vcs}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{set\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}void GenericOutputBuffer::set\_\-no\_\-vcs ({\bf uint} {\em vcs})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classGenericOutputBuffer_a0dcb541c9d64d097a21dd8b290c3950}
+
+
+
+
+Implements \hyperlink{classOutputBuffer_5fafb6827567941d238ae16991c5c1a8}{OutputBuffer}.\hypertarget{classGenericOutputBuffer_746612d97dbd6240764632638931d3fa}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!toString@{toString}}
+\index{toString@{toString}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string GenericOutputBuffer::toString () const}}
+\label{classGenericOutputBuffer_746612d97dbd6240764632638931d3fa}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classGenericOutputBuffer_98d12e7f17f1ce56b89db973b9efe7b0}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!buffer\_\-size@{buffer\_\-size}}
+\index{buffer\_\-size@{buffer\_\-size}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf GenericOutputBuffer::buffer\_\-size}}}
+\label{classGenericOutputBuffer_98d12e7f17f1ce56b89db973b9efe7b0}
+
+
+\hypertarget{classGenericOutputBuffer_561cd725dc95f8c57fda666df9980313}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!buffers@{buffers}}
+\index{buffers@{buffers}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{buffers}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ queue$<${\bf Flit}$\ast$$>$ $>$ {\bf GenericOutputBuffer::buffers}}}
+\label{classGenericOutputBuffer_561cd725dc95f8c57fda666df9980313}
+
+
+\hypertarget{classGenericOutputBuffer_fadacb202322788766670e54b1d8430c}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!next\_\-port@{next\_\-port}}
+\index{next\_\-port@{next\_\-port}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{next\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ {\bf GenericOutputBuffer::next\_\-port}}}
+\label{classGenericOutputBuffer_fadacb202322788766670e54b1d8430c}
+
+
+\hypertarget{classGenericOutputBuffer_f201a673a51bd864907116c48a053f97}{
+\index{GenericOutputBuffer@{GenericOutputBuffer}!write\_\-time@{write\_\-time}}
+\index{write\_\-time@{write\_\-time}!GenericOutputBuffer@{GenericOutputBuffer}}
+\subsubsection[{write\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long long int {\bf GenericOutputBuffer::write\_\-time}}}
+\label{classGenericOutputBuffer_f201a673a51bd864907116c48a053f97}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/none/\hyperlink{none_2genericBuffer_8h}{genericBuffer.h}\item 
+source/components/none/\hyperlink{none_2genericBuffer_8cc}{genericBuffer.cc}\end{CompactItemize}

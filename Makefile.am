@@ -31,16 +31,15 @@ IRIS_SOURCES = \
 		  source/components/impl/genericCrossbar.cc \
 		  source/components/impl/genericInterface.cc \
 		  source/components/impl/genericData.cc \
-		  source/components/impl/genericArbiter.cc \
+		  source/components/impl/genericVcArbiter.cc \
 		  source/components/impl/genericSink.cc \
 		  source/components/impl/genericLink.cc \
-		  source/components/impl/genericPortArbiter.cc \
-		  source/components/impl/myArbiter.cc \
-		  source/components/impl/pvtop_swa.cc \
-		  source/components/impl/genericVcArbiter.cc \
-		  source/components/impl/myRouter.cc \
-		  source/components/impl/genericRPG.cc \
+		  source/components/impl/pvtopv_swa.cc \
+		  source/components/impl/ptop_swa.cc \
+		  source/components/impl/genericVcArbiterNoFlits.cc \
+		  source/components/impl/genericRouterNoVcs.cc \
 		  source/components/impl/genericTPG.cc \
+		  source/components/impl/genericRPG.cc \
 		  source/tests/packetSource.cc
 
 ## simMc2Mesh
@@ -104,14 +103,13 @@ noinst_HEADERS = \
 		 source/components/impl/genericCrossbar.h \
 		 source/components/impl/genericBuffer.h \
 		 source/components/impl/genericInterface.h \
-		 source/components/impl/genericArbiter.h \
+		 source/components/impl/genericVcArbiter.h \
 		 source/components/impl/genericSink.h \
 		 source/components/impl/genericLink.h \
-		 source/components/impl/genericPortArbiter.h \
-		 source/components/impl/myArbiter.h \
-		 source/components/impl/pvtop_swa.h \
-		 source/components/impl/genericVcArbiter.h \
-		 source/components/impl/myRouter.h \
-		 source/components/impl/genericRPG.h \
+		 source/components/impl/pvtopv_swa.h \
+		 source/components/impl/ptop_swa.h \
+		 source/components/impl/genericVcArbiterNoFlits.h \
+		 source/components/impl/genericRouterNoVcs.h \
 		 source/components/impl/genericTPG.h \
+		 source/components/impl/genericRPG.h \
 		 source/tests/packetSource.h 

@@ -1,0 +1,207 @@
+\hypertarget{none_2genericRPG_8h}{
+\section{source/components/none/genericRPG.h File Reference}
+\label{none_2genericRPG_8h}\index{source/components/none/genericRPG.h@{source/components/none/genericRPG.h}}
+}
+{\tt \#include \char`\"{}../../randomNumbers/impl/libRandom.hpp\char`\"{}}\par
+{\tt \#include \char`\"{}../interfaces/processor.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericInterface.h\char`\"{}}\par
+{\tt \#include \char`\"{}genericData.h\char`\"{}}\par
+{\tt \#include $<$fstream$>$}\par
+{\tt \#include $<$deque$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{classGenericRPG}{GenericRPG}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{none_2genericRPG_8h_acf2b8af3c21da41c625361742b49033}{IN\_\-OUT\_\-MISMATCH}~-1
+\item 
+\#define \hyperlink{none_2genericRPG_8h_7ff63f71612b54bc3472788c5cf858a8}{SIM\_\-SUCCESS}~0
+\item 
+\#define \hyperlink{none_2genericRPG_8h_acd7d711d1cb6daa442b1020836b7b10}{REPORT\_\-BASE}~20
+\item 
+\#define \hyperlink{none_2genericRPG_8h_96e8def35c4a4089d135b84a42ba3ef5}{DEFAULT\_\-RAN\_\-LAMDA}~2.35
+\item 
+\#define \hyperlink{none_2genericRPG_8h_09f738f8baf435b6537768cc94dad17d}{DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE}~\char`\"{}uniform\char`\"{}
+\item 
+\#define \hyperlink{none_2genericRPG_8h_800e5323ed643b94bc97133e37ea67b5}{DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE}~\char`\"{}uniform\char`\"{}
+\item 
+\#define \hyperlink{none_2genericRPG_8h_d9ab56612febb84dbf32c4bc009d8e94}{DEFAULT\_\-RAN\_\-ADDRESS}~0
+\item 
+\#define \hyperlink{none_2genericRPG_8h_aba07841c3e227bc8bdd8ccdad149349}{MAX\_\-ADDRESS}~3
+\item 
+\#define \hyperlink{none_2genericRPG_8h_7a9a231e30b47bc0345749c8bd1e5077}{MAX\_\-LENGTH}~10
+\item 
+\#define \hyperlink{none_2genericRPG_8h_36aadcc60cb05b42dcda5459cd0c8acc}{MIN\_\-LENGTH}~1
+\item 
+\#define \hyperlink{none_2genericRPG_8h_d3b51637a39a4ff75bd979b917cb89ef}{MIN\_\-DELAY}~1
+\item 
+\#define \hyperlink{none_2genericRPG_8h_16027d8acc5301e440cefa086eb9db2a}{MAX\_\-DELAY}~100
+\item 
+\#define \hyperlink{none_2genericRPG_8h_c317388cb88258db1d6de1ff7bcb1fda}{DEFAULT\_\-RAN\_\-MAX\_\-VC}~1
+\item 
+\#define \hyperlink{none_2genericRPG_8h_34af402b1c9a915b4114c54c6d7fa63c}{DEFAULT\_\-RAN\_\-SEED}~324986
+\item 
+\#define \hyperlink{none_2genericRPG_8h_95a6218d50e244f6e58b6cca098c1d65}{DEFAULT\_\-RAN\_\-MAX\_\-TIME}~100
+\item 
+\#define \hyperlink{none_2genericRPG_8h_416a5068ad5649b1fb0c4dc41d6616ff}{HOT\_\-SPOTS}~3
+\item 
+\#define \hyperlink{none_2genericRPG_8h_8b605c4e6814dee663f4dcba1234f08f}{DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME}~\char`\"{}randomOut.tr\char`\"{}
+\item 
+\#define \hyperlink{none_2genericRPG_8h_fa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}(a, b)~(((a)$<$(b))?(b):(a))
+\item 
+\#define \hyperlink{none_2genericRPG_8h_3acffbd305ee72dcd4593c0d8af64a4f}{MIN}(a, b)~(((a)$<$(b))?(a):(b))
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const string \hyperlink{none_2genericRPG_8h_d2814df802952bf7d5e54b28efc5d6c5}{run\_\-destination\_\-type} = \char`\"{}uniform\char`\"{}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{none_2genericRPG_8h_d9ab56612febb84dbf32c4bc009d8e94}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-ADDRESS@{DEFAULT\_\-RAN\_\-ADDRESS}}
+\index{DEFAULT\_\-RAN\_\-ADDRESS@{DEFAULT\_\-RAN\_\-ADDRESS}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-ADDRESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-ADDRESS~0}}
+\label{none_2genericRPG_8h_d9ab56612febb84dbf32c4bc009d8e94}
+
+
+\hypertarget{none_2genericRPG_8h_09f738f8baf435b6537768cc94dad17d}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE@{DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE}}
+\index{DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE@{DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-DESTINATION\_\-TYPE~\char`\"{}uniform\char`\"{}}}
+\label{none_2genericRPG_8h_09f738f8baf435b6537768cc94dad17d}
+
+
+\hypertarget{none_2genericRPG_8h_96e8def35c4a4089d135b84a42ba3ef5}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-LAMDA@{DEFAULT\_\-RAN\_\-LAMDA}}
+\index{DEFAULT\_\-RAN\_\-LAMDA@{DEFAULT\_\-RAN\_\-LAMDA}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-LAMDA}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-LAMDA~2.35}}
+\label{none_2genericRPG_8h_96e8def35c4a4089d135b84a42ba3ef5}
+
+
+\hypertarget{none_2genericRPG_8h_800e5323ed643b94bc97133e37ea67b5}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE@{DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE}}
+\index{DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE@{DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-LENGTH\_\-TYPE~\char`\"{}uniform\char`\"{}}}
+\label{none_2genericRPG_8h_800e5323ed643b94bc97133e37ea67b5}
+
+
+\hypertarget{none_2genericRPG_8h_95a6218d50e244f6e58b6cca098c1d65}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-MAX\_\-TIME@{DEFAULT\_\-RAN\_\-MAX\_\-TIME}}
+\index{DEFAULT\_\-RAN\_\-MAX\_\-TIME@{DEFAULT\_\-RAN\_\-MAX\_\-TIME}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-MAX\_\-TIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-MAX\_\-TIME~100}}
+\label{none_2genericRPG_8h_95a6218d50e244f6e58b6cca098c1d65}
+
+
+\hypertarget{none_2genericRPG_8h_c317388cb88258db1d6de1ff7bcb1fda}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-MAX\_\-VC@{DEFAULT\_\-RAN\_\-MAX\_\-VC}}
+\index{DEFAULT\_\-RAN\_\-MAX\_\-VC@{DEFAULT\_\-RAN\_\-MAX\_\-VC}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-MAX\_\-VC}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-MAX\_\-VC~1}}
+\label{none_2genericRPG_8h_c317388cb88258db1d6de1ff7bcb1fda}
+
+
+\hypertarget{none_2genericRPG_8h_34af402b1c9a915b4114c54c6d7fa63c}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-SEED@{DEFAULT\_\-RAN\_\-SEED}}
+\index{DEFAULT\_\-RAN\_\-SEED@{DEFAULT\_\-RAN\_\-SEED}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-SEED}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-SEED~324986}}
+\label{none_2genericRPG_8h_34af402b1c9a915b4114c54c6d7fa63c}
+
+
+\hypertarget{none_2genericRPG_8h_8b605c4e6814dee663f4dcba1234f08f}{
+\index{none/genericRPG.h@{none/genericRPG.h}!DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME@{DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME}}
+\index{DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME@{DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-RAN\_\-TRACE\_\-FILE\_\-NAME~\char`\"{}randomOut.tr\char`\"{}}}
+\label{none_2genericRPG_8h_8b605c4e6814dee663f4dcba1234f08f}
+
+
+\hypertarget{none_2genericRPG_8h_416a5068ad5649b1fb0c4dc41d6616ff}{
+\index{none/genericRPG.h@{none/genericRPG.h}!HOT\_\-SPOTS@{HOT\_\-SPOTS}}
+\index{HOT\_\-SPOTS@{HOT\_\-SPOTS}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{HOT\_\-SPOTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define HOT\_\-SPOTS~3}}
+\label{none_2genericRPG_8h_416a5068ad5649b1fb0c4dc41d6616ff}
+
+
+\hypertarget{none_2genericRPG_8h_acf2b8af3c21da41c625361742b49033}{
+\index{none/genericRPG.h@{none/genericRPG.h}!IN\_\-OUT\_\-MISMATCH@{IN\_\-OUT\_\-MISMATCH}}
+\index{IN\_\-OUT\_\-MISMATCH@{IN\_\-OUT\_\-MISMATCH}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{IN\_\-OUT\_\-MISMATCH}]{\setlength{\rightskip}{0pt plus 5cm}\#define IN\_\-OUT\_\-MISMATCH~-1}}
+\label{none_2genericRPG_8h_acf2b8af3c21da41c625361742b49033}
+
+
+\hypertarget{none_2genericRPG_8h_fa99ec4acc4ecb2dc3c2d05da15d0e3f}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MAX@{MAX}}
+\index{MAX@{MAX}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MAX}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX(a, \/  b)~(((a)$<$(b))?(b):(a))}}
+\label{none_2genericRPG_8h_fa99ec4acc4ecb2dc3c2d05da15d0e3f}
+
+
+\hypertarget{none_2genericRPG_8h_aba07841c3e227bc8bdd8ccdad149349}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MAX\_\-ADDRESS@{MAX\_\-ADDRESS}}
+\index{MAX\_\-ADDRESS@{MAX\_\-ADDRESS}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MAX\_\-ADDRESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-ADDRESS~3}}
+\label{none_2genericRPG_8h_aba07841c3e227bc8bdd8ccdad149349}
+
+
+\hypertarget{none_2genericRPG_8h_16027d8acc5301e440cefa086eb9db2a}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MAX\_\-DELAY@{MAX\_\-DELAY}}
+\index{MAX\_\-DELAY@{MAX\_\-DELAY}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MAX\_\-DELAY}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-DELAY~100}}
+\label{none_2genericRPG_8h_16027d8acc5301e440cefa086eb9db2a}
+
+
+\hypertarget{none_2genericRPG_8h_7a9a231e30b47bc0345749c8bd1e5077}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MAX\_\-LENGTH@{MAX\_\-LENGTH}}
+\index{MAX\_\-LENGTH@{MAX\_\-LENGTH}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MAX\_\-LENGTH}]{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-LENGTH~10}}
+\label{none_2genericRPG_8h_7a9a231e30b47bc0345749c8bd1e5077}
+
+
+\hypertarget{none_2genericRPG_8h_3acffbd305ee72dcd4593c0d8af64a4f}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MIN@{MIN}}
+\index{MIN@{MIN}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN(a, \/  b)~(((a)$<$(b))?(a):(b))}}
+\label{none_2genericRPG_8h_3acffbd305ee72dcd4593c0d8af64a4f}
+
+
+\hypertarget{none_2genericRPG_8h_d3b51637a39a4ff75bd979b917cb89ef}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MIN\_\-DELAY@{MIN\_\-DELAY}}
+\index{MIN\_\-DELAY@{MIN\_\-DELAY}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MIN\_\-DELAY}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-DELAY~1}}
+\label{none_2genericRPG_8h_d3b51637a39a4ff75bd979b917cb89ef}
+
+
+\hypertarget{none_2genericRPG_8h_36aadcc60cb05b42dcda5459cd0c8acc}{
+\index{none/genericRPG.h@{none/genericRPG.h}!MIN\_\-LENGTH@{MIN\_\-LENGTH}}
+\index{MIN\_\-LENGTH@{MIN\_\-LENGTH}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{MIN\_\-LENGTH}]{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-LENGTH~1}}
+\label{none_2genericRPG_8h_36aadcc60cb05b42dcda5459cd0c8acc}
+
+
+\hypertarget{none_2genericRPG_8h_acd7d711d1cb6daa442b1020836b7b10}{
+\index{none/genericRPG.h@{none/genericRPG.h}!REPORT\_\-BASE@{REPORT\_\-BASE}}
+\index{REPORT\_\-BASE@{REPORT\_\-BASE}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{REPORT\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define REPORT\_\-BASE~20}}
+\label{none_2genericRPG_8h_acd7d711d1cb6daa442b1020836b7b10}
+
+
+\hypertarget{none_2genericRPG_8h_7ff63f71612b54bc3472788c5cf858a8}{
+\index{none/genericRPG.h@{none/genericRPG.h}!SIM\_\-SUCCESS@{SIM\_\-SUCCESS}}
+\index{SIM\_\-SUCCESS@{SIM\_\-SUCCESS}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{SIM\_\-SUCCESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define SIM\_\-SUCCESS~0}}
+\label{none_2genericRPG_8h_7ff63f71612b54bc3472788c5cf858a8}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{none_2genericRPG_8h_d2814df802952bf7d5e54b28efc5d6c5}{
+\index{none/genericRPG.h@{none/genericRPG.h}!run\_\-destination\_\-type@{run\_\-destination\_\-type}}
+\index{run\_\-destination\_\-type@{run\_\-destination\_\-type}!none/genericRPG.h@{none/genericRPG.h}}
+\subsubsection[{run\_\-destination\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}const string {\bf run\_\-destination\_\-type} = \char`\"{}uniform\char`\"{}}}
+\label{none_2genericRPG_8h_d2814df802952bf7d5e54b28efc5d6c5}
+
+

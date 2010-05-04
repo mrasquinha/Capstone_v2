@@ -1,0 +1,159 @@
+\hypertarget{classInterface}{
+\section{Interface Class Reference}
+\label{classInterface}\index{Interface@{Interface}}
+}
+{\tt \#include $<$interface.h$>$}
+
+Inheritance diagram for Interface::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classInterface}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classInterface_4406d74c75bdfe150bf72be1f1cda8b1}{Interface} ()
+\item 
+virtual \hyperlink{classInterface_19179888f29f18f1be54a3dfe98f68c0}{$\sim$Interface} ()
+\item 
+virtual string \hyperlink{classInterface_137cdb3bca46eb2ae0bbf017d1efb66e}{toString} () const 
+\item 
+virtual void \hyperlink{classInterface_f9015204e6dabe3e0fce572b19cd1550}{setup} ()=0
+\item 
+virtual void \hyperlink{classInterface_c458ee6d8e974cb0a9f90308d0feb16d}{set\_\-no\_\-credits} (int cr)=0
+\item 
+virtual void \hyperlink{classInterface_f2cec7f7aa725d52c8bb02087d7c9e5d}{set\_\-buffer\_\-size} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} cr)=0
+\item 
+virtual void \hyperlink{classInterface_e7266de6cc9e1dfd4bb3a1b8face3c15}{set\_\-no\_\-vcs} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} cr)=0
+\item 
+virtual void \hyperlink{classInterface_baaaeb823b1e0fd7ddc1bb32c2f016fb}{process\_\-event} (\hyperlink{classIrisEvent}{IrisEvent} $\ast$e)=0
+\item 
+virtual string \hyperlink{classInterface_abfe4b675df488fd5a88d2876cff0ebe}{print\_\-stats} ()=0
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{classNetworkComponent}{NetworkComponent} $\ast$ \hyperlink{classInterface_5008ad5bfdf390821d9b6de2272fbe6d}{processor\_\-connection}
+\item 
+\hyperlink{classIrisLink}{IrisLink} $\ast$ \hyperlink{classInterface_c14fb826229e323ebef2813f887ac37f}{input\_\-connection}
+\item 
+\hyperlink{classIrisLink}{IrisLink} $\ast$ \hyperlink{classInterface_2fee13a07ffc4a43dd50892b22feca92}{output\_\-connection}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classInterface_4406d74c75bdfe150bf72be1f1cda8b1}{
+\index{Interface@{Interface}!Interface@{Interface}}
+\index{Interface@{Interface}!Interface@{Interface}}
+\subsubsection[{Interface}]{\setlength{\rightskip}{0pt plus 5cm}Interface::Interface ()}}
+\label{classInterface_4406d74c75bdfe150bf72be1f1cda8b1}
+
+
+\hypertarget{classInterface_19179888f29f18f1be54a3dfe98f68c0}{
+\index{Interface@{Interface}!$\sim$Interface@{$\sim$Interface}}
+\index{$\sim$Interface@{$\sim$Interface}!Interface@{Interface}}
+\subsubsection[{$\sim$Interface}]{\setlength{\rightskip}{0pt plus 5cm}Interface::$\sim$Interface ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classInterface_19179888f29f18f1be54a3dfe98f68c0}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classInterface_abfe4b675df488fd5a88d2876cff0ebe}{
+\index{Interface@{Interface}!print\_\-stats@{print\_\-stats}}
+\index{print\_\-stats@{print\_\-stats}!Interface@{Interface}}
+\subsubsection[{print\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Interface::print\_\-stats ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classInterface_abfe4b675df488fd5a88d2876cff0ebe}
+
+
+
+
+Implemented in \hyperlink{classMCFrontEnd_38750cc156a8b88225c58b1c08e4f83e}{MCFrontEnd}, \hyperlink{classGenericInterface_b1be26f08d69932b1ac08094985eb5d6}{GenericInterface}, \hyperlink{classGenericInterface_b1be26f08d69932b1ac08094985eb5d6}{GenericInterface}, and \hyperlink{classMCFrontEnd_38750cc156a8b88225c58b1c08e4f83e}{MCFrontEnd}.\hypertarget{classInterface_baaaeb823b1e0fd7ddc1bb32c2f016fb}{
+\index{Interface@{Interface}!process\_\-event@{process\_\-event}}
+\index{process\_\-event@{process\_\-event}!Interface@{Interface}}
+\subsubsection[{process\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Interface::process\_\-event ({\bf IrisEvent} $\ast$ {\em e})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classInterface_baaaeb823b1e0fd7ddc1bb32c2f016fb}
+
+
+
+
+Implements \hyperlink{classNetworkComponent_c93793eea1e2d424abe86e110ca8b399}{NetworkComponent}.
+
+Implemented in \hyperlink{classMCFrontEnd_cc935494693a9b02addf8ea8c04f81b3}{MCFrontEnd}, \hyperlink{classGenericInterface_d56b8876204889d3c096fccd61b16b9e}{GenericInterface}, \hyperlink{classGenericInterface_d56b8876204889d3c096fccd61b16b9e}{GenericInterface}, and \hyperlink{classMCFrontEnd_cc935494693a9b02addf8ea8c04f81b3}{MCFrontEnd}.\hypertarget{classInterface_f2cec7f7aa725d52c8bb02087d7c9e5d}{
+\index{Interface@{Interface}!set\_\-buffer\_\-size@{set\_\-buffer\_\-size}}
+\index{set\_\-buffer\_\-size@{set\_\-buffer\_\-size}!Interface@{Interface}}
+\subsubsection[{set\_\-buffer\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Interface::set\_\-buffer\_\-size ({\bf uint} {\em cr})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classInterface_f2cec7f7aa725d52c8bb02087d7c9e5d}
+
+
+
+
+Implemented in \hyperlink{classGenericInterface_fd1cd1ccd6d355852bee1677cd8b56df}{GenericInterface}, and \hyperlink{classGenericInterface_fd1cd1ccd6d355852bee1677cd8b56df}{GenericInterface}.\hypertarget{classInterface_c458ee6d8e974cb0a9f90308d0feb16d}{
+\index{Interface@{Interface}!set\_\-no\_\-credits@{set\_\-no\_\-credits}}
+\index{set\_\-no\_\-credits@{set\_\-no\_\-credits}!Interface@{Interface}}
+\subsubsection[{set\_\-no\_\-credits}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Interface::set\_\-no\_\-credits (int {\em cr})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classInterface_c458ee6d8e974cb0a9f90308d0feb16d}
+
+
+
+
+Implemented in \hyperlink{classGenericInterface_d4d5041bce12cd013a77f476c039c391}{GenericInterface}, and \hyperlink{classGenericInterface_d4d5041bce12cd013a77f476c039c391}{GenericInterface}.\hypertarget{classInterface_e7266de6cc9e1dfd4bb3a1b8face3c15}{
+\index{Interface@{Interface}!set\_\-no\_\-vcs@{set\_\-no\_\-vcs}}
+\index{set\_\-no\_\-vcs@{set\_\-no\_\-vcs}!Interface@{Interface}}
+\subsubsection[{set\_\-no\_\-vcs}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Interface::set\_\-no\_\-vcs ({\bf uint} {\em cr})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classInterface_e7266de6cc9e1dfd4bb3a1b8face3c15}
+
+
+
+
+Implemented in \hyperlink{classGenericInterface_10e019a3cafe243d63587656afc5e79f}{GenericInterface}, and \hyperlink{classGenericInterface_10e019a3cafe243d63587656afc5e79f}{GenericInterface}.\hypertarget{classInterface_f9015204e6dabe3e0fce572b19cd1550}{
+\index{Interface@{Interface}!setup@{setup}}
+\index{setup@{setup}!Interface@{Interface}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Interface::setup ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{classInterface_f9015204e6dabe3e0fce572b19cd1550}
+
+
+
+
+Implemented in \hyperlink{classMCFrontEnd_5f399666cb967c146570e81372fe6be6}{MCFrontEnd}, \hyperlink{classGenericInterface_1aaf2e40e433e913e7ea9cb68693fa7c}{GenericInterface}, \hyperlink{classGenericInterface_1aaf2e40e433e913e7ea9cb68693fa7c}{GenericInterface}, and \hyperlink{classMCFrontEnd_5f399666cb967c146570e81372fe6be6}{MCFrontEnd}.\hypertarget{classInterface_137cdb3bca46eb2ae0bbf017d1efb66e}{
+\index{Interface@{Interface}!toString@{toString}}
+\index{toString@{toString}!Interface@{Interface}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string Interface::toString () const\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{classInterface_137cdb3bca46eb2ae0bbf017d1efb66e}
+
+
+
+
+Reimplemented from \hyperlink{classNetworkComponent_9bb9874e1f5705588cb3d9c201d8fc6f}{NetworkComponent}.
+
+Reimplemented in \hyperlink{classMCFrontEnd_9dda980a7ae732e6cb6da7121bc4f539}{MCFrontEnd}, \hyperlink{classGenericInterface_ae1400fce0c7ba48965596ec172e474b}{GenericInterface}, \hyperlink{classGenericInterface_ae1400fce0c7ba48965596ec172e474b}{GenericInterface}, and \hyperlink{classMCFrontEnd_9dda980a7ae732e6cb6da7121bc4f539}{MCFrontEnd}.
+
+\subsection{Member Data Documentation}
+\hypertarget{classInterface_c14fb826229e323ebef2813f887ac37f}{
+\index{Interface@{Interface}!input\_\-connection@{input\_\-connection}}
+\index{input\_\-connection@{input\_\-connection}!Interface@{Interface}}
+\subsubsection[{input\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IrisLink}$\ast$ {\bf Interface::input\_\-connection}}}
+\label{classInterface_c14fb826229e323ebef2813f887ac37f}
+
+
+\hypertarget{classInterface_2fee13a07ffc4a43dd50892b22feca92}{
+\index{Interface@{Interface}!output\_\-connection@{output\_\-connection}}
+\index{output\_\-connection@{output\_\-connection}!Interface@{Interface}}
+\subsubsection[{output\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf IrisLink}$\ast$ {\bf Interface::output\_\-connection}}}
+\label{classInterface_2fee13a07ffc4a43dd50892b22feca92}
+
+
+\hypertarget{classInterface_5008ad5bfdf390821d9b6de2272fbe6d}{
+\index{Interface@{Interface}!processor\_\-connection@{processor\_\-connection}}
+\index{processor\_\-connection@{processor\_\-connection}!Interface@{Interface}}
+\subsubsection[{processor\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NetworkComponent}$\ast$ {\bf Interface::processor\_\-connection}}}
+\label{classInterface_5008ad5bfdf390821d9b6de2272fbe6d}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/interfaces/\hyperlink{interface_8h}{interface.h}\item 
+source/components/interfaces/\hyperlink{interface_8cc}{interface.cc}\end{CompactItemize}

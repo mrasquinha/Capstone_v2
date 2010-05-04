@@ -1,0 +1,153 @@
+\hypertarget{classPVToPArbiter}{
+\section{PVToPArbiter Class Reference}
+\label{classPVToPArbiter}\index{PVToPArbiter@{PVToPArbiter}}
+}
+{\tt \#include $<$pvtop\_\-swa.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classPVToPArbiter_0cbecd7c187fb89df14024e437dff5ac}{PVToPArbiter} ()
+\item 
+\hyperlink{classPVToPArbiter_b76ac84d5073dbef1413d51d40d9e4de}{$\sim$PVToPArbiter} ()
+\item 
+void \hyperlink{classPVToPArbiter_bd33e2445fa794bdee2613d545b4f3bd}{resize} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c)
+\item 
+bool \hyperlink{classPVToPArbiter_5a653ce30ac803621098e9b5f3c42d3c}{is\_\-requested} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} outp, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} outch, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} inp)
+\item 
+void \hyperlink{classPVToPArbiter_56e573c1e63d5016323e359c1f42468f}{request} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} inp)
+\item 
+\hyperlink{classVCA__unit}{VCA\_\-unit} \hyperlink{classPVToPArbiter_a51339b2519b84caa8fd27e49f8a240c}{pick\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p)
+\item 
+void \hyperlink{classPVToPArbiter_1c82a296b196922859802d453c91a734}{clear\_\-winner} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} p, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} c, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ip)
+\item 
+bool \hyperlink{classPVToPArbiter_18a0ad4791e9ad5f0360be68d5068ba3}{is\_\-empty} ()
+\item 
+bool \hyperlink{classPVToPArbiter_e7d0a9f761895e79ea20eabb03b30698}{is\_\-empty\_\-for\_\-ch} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classPVToPArbiter_57136c1a881be827b1e5a844e09021f9}{no\_\-requests\_\-ch} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ch)
+\item 
+string \hyperlink{classPVToPArbiter_8d61d75160f4350efc07d7783e31e19b}{toString} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classPVToPArbiter_5e6a19c3667836f9ccacaeb90bfb11d6}{address}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classPVToPArbiter_8ce6c3bf97bae927e6a2f9b2e5aaaf0b}{name}
+\item 
+\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} \hyperlink{classPVToPArbiter_eda318acf7d024850c7d36a44250792b}{node\_\-ip}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPVToPArbiter_0cbecd7c187fb89df14024e437dff5ac}{
+\index{PVToPArbiter@{PVToPArbiter}!PVToPArbiter@{PVToPArbiter}}
+\index{PVToPArbiter@{PVToPArbiter}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{PVToPArbiter}]{\setlength{\rightskip}{0pt plus 5cm}PVToPArbiter::PVToPArbiter ()}}
+\label{classPVToPArbiter_0cbecd7c187fb89df14024e437dff5ac}
+
+
+\hypertarget{classPVToPArbiter_b76ac84d5073dbef1413d51d40d9e4de}{
+\index{PVToPArbiter@{PVToPArbiter}!$\sim$PVToPArbiter@{$\sim$PVToPArbiter}}
+\index{$\sim$PVToPArbiter@{$\sim$PVToPArbiter}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{$\sim$PVToPArbiter}]{\setlength{\rightskip}{0pt plus 5cm}PVToPArbiter::$\sim$PVToPArbiter ()}}
+\label{classPVToPArbiter_b76ac84d5073dbef1413d51d40d9e4de}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPVToPArbiter_1c82a296b196922859802d453c91a734}{
+\index{PVToPArbiter@{PVToPArbiter}!clear\_\-winner@{clear\_\-winner}}
+\index{clear\_\-winner@{clear\_\-winner}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{clear\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}void PVToPArbiter::clear\_\-winner ({\bf uint} {\em p}, \/  {\bf uint} {\em c}, \/  {\bf uint} {\em ip})}}
+\label{classPVToPArbiter_1c82a296b196922859802d453c91a734}
+
+
+\hypertarget{classPVToPArbiter_18a0ad4791e9ad5f0360be68d5068ba3}{
+\index{PVToPArbiter@{PVToPArbiter}!is\_\-empty@{is\_\-empty}}
+\index{is\_\-empty@{is\_\-empty}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{is\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}bool PVToPArbiter::is\_\-empty ()}}
+\label{classPVToPArbiter_18a0ad4791e9ad5f0360be68d5068ba3}
+
+
+\hypertarget{classPVToPArbiter_e7d0a9f761895e79ea20eabb03b30698}{
+\index{PVToPArbiter@{PVToPArbiter}!is\_\-empty\_\-for\_\-ch@{is\_\-empty\_\-for\_\-ch}}
+\index{is\_\-empty\_\-for\_\-ch@{is\_\-empty\_\-for\_\-ch}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{is\_\-empty\_\-for\_\-ch}]{\setlength{\rightskip}{0pt plus 5cm}bool PVToPArbiter::is\_\-empty\_\-for\_\-ch ({\bf uint} {\em ch})}}
+\label{classPVToPArbiter_e7d0a9f761895e79ea20eabb03b30698}
+
+
+\hypertarget{classPVToPArbiter_5a653ce30ac803621098e9b5f3c42d3c}{
+\index{PVToPArbiter@{PVToPArbiter}!is\_\-requested@{is\_\-requested}}
+\index{is\_\-requested@{is\_\-requested}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{is\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}bool PVToPArbiter::is\_\-requested ({\bf uint} {\em outp}, \/  {\bf uint} {\em outch}, \/  {\bf uint} {\em inp})}}
+\label{classPVToPArbiter_5a653ce30ac803621098e9b5f3c42d3c}
+
+
+\hypertarget{classPVToPArbiter_57136c1a881be827b1e5a844e09021f9}{
+\index{PVToPArbiter@{PVToPArbiter}!no\_\-requests\_\-ch@{no\_\-requests\_\-ch}}
+\index{no\_\-requests\_\-ch@{no\_\-requests\_\-ch}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{no\_\-requests\_\-ch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} PVToPArbiter::no\_\-requests\_\-ch ({\bf uint} {\em ch})}}
+\label{classPVToPArbiter_57136c1a881be827b1e5a844e09021f9}
+
+
+\hypertarget{classPVToPArbiter_a51339b2519b84caa8fd27e49f8a240c}{
+\index{PVToPArbiter@{PVToPArbiter}!pick\_\-winner@{pick\_\-winner}}
+\index{pick\_\-winner@{pick\_\-winner}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{pick\_\-winner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf VCA\_\-unit} PVToPArbiter::pick\_\-winner ({\bf uint} {\em p})}}
+\label{classPVToPArbiter_a51339b2519b84caa8fd27e49f8a240c}
+
+
+\hypertarget{classPVToPArbiter_56e573c1e63d5016323e359c1f42468f}{
+\index{PVToPArbiter@{PVToPArbiter}!request@{request}}
+\index{request@{request}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{request}]{\setlength{\rightskip}{0pt plus 5cm}void PVToPArbiter::request ({\bf uint} {\em p}, \/  {\bf uint} {\em c}, \/  {\bf uint} {\em inp})}}
+\label{classPVToPArbiter_56e573c1e63d5016323e359c1f42468f}
+
+
+\hypertarget{classPVToPArbiter_bd33e2445fa794bdee2613d545b4f3bd}{
+\index{PVToPArbiter@{PVToPArbiter}!resize@{resize}}
+\index{resize@{resize}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}void PVToPArbiter::resize ({\bf uint} {\em p}, \/  {\bf uint} {\em c})}}
+\label{classPVToPArbiter_bd33e2445fa794bdee2613d545b4f3bd}
+
+
+\hypertarget{classPVToPArbiter_8d61d75160f4350efc07d7783e31e19b}{
+\index{PVToPArbiter@{PVToPArbiter}!toString@{toString}}
+\index{toString@{toString}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}string PVToPArbiter::toString () const}}
+\label{classPVToPArbiter_8d61d75160f4350efc07d7783e31e19b}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classPVToPArbiter_5e6a19c3667836f9ccacaeb90bfb11d6}{
+\index{PVToPArbiter@{PVToPArbiter}!address@{address}}
+\index{address@{address}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf PVToPArbiter::address}}}
+\label{classPVToPArbiter_5e6a19c3667836f9ccacaeb90bfb11d6}
+
+
+\hypertarget{classPVToPArbiter_8ce6c3bf97bae927e6a2f9b2e5aaaf0b}{
+\index{PVToPArbiter@{PVToPArbiter}!name@{name}}
+\index{name@{name}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf PVToPArbiter::name}}}
+\label{classPVToPArbiter_8ce6c3bf97bae927e6a2f9b2e5aaaf0b}
+
+
+\hypertarget{classPVToPArbiter_eda318acf7d024850c7d36a44250792b}{
+\index{PVToPArbiter@{PVToPArbiter}!node\_\-ip@{node\_\-ip}}
+\index{node\_\-ip@{node\_\-ip}!PVToPArbiter@{PVToPArbiter}}
+\subsubsection[{node\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint} {\bf PVToPArbiter::node\_\-ip}}}
+\label{classPVToPArbiter_eda318acf7d024850c7d36a44250792b}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/components/none/\hyperlink{pvtop__swa_8h}{pvtop\_\-swa.h}\item 
+source/components/none/\hyperlink{pvtop__swa_8cc}{pvtop\_\-swa.cc}\end{CompactItemize}
