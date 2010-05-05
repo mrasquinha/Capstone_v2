@@ -74,7 +74,7 @@ am__objects_1 = libIris_a-link.$(OBJEXT) libIris_a-simulator.$(OBJEXT) \
 	libIris_a-genericVcArbiterNoFlits.$(OBJEXT) \
 	libIris_a-genericRouterNoVcs.$(OBJEXT) \
 	libIris_a-genericTPG.$(OBJEXT) libIris_a-genericRPG.$(OBJEXT) \
-	libIris_a-packetSource.$(OBJEXT)
+	libIris_a-mesh.$(OBJEXT) libIris_a-packetSource.$(OBJEXT)
 am_libIris_a_OBJECTS = $(am__objects_1)
 libIris_a_OBJECTS = $(am_libIris_a_OBJECTS)
 libIris_debug_a_AR = $(AR) $(ARFLAGS)
@@ -109,6 +109,7 @@ am__objects_2 = libIris_debug_a-link.$(OBJEXT) \
 	libIris_debug_a-genericRouterNoVcs.$(OBJEXT) \
 	libIris_debug_a-genericTPG.$(OBJEXT) \
 	libIris_debug_a-genericRPG.$(OBJEXT) \
+	libIris_debug_a-mesh.$(OBJEXT) \
 	libIris_debug_a-packetSource.$(OBJEXT)
 am_libIris_debug_a_OBJECTS = $(am__objects_2)
 libIris_debug_a_OBJECTS = $(am_libIris_debug_a_OBJECTS)
@@ -275,6 +276,7 @@ IRIS_SOURCES = \
 		  source/components/impl/genericRouterNoVcs.cc \
 		  source/components/impl/genericTPG.cc \
 		  source/components/impl/genericRPG.cc \
+		  source/frontend/impl/mesh.cc \
 		  source/tests/packetSource.cc
 
 
@@ -338,6 +340,7 @@ noinst_HEADERS = \
 		 source/components/impl/genericRouterNoVcs.h \
 		 source/components/impl/genericTPG.h \
 		 source/components/impl/genericRPG.h \
+		 source/frontend/impl/mesh.h \
 		 source/tests/packetSource.h 
 
 all: config.h
@@ -461,6 +464,7 @@ include ./$(DEPDIR)/libIris_a-irisLink.Po
 include ./$(DEPDIR)/libIris_a-libRandom.Po
 include ./$(DEPDIR)/libIris_a-link.Po
 include ./$(DEPDIR)/libIris_a-lowLevelPacket.Po
+include ./$(DEPDIR)/libIris_a-mesh.Po
 include ./$(DEPDIR)/libIris_a-networkComponent.Po
 include ./$(DEPDIR)/libIris_a-packetSource.Po
 include ./$(DEPDIR)/libIris_a-processor.Po
@@ -493,6 +497,7 @@ include ./$(DEPDIR)/libIris_debug_a-irisLink.Po
 include ./$(DEPDIR)/libIris_debug_a-libRandom.Po
 include ./$(DEPDIR)/libIris_debug_a-link.Po
 include ./$(DEPDIR)/libIris_debug_a-lowLevelPacket.Po
+include ./$(DEPDIR)/libIris_debug_a-mesh.Po
 include ./$(DEPDIR)/libIris_debug_a-networkComponent.Po
 include ./$(DEPDIR)/libIris_debug_a-packetSource.Po
 include ./$(DEPDIR)/libIris_debug_a-processor.Po
@@ -953,6 +958,20 @@ libIris_a-genericRPG.obj: source/components/impl/genericRPG.cc
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_a_CXXFLAGS) $(CXXFLAGS) -c -o libIris_a-genericRPG.obj `if test -f 'source/components/impl/genericRPG.cc'; then $(CYGPATH_W) 'source/components/impl/genericRPG.cc'; else $(CYGPATH_W) '$(srcdir)/source/components/impl/genericRPG.cc'; fi`
 
+libIris_a-mesh.o: source/frontend/impl/mesh.cc
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_a_CXXFLAGS) $(CXXFLAGS) -MT libIris_a-mesh.o -MD -MP -MF $(DEPDIR)/libIris_a-mesh.Tpo -c -o libIris_a-mesh.o `test -f 'source/frontend/impl/mesh.cc' || echo '$(srcdir)/'`source/frontend/impl/mesh.cc
+	mv -f $(DEPDIR)/libIris_a-mesh.Tpo $(DEPDIR)/libIris_a-mesh.Po
+#	source='source/frontend/impl/mesh.cc' object='libIris_a-mesh.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_a_CXXFLAGS) $(CXXFLAGS) -c -o libIris_a-mesh.o `test -f 'source/frontend/impl/mesh.cc' || echo '$(srcdir)/'`source/frontend/impl/mesh.cc
+
+libIris_a-mesh.obj: source/frontend/impl/mesh.cc
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_a_CXXFLAGS) $(CXXFLAGS) -MT libIris_a-mesh.obj -MD -MP -MF $(DEPDIR)/libIris_a-mesh.Tpo -c -o libIris_a-mesh.obj `if test -f 'source/frontend/impl/mesh.cc'; then $(CYGPATH_W) 'source/frontend/impl/mesh.cc'; else $(CYGPATH_W) '$(srcdir)/source/frontend/impl/mesh.cc'; fi`
+	mv -f $(DEPDIR)/libIris_a-mesh.Tpo $(DEPDIR)/libIris_a-mesh.Po
+#	source='source/frontend/impl/mesh.cc' object='libIris_a-mesh.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_a_CXXFLAGS) $(CXXFLAGS) -c -o libIris_a-mesh.obj `if test -f 'source/frontend/impl/mesh.cc'; then $(CYGPATH_W) 'source/frontend/impl/mesh.cc'; else $(CYGPATH_W) '$(srcdir)/source/frontend/impl/mesh.cc'; fi`
+
 libIris_a-packetSource.o: source/tests/packetSource.cc
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_a_CXXFLAGS) $(CXXFLAGS) -MT libIris_a-packetSource.o -MD -MP -MF $(DEPDIR)/libIris_a-packetSource.Tpo -c -o libIris_a-packetSource.o `test -f 'source/tests/packetSource.cc' || echo '$(srcdir)/'`source/tests/packetSource.cc
 	mv -f $(DEPDIR)/libIris_a-packetSource.Tpo $(DEPDIR)/libIris_a-packetSource.Po
@@ -1400,6 +1419,20 @@ libIris_debug_a-genericRPG.obj: source/components/impl/genericRPG.cc
 #	source='source/components/impl/genericRPG.cc' object='libIris_debug_a-genericRPG.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_debug_a_CXXFLAGS) $(CXXFLAGS) -c -o libIris_debug_a-genericRPG.obj `if test -f 'source/components/impl/genericRPG.cc'; then $(CYGPATH_W) 'source/components/impl/genericRPG.cc'; else $(CYGPATH_W) '$(srcdir)/source/components/impl/genericRPG.cc'; fi`
+
+libIris_debug_a-mesh.o: source/frontend/impl/mesh.cc
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_debug_a_CXXFLAGS) $(CXXFLAGS) -MT libIris_debug_a-mesh.o -MD -MP -MF $(DEPDIR)/libIris_debug_a-mesh.Tpo -c -o libIris_debug_a-mesh.o `test -f 'source/frontend/impl/mesh.cc' || echo '$(srcdir)/'`source/frontend/impl/mesh.cc
+	mv -f $(DEPDIR)/libIris_debug_a-mesh.Tpo $(DEPDIR)/libIris_debug_a-mesh.Po
+#	source='source/frontend/impl/mesh.cc' object='libIris_debug_a-mesh.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_debug_a_CXXFLAGS) $(CXXFLAGS) -c -o libIris_debug_a-mesh.o `test -f 'source/frontend/impl/mesh.cc' || echo '$(srcdir)/'`source/frontend/impl/mesh.cc
+
+libIris_debug_a-mesh.obj: source/frontend/impl/mesh.cc
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_debug_a_CXXFLAGS) $(CXXFLAGS) -MT libIris_debug_a-mesh.obj -MD -MP -MF $(DEPDIR)/libIris_debug_a-mesh.Tpo -c -o libIris_debug_a-mesh.obj `if test -f 'source/frontend/impl/mesh.cc'; then $(CYGPATH_W) 'source/frontend/impl/mesh.cc'; else $(CYGPATH_W) '$(srcdir)/source/frontend/impl/mesh.cc'; fi`
+	mv -f $(DEPDIR)/libIris_debug_a-mesh.Tpo $(DEPDIR)/libIris_debug_a-mesh.Po
+#	source='source/frontend/impl/mesh.cc' object='libIris_debug_a-mesh.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_debug_a_CXXFLAGS) $(CXXFLAGS) -c -o libIris_debug_a-mesh.obj `if test -f 'source/frontend/impl/mesh.cc'; then $(CYGPATH_W) 'source/frontend/impl/mesh.cc'; else $(CYGPATH_W) '$(srcdir)/source/frontend/impl/mesh.cc'; fi`
 
 libIris_debug_a-packetSource.o: source/tests/packetSource.cc
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libIris_debug_a_CXXFLAGS) $(CXXFLAGS) -MT libIris_debug_a-packetSource.o -MD -MP -MF $(DEPDIR)/libIris_debug_a-packetSource.Tpo -c -o libIris_debug_a-packetSource.o `test -f 'source/tests/packetSource.cc' || echo '$(srcdir)/'`source/tests/packetSource.cc

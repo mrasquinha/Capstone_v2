@@ -40,6 +40,7 @@ IRIS_SOURCES = \
 		  source/components/impl/genericRouterNoVcs.cc \
 		  source/components/impl/genericTPG.cc \
 		  source/components/impl/genericRPG.cc \
+		  source/frontend/impl/mesh.cc \
 		  source/tests/packetSource.cc
 
 ## simMc2Mesh
@@ -112,4 +113,5 @@ noinst_HEADERS = \
 		 source/components/impl/genericRouterNoVcs.h \
 		 source/components/impl/genericTPG.h \
 		 source/components/impl/genericRPG.h \
+		 source/frontend/impl/mesh.h \
 		 source/tests/packetSource.h 

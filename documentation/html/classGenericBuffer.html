@@ -23,7 +23,7 @@
   </div>
 </div>
 <div class="contents">
-<h1>GenericBuffer Class Reference</h1><!-- doxytag: class="GenericBuffer" --><!-- doxytag: inherits="OutputBuffer" --><code>#include &lt;<a class="el" href="impl_2genericBuffer_8h-source.html">genericBuffer.h</a>&gt;</code>
+<h1>GenericBuffer Class Reference</h1><!-- doxytag: class="GenericBuffer" --><!-- doxytag: inherits="Buffer" --><code>#include &lt;<a class="el" href="impl_2genericBuffer_8h-source.html">genericBuffer.h</a>&gt;</code>
 <p>
 <div class="dynheader">
 Inheritance diagram for GenericBuffer:</div>
@@ -31,7 +31,6 @@ Inheritance diagram for GenericBuffer:</div>
 
 <p><center><img src="classGenericBuffer.png" usemap="#GenericBuffer_map" border="0" alt=""></center>
 <map name="GenericBuffer_map">
-<area href="classOutputBuffer.html" alt="OutputBuffer" shape="rect" coords="0,56,92,80">
 <area href="classBuffer.html" alt="Buffer" shape="rect" coords="0,0,92,24">
 </map>
 </div>
@@ -50,7 +49,7 @@ Inheritance diagram for GenericBuffer:</div>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#f2f85cf979616bab9dad5373d25d7813">get_occupancy</a> (<a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch) const </td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#d955be71ad7a5f0bb408dccfb9fd45d3">set_no_vcs</a> (<a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> vcs)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#d2b0822ec5f56ebea495b19562028f4c">resize</a> (<a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> vcs, <a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> buffer_size)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#528c7b73ffbb3870cab0fc999a01a024">get_no_vcs</a> () const </td></tr>
 
@@ -75,10 +74,6 @@ Inheritance diagram for GenericBuffer:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#222b1ccd9db0a123acb9f3d34d38881c">set_no_credits</a> (<a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> no)</td></tr>
 
 <tr><td colspan="2"><br><h2>Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#67f0637384d4ec2866b3d93e773c7527">buffer_size</a></td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">unsigned long long int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#5cc12d1bdf25617d368714cdfd4134d5">write_time</a></td></tr>
-
 <tr><td class="memItemLeft" nowrap align="right" valign="top">vector&lt; queue&lt; <a class="el" href="classFlit.html">Flit</a> * &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#827e77b8ad0d8fcd36c95e63b6ed8001">buffers</a></td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">vector&lt; int &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenericBuffer.html#10b8e8d2522ed4797fa485d6ffa41838">next_port</a></td></tr>
@@ -134,15 +129,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
           <td class="paramname"> <em>ch</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [virtual]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#fb8e0a16f34dcff4c0d954201712f762">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -156,15 +149,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
           <td class="paramname"> <em>ch</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [virtual]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#45a685173b5c5cbe6270c9e0ce6d023a">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -197,15 +188,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#21ad5222afd999f390df4a495eb48b0a">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -240,15 +229,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#c4460c1a1ac34667c12cc77c57a393b9">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -261,15 +248,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#bafd65458146d9b383643fef94b38881">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -303,15 +288,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
           <td class="paramname"> <em>ch</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#23aaeb2aa62e944596d50a569ed5d859">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -325,15 +308,13 @@ Inheritance diagram for GenericBuffer:</div>
           <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
           <td class="paramname"> <em>ch</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td> const<code> [virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#7cba09e2dbb3794d873862b5066fd085">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -380,6 +361,35 @@ Inheritance diagram for GenericBuffer:</div>
 
 </div>
 </div><p>
+<a class="anchor" name="d2b0822ec5f56ebea495b19562028f4c"></a><!-- doxytag: member="GenericBuffer::resize" ref="d2b0822ec5f56ebea495b19562028f4c" args="(uint vcs, uint buffer_size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GenericBuffer::resize           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
+          <td class="paramname"> <em>vcs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
+          <td class="paramname"> <em>buffer_size</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
 <a class="anchor" name="222b1ccd9db0a123acb9f3d34d38881c"></a><!-- doxytag: member="GenericBuffer::set_no_credits" ref="222b1ccd9db0a123acb9f3d34d38881c" args="(uint no)" -->
 <div class="memitem">
 <div class="memproto">
@@ -397,28 +407,6 @@ Inheritance diagram for GenericBuffer:</div>
 <div class="memdoc">
 
 <p>
-
-</div>
-</div><p>
-<a class="anchor" name="d955be71ad7a5f0bb408dccfb9fd45d3"></a><!-- doxytag: member="GenericBuffer::set_no_vcs" ref="d955be71ad7a5f0bb408dccfb9fd45d3" args="(uint vcs)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GenericBuffer::set_no_vcs           </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>&nbsp;</td>
-          <td class="paramname"> <em>vcs</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-<p>Implements <a class="el" href="classOutputBuffer.html#5fafb6827567941d238ae16991c5c1a8">OutputBuffer</a>.</p>
 
 </div>
 </div><p>
@@ -442,21 +430,6 @@ Inheritance diagram for GenericBuffer:</div>
 </div>
 </div><p>
 <hr><h2>Member Data Documentation</h2>
-<a class="anchor" name="67f0637384d4ec2866b3d93e773c7527"></a><!-- doxytag: member="GenericBuffer::buffer_size" ref="67f0637384d4ec2866b3d93e773c7527" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="outputBuffer_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="el" href="classGenericBuffer.html#67f0637384d4ec2866b3d93e773c7527">GenericBuffer::buffer_size</a>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
 <a class="anchor" name="827e77b8ad0d8fcd36c95e63b6ed8001"></a><!-- doxytag: member="GenericBuffer::buffers" ref="827e77b8ad0d8fcd36c95e63b6ed8001" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -487,25 +460,10 @@ Inheritance diagram for GenericBuffer:</div>
 
 </div>
 </div><p>
-<a class="anchor" name="5cc12d1bdf25617d368714cdfd4134d5"></a><!-- doxytag: member="GenericBuffer::write_time" ref="5cc12d1bdf25617d368714cdfd4134d5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned long long int <a class="el" href="classGenericBuffer.html#5cc12d1bdf25617d368714cdfd4134d5">GenericBuffer::write_time</a>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li>source/components/impl/<a class="el" href="impl_2genericBuffer_8h-source.html">genericBuffer.h</a><li>source/components/impl/<a class="el" href="impl_2genericBuffer_8cc.html">genericBuffer.cc</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue May 4 12:02:01 2010 for Iris(Capston_v2) by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed May 5 02:20:35 2010 for Iris(Capston_v2) by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

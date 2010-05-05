@@ -20,14 +20,7 @@
 #ifndef  _simmc2mesh_cc_INC
 #define  _simmc2mesh_cc_INC
 
-#include	<iostream>
-#include	<fstream>
-#include        "../../components/impl/genericTPG.h"
-#include	"../../components/impl/genericRouterNoVcs.h"
-#include	"../../components/impl/genericInterface.h"
-//#include	"../../components/impl/mcFrontEnd.h"
-#include        "../../components/impl/genericRPG.h"
-#include        "../../components/impl/genericLink.h"
+#include	"mesh.h"
 
 int
 main ( int argc, char *argv[] )
@@ -110,90 +103,71 @@ main ( int argc, char *argv[] )
         exit(1);
     }
 
-    vector <Router*> routers;
-    vector <Interface*> interfaces;
-    vector <Processor*> processors;
-    vector <GenericLink*> link_a;
-    vector <GenericLink*> link_b;
+    Mesh* mesh = new Mesh();
+    mesh->init( ports, vcs, credits, buffer_size, no_nodes, grid_size, links);
 
-    /* Create the routers and interfaces */
+    /* Create the mesh->routers and mesh->interfaces */
     for( uint i=0; i<no_nodes; i++)
     {
-        routers.push_back( new GenericRouterNoVcs());
-        interfaces.push_back ( new GenericInterface());
+        mesh->routers.push_back( new GenericRouterNoVcs());
+        mesh->interfaces.push_back ( new GenericInterface());
     }
 
     /*  Create the TPG and mc modules */
     for( uint i=0; i<(no_nodes-no_mcs); i++)
-        processors.push_back( new GenericTPG() );
+        mesh->processors.push_back( new GenericTPG() );
 
     for( uint i=0; i<no_mcs; i++)
-        processors.push_back( new GenericRPG() );
+        mesh->processors.push_back( new GenericRPG() );
 
     for( uint i=0; i<(no_nodes-no_mcs); i++)
-        static_cast<GenericTPG*>(processors[i])->set_trace_filename(traces[i]);
+        static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
 
     /* Create the links */
     for ( uint i=0; i<links; i++)
     { 
-        link_a.push_back(new GenericLink());
-        link_b.push_back(new GenericLink());
+        mesh->link_a.push_back(new GenericLink());
+        mesh->link_b.push_back(new GenericLink());
     }
 
-    /* Connect the interfaces and the processors. And set the links for the
-     * interfaces */
-    for ( uint i=0 ; i<no_nodes; i++ )
-    {
-        processors[i]->interface_connections[0] = interfaces[i];
-        interfaces[i]->processor_connection = static_cast<NetworkComponent*>(processors[i]);
-        interfaces[i]->input_connection = link_b[i];
-        interfaces[i]->output_connection = link_a[i];
-    }
+    mesh->connect_interface_processor();
 
     /* Set all the component ids */
     uint comp_id = 0, alink_comp_id = 100, blink_comp_id = 200;
     for ( uint i=0 ; i<no_nodes; i++ )
     {
-        processors[i]->setComponentId(comp_id++);
-        interfaces[i]->setComponentId(comp_id++);
-        routers[i]->setComponentId(comp_id++);
+        mesh->processors[i]->setComponentId(comp_id++);
+        mesh->interfaces[i]->setComponentId(comp_id++);
+        mesh->routers[i]->setComponentId(comp_id++);
     }
 
     for ( uint i=0 ; i<links; i++ )
     {
-        link_a[i]->setComponentId(alink_comp_id++);
-        link_b[i]->setComponentId(blink_comp_id++);
-        link_a[i]->setup();
-        link_b[i]->setup();
+        mesh->link_a[i]->setComponentId(alink_comp_id++);
+        mesh->link_b[i]->setComponentId(blink_comp_id++);
+        mesh->link_a[i]->setup();
+        mesh->link_b[i]->setup();
     }
 
     /*  Set up the node ips for components */
     for ( uint i=0 ; i<no_nodes ; i++ )
     {
-        interfaces[i]->node_ip = i;
-        routers[i]->node_ip = i;
-        processors[i]->node_ip = i;
+        mesh->interfaces[i]->node_ip = i;
+        mesh->routers[i]->node_ip = i;
+        mesh->processors[i]->node_ip = i;
     }
 
     /* Set the number of ports, vcs, credits and buffer sizes for the
      * components */
     for ( uint i=0 ; i<no_nodes ; i++ )
     {
-        interfaces[i]->set_no_vcs(vcs);
-        interfaces[i]->set_no_credits(credits);
-        interfaces[i]->set_buffer_size(credits);
-        processors[i]->set_no_vcs(vcs);
+        mesh->interfaces[i]->set_no_vcs(vcs);
+        mesh->interfaces[i]->set_no_credits(credits);
+        mesh->interfaces[i]->set_buffer_size(credits);
+        mesh->processors[i]->set_no_vcs(vcs);
     }
 
-    /* Call setup on all components */
-    for ( uint i=0 ; i<no_nodes ; i++ )
-    {
-        processors[i]->setup();
-        interfaces[i]->setup();
-        routers[i]->init(ports, vcs, credits, buffer_size);
-        /* for now the links dont need a setup. They may later */
-        // Give the interface a credit
-    }
+    mesh->setup();
 
     /*  Set no of ports and positions for routing */
     vector< uint > grid_x;
@@ -211,206 +185,42 @@ main ( int argc, char *argv[] )
 
 
     for ( uint i=0 ; i<no_nodes ; i++ )
-        routers[i]->set_no_nodes(no_nodes);
+        mesh->routers[i]->set_no_nodes(no_nodes);
 
     for ( uint i=0 ; i<no_nodes ; i++ )
         for( uint j=0; j < ports ; j++)
             for( uint k=0; k < no_nodes ; k++) // Assuming is a square mesh. 
             {
-                static_cast<GenericRouterNoVcs*>(routers[i])->set_grid_x_location(j,k, grid_x[k]);
-                static_cast<GenericRouterNoVcs*>(routers[i])->set_grid_y_location(j,k, grid_y[k]);
+                static_cast<GenericRouterNoVcs*>(mesh->routers[i])->set_grid_x_location(j,k, grid_x[k]);
+                static_cast<GenericRouterNoVcs*>(mesh->routers[i])->set_grid_y_location(j,k, grid_y[k]);
             }
 
-    // Input and output link connections
-    for ( uint i=0 ; i<no_nodes ; i++ )
-    {
-	link_a[i]->input_connection = interfaces[i];
-	link_a[i]->output_connection = routers[i];
-	link_b[i]->input_connection = routers[i];
-	link_b[i]->output_connection = interfaces[i];
-	routers[i]->input_connections.push_back(link_a[i]);
-	routers[i]->output_connections.push_back(link_b[i]);
-    }
-
-	//  Router input and output connections
-    map< uint , uint > east_links;
-    map< uint , uint > west_links;
-    /* ------------- Configure east links for the router ----------- */
-    uint last_link_id = no_nodes;
-    for ( uint router_no=0 ; router_no<no_nodes; router_no++ )
-    {
-        if( (router_no%grid_size) == 0 ) /* Left side end node */
-        {
-	    link_a[last_link_id]->input_connection = NULL;
-	    link_a[last_link_id]->output_connection = routers[router_no];
-	    link_b[last_link_id]->input_connection = routers[router_no];
-	    link_b[last_link_id]->output_connection = NULL;
-            east_links.insert(make_pair(router_no, last_link_id));
-            last_link_id++;
-        }
-        else
-        {
-	    link_a[last_link_id]->input_connection = routers[router_no-1];
-            link_a[last_link_id]->output_connection = routers[router_no];
-	    link_b[last_link_id]->input_connection = routers[router_no];
-	    link_b[last_link_id]->output_connection = routers[router_no-1];
-            east_links.insert(make_pair(router_no, last_link_id));
-            west_links.insert(make_pair(router_no-1, last_link_id));
-            last_link_id++;
-        }
-    }
-
-    for ( uint i=0 ; i<no_nodes; i++ )
-    {
-        map<uint,uint>::iterator link_id = east_links.find(i);
-	routers[i]->input_connections.push_back(link_a[link_id->second]);
-	routers[i]->output_connections.push_back(link_b[link_id->second]);
-    }
-    cout << "\n End East links " << last_link_id << endl;
-/* ------------ End East links --------------------- */
-
-/* ------------ Begin West links --------------------- */
-    for ( uint router_no=0 ; router_no<no_nodes; router_no++ )
-    {
-        if ( (router_no%grid_size) == (grid_size-1))
-        {
-	    link_a[last_link_id]->input_connection = routers[router_no];
-	    link_a[last_link_id]->output_connection = NULL;
-            link_b[last_link_id]->input_connection = NULL;
-	    link_b[last_link_id]->output_connection = routers[router_no];
-            west_links.insert(make_pair(router_no, last_link_id));
-            last_link_id++;
-        }
-    }
-
-    for ( uint i=0 ; i<no_nodes; i++ )
-    {
-        map<uint,uint>::iterator link_id = west_links.find(i);
-	routers[i]->input_connections.push_back(link_b[link_id->second]);
-	routers[i]->output_connections.push_back(link_a[link_id->second]);
-    }
-    cout << "\n End West links " << last_link_id << endl;
-/* ------------ End West links --------------------- */
-
-/* ------------ Begin North links --------------------- */
-    map< uint , uint > north_links;
-    map< uint , uint > south_links;
-    map < uint, uint > col_major_ordering;
-    for ( uint i=0; i<grid_size; i++)
-        for ( uint j=0; j<grid_size; j++)
-            col_major_ordering.insert(make_pair(i*grid_size+j, j*grid_size+i));
-
-    for ( uint router_no=0 ; router_no<no_nodes; router_no++ )
-    {
-        map<uint,uint>::iterator iter = col_major_ordering.find(router_no);
-        uint col_major_router_no = iter->second;
-        if( (col_major_router_no%grid_size) == 0 ) /* Top end node */
-        {
-	    link_a[last_link_id]->input_connection = NULL ;
-            link_a[last_link_id]->output_connection = routers[router_no];
-	    link_b[last_link_id]->input_connection = routers[router_no];
-	    link_b[last_link_id]->output_connection = NULL ;
-            north_links.insert(make_pair(router_no, last_link_id));
-            last_link_id++;
-        }
-        else
-        {
-	    link_a[last_link_id]->input_connection = routers[router_no - grid_size];
-	    link_a[last_link_id]->output_connection = routers[router_no];
-	    link_b[last_link_id]->input_connection = routers[router_no];
-	    link_b[last_link_id]->output_connection = routers[router_no - grid_size];
-            north_links.insert(make_pair(router_no, last_link_id));
-            south_links.insert(make_pair(router_no - grid_size, last_link_id));
-            last_link_id++;
-        }
-    }
-
-    for ( uint i=0 ; i<no_nodes; i++ )
-    {
-        map<uint,uint>::iterator link_id = north_links.find(i);
-	routers[i]->input_connections.push_back(link_a[link_id->second]);
-	routers[i]->output_connections.push_back(link_b[link_id->second]);
-    }
-    cout << "\n End North links " << last_link_id << endl;
-/* ------------ End North links --------------------- */
-
-/* ------------ Begin South links --------------------- */
-
-    for ( uint router_no=0 ; router_no<no_nodes; router_no++ )
-    {
-        map<uint,uint>::iterator iter = col_major_ordering.find(router_no);
-        uint col_major_router_no = iter->second;
-        if ( (col_major_router_no%grid_size) == (grid_size-1))
-        {
-	    link_a[last_link_id]->input_connection = routers[router_no];
-            link_a[last_link_id]->output_connection = NULL;
-	    link_b[last_link_id]->input_connection = NULL;
-	    link_b[last_link_id]->output_connection = routers[router_no];
-            south_links.insert(make_pair(router_no, last_link_id));
-            last_link_id++;
-        }
-    }
-
-    for ( uint i=0 ; i<no_nodes; i++ )
-    {
-        map<uint,uint>::iterator link_id = south_links.find(i);
-	routers[i]->input_connections.push_back(link_b[link_id->second]);
-	routers[i]->output_connections.push_back(link_a[link_id->second]);
-    }
-    cout << "\n End North links " << last_link_id << endl;
-
-    if(last_link_id > links )
-    {
-        cout << "ERROR : incorrect topology last_link_id: " << last_link_id << " links: " << links <<endl;
-        exit(1);
-    }
-    north_links.clear();
-    south_links.clear();
-/* ------------ End South links --------------------- */
+    mesh->connect_interface_routers();
+    mesh->connect_routers();
 
     /*  Printing out all component after setup */
     for ( uint i=0 ; i<no_nodes; i++ )
     {
-        cout << "\nTPG: " << i << " " << processors[i]->toString();
-        cout << "\ninterface: " << i << " " << interfaces[i]->toString();
-        cout << "\nrouter: " << i << " " << routers[i]->toString();
+        cout << "\nTPG: " << i << " " << mesh->processors[i]->toString();
+        cout << "\ninterface: " << i << " " << mesh->interfaces[i]->toString();
+        cout << "\nrouter: " << i << " " << mesh->routers[i]->toString();
     }
 
     for ( uint i=0 ; i<links ; i++ )
     {
-        cout << "\nlinka_" << i << " " << link_a[i]->toString();
-        cout << "\nlinkb_" << i << " " << link_b[i]->toString();
+        cout << "\nlinka_" << i << " " << mesh->link_a[i]->toString();
+        cout << "\nlinkb_" << i << " " << mesh->link_b[i]->toString();
     }
     
     Simulator::StopAt(max_sim_time);
     Simulator::Run();
 
-    for ( uint i=0 ; i<no_nodes ; i++ )
-    {
-        cerr << routers[i]->print_stats()<< endl;
-        cerr << interfaces[i]->print_stats()<< endl;
-    }
-
-    for ( uint i=0 ; i<links ; i++ )
-    {
-        cerr << link_a[i]->print_stats()<< endl;
-        cerr << link_b[i]->print_stats()<< endl;
-    }
-
-    for ( uint i=0 ; i<no_nodes; i++ )
-    {
-        delete processors[i];
-//        delete interfaces[i];
-        delete routers[i];
-    }
-
-    for ( uint i=0 ; i<links; i++ )
-    {
-        delete link_a[i];
-        delete link_b[i];
-    }
+    cerr << mesh->print_stats();
 
     cerr << "------------ End SimIris ---------------------" << endl;
+
+    delete mesh;
+
     return 0;
 }				/* ----------  end of function main  ---------- */
 

@@ -1,0 +1,144 @@
+\hypertarget{classMesh}{
+\section{Mesh Class Reference}
+\label{classMesh}\index{Mesh@{Mesh}}
+}
+{\tt \#include $<$mesh.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classMesh_2af137f1571af89172b9c102302c416b}{Mesh} ()
+\item 
+\hyperlink{classMesh_5efe4da1a4c0971cfb037bd70304c303}{$\sim$Mesh} ()
+\item 
+void \hyperlink{classMesh_678dc93df5115714b2d2e9a5932692db}{init} (\hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} ports, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} vcs, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} credits, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} buffer\_\-size, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} no\_\-nodes, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} grid\_\-size, \hyperlink{outputBuffer_8h_91ad9478d81a7aaf2593e8d9c3d06a14}{uint} links)
+\item 
+void \hyperlink{classMesh_5c83ba3ef93b8ab63084b9c45082c7e9}{setup} (void)
+\item 
+void \hyperlink{classMesh_9dfad9769d936905f5d8b0e4ffad6743}{connect\_\-interface\_\-processor} (void)
+\item 
+void \hyperlink{classMesh_0bee0b7a3c9b621524748a97a3575db7}{connect\_\-interface\_\-routers} (void)
+\item 
+void \hyperlink{classMesh_fea2e233774ea469b02cff87afc336bc}{connect\_\-routers} (void)
+\item 
+string \hyperlink{classMesh_eea84429f858784c6232e5633603fdf8}{print\_\-stats} (void)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+vector$<$ \hyperlink{classRouter}{Router} $\ast$ $>$ \hyperlink{classMesh_da66e4e75f4e50237af30d495248cca2}{routers}
+\item 
+vector$<$ \hyperlink{classInterface}{Interface} $\ast$ $>$ \hyperlink{classMesh_9ebde4264da1ba6e8f24bd2a24d05ef8}{interfaces}
+\item 
+vector$<$ \hyperlink{classProcessor}{Processor} $\ast$ $>$ \hyperlink{classMesh_e3531860febe9e7194b5d44ac1c1b2d8}{processors}
+\item 
+vector$<$ \hyperlink{classGenericLink}{GenericLink} $\ast$ $>$ \hyperlink{classMesh_25aed9e44396cd39a521e647d8e95ed2}{link\_\-a}
+\item 
+vector$<$ \hyperlink{classGenericLink}{GenericLink} $\ast$ $>$ \hyperlink{classMesh_8afcc482b97d3820e8249750c8a214c2}{link\_\-b}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMesh_2af137f1571af89172b9c102302c416b}{
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh::Mesh ()}}
+\label{classMesh_2af137f1571af89172b9c102302c416b}
+
+
+\hypertarget{classMesh_5efe4da1a4c0971cfb037bd70304c303}{
+\index{Mesh@{Mesh}!$\sim$Mesh@{$\sim$Mesh}}
+\index{$\sim$Mesh@{$\sim$Mesh}!Mesh@{Mesh}}
+\subsubsection[{$\sim$Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh::$\sim$Mesh ()}}
+\label{classMesh_5efe4da1a4c0971cfb037bd70304c303}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMesh_9dfad9769d936905f5d8b0e4ffad6743}{
+\index{Mesh@{Mesh}!connect\_\-interface\_\-processor@{connect\_\-interface\_\-processor}}
+\index{connect\_\-interface\_\-processor@{connect\_\-interface\_\-processor}!Mesh@{Mesh}}
+\subsubsection[{connect\_\-interface\_\-processor}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::connect\_\-interface\_\-processor (void)}}
+\label{classMesh_9dfad9769d936905f5d8b0e4ffad6743}
+
+
+\hypertarget{classMesh_0bee0b7a3c9b621524748a97a3575db7}{
+\index{Mesh@{Mesh}!connect\_\-interface\_\-routers@{connect\_\-interface\_\-routers}}
+\index{connect\_\-interface\_\-routers@{connect\_\-interface\_\-routers}!Mesh@{Mesh}}
+\subsubsection[{connect\_\-interface\_\-routers}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::connect\_\-interface\_\-routers (void)}}
+\label{classMesh_0bee0b7a3c9b621524748a97a3575db7}
+
+
+\hypertarget{classMesh_fea2e233774ea469b02cff87afc336bc}{
+\index{Mesh@{Mesh}!connect\_\-routers@{connect\_\-routers}}
+\index{connect\_\-routers@{connect\_\-routers}!Mesh@{Mesh}}
+\subsubsection[{connect\_\-routers}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::connect\_\-routers (void)}}
+\label{classMesh_fea2e233774ea469b02cff87afc336bc}
+
+
+\hypertarget{classMesh_678dc93df5115714b2d2e9a5932692db}{
+\index{Mesh@{Mesh}!init@{init}}
+\index{init@{init}!Mesh@{Mesh}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::init ({\bf uint} {\em ports}, \/  {\bf uint} {\em vcs}, \/  {\bf uint} {\em credits}, \/  {\bf uint} {\em buffer\_\-size}, \/  {\bf uint} {\em no\_\-nodes}, \/  {\bf uint} {\em grid\_\-size}, \/  {\bf uint} {\em links})}}
+\label{classMesh_678dc93df5115714b2d2e9a5932692db}
+
+
+\hypertarget{classMesh_eea84429f858784c6232e5633603fdf8}{
+\index{Mesh@{Mesh}!print\_\-stats@{print\_\-stats}}
+\index{print\_\-stats@{print\_\-stats}!Mesh@{Mesh}}
+\subsubsection[{print\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}string Mesh::print\_\-stats (void)}}
+\label{classMesh_eea84429f858784c6232e5633603fdf8}
+
+
+\hypertarget{classMesh_5c83ba3ef93b8ab63084b9c45082c7e9}{
+\index{Mesh@{Mesh}!setup@{setup}}
+\index{setup@{setup}!Mesh@{Mesh}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::setup (void)}}
+\label{classMesh_5c83ba3ef93b8ab63084b9c45082c7e9}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMesh_9ebde4264da1ba6e8f24bd2a24d05ef8}{
+\index{Mesh@{Mesh}!interfaces@{interfaces}}
+\index{interfaces@{interfaces}!Mesh@{Mesh}}
+\subsubsection[{interfaces}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Interface}$\ast$$>$ {\bf Mesh::interfaces}}}
+\label{classMesh_9ebde4264da1ba6e8f24bd2a24d05ef8}
+
+
+\hypertarget{classMesh_25aed9e44396cd39a521e647d8e95ed2}{
+\index{Mesh@{Mesh}!link\_\-a@{link\_\-a}}
+\index{link\_\-a@{link\_\-a}!Mesh@{Mesh}}
+\subsubsection[{link\_\-a}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf GenericLink}$\ast$$>$ {\bf Mesh::link\_\-a}}}
+\label{classMesh_25aed9e44396cd39a521e647d8e95ed2}
+
+
+\hypertarget{classMesh_8afcc482b97d3820e8249750c8a214c2}{
+\index{Mesh@{Mesh}!link\_\-b@{link\_\-b}}
+\index{link\_\-b@{link\_\-b}!Mesh@{Mesh}}
+\subsubsection[{link\_\-b}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf GenericLink}$\ast$$>$ {\bf Mesh::link\_\-b}}}
+\label{classMesh_8afcc482b97d3820e8249750c8a214c2}
+
+
+\hypertarget{classMesh_e3531860febe9e7194b5d44ac1c1b2d8}{
+\index{Mesh@{Mesh}!processors@{processors}}
+\index{processors@{processors}!Mesh@{Mesh}}
+\subsubsection[{processors}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Processor}$\ast$$>$ {\bf Mesh::processors}}}
+\label{classMesh_e3531860febe9e7194b5d44ac1c1b2d8}
+
+
+\hypertarget{classMesh_da66e4e75f4e50237af30d495248cca2}{
+\index{Mesh@{Mesh}!routers@{routers}}
+\index{routers@{routers}!Mesh@{Mesh}}
+\subsubsection[{routers}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Router}$\ast$$>$ {\bf Mesh::routers}}}
+\label{classMesh_da66e4e75f4e50237af30d495248cca2}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+source/frontend/impl/\hyperlink{mesh_8h}{mesh.h}\item 
+source/frontend/impl/\hyperlink{mesh_8cc}{mesh.cc}\end{CompactItemize}

@@ -53,48 +53,47 @@
 <a name="l00031"></a>00031 <span class="comment"> *  Description:  </span>
 <a name="l00032"></a>00032 <span class="comment"> * =====================================================================================</span>
 <a name="l00033"></a>00033 <span class="comment"> */</span>
-<a name="l00034"></a><a class="code" href="classGenericBuffer.html">00034</a> <span class="keyword">class </span><a class="code" href="classGenericBuffer.html">GenericBuffer</a>: <span class="keyword">public</span> <a class="code" href="classOutputBuffer.html">OutputBuffer</a>
+<a name="l00034"></a><a class="code" href="classGenericBuffer.html">00034</a> <span class="keyword">class </span><a class="code" href="classGenericBuffer.html">GenericBuffer</a>: <span class="keyword">public</span> <a class="code" href="classBuffer.html">Buffer</a>
 <a name="l00035"></a>00035 {
 <a name="l00036"></a>00036     <span class="keyword">public</span>:
 <a name="l00037"></a>00037         <a class="code" href="classGenericBuffer.html#4281e7a40133d057f6cfad3b715084b0">GenericBuffer</a> ();                             <span class="comment">/* constructor */</span>
 <a name="l00038"></a>00038         <a class="code" href="classGenericBuffer.html#d9a4c588a03bdf24a6fe586376d17e0c">~GenericBuffer</a> ();                             <span class="comment">/* constructor */</span>
 <a name="l00039"></a>00039         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#c5a0781106485f9567898b49021f6346">push</a>( <a class="code" href="classFlit.html">Flit</a>* f );
-<a name="l00040"></a><a class="code" href="classGenericBuffer.html#67f0637384d4ec2866b3d93e773c7527">00040</a>         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#67f0637384d4ec2866b3d93e773c7527">buffer_size</a>;
-<a name="l00041"></a><a class="code" href="classGenericBuffer.html#5cc12d1bdf25617d368714cdfd4134d5">00041</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="classGenericBuffer.html#5cc12d1bdf25617d368714cdfd4134d5">write_time</a>;
-<a name="l00042"></a>00042         <a class="code" href="classFlit.html">Flit</a>* <a class="code" href="classGenericBuffer.html#6ce6f151eb6f65ec1fffafffb04a8f0e">pull</a>();
-<a name="l00043"></a>00043         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#f2f85cf979616bab9dad5373d25d7813">get_occupancy</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
-<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#d955be71ad7a5f0bb408dccfb9fd45d3">set_no_vcs</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> vcs );
-<a name="l00045"></a>00045         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#528c7b73ffbb3870cab0fc999a01a024">get_no_vcs</a>() <span class="keyword">const</span>;
-<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#6d7fe4a638dc7eb0358c3490bf8d2cf4">change_pull_channel</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch );
-<a name="l00047"></a>00047         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#31e2c8b678d219fcc5d6e351f2f8623c">change_push_channel</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch );
-<a name="l00048"></a>00048         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#3e87475edf8151591ef57f9ca4cd9a25">get_pull_channel</a>() <span class="keyword">const</span>;
-<a name="l00049"></a>00049         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#3b5ed41f7cee8ba1fa059aaa0b9db55a">get_push_channel</a>() <span class="keyword">const</span>;
-<a name="l00050"></a>00050         <span class="keywordtype">bool</span> <a class="code" href="classGenericBuffer.html#91aa6e2af039aa6c1a50a599fc3f3203">is_channel_full</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
-<a name="l00051"></a>00051         <span class="keywordtype">bool</span> <a class="code" href="classGenericBuffer.html#94742936925e0b4873dd270aed2c326d">is_empty</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
+<a name="l00040"></a>00040         <a class="code" href="classFlit.html">Flit</a>* <a class="code" href="classGenericBuffer.html#6ce6f151eb6f65ec1fffafffb04a8f0e">pull</a>();
+<a name="l00041"></a>00041         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#f2f85cf979616bab9dad5373d25d7813">get_occupancy</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
+<a name="l00042"></a>00042         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#d2b0822ec5f56ebea495b19562028f4c">resize</a> ( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> vcs, <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> buffer_size );
+<a name="l00043"></a>00043         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#528c7b73ffbb3870cab0fc999a01a024">get_no_vcs</a>() <span class="keyword">const</span>;
+<a name="l00044"></a>00044         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#6d7fe4a638dc7eb0358c3490bf8d2cf4">change_pull_channel</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch );
+<a name="l00045"></a>00045         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#31e2c8b678d219fcc5d6e351f2f8623c">change_push_channel</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch );
+<a name="l00046"></a>00046         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#3e87475edf8151591ef57f9ca4cd9a25">get_pull_channel</a>() <span class="keyword">const</span>;
+<a name="l00047"></a>00047         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#3b5ed41f7cee8ba1fa059aaa0b9db55a">get_push_channel</a>() <span class="keyword">const</span>;
+<a name="l00048"></a>00048         <span class="keywordtype">bool</span> <a class="code" href="classGenericBuffer.html#91aa6e2af039aa6c1a50a599fc3f3203">is_channel_full</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
+<a name="l00049"></a>00049         <span class="keywordtype">bool</span> <a class="code" href="classGenericBuffer.html#94742936925e0b4873dd270aed2c326d">is_empty</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051         <span class="keywordtype">string</span> <a class="code" href="classGenericBuffer.html#3e9808bf28490fcc38ba13e7eb6ef501">toString</a>() <span class="keyword">const</span>;
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053         <span class="keywordtype">string</span> <a class="code" href="classGenericBuffer.html#3e9808bf28490fcc38ba13e7eb6ef501">toString</a>() <span class="keyword">const</span>;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#61f0e9249ca38d149372bdd74906f2a7">got_credit</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) ;
-<a name="l00056"></a>00056         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#8c80e28741bae248ed61c72cc5399f2d">get_no_credits</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
-<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#222b1ccd9db0a123acb9f3d34d38881c">set_no_credits</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> no );
-<a name="l00058"></a><a class="code" href="classGenericBuffer.html#827e77b8ad0d8fcd36c95e63b6ed8001">00058</a>         vector &lt; queue&lt;Flit*&gt; &gt; <a class="code" href="classGenericBuffer.html#827e77b8ad0d8fcd36c95e63b6ed8001">buffers</a>;
-<a name="l00059"></a><a class="code" href="classGenericBuffer.html#10b8e8d2522ed4797fa485d6ffa41838">00059</a>         vector &lt; int &gt; <a class="code" href="classGenericBuffer.html#10b8e8d2522ed4797fa485d6ffa41838">next_port</a>;
+<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#61f0e9249ca38d149372bdd74906f2a7">got_credit</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) ;
+<a name="l00054"></a>00054         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="classGenericBuffer.html#8c80e28741bae248ed61c72cc5399f2d">get_no_credits</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> ch ) <span class="keyword">const</span>;
+<a name="l00055"></a>00055         <span class="keywordtype">void</span> <a class="code" href="classGenericBuffer.html#222b1ccd9db0a123acb9f3d34d38881c">set_no_credits</a>( <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> no );
+<a name="l00056"></a><a class="code" href="classGenericBuffer.html#827e77b8ad0d8fcd36c95e63b6ed8001">00056</a>         vector &lt; queue&lt;Flit*&gt; &gt; <a class="code" href="classGenericBuffer.html#827e77b8ad0d8fcd36c95e63b6ed8001">buffers</a>;
+<a name="l00057"></a><a class="code" href="classGenericBuffer.html#10b8e8d2522ed4797fa485d6ffa41838">00057</a>         vector &lt; int &gt; <a class="code" href="classGenericBuffer.html#10b8e8d2522ed4797fa485d6ffa41838">next_port</a>;
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059     <span class="keyword">protected</span>:
 <a name="l00060"></a>00060 
-<a name="l00061"></a>00061     <span class="keyword">protected</span>:
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063     <span class="keyword">private</span>:
-<a name="l00064"></a>00064         vector &lt; int &gt; credits;
-<a name="l00065"></a>00065         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> vcs;
-<a name="l00066"></a>00066         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> max_credits;
-<a name="l00067"></a>00067         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> pull_channel;
-<a name="l00068"></a>00068         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> push_channel;
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 }; <span class="comment">/* -----  end of class GenericBuffer  ----- */</span>
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="preprocessor">#endif   </span><span class="comment">/* ----- #ifndef _genericbuffer_h_INC  ----- */</span>
-<a name="l00073"></a>00073 
+<a name="l00061"></a>00061     <span class="keyword">private</span>:
+<a name="l00062"></a>00062         vector &lt; int &gt; credits;
+<a name="l00063"></a>00063         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> vcs;
+<a name="l00064"></a>00064         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> buffer_size;
+<a name="l00065"></a>00065         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> max_credits;
+<a name="l00066"></a>00066         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> pull_channel;
+<a name="l00067"></a>00067         <a class="code" href="genericComponentHeader_8h.html#91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> push_channel;
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 }; <span class="comment">/* -----  end of class GenericBuffer  ----- */</span>
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="preprocessor">#endif   </span><span class="comment">/* ----- #ifndef _genericbuffer_h_INC  ----- */</span>
+<a name="l00072"></a>00072 
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue May 4 12:01:58 2010 for Iris(Capston_v2) by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed May 5 02:20:32 2010 for Iris(Capston_v2) by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
