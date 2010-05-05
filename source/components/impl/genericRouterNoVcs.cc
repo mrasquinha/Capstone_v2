@@ -3,24 +3,21 @@
  *
  *       Filename:  genericRouterNoVcs.cc
  *
- *! \brief    Description: Implementing a generic 4 stage router model
- *    BW->RC->VCA->CC->ST->LT
+ *! \brief    Description: Implementing a generic 4 stage physical router model
+ *    BW->RC->SA->ST->LT
  *    Buffer write(BW)
  *    Route Computation (RC)
- *    Virtual Channel Allocation (VCA)
  *    Configure Crossbar (CC)
  *    Switch Traversal (ST)
  *    Link Traversal (LT)
  *
  *    Model Description in cycles:
  *    ---------------------------
- *    BW and RC stages happen in the same cycle ( BW
- *    happens into the Address decoders input buffer )
- *    VCA: Req for VC allocation based on credits in the input buffer. Req for
- *    port arbitration of the selected winner out port is also done here.
- *    CC: Pick the winner for port arbitration and configure the crossbar
+ *    BW and RC stages happen in the same cycle ( BW pushes the flits into the
+ *    input buffer and the RC unit. )
+ *    SA: Pick one output port from n requesting input ports (0<n<p) for the pxp crossbar 
  *    ST: Move the flits across the crossbar and push it out on the link
- *    LT: is not modelled in this stage and is part of the link component.
+ *    LT: This is not modelled within the router and is part of the link component.
  *
  *        Version:  1.0
  *        Created:  03/11/2010 09:20:54 PM
@@ -63,11 +60,11 @@ GenericRouterNoVcs::init (uint p, uint v, uint cr, uint bs)
     buffer_size = bs;
 
     address = myId();
-    _DBG(" my node ip %d", node_ip);
+
     /*  set_input_ports(ports); */
     in_buffers.resize(ports);
     decoders.resize(ports);
-    mstate.resize(ports*vcs);
+    input_buffer_state.resize(ports*vcs);
     swa.resize(ports);
     downstream_credits.resize(ports);
 
@@ -82,18 +79,13 @@ GenericRouterNoVcs::init (uint p, uint v, uint cr, uint bs)
         decoders[i].node_ip = node_ip;
         decoders[i].address = address;
     }
+
     /*  set_no_virtual_channels(vcs); */
     for(uint i=0; i<ports; i++)
     {
         downstream_credits[i].resize(vcs);
-        in_buffers[i].set_no_vcs( vcs );
+        in_buffers[i].resize( vcs, buffer_size );
         decoders[i].resize( vcs );
-    }
-
-    /* Set credits and buffer sizes */
-    for(uint i=0; i<ports; i++)
-    {
-        in_buffers[i].buffer_size = buffer_size;
     }
 
     for(uint i=0; i<ports; i++)
@@ -182,8 +174,6 @@ GenericRouterNoVcs::handle_link_arrival_event ( IrisEvent* e )
             packets++;
         }
 
-//        data->valid = false;
-
         /*Find the port the flit came in on */
         bool found = false;
         uint port = -1;
@@ -209,23 +199,27 @@ GenericRouterNoVcs::handle_link_arrival_event ( IrisEvent* e )
         if( data->ptr->type == HEAD )
         {
             HeadFlit* hf = static_cast<HeadFlit*>(data->ptr);
-            mstate[port*vcs+data->vc].input_port = port;
-            mstate[port*vcs+data->vc].input_channel = data->vc;
-            mstate[port*vcs+data->vc].pipe_stage = FULL;
-            mstate[port*vcs+data->vc].output_port = decoders[port].get_output_port(data->vc);
-            mstate[port*vcs+data->vc].output_channel = data->vc;
-            mstate[port*vcs+data->vc].length= hf->length;
-            mstate[port*vcs+data->vc].credits_sent= hf->length;
-            mstate[port*vcs+data->vc].arrival_time= Simulator::Now();
-            mstate[port*vcs+data->vc].clear_message= false;
-            mstate[port*vcs+data->vc].flits_in_ib = 0;
+            input_buffer_state[port*vcs+data->vc].input_port = port;
+            input_buffer_state[port*vcs+data->vc].input_channel = data->vc;
+            input_buffer_state[port*vcs+data->vc].pipe_stage = FULL;
+            input_buffer_state[port*vcs+data->vc].possible_oports.clear(); 
+            input_buffer_state[port*vcs+data->vc].possible_ovcs.clear(); 
+            input_buffer_state[port*vcs+data->vc].possible_oports.resize(1); 
+            input_buffer_state[port*vcs+data->vc].possible_ovcs.resize(1); 
+            input_buffer_state[port*vcs+data->vc].possible_oports[0] = decoders[port].get_output_port(data->vc);
+            input_buffer_state[port*vcs+data->vc].possible_ovcs[0] = 0;
+            input_buffer_state[port*vcs+data->vc].length= hf->length;
+            input_buffer_state[port*vcs+data->vc].credits_sent= hf->length;
+            input_buffer_state[port*vcs+data->vc].arrival_time= Simulator::Now();
+            input_buffer_state[port*vcs+data->vc].clear_message= false;
+            input_buffer_state[port*vcs+data->vc].flits_in_ib = 0;
 
         }
         else
         {
 #ifdef _DEBUG_ROUTER
             _DBG(" BW inport:%d invc:%d oport:%d ovc:%d ft:%d", port, data->vc,
-                 mstate[port*vcs+data->vc].output_port, mstate[port*vcs+data->vc].output_channel, data->ptr->type);
+                 input_buffer_state[port*vcs+data->vc].output_port, input_buffer_state[port*vcs+data->vc].output_channel, data->ptr->type);
 #endif
 
         }
@@ -278,24 +272,24 @@ GenericRouterNoVcs::do_switch_traversal()
 {
     /* Switch traversal */
     for( uint i=0; i<ports*vcs; i++)
-        if( mstate[i].pipe_stage == ST)
+        if( input_buffer_state[i].pipe_stage == ST)
         {
-                uint oport = mstate[i].output_port;
-                uint och = mstate[i].output_channel;
-                uint iport = mstate[i].input_port;
-                uint ich = mstate[i].input_channel;
+                uint oport = input_buffer_state[i].output_port;
+                uint och = input_buffer_state[i].output_channel;
+                uint iport = input_buffer_state[i].input_port;
+                uint ich = input_buffer_state[i].input_channel;
                 if( !xbar.is_empty(oport,och) 
-                    && mstate[i].flits_in_ib > 0
+                    && input_buffer_state[i].flits_in_ib > 0
                     && downstream_credits[oport][och]>0 )
                 {
                     in_buffers[iport].change_pull_channel(ich);
                     Flit* f = in_buffers[iport].pull();
-                    mstate[i].flits_in_ib--;
+                    input_buffer_state[i].flits_in_ib--;
                     
                     /*  Update stats */
                     if( f->type == HEAD)
                     {
-                        uint lat = Simulator::Now() - mstate[i].arrival_time;
+                        uint lat = Simulator::Now() - input_buffer_state[i].arrival_time;
                         total_packet_latency+= lat;
                     }
                     last_flit_out_cycle = Simulator::Now();
@@ -331,10 +325,10 @@ GenericRouterNoVcs::do_switch_traversal()
                     downstream_credits[oport][och]--;
                     if( f->type == TAIL)
                     {
-                        mstate[i].clear_message = true;
-                        mstate[i].pipe_stage = EMPTY;
-                        swa.clear_winner(mstate[i].output_port, mstate[i].input_port);
-                        xbar.pull(mstate[i].output_port,mstate[i].output_channel);
+                        input_buffer_state[i].clear_message = true;
+                        input_buffer_state[i].pipe_stage = EMPTY;
+                        swa.clear_winner(input_buffer_state[i].output_port, input_buffer_state[i].input_port);
+                        xbar.pull(input_buffer_state[i].output_port,input_buffer_state[i].output_channel);
 #ifdef _DEBUG_ROUTER
     _DBG(" Tail FO clear pkt for inport %d inch %d oport %d och %d ", iport, ich, oport, och);
 #endif
@@ -376,24 +370,30 @@ GenericRouterNoVcs::do_switch_allocation()
 {
     /* Switch Allocation */
     for( uint i=0; i<ports*vcs; i++)
-        if( mstate[i].pipe_stage == SWA_REQUESTED)
+        if( input_buffer_state[i].pipe_stage == SWA_REQUESTED)
         {
             if ( !swa.is_empty())
             {
-                uint oport = mstate[i].output_port;
-                uint och = mstate[i].output_channel;
-                uint iport = mstate[i].input_port;
-                uint ich = mstate[i].input_channel;
+                uint oport = -1;
+                SA_unit vca_winner;
+                uint iport = input_buffer_state[i].input_port;
+                uint ich = input_buffer_state[i].input_channel;
 
-                SA_unit vca_winner = swa.pick_winner(oport);
+                for ( uint j=0; j<input_buffer_state[i].possible_oports.size(); j++)
+                {
+                    oport = input_buffer_state[i].possible_oports[j];
+                    vca_winner = swa.pick_winner(oport);
+                }
 
                 if( vca_winner.port == iport )
                 {
-                        mstate[i].pipe_stage = ST;
-                        xbar.configure_crossbar(iport,oport,och);
-                        xbar.push(oport,och);
+                        input_buffer_state[i].pipe_stage = ST;
+                        input_buffer_state[i].output_port = oport;
+                        input_buffer_state[i].output_channel = 0;
+                        xbar.configure_crossbar(iport,oport,0);
+                        xbar.push(oport,0); /* The crossbar is generic and needs to know the vc being used as well */
 
-                _DBG(" SWA won for inport %d inch %d oport %d och %d ", iport, ich, oport, och);
+                _DBG(" SWA won for inport %d oport %d ", iport, oport);
                     /* After allocating the downstream path for this message
                      * send a credit on this inport and this inch for length
                      * number of cycles. Sending them in the ST stage for now */
@@ -401,8 +401,8 @@ GenericRouterNoVcs::do_switch_allocation()
                 else
                 {
 #ifdef _DEBUG_ROUTER
-                    _DBG(" Dint win for inport %d inch %d SWA winner was inport %d for oport %d och %d "
-                         ,iport, ich, vca_winner.port, oport, och);
+                    _DBG(" Dint win for inport %d SWA winner was inport %d for oport %d "
+                         ,iport, vca_winner.port, oport);
 #endif
                 }
                 ticking = true;
@@ -421,10 +421,10 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
 {
 
 #ifdef _DEEP_DEBUG
-    _DBG_NOARG("Mstate matrix\n");
+    _DBG_NOARG("input_buffer_state matrix\n");
     for( uint i=0; i<ports*vcs; i++)
-        cout <<i<<" "<< mstate[i].toString()<< " buff_occ:" <<in_buffers[mstate[i].
-            input_port].get_occupancy(mstate[i].input_channel) << endl;
+        cout <<i<<" "<< input_buffer_state[i].toString()<< " buff_occ:" <<in_buffers[input_buffer_state[i].
+            input_port].get_occupancy(input_buffer_state[i].input_channel) << endl;
 #endif
 
     ticking = false;
@@ -434,10 +434,10 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
      * arbitration and in ST we can check the occupancy and send a
      * credit back 
     for( uint i=0; i<(ports*vcs); i++)
-        if( mstate[i].pipe_stage == ST || mstate[i].pipe_stage == SW_ALLOCATED)
+        if( input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == SW_ALLOCATED)
         {
-            if(in_buffers[mstate[i].input_port].get_occupancy(mstate[i].input_channel) >0 
-               && mstate[i].credits_sent>0 )
+            if(in_buffers[input_buffer_state[i].input_port].get_occupancy(input_buffer_state[i].input_channel) >0 
+               && input_buffer_state[i].credits_sent>0 )
                 send_credit_back(i);
         }
      * */
@@ -448,18 +448,18 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
     /* Route and Request Switch Allocation */
     for( uint i=0; i<(ports*vcs); i++)
     {
-        if( mstate[i].pipe_stage == IB )
+        if( input_buffer_state[i].pipe_stage == IB )
         {
-            uint iport = mstate[i].input_port;
-            uint ich = mstate[i].input_channel;
-            uint oport = mstate[i].output_port ;
-            uint och = mstate[i].output_channel; 
-            //mstate[i].pipe_stage = ROUTED;
+            uint iport = input_buffer_state[i].input_port;
+            uint ich = input_buffer_state[i].input_channel;
+            uint oport = input_buffer_state[i].possible_oports[0];
+            uint och = input_buffer_state[i].possible_ovcs[0]; 
+            //input_buffer_state[i].pipe_stage = ROUTED;
             if( !swa.is_requested(oport,iport) 
-                && downstream_credits[mstate[i].output_port][mstate[i].output_channel] > 0)
+                && downstream_credits[oport][och] > 0)
             {
                 swa.request(oport, iport);
-                mstate[i].pipe_stage = SWA_REQUESTED;
+                input_buffer_state[i].pipe_stage = SWA_REQUESTED;
                 ticking = true;
 #ifdef _DEBUG_ROUTER
                 _DBG(" Req SWA for inport %d inch %d oport %d och %d ", iport, ich,oport,och);
@@ -472,7 +472,7 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
                 {
                     _DBG("Cant req SWA. SWA full inport:%d inch:%d oport:%d och:%d",iport,ich,oport,och);
                 }
-                else if(downstream_credits[mstate[i].output_port][mstate[i].output_channel] == 0)
+                else if(downstream_credits[input_buffer_state[i].possible_oports[0]][input_buffer_state[i].possible_ovcs[0]] == 0)
                 {
                     _DBG("Not requesting SWA. No downstream credits for oport:%d och:%d",oport,och);
                 }
@@ -488,13 +488,13 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
      *  order has all link_traversals have higher priority and get done before
      *  tick. */
     for( uint i=0; i<(ports*vcs); i++)
-        if( mstate[i].pipe_stage == FULL )
+        if( input_buffer_state[i].pipe_stage == FULL )
     {
 #ifdef _DEBUG_ROUTER
-        _DBG(" IB + RC inport:%d invc:%d oport:%d ovc:%d length:%d", mstate[i].input_port, mstate[i].input_channel,
-              mstate[i].output_port, mstate[i].output_channel,mstate[i].length);
+        _DBG(" IB + RC inport:%d invc:%d oport:%d ovc:%d length:%d", input_buffer_state[i].input_port, input_buffer_state[i].input_channel,
+              input_buffer_state[i].output_port, input_buffer_state[i].output_channel,input_buffer_state[i].length);
 #endif
-            mstate[i].pipe_stage = IB;
+            input_buffer_state[i].pipe_stage = IB;
             ticking = true;
     }
 
@@ -504,15 +504,15 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
      * the flits_in_ib information and not buffer occupancy. */
     for( uint i=0; i<(ports*vcs); i++)
     {
-            uint iport = mstate[i].input_port;
-            uint ich = mstate[i].input_channel;
-            uint oport = mstate[i].output_port ;
-            uint och = mstate[i].output_channel; 
-            if ((mstate[i].pipe_stage == ST || mstate[i].pipe_stage == IB
-			|| mstate[i].pipe_stage == SWA_REQUESTED )
-                && (mstate[i].flits_in_ib < in_buffers[iport].get_occupancy(ich)))
+            uint iport = input_buffer_state[i].input_port;
+            uint ich = input_buffer_state[i].input_channel;
+            uint oport = input_buffer_state[i].output_port ;
+            uint och = input_buffer_state[i].output_channel; 
+            if ((input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == IB
+			|| input_buffer_state[i].pipe_stage == SWA_REQUESTED )
+                && (input_buffer_state[i].flits_in_ib < in_buffers[iport].get_occupancy(ich)))
                 { 
-                    mstate[i].flits_in_ib++;
+                    input_buffer_state[i].flits_in_ib++;
                     ticking = true;
                 }
     }
@@ -557,7 +557,7 @@ string
 MessageState::toString() const
 {
     stringstream str;
-    str << "mstate"
+    str << "input_buffer_state"
         << " inport: " << input_port
         << " inch: " << input_channel
         << " outport: " << output_port
@@ -599,13 +599,13 @@ MessageState::toString() const
 void
 GenericRouterNoVcs::send_credit_back(uint i)
 {
-    mstate[i].credits_sent--;
+    input_buffer_state[i].credits_sent--;
     LinkArrivalData* data = new LinkArrivalData();
     VirtualChannelDescription* cr = new VirtualChannelDescription();
-    cr->port = mstate[i].input_port;
-    cr->vc = mstate[i].input_channel;
+    cr->port = input_buffer_state[i].input_port;
+    cr->vc = input_buffer_state[i].input_channel;
     data->type = CREDIT_ID;
-    data->vc = mstate[i].input_channel;
+    data->vc = input_buffer_state[i].input_channel;
     IrisEvent* event = new IrisEvent();
     event->type = LINK_ARRIVAL_EVENT;
     event->event_data.push_back(data);

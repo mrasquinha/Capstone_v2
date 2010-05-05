@@ -42,11 +42,8 @@ GenericInterface::setup ()
     address = myId();
 //    convert_packet_cycles = DEFAULT_CONVERT_PACKET_CYCLES;
 
-    out_buffer.buffer_size = buffer_size;
-    in_buffer.buffer_size = buffer_size;
-
-    in_buffer.set_no_vcs(vcs);
-    out_buffer.set_no_vcs(vcs);
+    in_buffer.resize(vcs, buffer_size);
+    out_buffer.resize(vcs, buffer_size);
     downstream_credits.resize(vcs);
 
     out_packet_flit_index.resize(vcs);
@@ -116,7 +113,7 @@ GenericInterface::set_buffer_size( uint b )
 uint
 GenericInterface::get_no_credits () const
 {
-    return in_buffer.buffer_size;
+    return credits;
 }		/* -----  end of function GenericInterface::get_no_credits  ----- */
 
 void
@@ -208,12 +205,14 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
 
     if(uptr->type == FLIT_ID)
     {
-        next_tick_time = 0.9;
         flits_in++;
         in_buffer.change_push_channel(uptr->vc);
         in_buffer.push(uptr->ptr);
         if( uptr->ptr->type == TAIL )
+        {
             packets_in++;
+            total_packets_in_time += (Simulator::Now() - static_cast<TailFlit*>(uptr->ptr)->packet_originated_time);
+        }
         uptr->valid = false;
 
             //Send a credit back since you cleared the in_buffer
@@ -235,7 +234,6 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
     }
     else if ( uptr->type == CREDIT_ID)
     {
-        next_tick_time = 1.1;
         downstream_credits[uptr->vc]++;
 #ifdef _DEBUG_INTERFACE
         _DBG(" got a credit vc: %d ftype: %d no_of_credits: %d ", uptr->vc, uptr->type, downstream_credits[uptr->vc] );
@@ -253,7 +251,7 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
         IrisEvent* new_event = new IrisEvent();
         new_event->type = TICK_EVENT;
         new_event->vc = e->vc;
-        Simulator::Schedule( Simulator::Now()+next_tick_time, &GenericInterface::process_event, this, new_event);
+        Simulator::Schedule( ceil(Simulator::Now())+1, &GenericInterface::process_event, this, new_event);
     }
     delete e;
     return;
@@ -463,11 +461,13 @@ string
 GenericInterface::print_stats()
 {
     stringstream str;
-    str << "\n interface[" << address <<"] flits_in: " << flits_in
-        << "\n interface[" << address <<"] packets_in: " << packets_in
-        << "\n interface[" << address <<"] flits_out: " << flits_out
-        << "\n interface[" << address <<"] packets_out: " << packets_out
-        << "\n interface[" << address <<"] total_packets_in_time: " << total_packets_in_time /* need to keep track of the transit time for this */
+    str << "\n interface[" << node_ip <<"] flits_in: " << flits_in
+        << "\n interface[" << node_ip <<"] packets_in: " << packets_in
+        << "\n interface[" << node_ip <<"] flits_out: " << flits_out
+        << "\n interface[" << node_ip <<"] packets_out: " << packets_out
+        << "\n interface[" << node_ip <<"] total_packet_latency(In packets): " << total_packets_in_time;
+    if(packets_in != 0)
+    str << "\n interface[" << node_ip <<"] avg_packet_latency(In packets): " << (total_packets_in_time+0.0)/packets_in
         ;
     return str.str();
 

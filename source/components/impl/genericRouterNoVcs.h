@@ -83,7 +83,7 @@ class GenericRouterNoVcs: public Router
         vector <GenericBuffer> in_buffers;
         vector <GenericRC> decoders;
         vector <GenericVcArbiter> out_arbiters;
-        vector <MessageState> mstate;
+        vector <MessageState> input_buffer_state;
         PToPSwitchArbiter swa;
         GenericCrossbar xbar;
 

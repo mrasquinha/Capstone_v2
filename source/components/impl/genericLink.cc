@@ -98,7 +98,7 @@ string
 GenericLink::print_stats() const
 {
     stringstream str;
-    str << toString()
+    str << endl << toString()
         << "\n link[" << address << "] flits_passed: " << flits_passed 
         << "\n link[" << address << "] credits_passed: " << credits_passed
         << ". " << endl;

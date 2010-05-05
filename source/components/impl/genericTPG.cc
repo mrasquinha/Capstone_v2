@@ -241,6 +241,7 @@ GenericTPG::convertToBitStream(Request* req, HighLevelPacket* hlp)
 	        
     hlp->data_payload_length = ceil(hlp->data.size() *1.0 / max_phy_link_bits);
     hlp->data_payload_length = hlp->data_payload_length * max_phy_link_bits;
+    hlp->sent_time = req->arrivalTime;
 
     for ( uint i=0 ; i < hlp->data_payload_length - hlp->data.size(); i++ )
     {
@@ -289,7 +290,7 @@ GenericTPG::handle_out_pull_event ( IrisEvent* e )
             hlp->destination = 0;
 
 	convertToBitStream(next_req, hlp);      
-        hlp->sent_time = Simulator::Now() ; //MAX(generator.delay() , 1);
+//        hlp->sent_time = Simulator::Now() ; //MAX(generator.delay() , 1);
 
         _DBG( " Sending pkt: no of packets %d ", packets );
         /* 

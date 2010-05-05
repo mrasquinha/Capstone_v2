@@ -34,7 +34,6 @@ class OutputBuffer : public Buffer
         OutputBuffer (){}                             /* constructor */
         virtual ~OutputBuffer (){} 
 
-        virtual void set_no_vcs( uint number ) = 0;
         virtual uint get_no_vcs () const = 0;
         virtual void change_pull_channel ( uint channel ) = 0;
         virtual void change_push_channel ( uint channel ) = 0;

@@ -57,7 +57,7 @@ GenericBuffer::get_occupancy ( uint ch ) const
 }		/* -----  end of function GenericBuffer::get_occupancy  ----- */
 
 void
-GenericBuffer::set_no_vcs( uint v )
+GenericBuffer::resize( uint v, uint bs )
 {
     /* 
     for ( uint i = vcs; i<buffers.size(); i++ )
@@ -68,6 +68,7 @@ GenericBuffer::set_no_vcs( uint v )
         }
      * */
     vcs =v;
+    buffer_size = bs;
     buffers.resize(vcs);
     return;
 }		/* -----  end of function GenericBuffer::change_vcs  ----- */
@@ -83,6 +84,7 @@ GenericBuffer::get_no_vcs() const
 void
 GenericBuffer::change_pull_channel ( uint ch )
 {
+    assert(ch<vcs);
     pull_channel = ch;
     return;
 }		/* -----  end of function GenericBuffer::change_pull_channel  ----- */

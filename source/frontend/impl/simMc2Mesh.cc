@@ -42,6 +42,7 @@ main ( int argc, char *argv[] )
      * correct knobs */
     uint vcs=0, ports=0, buffer_size=0, credits=0;
     uint grid_size=0, no_nodes=0, no_mcs=0;
+    uint max_sim_time = 10000;
     vector<string> traces;
     string trace_name;
 
@@ -67,6 +68,8 @@ main ( int argc, char *argv[] )
                 iss >> no_nodes;
             if ( word.compare("MCS") == 0)
                 iss >> no_mcs;
+            if ( word.compare("MAX_SIM_TIME") == 0)
+                iss >> max_sim_time;
             if ( word.compare("TRACE") == 0)
             {
                 iss >> trace_name;
@@ -99,6 +102,7 @@ main ( int argc, char *argv[] )
         cerr << " links:  \t" << links << endl;
         cerr << " no_of_mcs:\t" << no_mcs << endl;
         cerr << " no_of_traces:\t" << traces.size() << endl;
+        cerr << " max_sim_time:\t" << max_sim_time << endl;
 
     if( traces.size() < (no_nodes - no_mcs) )
     {
@@ -378,7 +382,7 @@ main ( int argc, char *argv[] )
         cout << "\nlinkb_" << i << " " << link_b[i]->toString();
     }
     
-    Simulator::StopAt(20000);
+    Simulator::StopAt(max_sim_time);
     Simulator::Run();
 
     for ( uint i=0 ; i<no_nodes ; i++ )

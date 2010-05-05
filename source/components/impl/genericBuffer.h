@@ -31,17 +31,15 @@
  *  Description:  
  * =====================================================================================
  */
-class GenericBuffer: public OutputBuffer
+class GenericBuffer: public Buffer
 {
     public:
         GenericBuffer ();                             /* constructor */
         ~GenericBuffer ();                             /* constructor */
         void push( Flit* f );
-        uint buffer_size;
-        unsigned long long int write_time;
         Flit* pull();
         uint get_occupancy( uint ch ) const;
-        void set_no_vcs( uint vcs );
+        void resize ( uint vcs, uint buffer_size );
         uint get_no_vcs() const;
         void change_pull_channel( uint ch );
         void change_push_channel( uint ch );
@@ -63,6 +61,7 @@ class GenericBuffer: public OutputBuffer
     private:
         vector < int > credits;
         uint vcs;
+        uint buffer_size;
         uint max_credits;
         uint pull_channel;
         uint push_channel;
