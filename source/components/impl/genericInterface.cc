@@ -271,19 +271,8 @@ GenericInterface::handle_new_packet_event(IrisEvent* e)
     for ( uint i=0; i<llp->flits.size(); i++)
         out_packets[pkt->virtual_channel].flits.push_back(llp->flits[i]);
 
-    /* 
-    for( uint i=0; i<llp->flits.size(); i++)
-    {
-        for ( uint j=0;j<llp->flits[i]->phits.size() ;j++ )
-        {
-                llp->flits[i]->phits[j]->data.clear();
-                delete(llp->flits[i]->phits[j]);
-        }
+    cout << " Int got new packet: " << out_packets[pkt->virtual_channel].toString();
 
-        delete (llp->flits[i]);
-    }
-
-     * */
     llp->flits.clear();
 
     delete llp;
@@ -405,6 +394,7 @@ GenericInterface::handle_tick_event(IrisEvent* e)
             cout << in_packets[i].toString();
             HighLevelPacket* pkt = new HighLevelPacket();
             pkt->from_low_level_packet(&in_packets[i]);
+            cout << "\n*** converted it " << pkt->toString();
 
             LowLevelPacket* llp = &in_packets[i];
     	for( uint k=0; k<llp->flits.size(); k++)

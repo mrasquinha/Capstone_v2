@@ -25,6 +25,7 @@
 #include	<string>
 #include	<math.h>
 
+#define CONTROL_VECTOR_SIZE 16
 using namespace std;
 
 enum virtual_network { VN0, VN1, VN2};

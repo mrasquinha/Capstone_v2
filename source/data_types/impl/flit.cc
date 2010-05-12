@@ -118,6 +118,8 @@ HeadFlit::toString() const
         << "\tTran_id: " << transaction_id
         << "\t VC: " << vc
         << "\t length: " << length
+        << "\t control_bits_size: " << control_bits.size()
+        << "\t payload_size: " << payload.size()
         << endl;
 
     for ( uint i=0 ; i<phits.size() ; i++ )

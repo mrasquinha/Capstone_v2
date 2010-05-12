@@ -37,7 +37,8 @@ main ( int argc, char *argv[] )
     uint grid_size=0, no_nodes=0, no_mcs=0;
     uint max_sim_time = 10000;
     vector<string> traces;
-    string trace_name;
+    vector<uint> mc_positions;
+    string trace_name, output_path;
 
     ifstream fd(argv[1]);
     string data, word;
@@ -63,13 +64,25 @@ main ( int argc, char *argv[] )
                 iss >> no_mcs;
             if ( word.compare("MAX_SIM_TIME") == 0)
                 iss >> max_sim_time;
+            if ( word.compare("OUTPUT_PATH") == 0)
+                iss >> output_path;
             if ( word.compare("TRACE") == 0)
             {
                 iss >> trace_name;
                 traces.push_back(trace_name);
             }
+            if ( word.compare("MC_LOC") == 0)
+            {
+                uint mc_xpos, mc_ypos;
+                iss >> mc_xpos;
+                iss >> mc_ypos;
+                mc_positions.push_back(mc_xpos*grid_size + mc_ypos);
+            }
         }
     }
+
+    /* Number of MC's and the size of the position vector should be the same. */
+    assert(mc_positions.size() == no_mcs);
 
     /* Compute additional parameters */
     uint links = (ports + (grid_size -1)*(ports-1)) + ( (ports-1) + (grid_size -1)*(ports-2))*(grid_size-1);
@@ -115,14 +128,25 @@ main ( int argc, char *argv[] )
     }
 
     /*  Create the TPG and mc modules */
-    for( uint i=0; i<(no_nodes-no_mcs); i++)
-        mesh->processors.push_back( new GenericTPG() );
+    vector<uint>::iterator itr;
+    for( uint i=0; i<no_nodes; i++)
+    {
+        itr = find(mc_positions.begin(), mc_positions.end(), i);
+        if( itr != mc_positions.end())
+            mesh->processors.push_back( new NI() );
+        else
+        {
+            mesh->processors.push_back( new GenericTPG() );
+            static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
+            for ( uint j=0; j<no_mcs; j++)
+                static_cast<GenericTPG*>(mesh->processors[i])->mc_node_ip.push_back(mc_positions[j]);;
+        }
+    }
 
-    for( uint i=0; i<no_mcs; i++)
-        mesh->processors.push_back( new NI() );
+//    for( uint i=0; i<no_mcs; i++)
 
-    for( uint i=0; i<(no_nodes-no_mcs); i++)
-        static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
+//    for( uint i=0; i<(no_nodes-no_mcs); i++)
+//        static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
 
     /* Create the links */
     for ( uint i=0; i<links; i++)
@@ -166,6 +190,7 @@ main ( int argc, char *argv[] )
         mesh->interfaces[i]->set_no_credits(credits);
         mesh->interfaces[i]->set_buffer_size(credits);
         mesh->processors[i]->set_no_vcs(vcs);
+        mesh->processors[i]->set_output_path(output_path);
     }
 
     mesh->setup();

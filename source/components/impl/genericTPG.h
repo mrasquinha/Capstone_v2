@@ -60,9 +60,9 @@ class GenericTPG : public Processor
         string print_stats() const;
         void set_trace_filename( string filename );
         void set_no_vcs ( uint v );
+        void set_output_path( string outpath );
         bool compare();
-        set< HighLevelPacket > get_all_sent();
-        set< HighLevelPacket > get_all_recv();
+        vector <uint> mc_node_ip;
 };
 
 

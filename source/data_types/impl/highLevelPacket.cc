@@ -54,6 +54,8 @@ string HighLevelPacket::toString() const
         << " Dest: " << destination 
         << " transaction_id: " << transaction_id
         << " VC: " << virtual_channel
+        << " msg_class: " << msg_class
+        << " data_size: " << data.size()
         << "\t";
     return str.str();
 }  /* -----  end of method HighLevelPacket::toString::HighLevelPacket::toString  (constructor)  ----- */
@@ -88,9 +90,14 @@ HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)
     pkt->virtual_channel = virtual_channel;
 
     HeadFlit *hf = new HeadFlit();
+    hf->control_bits.resize(CONTROL_VECTOR_SIZE);
+    pkt->control_bits.resize(CONTROL_VECTOR_SIZE);
 
     /*  Create the mask based on message class and vc and virtual network */
-    uint mask = (virtual_channel&0x03) | (( vn & 0x03)<<2) | ((msg_class & 0x0f)<<4);
+    uint vc_mask = virtual_channel & 0x0f;
+    uint vn_mask = (vn & 0x0f) << 4;
+    uint mc_mask = (msg_class & 0x0f) << 8;
+    uint mask = vc_mask | vn_mask | mc_mask;
     for ( uint i=0 ; i< pkt->control_bits.size() ;i++ )
     {
         pkt->control_bits[i] = ( mask >> i ) & 0x01;
@@ -99,7 +106,9 @@ HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)
 
     if( msg_class == REQUEST_PKT)
         for( uint i=0; i<this->data.size(); i++)
+        {
             hf->payload.push_back(this->data[i]);
+        }
 
     hf->src_address = source;
     hf->dst_address = destination;
@@ -151,11 +160,11 @@ HighLevelPacket::from_low_level_packet ( LowLevelPacket* llp )
     HeadFlit* hf = static_cast<HeadFlit*>(llp->flits[0]);
     uint mask = 0;
     for (uint i=0; i<llp->control_bits.size(); i++)
-        mask = (mask<<1) | llp->control_bits[i];
+        mask = mask | (llp->control_bits[i]<<i);
 
     /*  Need to check this mask propagation: The VC aint right */
     //virtual_channel = (mask & 0x00c0)>>6;
-    switch ((mask & 0x0030) >> 4)
+    switch ((mask & 0x00f0) >> 4)
     {
         case 0:
             vn = VN0;
@@ -168,7 +177,7 @@ HighLevelPacket::from_low_level_packet ( LowLevelPacket* llp )
             break;
     }
 
-    switch(mask&0x000f)
+    switch((mask&0x0f00)>> 8)
     {
         case 0:
             msg_class = INVALID_PKT;

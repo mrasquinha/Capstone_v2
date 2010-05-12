@@ -101,9 +101,16 @@ GenericTPG::setup (uint n, uint v, uint time)
 // interface_connections[0], event);
     }
 
+
+    return ;
+} /* ----- end of function GenericTPG::setup ----- */
+
+void
+GenericTPG::set_output_path( string name)
+{
     // open the output trace file
     stringstream str;
-    str << "tpg_" << address << "_trace_out.tr";
+    str << name << "/tpg_" << address << "_trace_out.tr";
     out_filename = str.str();
     out_file.open(out_filename.c_str());
     if( !out_file.is_open() )
@@ -112,9 +119,7 @@ GenericTPG::setup (uint n, uint v, uint time)
         stream << "Could not open output trace file " << out_filename << ".\n";
         timed_cout(stream.str());
     }
-
-    return ;
-} /* ----- end of function GenericTPG::setup ----- */
+}
 
 void
 GenericTPG::finish ()
@@ -360,14 +365,18 @@ GenericTPG::handle_out_pull_event ( IrisEvent* e )
     MTRand mtrand1;
     if( found && next_req)
     {
-        uint max_nodes = 64;
+        uint max_nodes = 7;
         packets++;
         unsigned int current_packet_time = 0;
         HighLevelPacket* hlp = new HighLevelPacket();
         hlp->virtual_channel = last_vc;
         last_vc++;
         hlp->source = address;
-        hlp->destination = mtrand1.randInt(max_nodes); //MIN( generator.address(), MAX_ADDRESS);
+        uint rand_destination = mtrand1.randInt(max_nodes); //MIN( generator.address(), MAX_ADDRESS);
+        hlp->destination = mc_node_ip[rand_destination];
+
+        assert ( hlp->destination < 64);
+        cout << endl << dec << node_ip << " ^^Sending to " << hlp->destination << endl;
         hlp->transaction_id = mtrand1.randInt(1000);
         hlp->msg_class = REQUEST_PKT;
         if( hlp->destination == node_ip )
@@ -384,6 +393,8 @@ GenericTPG::handle_out_pull_event ( IrisEvent* e )
             hlp->sent_time = Simulator::Now();
 
         _DBG( " Sending pkt: no of packets %d ", packets );
+        cout << "HLP: " << hlp->toString() << endl;
+
         /*
 out_file << "Sending packet: " << next_req->toString() << endl;
 out_file << "HLP: " << hlp->toString() << endl;
