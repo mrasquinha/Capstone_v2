@@ -56,6 +56,7 @@
 //#include	"../../components/impl/mcFrontEnd.h"
 #include        "../../components/impl/genericRPG.h"
 #include        "../../components/impl/genericLink.h"
+#include 	"../../MemCtrl/NI.h"
 
 class Mesh
 {
@@ -74,6 +75,7 @@ class Mesh
         void connect_interface_routers(void);
         void connect_routers(void);
         string print_stats(void);
+        unsigned long long int max_sim_time;
 
     protected:
 

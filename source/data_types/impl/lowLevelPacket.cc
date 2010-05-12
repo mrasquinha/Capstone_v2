@@ -37,6 +37,9 @@ LowLevelPacket::LowLevelPacket()
 
 LowLevelPacket::~LowLevelPacket()
 {
+    flits.clear();
+    control_bits.clear();
+    payload.clear();
 }		/* -----  end of function LowLevelPacket::~LowLevelPacket()  ----- */
 
 void LowLevelPacket::operator=( const LowLevelPacket* p )
@@ -49,6 +52,9 @@ void LowLevelPacket::operator=( const LowLevelPacket* p )
     length = p->length;
     for ( uint i=0; i<control_bits.size(); i++)
         this->control_bits.push_back(p->control_bits[i]); 
+
+    for ( uint i=0; i<payload.size(); i++)
+        this->payload.push_back(p->payload[i]); 
 }
 
 string
@@ -102,6 +108,11 @@ LowLevelPacket::add ( Flit* ptr )
                 this->transaction_id = ptr2->transaction_id;
                 this->virtual_channel = ptr2->vc;
                 this->length = ptr2->length;
+    for ( uint i=0; i<ptr2->control_bits.size(); i++)
+        this->control_bits.push_back(ptr2->control_bits[i]); 
+
+    for ( uint i=0; i<ptr2->payload.size(); i++)
+        this->payload.push_back(ptr2->payload[i]); 
                 break;
             }
         case BODY:

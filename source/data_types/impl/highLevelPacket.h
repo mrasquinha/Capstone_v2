@@ -28,13 +28,16 @@
 using namespace std;
 
 enum virtual_network { VN0, VN1, VN2};
-enum message_class { HOM /* Carries requests from a caching agent to the home agent, mainly used for  coherence. Mentioned her for completeness */,
-    SNP /* Snoop */,
-    NDR /* Non data response. This class is used to send short reponse messages */,
-    DRS /* Data response */,
-    NCB /* Non coherent bypass */,
-    NCS /* Non coherent standard */
-};
+//enum message_class { HOM /* Carries requests from a caching agent to the home agent, mainly used for  coherence. Mentioned her for completeness */,
+//    SNP /* Snoop */,
+//    NDR /* Non data response. This class is used to send short reponse messages */,
+//    DRS /* Data response */,
+//    NCB /* Non coherent bypass */,
+//    NCS /* Non coherent standard */
+//};
+//
+
+enum message_class { INVALID_PKT, REQUEST_PKT, RESPONSE_PKT};
 
 /*
  * =====================================================================================
@@ -66,7 +69,7 @@ class HighLevelPacket
         uint source;
         uint destination;
         virtual_network vn;
-        message_class mc;
+        message_class msg_class;
         uint virtual_channel;
         uint transaction_id;
         simTime sent_time;

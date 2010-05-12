@@ -29,8 +29,6 @@ GenericLink::setup()
     node_ip = 0;
     flits_passed= 0;
     credits_passed=0;
-    if ( input_connection == NULL || output_connection == NULL)
-        cout << "ERROR: This link is dangling" << endl;
 }
 
 void
@@ -53,12 +51,6 @@ void
 GenericLink::handle_link_arrival_event( IrisEvent* e)
 {
     LinkArrivalData* data = static_cast<LinkArrivalData*>(e->event_data.at(0));
-
-    IrisEvent* event = new IrisEvent();
-    event->type = LINK_ARRIVAL_EVENT;
-    event->event_data.push_back(data);
-    event->src_id = e->src_id;
-    event->vc = e->vc;
 
 #ifdef _DEBUG
     _DBG("handle_link_arrival_event vc: %d src_id: %d dest: %d, data type: %d", data->vc, e->src_id, e->dst_id, data->type);

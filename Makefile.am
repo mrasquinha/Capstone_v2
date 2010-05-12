@@ -1,13 +1,12 @@
-AUTOMAKE_OPTIONS = foreign
 bin_PROGRAMS = simMc2Mesh_debug
 
-noinst_LIBRARIES = libIris.a libIris_debug.a
+noinst_LIBRARIES = libIris_debug.a #libIris.a
 
 OBJDIR = $(TOPDIR)/build
 BUILDDIR = $(TOPDIR)/build
 CXX_FLAGS = -D_STLP_DEBUG -I source -pthread -ansi -Wall -g -gstabs+ -O0 -fkeep-inline-functions -fpermissive
-DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER 
-#DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER -D_DEBUG_INTERFACE
+#DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER 
+DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER -D_DEBUG_INTERFACE
 IRIS_SOURCES = \
 		  source/kernel/link.cc \
 		  source/kernel/simulator.cc \
@@ -17,7 +16,6 @@ IRIS_SOURCES = \
 		  source/data_types/impl/util.cc \
 		  source/data_types/impl/highLevelPacket.cc \
 		  source/data_types/impl/lowLevelPacket.cc \
-                  source/memctrl/request.cc \
 		  source/randomNumbers/impl/libRandom.cpp \
 		  source/randomNumbers/impl/rng.cpp \
 		  source/randomNumbers/impl/RngStream.cpp \
@@ -32,7 +30,6 @@ IRIS_SOURCES = \
 		  source/components/impl/genericInterface.cc \
 		  source/components/impl/genericData.cc \
 		  source/components/impl/genericVcArbiter.cc \
-		  source/components/impl/genericSink.cc \
 		  source/components/impl/genericLink.cc \
 		  source/components/impl/pvtopv_swa.cc \
 		  source/components/impl/ptop_swa.cc \
@@ -41,7 +38,26 @@ IRIS_SOURCES = \
 		  source/components/impl/genericTPG.cc \
 		  source/components/impl/genericRPG.cc \
 		  source/frontend/impl/mesh.cc \
-		  source/tests/packetSource.cc
+		  source/tests/packetSource.cc \
+		  source/MemCtrl/addr_map.cc \
+		  source/MemCtrl/request.cc \
+		  source/MemCtrl/request_handler.cc \
+		  source/MemCtrl/channel_handler.cc \
+		  source/MemCtrl/rank_handler.cc \
+		  source/MemCtrl/bank_handler.cc \
+		  source/MemCtrl/bus_handler.cc \
+		  source/MemCtrl/cmd_issuer.cc \
+		  source/MemCtrl/bus.cc \
+		  source/MemCtrl/data_bus_handler.cc \
+		  source/MemCtrl/cmd_bus_handler.cc \
+		  source/MemCtrl/dram.cc \
+		  source/MemCtrl/refresh_manager.cc \
+		  source/MemCtrl/response_handler.cc \
+		  source/MemCtrl/stats.cc \
+		  source/MemCtrl/MC.cc \
+		  source/MemCtrl/mshr.cc \
+		  source/MemCtrl/NI.cc
+
 
 ## simMc2Mesh
 #simMc2Mesh_CXXFLAGS = $(CXX_FLAGS)
@@ -66,8 +82,8 @@ simMc2Mesh_debug_LDADD = libIris_debug.a
 #testRouter_LDADD = libIris.a
 
 ##libIris
-libIris_a_CXXFLAGS = $(CXX_FLAGS)
-libIris_a_SOURCES = $(IRIS_SOURCES)
+#libIris_a_CXXFLAGS = $(CXX_FLAGS)
+#libIris_a_SOURCES = $(IRIS_SOURCES)
 
 ##libIris_debug
 libIris_debug_a_CXXFLAGS = $(CXX_FLAGS) $(DEBUG_FLAGS)
@@ -83,8 +99,6 @@ noinst_HEADERS = \
 		 source/data_types/impl/util.h \
 		 source/data_types/impl/highLevelPacket.h \
 		 source/data_types/impl/lowLevelPacket.h \
-                 source/memctrl/request.h \
-                 source/memctrl/constants.h \
 		 source/randomNumbers/impl/libRandom.hpp \
 		 source/randomNumbers/impl/rng.hpp \
 		 source/randomNumbers/impl/RngStream.hpp \
@@ -105,7 +119,6 @@ noinst_HEADERS = \
 		 source/components/impl/genericBuffer.h \
 		 source/components/impl/genericInterface.h \
 		 source/components/impl/genericVcArbiter.h \
-		 source/components/impl/genericSink.h \
 		 source/components/impl/genericLink.h \
 		 source/components/impl/pvtopv_swa.h \
 		 source/components/impl/ptop_swa.h \
@@ -114,4 +127,24 @@ noinst_HEADERS = \
 		 source/components/impl/genericTPG.h \
 		 source/components/impl/genericRPG.h \
 		 source/frontend/impl/mesh.h \
-		 source/tests/packetSource.h 
+		 source/tests/packetSource.h \
+		 source/tests/clock.h \
+		 source/MemCtrl/constants.h \
+		 source/MemCtrl/addr_map.h \
+		 source/MemCtrl/request.h \
+		 source/MemCtrl/request_handler.h \
+		 source/MemCtrl/channel_handler.h \
+		 source/MemCtrl/rank_handler.h \
+		 source/MemCtrl/bank_handler.h \
+		 source/MemCtrl/bus_handler.h \
+		 source/MemCtrl/cmd_issuer.h \
+		 source/MemCtrl/bus.h \
+		 source/MemCtrl/data_bus_handler.h \
+		 source/MemCtrl/cmd_bus_handler.h \
+		 source/MemCtrl/dram.h \
+		 source/MemCtrl/refresh_manager.h \
+		 source/MemCtrl/response_handler.h \
+		 source/MemCtrl/stats.h \
+		 source/MemCtrl/MC.h \
+		 source/MemCtrl/mshr.h \
+		 source/MemCtrl/NI.h

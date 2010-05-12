@@ -30,6 +30,8 @@ GenericInterface::GenericInterface ()
 
 GenericInterface::~GenericInterface ()
 {
+    in_packets.clear();
+    out_packets.clear();
     
 }		/* -----  end of function GenericInterface::~GenericInterface  ----- */
 
@@ -77,6 +79,7 @@ GenericInterface::setup ()
     packets_in = 0;
     flits_in = 0;
     total_packets_in_time = 0;
+
     /* Init complete */
 
     /* Send a ready event for each vc 
@@ -172,22 +175,21 @@ GenericInterface::handle_ready_event( IrisEvent* e)
      *  control state. Flow control state is updated at the link arrival event
      *  for a credit. */
 
-    VirtualChannelDescription* vc = static_cast<VirtualChannelDescription*>(e->event_data.at(0));
 #ifdef _DEBUG_INTERFACE
-    _DBG(" handle_ready_event %d ", vc->vc);
+    _DBG(" handle_ready_event %d ", e->vc);
 #endif
 
-    in_ready[vc->vc] = true;
+//    in_ready[e->vc] = true;
+    in_ready[0] = true;
     if(!ticking)
     { 
         ticking = true;
         IrisEvent* event = new IrisEvent();
         event->type = TICK_EVENT;
-        event->vc = e->vc;
+        event->vc = 0 ; //e->vc;
         Simulator::Schedule( floor(Simulator::Now())+1, &NetworkComponent::process_event, this, event);
     }
 
-//        delete vc;
     delete e;
     return;
 }		/* -----  end of function GenericInterface::handle_ready_event  ----- */
@@ -210,6 +212,7 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
         in_buffer.push(uptr->ptr);
         if( uptr->ptr->type == TAIL )
         {
+	//    cout << "I came here with packets_in " << packets_in << endl;	
             packets_in++;
             total_packets_in_time += (Simulator::Now() - static_cast<TailFlit*>(uptr->ptr)->packet_originated_time);
         }
@@ -238,7 +241,6 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
 #ifdef _DEBUG_INTERFACE
         _DBG(" got a credit vc: %d ftype: %d no_of_credits: %d ", uptr->vc, uptr->type, downstream_credits[uptr->vc] );
 #endif
-        delete uptr;
     }
     else
     {
@@ -253,6 +255,7 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
         new_event->vc = e->vc;
         Simulator::Schedule( ceil(Simulator::Now())+1, &GenericInterface::process_event, this, new_event);
     }
+    delete uptr;
     delete e;
     return;
 }		/* -----  end of function GenericInterface::handle_link_arrival  ----- */
@@ -267,7 +270,24 @@ GenericInterface::handle_new_packet_event(IrisEvent* e)
     out_packets[pkt->virtual_channel].flits.clear();
     for ( uint i=0; i<llp->flits.size(); i++)
         out_packets[pkt->virtual_channel].flits.push_back(llp->flits[i]);
+
+    /* 
+    for( uint i=0; i<llp->flits.size(); i++)
+    {
+        for ( uint j=0;j<llp->flits[i]->phits.size() ;j++ )
+        {
+                llp->flits[i]->phits[j]->data.clear();
+                delete(llp->flits[i]->phits[j]);
+        }
+
+        delete (llp->flits[i]);
+    }
+
+     * */
+    llp->flits.clear();
+
     delete llp;
+    delete pkt;
 
     out_packet_flit_index[ pkt->virtual_channel ] = 0;
 
@@ -357,16 +377,13 @@ GenericInterface::handle_tick_event(IrisEvent* e)
             if(out_packet_flit_index[i] == out_packets[i].length )
             {
                 out_packet_flit_index[i] = 0;
-                out_packets[i].clear();
+                out_packets[i].flits.clear();
 
                 if( out_packets[i].size()<1)
                 {
 
                 IrisEvent* event = new IrisEvent();
                 event->type = READY_EVENT;
-                VirtualChannelDescription* vcd = new VirtualChannelDescription();
-                vcd->vc = i;
-                event->event_data.push_back(vcd);
                 event->vc = i;
                 Simulator::Schedule(floor(Simulator::Now())+1, &NetworkComponent::process_event, processor_connection, event);
                 }
@@ -376,22 +393,37 @@ GenericInterface::handle_tick_event(IrisEvent* e)
         }
 
 
-    /*---------- This is on the output side. From processor out to ntwk --------- */
+    /*---------- This is on the input side. From processor out to ntwk --------- */
     // in packets to processor
+    
     for ( uint i=0; i<in_packets.size(); i++ )
-        if ( in_ready[i]  && in_packets_flit_index[i]!=0 && in_packets_flit_index[i] == in_packets[i].length)
+    {		
+	if ( in_ready[i]  && in_packets_flit_index[i]!=0 && in_packets_flit_index[i] == in_packets[i].length)
         {
-            in_ready[i] = false;
-
+            in_ready[i] = false;	
             _DBG_NOARG( "Interface got a complete llp: " );
             cout << in_packets[i].toString();
             HighLevelPacket* pkt = new HighLevelPacket();
             pkt->from_low_level_packet(&in_packets[i]);
 
-            in_packets[i].clear();
+            LowLevelPacket* llp = &in_packets[i];
+    	for( uint k=0; k<llp->flits.size(); k++)
+    	{
+    	    for ( uint j=0;j<llp->flits[k]->phits.size() ;j++ )
+    	    {
+                llp->flits[k]->phits[j]->data.clear();
+                delete (llp->flits[k]->phits[j]);
+    	    }
+    	    llp->flits[k]->phits.erase(llp->flits[k]->phits.begin(),llp->flits[k]->phits.end());
+    	    llp->flits[k]->phits.clear();
+    	    delete (llp->flits[k]);
+    	}
+
+    	    llp->flits.erase(llp->flits.begin(),llp->flits.end());
+    	    llp->flits.clear();
+
             in_packets_flit_index[i] = 0;
             ticking = true;
-
             IrisEvent* event = new IrisEvent();
             event->type = NEW_PACKET_EVENT;
             event->event_data.push_back(pkt);
@@ -404,6 +436,7 @@ GenericInterface::handle_tick_event(IrisEvent* e)
 #endif
              
         }
+    }
 
     // arbitrate for the winner and push packets to in_buffer
     for ( uint i=0; i<in_packets.size(); i++ )
@@ -454,6 +487,7 @@ _DBG("handle_in_arbitration vc:%d ftype:%d", i, ptr->type);
         Simulator::Schedule( floor(Simulator::Now())+1, &GenericInterface::process_event, this, new_event);
     }
 
+    delete e;
 }
 
 

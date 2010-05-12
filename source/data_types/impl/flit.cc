@@ -57,18 +57,23 @@ Flit::Flit()
 void Flit::populate_phit_data(vector<bool>* data)
 {
     uint no_of_phits = ceil((data->size() + 0.0)/max_phy_link_bits);
-    phits.resize(no_of_phits);
+//    phits.resize(no_of_phits);
+    for ( uint i=0; i<no_of_phits; i++)
+        phits.push_back( new Phit());
+
     for( uint i=0; i< no_of_phits; i++)
     {
         for ( uint j=0;j<max_phy_link_bits && (i*max_phy_link_bits + j)<data->size(); j++ )
-            phits[i].data.push_back(data->at(i*max_phy_link_bits + j));
+            phits[i]->data.push_back(data->at(i*max_phy_link_bits + j));
     }
 }
 
 Flit::~Flit()
 {
+    /* 
     for( uint i=0; i<phits.size(); i++)
-        delete(&phits.at(i));
+        delete(phits.at(i));
+     * */
 }
 
 string Flit::toString() const
@@ -79,7 +84,7 @@ string Flit::toString() const
         << endl;
 
     for ( uint i=0 ; i<phits.size() ; i++ )
-        str << phits[i].toString();
+        str << phits[i]->toString();
 
     return str.str();
 }
@@ -95,7 +100,12 @@ HeadFlit::HeadFlit()
 
 HeadFlit::~HeadFlit()
 {
-    phits.clear();
+//    phits.clear();
+    for( uint i=0; i<phits.size(); i++)
+        delete(phits.at(i));
+
+    control_bits.clear();
+    payload.clear();
 }
 
 string 
@@ -111,7 +121,7 @@ HeadFlit::toString() const
         << endl;
 
     for ( uint i=0 ; i<phits.size() ; i++ )
-        str << phits[i].toString();
+        str << phits[i]->toString();
 
     return str.str();
 }
@@ -132,6 +142,9 @@ HeadFlit::populate_head_flit()
     for ( uint i=0; i<control_bits.size() ; i++ )
         data.push_back(control_bits[i]);
 
+    for ( uint i=0; i<payload.size() ; i++ )
+        data.push_back(payload[i]);
+
     populate_phit_data(&data);
     return;
 }
@@ -144,12 +157,16 @@ BodyFlit::BodyFlit()
 
 BodyFlit::~BodyFlit()
 {
-    phits.clear();
+//    phits.clear();
+    for( uint i=0; i<phits.size(); i++)
+        delete(phits.at(i));
 }
 
 TailFlit::~TailFlit()
 {
-    phits.clear();
+//    phits.clear();
+    for( uint i=0; i<phits.size(); i++)
+        delete(phits.at(i));
 }
 
 string BodyFlit::toString() const
@@ -160,7 +177,7 @@ string BodyFlit::toString() const
         << endl;
 
     for ( uint i=0 ; i<phits.size() ; i++ )
-        str << phits[i].toString();
+        str << phits[i]->toString();
 
     return str.str();
 }
@@ -190,7 +207,7 @@ string TailFlit::toString() const
         << endl;
 
     for ( uint i=0 ; i<phits.size() ; i++ )
-        str << phits[i].toString();
+        str << phits[i]->toString();
 
     return str.str();
 }

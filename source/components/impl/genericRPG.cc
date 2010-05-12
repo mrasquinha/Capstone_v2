@@ -1,7 +1,7 @@
 
 #ifndef  _genericrpg_cc_INC
 #define  _genericrpg_cc_INC
-
+#define MAX_SIM_TIME 2000000000
 #include "genericRPG.h"
 
 GenericRPG::GenericRPG ()
@@ -45,9 +45,10 @@ GenericRPG::set_no_vcs( uint v )
 }
 
 void
-GenericRPG::setup ()
+GenericRPG::setup (uint n, uint v, uint time)
 {
-    vcs = 2;
+    vcs = v;
+    max_sim_time = time;
     /* Need to init these variables. Using default for now */
     /*  lambda, out_filename, distribution,  */
     if( run_destination_type.compare("poisson")==0 )

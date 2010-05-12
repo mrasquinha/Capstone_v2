@@ -152,7 +152,7 @@ GenericRouterNoVcs::print_stats()
         << "\n router[" << node_ip << "] flits: " << flits
         << "\n router[" << node_ip << "] packet latency: " << total_packet_latency
         << "\n router[" << node_ip << "] flits/packets: " << (flits+0.0)/(packets)
-        << "\n router[" << node_ip << "] average packet latency: " << total_packet_latency/packets
+        << "\n router[" << node_ip << "] average packet latency: " << (total_packet_latency+0.0)/packets
         << "\n router[" << node_ip << "] last_flit_out_cycle: " << last_flit_out_cycle
         << " ";
 
@@ -163,7 +163,6 @@ GenericRouterNoVcs::print_stats()
 void
 GenericRouterNoVcs::handle_link_arrival_event ( IrisEvent* e )
 {
-    cout << endl << " handle_link_arrival_event Router";
     LinkArrivalData* data = static_cast<LinkArrivalData*>(e->event_data.at(0));
     if(data->type == FLIT_ID)
     {
@@ -210,7 +209,7 @@ GenericRouterNoVcs::handle_link_arrival_event ( IrisEvent* e )
             input_buffer_state[port*vcs+data->vc].possible_ovcs[0] = 0;
             input_buffer_state[port*vcs+data->vc].length= hf->length;
             input_buffer_state[port*vcs+data->vc].credits_sent= hf->length;
-            input_buffer_state[port*vcs+data->vc].arrival_time= Simulator::Now();
+            input_buffer_state[port*vcs+data->vc].arrival_time= ceil(Simulator::Now());
             input_buffer_state[port*vcs+data->vc].clear_message= false;
             input_buffer_state[port*vcs+data->vc].flits_in_ib = 0;
 
@@ -261,9 +260,11 @@ GenericRouterNoVcs::handle_link_arrival_event ( IrisEvent* e )
             IrisEvent* event = new IrisEvent();
             event->type = TICK_EVENT;
             event->vc = e->vc;
-            Simulator::Schedule( ceil(Simulator::Now())+1, &NetworkComponent::process_event, this, event);
+            Simulator::Schedule( floor(Simulator::Now())+1, &NetworkComponent::process_event, this, event);
         }
 
+        delete data;
+        delete e;
     return ;
 }		/* -----  end of function GenericRouterNoVcs::handle_link_arrival_event  ----- */
 
@@ -286,12 +287,6 @@ GenericRouterNoVcs::do_switch_traversal()
                     Flit* f = in_buffers[iport].pull();
                     input_buffer_state[i].flits_in_ib--;
                     
-                    /*  Update stats */
-                    if( f->type == HEAD)
-                    {
-                        uint lat = Simulator::Now() - input_buffer_state[i].arrival_time;
-                        total_packet_latency+= lat;
-                    }
                     last_flit_out_cycle = Simulator::Now();
 
                     LinkArrivalData* data = new LinkArrivalData();
@@ -319,7 +314,7 @@ GenericRouterNoVcs::do_switch_traversal()
                     event->src_id = address;
                     event->dst_id = output_connections[oport]->address;
                     event->vc = data->vc;
-                    Simulator::Schedule( ceil(Simulator::Now())+1,
+                    Simulator::Schedule( Simulator::Now()+1,
                                      &NetworkComponent::process_event,
                                      output_connections[oport],event);
                     downstream_credits[oport][och]--;
@@ -332,6 +327,10 @@ GenericRouterNoVcs::do_switch_traversal()
 #ifdef _DEBUG_ROUTER
     _DBG(" Tail FO clear pkt for inport %d inch %d oport %d och %d ", iport, ich, oport, och);
 #endif
+                        /* Update packet stats */
+                        double lat = Simulator::Now() - input_buffer_state[i].arrival_time;
+                        total_packet_latency+= lat;
+                        _DBG(" pkt out latency: %f", lat);
                     }
                     else
                     {
@@ -340,7 +339,10 @@ GenericRouterNoVcs::do_switch_traversal()
 #endif
                     }
 
-                    send_credit_back(i);
+                    /* Safe to send credits here as the flit is sure to empty
+                     * the buffer. */
+                    if( f->type != HEAD)
+                        send_credit_back(i);
 
                 }
                 else
@@ -395,8 +397,8 @@ GenericRouterNoVcs::do_switch_allocation()
 
                 _DBG(" SWA won for inport %d oport %d ", iport, oport);
                     /* After allocating the downstream path for this message
-                     * send a credit on this inport and this inch for length
-                     * number of cycles. Sending them in the ST stage for now */
+                     * send a credit on this inport for the HEAD. */
+                    send_credit_back(i);
                 }
                 else
                 {
@@ -430,9 +432,11 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
     ticking = false;
 
     /* We need to estimate the actual time at which the input buffer empties
-     * and send the credit back. Assuming we have set a message to win
-     * arbitration and in ST we can check the occupancy and send a
-     * credit back 
+     * and send the credit back. After SA it is known that the buffer for the
+     * HEAD will empty in the next cycle and hence a credit can be sent to the
+     * link for the HEAD. Post this a check for if the message is in ST and
+     * there are flits doing IB. One can send a credit back for BODY and TAIL
+     * flits such that the credit is at LT when the flit is in ST.
     for( uint i=0; i<(ports*vcs); i++)
         if( input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == SW_ALLOCATED)
         {
@@ -444,6 +448,50 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
 
     do_switch_traversal();
     do_switch_allocation();
+
+   
+    /*  Input buffering 
+     *  Flits are pushed into the input buffer in the link arrival handler
+     *  itself. Just ensuring the state to IB is done last in reverse pipe
+     *  order has all link_traversals have higher priority and get done before
+     *  tick. */
+    for( uint i=0; i<(ports*vcs); i++)
+        if( input_buffer_state[i].pipe_stage == FULL )
+    {
+#ifdef _DEBUG_ROUTER
+        _DBG(" IB + RC inport:%d oport:%d length:%d arrival_time: %f", input_buffer_state[i].input_port,
+             input_buffer_state[i].output_port, input_buffer_state[i].length, Simulator::Now());
+#endif
+            input_buffer_state[i].pipe_stage = IB;
+            ticking = true;
+    }
+
+    /*! \brief Body and tail flits get written in link arrival and since the message
+     * state may already been pushed to ST because of the header we want to
+     * ensure that all flits go thru an IB and ST stage. Hence ST is done on
+     * the flits_in_ib information and not buffer occupancy. */
+    for( uint i=0; i<(ports*vcs); i++)
+    {
+            uint iport = input_buffer_state[i].input_port;
+            uint ich = input_buffer_state[i].input_channel;
+            uint oport = input_buffer_state[i].output_port ;
+            uint och = input_buffer_state[i].output_channel; 
+            if ((input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == IB )
+	//		|| input_buffer_state[i].pipe_stage == SWA_REQUESTED )
+                && (input_buffer_state[i].flits_in_ib < in_buffers[iport].get_occupancy(ich)))
+                { 
+                    input_buffer_state[i].flits_in_ib++;
+                    ticking = true;
+#ifdef _DEBUG_RR
+                _DBG(" IB for BODY/TAIL for inport %d oport %d ", iport, oport);
+#endif
+                    /*! \brief Sending credits back for body+tail: Condition being
+                     * HEAD in ST and having downstream credits 
+                        */
+                    if( input_buffer_state[i].pipe_stage == ST && downstream_credits[oport][och] > 0)
+                        send_credit_back(i);
+                }
+    }
 
     /* Route and Request Switch Allocation */
     for( uint i=0; i<(ports*vcs); i++)
@@ -481,51 +529,16 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
             ticking = true;
         }
     }
-   
-    /*  Input buffering 
-     *  Flits are pushed into the input buffer in the link arrival handler
-     *  itself. Just ensuring the state to IB is done last in reverse pipe
-     *  order has all link_traversals have higher priority and get done before
-     *  tick. */
-    for( uint i=0; i<(ports*vcs); i++)
-        if( input_buffer_state[i].pipe_stage == FULL )
-    {
-#ifdef _DEBUG_ROUTER
-        _DBG(" IB + RC inport:%d invc:%d oport:%d ovc:%d length:%d", input_buffer_state[i].input_port, input_buffer_state[i].input_channel,
-              input_buffer_state[i].output_port, input_buffer_state[i].output_channel,input_buffer_state[i].length);
-#endif
-            input_buffer_state[i].pipe_stage = IB;
-            ticking = true;
-    }
-
-    /* Body and tail flits get written in link arrival and since the message
-     * state may already been pushed to ST because of the header we want to
-     * ensure that all flits go thru an IB and ST stage. Hence ST is done on
-     * the flits_in_ib information and not buffer occupancy. */
-    for( uint i=0; i<(ports*vcs); i++)
-    {
-            uint iport = input_buffer_state[i].input_port;
-            uint ich = input_buffer_state[i].input_channel;
-            uint oport = input_buffer_state[i].output_port ;
-            uint och = input_buffer_state[i].output_channel; 
-            if ((input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == IB
-			|| input_buffer_state[i].pipe_stage == SWA_REQUESTED )
-                && (input_buffer_state[i].flits_in_ib < in_buffers[iport].get_occupancy(ich)))
-                { 
-                    input_buffer_state[i].flits_in_ib++;
-                    ticking = true;
-                }
-    }
-
     if(ticking)
     {
         ticking = true;
         IrisEvent* event = new IrisEvent();
         event->type = TICK_EVENT;
         event->vc = e->vc;
-        Simulator::Schedule(ceil(Simulator::Now())+1, &NetworkComponent::process_event, this, event);
+        Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event, this, event);
     }
 
+        delete e;
     return;
 
 }		/* -----  end of function GenericRouterNoVcs::handle_input_arbitration_event  ----- */
@@ -599,22 +612,23 @@ MessageState::toString() const
 void
 GenericRouterNoVcs::send_credit_back(uint i)
 {
+    if( input_buffer_state[i].credits_sent)
+    {
     input_buffer_state[i].credits_sent--;
     LinkArrivalData* data = new LinkArrivalData();
-    VirtualChannelDescription* cr = new VirtualChannelDescription();
-    cr->port = input_buffer_state[i].input_port;
-    cr->vc = input_buffer_state[i].input_channel;
+    uint port = input_buffer_state[i].input_port;
     data->type = CREDIT_ID;
     data->vc = input_buffer_state[i].input_channel;
     IrisEvent* event = new IrisEvent();
     event->type = LINK_ARRIVAL_EVENT;
     event->event_data.push_back(data);
     event->src_id = address;
-    event->vc = cr->vc; 
-    Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event,input_connections[cr->port], event);
+    event->vc = data->vc; 
+    Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event,input_connections[port], event);
 #ifdef _DEBUG_ROUTER
-                    _DBG(" Credit back for inport %d inch %d ", cr->port, cr->vc);
+                    _DBG(" Credit back for inport %d inch %d ", port, data->vc);
 #endif
+    }
 }
 
 

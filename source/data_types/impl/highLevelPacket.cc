@@ -33,7 +33,7 @@ HighLevelPacket::HighLevelPacket ()
     source = -1;
     destination = -1;
     vn = VN0;
-    mc = NCS;
+    msg_class = INVALID_PKT;
     transaction_id = 0;
     virtual_channel = 0;
     data_payload_length = 0;
@@ -81,18 +81,25 @@ HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)
     pkt->destination = destination;
     pkt->transaction_id = transaction_id;
     pkt->sent_time = sent_time;
-    pkt->length = ((this->data_payload_length+0.0)/max_phy_link_bits) + 2; // data_payload_length is the number of bits of data;
+    if( msg_class == REQUEST_PKT)
+        pkt->length = 2;
+    else
+        pkt->length = ((this->data_payload_length+0.0)/max_phy_link_bits) + 2; // data_payload_length is the number of bits of data;
     pkt->virtual_channel = virtual_channel;
 
     HeadFlit *hf = new HeadFlit();
 
     /*  Create the mask based on message class and vc and virtual network */
-    uint mask = (virtual_channel&0x03) | (( vn & 0x03)<<2) | ((mc & 0x0f)<<4);
+    uint mask = (virtual_channel&0x03) | (( vn & 0x03)<<2) | ((msg_class & 0x0f)<<4);
     for ( uint i=0 ; i< pkt->control_bits.size() ;i++ )
     {
         pkt->control_bits[i] = ( mask >> i ) & 0x01;
         hf->control_bits[i] = ( mask >> i ) & 0x01;
     }
+
+    if( msg_class == REQUEST_PKT)
+        for( uint i=0; i<this->data.size(); i++)
+            hf->payload.push_back(this->data[i]);
 
     hf->src_address = source;
     hf->dst_address = destination;
@@ -102,8 +109,10 @@ HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)
     hf->populate_head_flit();
     pkt->flits.push_back(hf);
 
+    if( msg_class != REQUEST_PKT)
+    {
     vector< bool> temp;
-    uint no_of_body_flits = this->data.size()/max_phy_link_bits;
+    uint no_of_body_flits = ceil(this->data.size()*1.0/max_phy_link_bits);
     for ( uint i=0 ; i<no_of_body_flits ; i++ )
     {
         BodyFlit* bf = new BodyFlit();
@@ -113,6 +122,7 @@ HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)
         bf->populate_body_flit(temp);
         pkt->flits.push_back(bf);
         temp.clear();
+    }
     }
 
     TailFlit* tf = new TailFlit();
@@ -136,6 +146,9 @@ HighLevelPacket::from_low_level_packet ( LowLevelPacket* llp )
     sent_time = llp->sent_time;
     virtual_channel = llp->virtual_channel;
 
+    assert( llp->flits.size()>0);
+
+    HeadFlit* hf = static_cast<HeadFlit*>(llp->flits[0]);
     uint mask = 0;
     for (uint i=0; i<llp->control_bits.size(); i++)
         mask = (mask<<1) | llp->control_bits[i];
@@ -158,31 +171,34 @@ HighLevelPacket::from_low_level_packet ( LowLevelPacket* llp )
     switch(mask&0x000f)
     {
         case 0:
-            mc = HOM;
+            msg_class = INVALID_PKT;
             break;
         case 1:
-            mc = SNP;
+            msg_class = REQUEST_PKT;
             break;
         case 2:
-            mc = DRS;
-            break;
-        case 3:
-            mc = NCB;
-            break;
-        case 4:
-            mc = NCS;
+            msg_class = RESPONSE_PKT;
             break;
         default:
-            mc = NCS;
+            msg_class = INVALID_PKT;
             break;
     }
 
-    for (uint i=1; i<llp->flits.size()-2; i++) /* this is assuming one head and one tail flit */
-        for ( uint j=0 ; j< llp->flits[i]->phits.size() ; j++ )
-            for ( uint k=0 ; k< llp->flits[i]->phits[j].data.size() ; k++ )
-                data.push_back(llp->flits[i]->phits[j].data[k]);
+    if( msg_class == REQUEST_PKT)
+        for( uint i=0; i<llp->payload.size(); i++)
+            data.push_back( llp->payload[i]);
+    else
+    {
 
+    for (uint i=1; i<llp->flits.size()-1; i++) /* this is assuming one head and one tail flit */
+        for ( uint j=0 ; j< llp->flits[i]->phits.size() ; j++ )
+            for ( uint k=0 ; k< llp->flits[i]->phits[j]->data.size() ; k++ )
+                data.push_back(llp->flits[i]->phits[j]->data[k]);
+    }
+	
     llp->flits.clear();
+    llp->control_bits.clear();
+    llp->payload.clear();
     return ;
 }		/* -----  end of function HighLevelPacket::from_low_level_packet  ----- */
 

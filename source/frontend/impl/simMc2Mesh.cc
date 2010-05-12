@@ -105,6 +105,7 @@ main ( int argc, char *argv[] )
 
     Mesh* mesh = new Mesh();
     mesh->init( ports, vcs, credits, buffer_size, no_nodes, grid_size, links);
+    mesh->max_sim_time = max_sim_time;
 
     /* Create the mesh->routers and mesh->interfaces */
     for( uint i=0; i<no_nodes; i++)
@@ -118,7 +119,7 @@ main ( int argc, char *argv[] )
         mesh->processors.push_back( new GenericTPG() );
 
     for( uint i=0; i<no_mcs; i++)
-        mesh->processors.push_back( new GenericRPG() );
+        mesh->processors.push_back( new NI() );
 
     for( uint i=0; i<(no_nodes-no_mcs); i++)
         static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
@@ -216,6 +217,8 @@ main ( int argc, char *argv[] )
     Simulator::Run();
 
     cerr << mesh->print_stats();
+    if( no_mcs > 0)
+        cerr << ((NI*)mesh->processors[3])->print_stats();
 
     cerr << "------------ End SimIris ---------------------" << endl;
 

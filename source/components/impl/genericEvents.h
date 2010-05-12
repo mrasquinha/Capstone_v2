@@ -53,6 +53,7 @@
 #define STOP_CMD_QUEUE 1129
 #define START_CMD_QUEUE 1130
 #define IN_BUFFER_EVENT 1131
+#define MSHR_DELETE 1132
 
 
 #endif   /* ----- #ifndef _genericevents_h_INC  ----- */

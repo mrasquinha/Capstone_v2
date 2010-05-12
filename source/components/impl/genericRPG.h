@@ -50,7 +50,7 @@ class GenericRPG : public Processor
         deque< HighLevelPacket > sent_packets;
         string out_filename;
         uint vcs;
-//        ofstream out_file;
+        ofstream out_file;
         vector< bool > ready;
         unsigned int last_vc;
         bool only_sink;
@@ -65,6 +65,7 @@ class GenericRPG : public Processor
         ~GenericRPG();
         /* stats variables */
         unsigned int packets;
+        uint max_sim_time;
         void init_generator();
         double lamda;
         libRandom::randomNumberGenerator::distribution destination_type;
@@ -79,7 +80,7 @@ class GenericRPG : public Processor
         unsigned int hot_spots;
         unsigned long long int max_time;
         unsigned int seed;
-        void setup();
+        void setup(uint no_nodes, uint vcs, uint max_sim_time);
         void finish();
         void pre_tick();
         void post_tick();

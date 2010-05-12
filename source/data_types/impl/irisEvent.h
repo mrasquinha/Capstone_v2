@@ -42,6 +42,8 @@ class IrisEvent
         ~IrisEvent();
         uint src_id;
         uint dst_id;
+	Component* src;
+	Component* dst;
         vector<void *> event_data;
         simTime time;
         uint type;

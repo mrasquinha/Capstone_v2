@@ -25,14 +25,13 @@
 #define NO_DATA true
 #define FLIT_ID 9800
 #define CREDIT_ID 9801
-#define MAX_SIM_TIME 10000000
 
 #include <cstdlib>
 #include	<cassert>
 #include	"../../data_types/impl/util.h"
 
 /*  macro for general debug print statements. */
-#define LOC std::cout << "\nTime:" << Simulator::Now() <<" " << name << " " << address << " " << node_ip << " ";
+#define LOC std::cout << "\nTime:" << dec << Simulator::Now() <<" " << name << " " << address << " " << node_ip << " ";
 #define _DBG(fmt,...) LOC printf(fmt,__VA_ARGS__);
 #define _DBG_NOARG(fmt) LOC printf(fmt);
 
@@ -44,7 +43,7 @@ typedef unsigned long long int simTime;
 typedef unsigned int uint;
 
 const unsigned int max_network_node_bits = 8;
-const unsigned int max_phy_link_bits = 20;
+const unsigned int max_phy_link_bits = 128;
 const unsigned int max_transaction_id_bits = 8;
 const unsigned int max_tail_length_bits = 8;
 const unsigned int max_control_bits = 8;

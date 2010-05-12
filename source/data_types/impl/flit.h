@@ -64,7 +64,7 @@ class Flit
         /* ====================  LIFECYCLE     ======================================= */
         Flit ();                             /* constructor */
         ~Flit ();
-        vector<Phit> phits;
+        vector<Phit*> phits;
         void populate_phit_data( vector<bool>* c);
         string toString() const;
         flit_type type;
@@ -92,6 +92,7 @@ class HeadFlit : public Flit
         uint transaction_id;                
         uint length;
         vector<bool> control_bits;
+        vector<bool> payload;
         /* Two bits for virtual netwrok, two bits for the virtual channel, three bits for the message class. All this comprises a header control bitfield. */
         void populate_head_flit();
         string toString() const;

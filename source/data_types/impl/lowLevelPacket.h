@@ -56,6 +56,7 @@ class LowLevelPacket
         unsigned long int sent_time;
         unsigned int length;  /* Determines the length of the packet in terms of flits */
         vector<bool> control_bits;
+        vector<bool> payload;
 
         void clear();
         void add(Flit* ptr);

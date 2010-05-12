@@ -62,6 +62,7 @@ Mesh::print_stats()
     {
         str << routers[i]->print_stats()<< endl;
         str << interfaces[i]->print_stats()<< endl;
+        str << processors[i]->print_stats()<< endl;
     }
 
     for ( uint i=0 ; i<links ; i++ )
@@ -253,7 +254,7 @@ Mesh::setup()
     /* Call setup on all components */
     for ( uint i=0 ; i<no_nodes ; i++ )
     {
-        processors[i]->setup();
+        processors[i]->setup( no_nodes, vcs, max_sim_time);
         interfaces[i]->setup();
         routers[i]->init(ports, vcs, credits, buffer_size);
     }

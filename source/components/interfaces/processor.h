@@ -38,8 +38,9 @@ class Processor : public NetworkComponent
         void init();
         virtual string toString() const;
         virtual void process_event(IrisEvent* e) = 0;
-        virtual void setup() = 0;
+        virtual void setup(uint n, uint v, uint time) = 0;
         virtual void set_no_vcs( uint v ) = 0;
+        virtual string print_stats() const = 0 ;
 
     protected:
 

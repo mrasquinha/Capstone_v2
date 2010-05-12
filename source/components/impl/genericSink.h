@@ -21,6 +21,8 @@
 #include	"../../data_types/impl/highLevelPacket.h"
 #include	"genericEvents.h"
 #include	"genericData.h"
+#include "genericInterface.h"
+#include        "../../tests/MersenneTwister.h"
 #include	<deque>
 #include	<fstream>
 
@@ -36,18 +38,24 @@ class GenericSink : public Processor
 {
     public:
         GenericSink ();                             /* constructor */
-        void setup();
+        void setup(uint v, uint time, uint no_nodes);
         void process_event(IrisEvent* e);
         string toString() const;
         ofstream out_file;
         uint address;
         vector<bool> ready;
+        unsigned int packets;
+        bool sending;
 
     protected:
 
     private:
         deque<HighLevelPacket*> out_packets;
         string out_filename;
+        uint last_vc;
+        uint no_nodes;
+        uint vcs;
+        uint max_sim_time;
         
         //Event handlers
         void handle_new_packet_event( IrisEvent* e);

@@ -34,6 +34,7 @@ string IrisEvent::toString()
 IrisEvent::IrisEvent()
 {
     src_id = -1;
+    vc = 0;
 }
 
 IrisEvent::~IrisEvent()
