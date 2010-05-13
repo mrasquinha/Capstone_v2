@@ -84,7 +84,7 @@ GenericTPG::setup (uint n, uint v, uint time)
     	event->src = this;
     	event->dst = (Component*)(mshrHandler);
     	event->event_data.push_back(req2);	
-#ifdef _DEEP_DEBUG
+#ifdef DEEP_DEBUG
     	cout << dec << Simulator::Now() << ": " << hex << req2->address << ": First Request of each trace to be send to mshrs" << endl;	
 #endif
     	Simulator::Schedule(time2, &MSHR_H::process_event, (MSHR_H*)event->dst, event);   
@@ -380,7 +380,7 @@ GenericTPG::handle_out_pull_event ( IrisEvent* e )
         hlp->transaction_id = mtrand1.randInt(1000);
         hlp->msg_class = REQUEST_PKT;
         if( hlp->destination == node_ip )
-            hlp->destination = (hlp->destination + 1) % max_nodes;
+            hlp->destination = 0; //(hlp->destination + 1) % max_nodes;
         /* 
         if( node_ip == 3)
             hlp->destination = 0;
@@ -427,7 +427,10 @@ out_file << "HLP: " << hlp->toString() << endl;
        IrisEvent* event = new IrisEvent();
        event->type = OUT_PULL_EVENT;
        event->vc = e->vc;
-       Simulator::Schedule( Simulator::Now()+1, &NetworkComponent::process_event, this, event);
+       if (mshrHandler->nextReq.arrivalTime > Simulator::Now())	
+           Simulator::Schedule( mshrHandler->nextReq.arrivalTime, &NetworkComponent::process_event, this, event);
+       else
+	   Simulator::Schedule( Simulator::Now()+1, &NetworkComponent::process_event, this, event); 	
        sending = true;
     }
         else

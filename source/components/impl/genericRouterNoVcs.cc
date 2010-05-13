@@ -349,7 +349,9 @@ GenericRouterNoVcs::do_switch_traversal()
                 {
                     if(in_buffers[iport].get_occupancy(ich)==0)
                     {
+#ifdef _DEBUG_ROUTER
                         _DBG_NOARG(" Waiting for flits on inch");
+#endif
                         ticking = true;
                     }
                     else if (xbar.is_empty(oport,och))
@@ -358,8 +360,10 @@ GenericRouterNoVcs::do_switch_traversal()
                     }
                     else if (downstream_credits[oport][och] == 0)
                     {
+#ifdef _DEBUG_ROUTER
                         _DBG(" Waiting for downstream credits on oport %d och %d ", oport, och);
-                        ticking = true;
+#endif
+                       ticking = true;
                     }
                 }
 

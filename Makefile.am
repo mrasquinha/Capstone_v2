@@ -6,7 +6,7 @@ OBJDIR = $(TOPDIR)/build
 BUILDDIR = $(TOPDIR)/build
 CXX_FLAGS = -D_STLP_DEBUG -I source -pthread -ansi -Wall -g -gstabs+ -O0 -fkeep-inline-functions -fpermissive
 #DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER 
-DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER -D_DEBUG_INTERFACE
+DEBUG_FLAGS = -D_DEBUG #-D_DEBUG_ROUTER -D_DEBUG_INTERFACE
 IRIS_SOURCES = \
 		  source/kernel/link.cc \
 		  source/kernel/simulator.cc \
