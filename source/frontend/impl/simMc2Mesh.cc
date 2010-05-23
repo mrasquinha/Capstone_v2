@@ -21,10 +21,20 @@
 #define  _simmc2mesh_cc_INC
 
 #include	"mesh.h"
+#include	"../../data_types/impl/flit.h"
+#include	"../../data_types/impl/highLevelPacket.h"
+#include	"../../components/impl/genericFlatMc.h"
+#include        "../../MemCtrl/mshr.cc"
+#include	<string.h>
+#include	<time.h>
 
+unsigned int no_nodes=0, no_mcs=0;
+unsigned long long int max_sim_time = 10000;
+unsigned int MC_ADDR_BITS = 22;
 int
 main ( int argc, char *argv[] )
 {
+    uint sim_start_time = time(NULL);
     if(argc<2)
     {
         cout << "Error: Requires config file for input parameters\n";
@@ -34,8 +44,8 @@ main ( int argc, char *argv[] )
     /* The following parameters must be specified in the config with the
      * correct knobs */
     uint vcs=0, ports=0, buffer_size=0, credits=0;
-    uint grid_size=0, no_nodes=0, no_mcs=0;
-    uint max_sim_time = 10000;
+    uint grid_size=0; 
+    uint phy_link_bits = 128;
     vector<string> traces;
     vector<uint> mc_positions;
     string trace_name, output_path;
@@ -66,6 +76,12 @@ main ( int argc, char *argv[] )
                 iss >> max_sim_time;
             if ( word.compare("OUTPUT_PATH") == 0)
                 iss >> output_path;
+            if ( word.compare("PHY_LINK_WIDTH") == 0)
+                iss >> phy_link_bits;
+	    if ( word.compare("THREAD_BITS_POSITION") == 0)
+                iss >> THREAD_BITS_POSITION;
+	    if ( word.compare("MC_ADDR_BITS") == 0)
+                 iss >> MC_ADDR_BITS;
             if ( word.compare("TRACE") == 0)
             {
                 iss >> trace_name;
@@ -81,8 +97,16 @@ main ( int argc, char *argv[] )
         }
     }
 
+for ( uint i=0; i<argc; i++)
+    {
+        if( strcmp(argv[i],"--thread_id_bits")==0)
+            THREAD_BITS_POSITION = atoi(argv[i+1]);
+        if( strcmp(argv[i],"--mc_bits")==0)
+            MC_ADDR_BITS = atoi(argv[i+1]);
+    }
+
     /* Number of MC's and the size of the position vector should be the same. */
-    assert(mc_positions.size() == no_mcs);
+//    assert(mc_positions.size() == no_mcs);
 
     /* Compute additional parameters */
     uint links = (ports + (grid_size -1)*(ports-1)) + ( (ports-1) + (grid_size -1)*(ports-2))*(grid_size-1);
@@ -109,6 +133,9 @@ main ( int argc, char *argv[] )
         cerr << " no_of_mcs:\t" << no_mcs << endl;
         cerr << " no_of_traces:\t" << traces.size() << endl;
         cerr << " max_sim_time:\t" << max_sim_time << endl;
+        cerr << " max_phy_link_bits:\t" << max_phy_link_bits << endl;
+	cerr << " THREAD_BITS_POSITION:\t" << THREAD_BITS_POSITION<< endl;
+        cerr << " MC_ADDR_BITS:\t" << MC_ADDR_BITS<< endl;
 
     if( traces.size() < (no_nodes - no_mcs) )
     {
@@ -138,15 +165,10 @@ main ( int argc, char *argv[] )
         {
             mesh->processors.push_back( new GenericTPG() );
             static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
-            for ( uint j=0; j<no_mcs; j++)
+            for ( uint j=0; j<mc_positions.size(); j++)
                 static_cast<GenericTPG*>(mesh->processors[i])->mc_node_ip.push_back(mc_positions[j]);;
         }
     }
-
-//    for( uint i=0; i<no_mcs; i++)
-
-//    for( uint i=0; i<(no_nodes-no_mcs); i++)
-//        static_cast<GenericTPG*>(mesh->processors[i])->set_trace_filename(traces[i]);
 
     /* Create the links */
     for ( uint i=0; i<links; i++)
@@ -158,7 +180,7 @@ main ( int argc, char *argv[] )
     mesh->connect_interface_processor();
 
     /* Set all the component ids */
-    uint comp_id = 0, alink_comp_id = 100, blink_comp_id = 200;
+    uint comp_id = 0, alink_comp_id = 1000, blink_comp_id = 5000;
     for ( uint i=0 ; i<no_nodes; i++ )
     {
         mesh->processors[i]->setComponentId(comp_id++);
@@ -189,11 +211,12 @@ main ( int argc, char *argv[] )
         mesh->interfaces[i]->set_no_vcs(vcs);
         mesh->interfaces[i]->set_no_credits(credits);
         mesh->interfaces[i]->set_buffer_size(credits);
-        mesh->processors[i]->set_no_vcs(vcs);
-        mesh->processors[i]->set_output_path(output_path);
+//        mesh->processors[i]->set_output_path(output_path);
     }
 
     mesh->setup();
+    for ( uint i=0 ; i<no_nodes ; i++ )
+        mesh->processors[i]->set_output_path(output_path);
 
     /*  Set no of ports and positions for routing */
     vector< uint > grid_x;
@@ -242,9 +265,8 @@ main ( int argc, char *argv[] )
     Simulator::Run();
 
     cerr << mesh->print_stats();
-    if( no_mcs > 0)
-        cerr << ((NI*)mesh->processors[3])->print_stats();
 
+    cerr << " Simulation Time: " << (time(NULL)-sim_start_time) << endl;
     cerr << "------------ End SimIris ---------------------" << endl;
 
     delete mesh;

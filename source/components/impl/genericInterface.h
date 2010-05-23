@@ -50,7 +50,7 @@ class GenericInterface : public Interface
         void set_no_credits( int credits );
         void set_no_vcs ( uint v );
         void set_buffer_size( uint b );
-        void setup();
+        void setup( uint v, uint cr);
 
         string toString() const;
         void process_event( IrisEvent* e);
@@ -62,6 +62,8 @@ class GenericInterface : public Interface
         uint vcs;
         uint buffer_size;
         int credits;
+        bool in_packet_cleared;
+        bool in_packet_complete;
 
         bool ticking;
         GenericBuffer out_buffer;

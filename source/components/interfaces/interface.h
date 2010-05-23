@@ -39,7 +39,7 @@ class Interface: public NetworkComponent
         Interface ();                             /* constructor */
         virtual ~Interface();
         virtual string toString () const;
-        virtual void setup() = 0;
+        virtual void setup(uint a, uint b) = 0;
         virtual void set_no_credits( int cr ) = 0;
         virtual void set_buffer_size( uint cr ) = 0;
         virtual void set_no_vcs( uint cr ) = 0;

@@ -38,7 +38,6 @@ enum virtual_network { VN0, VN1, VN2};
 //};
 //
 
-enum message_class { INVALID_PKT, REQUEST_PKT, RESPONSE_PKT};
 
 /*
  * =====================================================================================
@@ -67,6 +66,8 @@ class HighLevelPacket
         /* Assuming that a minimal check on the transaction id and source should suffice. In accordance with the QPI spec all packets have the transaction Id which can be mapped back to the caching agent that generated the request. Once the transaction is completed and the response arrives at the caching agent, a tear down is initiated and the transaction ids may be reused at the source.*/
         bool operator==( const HighLevelPacket* p );
 
+        /* for debug */
+        unsigned long long int addr;
         uint source;
         uint destination;
         virtual_network vn;

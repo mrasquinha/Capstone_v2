@@ -13,11 +13,15 @@
 #include        <deque>
 #include        "../../MemCtrl/mshr.h"
 #include	"../../MemCtrl/constants.h"
+#include        <math.h>
 
 #define DEFAULT_RAN_MAX_TIME 100
 #define MAX_ADDRESS 3
 #define MAX(a,b) (((a)<(b))?(b):(a))
 #define MIN(a,b) (((a)<(b))?(a):(b))
+
+extern uint no_nodes;
+extern uint no_mcs;
 
 class GenericTPG : public Processor
 {
@@ -25,6 +29,7 @@ class GenericTPG : public Processor
     private:
         uint vcs;
         uint no_nodes;
+        uint no_outstanding;
         unsigned long long int max_sim_time;
         deque< HighLevelPacket > out_packets;
         deque< HighLevelPacket > sent_packets;
@@ -38,6 +43,7 @@ class GenericTPG : public Processor
         Request* GetNextRequest();
         bool GetNewRequest(Request *req);
         Request* GetRequest();
+        short int map_addr(unsigned long long int *addr);
         void convertToBitStream(Request* req, HighLevelPacket* hlp);
 	void convertFromBitStream(Request* req, HighLevelPacket *hlp);
         void handle_new_packet_event(IrisEvent* e);
@@ -50,6 +56,8 @@ class GenericTPG : public Processor
         /* stats variables */
         unsigned int packets;
         double min_pkt_latency;
+        double last_packet_out_cycle;
+        unsigned long long int fwd_path_delay;
 
         MSHR_H *mshrHandler;
         unsigned long long int max_time;

@@ -90,6 +90,8 @@ class HeadFlit : public Flit
         uint src_address;                   /*  Restricting the max number of src to 2^32 */
         uint dst_address;                   /*  32 bits src addr 32 bits dest addr and 32 bits of transaction id max */
         uint transaction_id;                
+        unsigned long long int addr;
+        message_class msg_class;
         uint length;
         vector<bool> control_bits;
         vector<bool> payload;
@@ -98,6 +100,7 @@ class HeadFlit : public Flit
         string toString() const;
         void route();
         pair<uint, uint> next();
+        simTime packet_originated_time;
 
     protected:
 
@@ -117,7 +120,8 @@ class BodyFlit : public Flit
     public:
         BodyFlit ();                             /* constructor */
         ~BodyFlit ();                             /* constructor */
-        void populate_body_flit(vector<bool> d);
+        void populate_body_flit();
+        vector <bool> bf_data;
         std::string toString() const;
 
     protected:

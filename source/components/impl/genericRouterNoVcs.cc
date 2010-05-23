@@ -168,7 +168,7 @@ GenericRouterNoVcs::handle_link_arrival_event ( IrisEvent* e )
     {
         /*  Update stats */
         flits++;
-        if( data->ptr->type == TAIL )
+        if( data->ptr->type == TAIL || (data->ptr->type == HEAD && static_cast<HeadFlit*>(data->ptr)->msg_class == ONE_FLIT_REQ) )
         {
             packets++;
         }
@@ -318,7 +318,7 @@ GenericRouterNoVcs::do_switch_traversal()
                                      &NetworkComponent::process_event,
                                      output_connections[oport],event);
                     downstream_credits[oport][och]--;
-                    if( f->type == TAIL)
+                    if( f->type == TAIL || (f->type == HEAD && static_cast<HeadFlit*>(f)->msg_class == ONE_FLIT_REQ))
                     {
                         input_buffer_state[i].clear_message = true;
                         input_buffer_state[i].pipe_stage = EMPTY;
@@ -330,7 +330,6 @@ GenericRouterNoVcs::do_switch_traversal()
                         /* Update packet stats */
                         double lat = Simulator::Now() - input_buffer_state[i].arrival_time;
                         total_packet_latency+= lat;
-                        _DBG(" pkt out latency: %f", lat);
                     }
                     else
                     {
@@ -341,7 +340,7 @@ GenericRouterNoVcs::do_switch_traversal()
 
                     /* Safe to send credits here as the flit is sure to empty
                      * the buffer. */
-                    if( f->type != HEAD)
+//                    if( f->type != HEAD)
                         send_credit_back(i);
 
                 }
@@ -352,7 +351,7 @@ GenericRouterNoVcs::do_switch_traversal()
 #ifdef _DEBUG_ROUTER
                         _DBG_NOARG(" Waiting for flits on inch");
 #endif
-                        ticking = true;
+//                        ticking = true;
                     }
                     else if (xbar.is_empty(oport,och))
                     {
@@ -363,7 +362,7 @@ GenericRouterNoVcs::do_switch_traversal()
 #ifdef _DEBUG_ROUTER
                         _DBG(" Waiting for downstream credits on oport %d och %d ", oport, och);
 #endif
-                       ticking = true;
+//                       ticking = true;
                     }
                 }
 
@@ -399,18 +398,20 @@ GenericRouterNoVcs::do_switch_allocation()
                         xbar.configure_crossbar(iport,oport,0);
                         xbar.push(oport,0); /* The crossbar is generic and needs to know the vc being used as well */
 
+#ifdef _DEBUG_ROUTER
                 _DBG(" SWA won for inport %d oport %d ", iport, oport);
+#endif
                     /* After allocating the downstream path for this message
                      * send a credit on this inport for the HEAD. */
-                    send_credit_back(i);
+//                    send_credit_back(i);
                 }
+#ifdef _DEBUG_ROUTER
                 else
                 {
-#ifdef _DEBUG_ROUTER
                     _DBG(" Dint win for inport %d SWA winner was inport %d for oport %d "
                          ,iport, vca_winner.port, oport);
-#endif
                 }
+#endif
                 ticking = true;
             }
             else
@@ -480,20 +481,21 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
             uint ich = input_buffer_state[i].input_channel;
             uint oport = input_buffer_state[i].output_port ;
             uint och = input_buffer_state[i].output_channel; 
+
             if ((input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == IB )
-	//		|| input_buffer_state[i].pipe_stage == SWA_REQUESTED )
+//			|| input_buffer_state[i].pipe_stage == SWA_REQUESTED 
                 && (input_buffer_state[i].flits_in_ib < in_buffers[iport].get_occupancy(ich)))
                 { 
                     input_buffer_state[i].flits_in_ib++;
                     ticking = true;
-#ifdef _DEBUG_RR
+#ifdef _DEBUG_ROUTER
                 _DBG(" IB for BODY/TAIL for inport %d oport %d ", iport, oport);
 #endif
                     /*! \brief Sending credits back for body+tail: Condition being
                      * HEAD in ST and having downstream credits 
                         */
-                    if( input_buffer_state[i].pipe_stage == ST && downstream_credits[oport][och] > 0)
-                        send_credit_back(i);
+//                    if( input_buffer_state[i].pipe_stage == ST && downstream_credits[oport][och] > 0)
+//                        send_credit_back(i);
                 }
     }
 
@@ -530,7 +532,7 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
                 }
             }
 #endif
-            ticking = true;
+//            ticking = true;
         }
     }
     if(ticking)

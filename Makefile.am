@@ -1,12 +1,13 @@
-bin_PROGRAMS = simMc2Mesh_debug
+bin_PROGRAMS = simMc2Mesh2_debug simMc2Mesh2
 
-noinst_LIBRARIES = libIris_debug.a #libIris.a
+noinst_LIBRARIES = libIris_debug.a libIris.a
 
 OBJDIR = $(TOPDIR)/build
 BUILDDIR = $(TOPDIR)/build
-CXX_FLAGS = -D_STLP_DEBUG -I source -pthread -ansi -Wall -g -gstabs+ -O0 -fkeep-inline-functions -fpermissive
+CXX_FLAGS = -D_STLP_DEBUG -I source -pthread -ansi -Wall -g -gstabs+ -O3 -funroll-loops -fkeep-inline-functions -fpermissive -static  -static-libgcc -fprofile-arcs -ftest-coverage
+CXXLD = g++ -lgcov -static
 #DEBUG_FLAGS = -D_DEBUG -D_DEBUG_ROUTER 
-DEBUG_FLAGS = -D_DEBUG #-D_DEBUG_ROUTER -D_DEBUG_INTERFACE
+DEBUG_FLAGS = -D_DEBUG -DDEBUG -D_DEBUG_ROUTER -D_DEBUG_INTERFACE # -fprofile-arcs -ftest-coverage -lgcov
 IRIS_SOURCES = \
 		  source/kernel/link.cc \
 		  source/kernel/simulator.cc \
@@ -35,10 +36,9 @@ IRIS_SOURCES = \
 		  source/components/impl/ptop_swa.cc \
 		  source/components/impl/genericVcArbiterNoFlits.cc \
 		  source/components/impl/genericRouterNoVcs.cc \
+		  source/components/impl/genericFlatMc.cc \
 		  source/components/impl/genericTPG.cc \
 		  source/components/impl/genericRPG.cc \
-		  source/frontend/impl/mesh.cc \
-		  source/tests/packetSource.cc \
 		  source/MemCtrl/addr_map.cc \
 		  source/MemCtrl/request.cc \
 		  source/MemCtrl/request_handler.cc \
@@ -56,22 +56,23 @@ IRIS_SOURCES = \
 		  source/MemCtrl/stats.cc \
 		  source/MemCtrl/MC.cc \
 		  source/MemCtrl/mshr.cc \
-		  source/MemCtrl/NI.cc
+		  source/MemCtrl/NI.cc \
+		  source/frontend/impl/mesh.cc 
 
 
-## simMc2Mesh
-#simMc2Mesh_CXXFLAGS = $(CXX_FLAGS)
+## simMc2Mesh2
+simMc2Mesh2_CXXFLAGS = $(CXX_FLAGS)
 
-#simMc2Mesh_SOURCES = \
-#	       source/frontend/impl/simMc2Mesh.cc
-#simMc2Mesh_LDADD = libIris.a
-
-## simMc2Mesh_debug
-simMc2Mesh_debug_CXXFLAGS = $(CXX_FLAGS) 
-
-simMc2Mesh_debug_SOURCES = \
+simMc2Mesh2_SOURCES = \
 	       source/frontend/impl/simMc2Mesh.cc
-simMc2Mesh_debug_LDADD = libIris_debug.a
+simMc2Mesh2_LDADD = libIris.a
+
+## simMc2Mesh2_debug
+simMc2Mesh2_debug_CXXFLAGS = $(CXX_FLAGS) 
+
+simMc2Mesh2_debug_SOURCES = \
+	       source/frontend/impl/simMc2Mesh.cc
+simMc2Mesh2_debug_LDADD = libIris_debug.a
 
 ## testRouter
 #testRouter_CXXFLAGS = $(CXX_FLAGS)
@@ -82,8 +83,8 @@ simMc2Mesh_debug_LDADD = libIris_debug.a
 #testRouter_LDADD = libIris.a
 
 ##libIris
-#libIris_a_CXXFLAGS = $(CXX_FLAGS)
-#libIris_a_SOURCES = $(IRIS_SOURCES)
+libIris_a_CXXFLAGS = $(CXX_FLAGS)
+libIris_a_SOURCES = $(IRIS_SOURCES)
 
 ##libIris_debug
 libIris_debug_a_CXXFLAGS = $(CXX_FLAGS) $(DEBUG_FLAGS)
@@ -126,8 +127,8 @@ noinst_HEADERS = \
 		 source/components/impl/genericRouterNoVcs.h \
 		 source/components/impl/genericTPG.h \
 		 source/components/impl/genericRPG.h \
+		 source/components/impl/genericFlatMc.h \
 		 source/frontend/impl/mesh.h \
-		 source/tests/packetSource.h \
 		 source/tests/clock.h \
 		 source/MemCtrl/constants.h \
 		 source/MemCtrl/addr_map.h \

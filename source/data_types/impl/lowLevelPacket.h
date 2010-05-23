@@ -52,6 +52,9 @@ class LowLevelPacket
         uint source;
         uint destination;
         uint transaction_id;
+        message_class msg_class;
+        /* for debug */
+        unsigned long long int addr;
         short int virtual_channel;
         unsigned long int sent_time;
         unsigned int length;  /* Determines the length of the packet in terms of flits */

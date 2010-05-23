@@ -49,6 +49,7 @@ void LowLevelPacket::operator=( const LowLevelPacket* p )
     transaction_id = p->transaction_id;
     virtual_channel = p->virtual_channel;
     sent_time = p->sent_time;
+    msg_class = p->msg_class;
     length = p->length;
     for ( uint i=0; i<control_bits.size(); i++)
         this->control_bits.push_back(p->control_bits[i]); 
@@ -68,8 +69,10 @@ LowLevelPacket::toString () const
         << "\t sent time: " << sent_time
         << "\t No of flits: " << flits.size()
         << "\t length: " << length
+        << "\t msg_class: " << msg_class
+        << "\t addr: " << hex << addr << dec
         << endl;
-
+/* 
     for ( uint i=0 ; i<flits.size() ; i++ )
         if( flits[i]->type == HEAD)
             str << static_cast<HeadFlit*>(flits[i])->toString();
@@ -79,8 +82,7 @@ LowLevelPacket::toString () const
             str << static_cast<TailFlit*>(flits[i])->toString();
         else
             str << " Error unk flit type" ;
-
-
+ * */
     return str.str();
 }		/* -----  end of function LoeLevelPacket::toString  ----- */
 
@@ -102,30 +104,39 @@ LowLevelPacket::add ( Flit* ptr )
         case HEAD:
             {
                 HeadFlit* ptr2 = static_cast < HeadFlit*> (ptr);
-                flits.push_back(ptr2);
+//                flits.push_back(ptr2);
                 this->source = ptr2->src_address;
                 this->destination = ptr2->dst_address;
                 this->transaction_id = ptr2->transaction_id;
                 this->virtual_channel = ptr2->vc;
                 this->length = ptr2->length;
+                this->msg_class = ptr2->msg_class;
+                this->sent_time = ptr2->packet_originated_time;
+                this->addr = ptr2->addr;
     for ( uint i=0; i<ptr2->control_bits.size(); i++)
         this->control_bits.push_back(ptr2->control_bits[i]); 
 
     for ( uint i=0; i<ptr2->payload.size(); i++)
         this->payload.push_back(ptr2->payload[i]); 
+
+                delete ptr2;
                 break;
             }
         case BODY:
             {
                 BodyFlit* bf = static_cast<BodyFlit*> (ptr);
-                flits.push_back(bf);
+    for ( uint i=0; i<bf->bf_data.size(); i++)
+        this->payload.push_back(bf->bf_data[i]); 
+//                flits.push_back(bf);
+                delete bf;
                 break;
             }
         case TAIL:
             {
                 TailFlit* tf = static_cast<TailFlit*> (ptr);
-                flits.push_back(tf);
+//                flits.push_back(tf);
                 this->sent_time = tf->packet_originated_time;
+                delete tf;
                 break;
             }
         default:

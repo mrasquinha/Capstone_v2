@@ -2,7 +2,13 @@
 #define _generictpg_cc_INC
 
 #include "genericTPG.h"
+#include "../../MemCtrl/constants.h"
+#include <string.h>
 
+
+
+extern unsigned int MC_ADDR_BITS;
+//unsigned int NUM_OF_CONTROLLERS = 8;
 GenericTPG::GenericTPG ()
 {
     name = "GenericTPG";
@@ -15,6 +21,11 @@ GenericTPG::GenericTPG ()
 
 GenericTPG::~GenericTPG ()
 {
+    out_file.close();
+    mshrHandler->trace_filename.close();
+    mshrHandler->mshr.clear();
+    delete mshrHandler;
+
 } /* ----- end of function GenericTPG::~GenericTPG ----- */
 
 void
@@ -37,9 +48,12 @@ GenericTPG::setup (uint n, uint v, uint time)
     no_nodes = n;
     max_sim_time = time;
     address = myId();
+    node_ip = address/3;
     
     packets = 0;
     min_pkt_latency = 999999999;
+    last_packet_out_cycle = 0;
+    fwd_path_delay = 0;
 
     ready.resize( vcs );
     ready.insert( ready.begin(), ready.size(), false );
@@ -51,9 +65,12 @@ GenericTPG::setup (uint n, uint v, uint time)
     Time time2;
     UInt cmd;	
 
-//    InitMSHR();	
+//    InitMSHR();
+#ifdef USE_MSHR    
     mshrHandler = new MSHR_H();	
-    mshrHandler->id = node_ip; 
+    mshrHandler->id = node_ip;
+    mshrHandler->parent = this; 
+#endif    
  //   mc->stats->doneOnce[i] = &mshrHandler[i].done; 
     trace_filename = &mshrHandler->trace_filename; 
     mshrHandler->filename = trace_name.c_str();	
@@ -110,7 +127,7 @@ GenericTPG::set_output_path( string name)
 {
     // open the output trace file
     stringstream str;
-    str << name << "/tpg_" << address << "_trace_out.tr";
+    str << name << "/tpg_" << node_ip << "_trace_out.tr";
     out_filename = str.str();
     out_file.open(out_filename.c_str());
     if( !out_file.is_open() )
@@ -156,11 +173,11 @@ GenericTPG::handle_new_packet_event ( IrisEvent* e)
     // get the packet data
     HighLevelPacket* hlp = static_cast< HighLevelPacket* >( e->event_data.at(0));
     double lat = Simulator::Now() - hlp->sent_time;
+    last_packet_out_cycle = Simulator::Now();
     if( min_pkt_latency > lat)
         min_pkt_latency = lat;
+#ifdef DEBUG
     _DBG( "-------------- GOT NEW PACKET ---------------\n pkt_latency: %f", lat);
-    
-
     // write out the packet data to the output trace file
     if( !out_file.is_open() )
         out_file.open( out_filename.c_str(), std::ios_base::app );
@@ -172,6 +189,7 @@ GenericTPG::handle_new_packet_event ( IrisEvent* e)
         
         out_file << hlp->toString();
         out_file << "\tPkt latency: " << lat << endl;
+#endif
 
 #ifdef USE_MSHR
     Request * req = new Request();
@@ -199,6 +217,88 @@ GenericTPG::handle_new_packet_event ( IrisEvent* e)
     return ;
 } /* ----- end of function GenericTPG::handle_new_packet_event ----- */
 
+void
+GenericTPG::handle_out_pull_event ( IrisEvent* e )
+{
+    sending =false;
+    if( ready[0] )
+    {
+#ifdef USE_MSHR
+    Request* next_req = GetRequest();
+#else
+    Request* next_req = GetNextRequest();
+#endif
+    MTRand mtrand1;
+    if( next_req)
+    {
+        packets++;
+        fwd_path_delay = Simulator::Now() - next_req->arrivalTime;
+        HighLevelPacket* hlp = new HighLevelPacket();
+        hlp->virtual_channel = 0;
+        hlp->source = address;
+//        uint rand_destination = mtrand1.randInt(no_mcs-1); //MIN( generator.address(), MAX_ADDRESS);
+        Addr_t tempAddr = next_req->address;
+	uint destination=map_addr(&next_req->address);
+        mshrHandler->demap_addr(tempAddr,next_req->address);
+	hlp->destination = mc_node_ip[destination];
+        hlp->addr = next_req->address;
+
+        assert ( hlp->destination < no_nodes);
+#ifdef DEEP_DEBUG
+        cout << endl << dec << node_ip << " ^^Sending to " << hlp->destination << endl;
+#endif
+        hlp->transaction_id = mtrand1.randInt(1000);
+        if( hlp->destination == node_ip )
+            hlp->destination = 3; //(hlp->destination + 1) % max_nodes;
+
+	convertToBitStream(next_req, hlp);
+        if(hlp->sent_time < Simulator::Now())
+            hlp->sent_time = Simulator::Now();
+
+#ifdef _DEEP_DEBUG
+        _DBG( " Sending pkt: no of packets %d ", packets );
+        cout << "HLP: " << hlp->toString() << endl;
+#endif
+        ready[0] = false;
+        IrisEvent* event = new IrisEvent();
+        event->type = NEW_PACKET_EVENT;
+        event->event_data.push_back(hlp);
+        Simulator::Schedule( hlp->sent_time, &NetworkComponent::process_event, interface_connections[0], event );
+        sending = true;
+        delete next_req;
+                
+    }
+    }
+
+    if( sending)
+    {
+        IrisEvent* event2 = new IrisEvent();
+        event2->type = OUT_PULL_EVENT;
+        event2->vc = 0; //e->vc;
+        Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event, this, event2);
+        sending = true;
+    }		
+   delete e; 
+}
+
+void
+GenericTPG::handle_ready_event ( IrisEvent* e)
+{
+
+    // send the next packet if it is less than the current time
+    ready[0] = true;
+    if( !sending && Simulator::Now() < max_sim_time )
+    {
+        IrisEvent* event = new IrisEvent();
+        event->type = OUT_PULL_EVENT;
+        event->vc = 0; 
+        Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event, this, event);
+        sending = true;
+    }
+
+    delete e;
+    return ;
+} /* ----- end of function GenericTPG::handle_ready_event ----- */
 Request*
 GenericTPG::GetNextRequest()
 {
@@ -255,9 +355,14 @@ GenericTPG::GetNewRequest(Request *req)
         if (mshrHandler->mshr[mshrHandler->lastScheduledIndex].arrivalTime <= Simulator::Now())
         {
             *req = mshrHandler->mshr[mshrHandler->lastScheduledIndex];
-            mshrHandler->lastScheduledIndex++;
+        mshrHandler->lastScheduledIndex++;
             return true;
         }
+    }
+    if (mshrHandler->lastScheduledIndex > mshrHandler->mshr.size())
+    {
+        cout << "\nERROR: lastIndex greater" << mshrHandler->lastScheduledIndex << " " << mshrHandler->mshr.size() << endl;
+        exit(1);
     }
     return false;
 }
@@ -265,11 +370,12 @@ GenericTPG::GetNewRequest(Request *req)
 Request*
 GenericTPG::GetRequest()
 {
-    Request *req = new Request();
+    Request* req = new Request();
     if (GetNewRequest(req))
     {
         return req;
     }
+    delete req;
     return NULL;
 }
 
@@ -292,11 +398,15 @@ GenericTPG::convertToBitStream(Request* req, HighLevelPacket* hlp)
         hlp->data.push_back(bit);
     }
     if (req->cmdType == CACHE_WRITEBACK)
-	for ( uint i=0 ; i < 8*WRITEBACK_SIZE ; i++ )
+    {	for ( uint i = hlp->data.size() ; i < 1*max_phy_link_bits; i++ )
 	{
-	    bool bit = true; // sending 1's as data
-            hlp->data.push_back(bit);
+            hlp->data.push_back(true);
         }
+        hlp->msg_class = RESPONSE_PKT;
+    }
+    else
+        hlp->msg_class = ONE_FLIT_REQ;
+
 
     hlp->data_payload_length = ceil(hlp->data.size() *1.0 / max_phy_link_bits);	
     hlp->data_payload_length = hlp->data_payload_length * max_phy_link_bits;
@@ -304,7 +414,7 @@ GenericTPG::convertToBitStream(Request* req, HighLevelPacket* hlp)
     for ( uint i=hlp->data.size() ; i < hlp->data_payload_length; i++ )
     {
 	bool bit = false;
-        hlp->data.push_back(bit);
+        hlp->data.push_back(false);
     }
 }
 
@@ -328,142 +438,35 @@ GenericTPG::convertFromBitStream(Request* req, HighLevelPacket *hlp)
     {
 	req->threadId = req->threadId | (hlp->data[i+NETWORK_ADDRESS_BITS+NETWORK_COMMAND_BITS] << i);
     }
-*/    req->data.value = 0;
+*/ /*   req->data.value = 0;
     if (req->cmdType == CACHE_READ || req->cmdType == CACHE_WRITE || req->cmdType == CACHE_PREFETCH)
-	for ( uint i=0 ; i < 8*CACHE_BLOCK_SIZE ; i++ )
+	for ( uint i=0 ; i < 1*max_phy_link_bits; i++ )
 	{
-	    req->data.value = req->data.value | (hlp->data[i+NETWORK_ADDRESS_BITS/*+NETWORK_COMMAND_BITS+NETWORK_THREADID_BITS*/] << i);
+	    req->data.value = req->data.value | (hlp->data[i+NETWORK_ADDRESS_BITS] << i);
 	    req->data.size = CACHE_BLOCK_SIZE;
         }
+*/
 }
 
-void
-GenericTPG::handle_out_pull_event ( IrisEvent* e )
+
+short int 
+GenericTPG::map_addr(unsigned long long int *addr)
 {
-    bool found = false;
-    for( unsigned int i = last_vc ; i < ready.size(); i++ )
-        if( ready[i] )
-        {
-            found = true;
-            last_vc= i;
-            break;
-        }
+    unsigned int temp = MC_ADDR_BITS;   
+    unsigned int temp2 = temp-(int)log2(no_mcs);   
+    unsigned int lower_mask = pow(2.0,temp2*1.0)-1;
+    unsigned long long int upper_mask = (0xFFFFFFFFFFFF)-(pow(2.0,temp*1.0)-1);
+    unsigned int lower_addr = (*addr) & lower_mask;
+    unsigned long long int upper_addr = ((*addr) & upper_mask) >> (int)log2(no_mcs);
+    short int mc_addr = ((*addr) >> temp2) & (no_mcs-1);
+    //cout << hex << temp2 << " " << (*addr) << " " << upper_addr << " " << lower_addr << " ";
+    *addr = upper_addr | lower_addr;
+    //cout << (*addr) << " " << mc_addr << endl;     
+    return mc_addr;
+}
 
-    if(!found )
-        for( unsigned int i = 0; i < last_vc ; i++ )
-            if( ready[i] )
-            {
-                found = true;
-                last_vc = i;
-                break;
-            }
-#ifdef USE_MSHR
-    Request* next_req = GetRequest();
-#else
-    Request* next_req = GetNextRequest();
-#endif
-    MTRand mtrand1;
-    if( found && next_req)
-    {
-        uint max_nodes = 7;
-        packets++;
-        unsigned int current_packet_time = 0;
-        HighLevelPacket* hlp = new HighLevelPacket();
-        hlp->virtual_channel = last_vc;
-        last_vc++;
-        hlp->source = address;
-        uint rand_destination = mtrand1.randInt(max_nodes); //MIN( generator.address(), MAX_ADDRESS);
-        hlp->destination = mc_node_ip[rand_destination];
 
-        assert ( hlp->destination < 64);
-        cout << endl << dec << node_ip << " ^^Sending to " << hlp->destination << endl;
-        hlp->transaction_id = mtrand1.randInt(1000);
-        hlp->msg_class = REQUEST_PKT;
-        if( hlp->destination == node_ip )
-            hlp->destination = 0; //(hlp->destination + 1) % max_nodes;
-        /* 
-        if( node_ip == 3)
-            hlp->destination = 0;
-        else
-            hlp->destination = 3;
-         * */
 
-	convertToBitStream(next_req, hlp);
-        if(hlp->sent_time < Simulator::Now())
-            hlp->sent_time = Simulator::Now();
-
-        _DBG( " Sending pkt: no of packets %d ", packets );
-        cout << "HLP: " << hlp->toString() << endl;
-
-        /*
-out_file << "Sending packet: " << next_req->toString() << endl;
-out_file << "HLP: " << hlp->toString() << endl;
-* */
-// delete next_req;
-
-        ready[ hlp->virtual_channel ] = false;
-        IrisEvent* event = new IrisEvent();
-        event->type = NEW_PACKET_EVENT;
-        event->event_data.push_back(hlp);
-        current_packet_time = hlp->sent_time; /* Making a copy so we dont depend on hlp deletionMaking a copy so we dont depend on hlp deletion. May be needed later if the functions are broken. */
-        Simulator::Schedule( hlp->sent_time, &NetworkComponent::process_event, interface_connections[0], event );
-                
-        /* Check for an empty vc and call yourself as long as it is not the
-* MAX_SIM_TIME or last packet. If you were to do Run() till all
-* events in the system are complete. This will probably determine
-* the end of the simulation */
-        found = false;
-        for( unsigned int i = 0; i < ready.size(); i++ )
-            if( ready[i] && current_packet_time < max_sim_time )
-            {
-                found = true;
-                break;
-            }
-            
-    }
-        
-    if( found )
-    {
-       IrisEvent* event = new IrisEvent();
-       event->type = OUT_PULL_EVENT;
-       event->vc = e->vc;
-       if (mshrHandler->nextReq.arrivalTime > Simulator::Now())	
-           Simulator::Schedule( mshrHandler->nextReq.arrivalTime, &NetworkComponent::process_event, this, event);
-       else
-	   Simulator::Schedule( Simulator::Now()+1, &NetworkComponent::process_event, this, event); 	
-       sending = true;
-    }
-        else
-                sending = false;
-
-// delete e;
-    return ;
-} /* ----- end of function GenericTPG::handle_out_pull_event ----- */
-
-void
-GenericTPG::handle_ready_event ( IrisEvent* e)
-{
-
-    // send the next packet if it is less than the current time
-    ready[0] = true;
-#ifdef _DEBUG_TPG
-    _DBG_NOARG(" handle_ready_event ");
-#endif
-
-    if( !sending && Simulator::Now() < max_sim_time )
-    {
-        IrisEvent* event = new IrisEvent();
-        event->type = OUT_PULL_EVENT;
-        event->vc = 0; //e->vc;
-        /* Need to be careful with the same cycles scheduling. Can result in
-* events of the past. Need to test this. */
-        Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event, this, event);
-        sending = true;
-    }
-
-// delete e;
-    return ;
-} /* ----- end of function GenericTPG::handle_ready_event ----- */
 
 string
 GenericTPG::toString () const
@@ -482,9 +485,11 @@ string
 GenericTPG::print_stats() const
 {
     stringstream str;
-    str << toString()
-        << "\n packets:\t " << packets
-        << "\n min_pkt_latency:\t" << min_pkt_latency
+    str << "\nTPG: " << address
+        << "\nTPG [" << node_ip << "] packets:\t " << packets
+        << "\nTPG [" << node_ip << "] Avg fwd_path_delay:\t " << (fwd_path_delay+0.0)/packets
+        << "\nTPG [" << node_ip << "] min_pkt_latency:\t " << min_pkt_latency
+        << "\nTPG [" << node_ip << "] last_packet_out_cycle:\t " << last_packet_out_cycle
         ;
     return str.str();
 } /* ----- end of function GenericTPG::toString ----- */

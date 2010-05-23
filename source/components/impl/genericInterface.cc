@@ -36,14 +36,15 @@ GenericInterface::~GenericInterface ()
 }		/* -----  end of function GenericInterface::~GenericInterface  ----- */
 
 void
-GenericInterface::setup ()
+GenericInterface::setup (uint v, uint cr)
 {
-    vcs =1;
-    credits = 1;
+    vcs =v;
+    int credits = cr;
     /* All this is part of the init */
     address = myId();
 //    convert_packet_cycles = DEFAULT_CONVERT_PACKET_CYCLES;
 
+    in_packet_complete = false;
     in_buffer.resize(vcs, buffer_size);
     out_buffer.resize(vcs, buffer_size);
     downstream_credits.resize(vcs);
@@ -70,6 +71,7 @@ GenericInterface::setup ()
         in_ready[i] = true;
         in_packets[i].destination = address;
         in_packets[i].virtual_channel = i;
+        in_packets[i].length= 10;
         downstream_credits[i] = credits;
     }
 
@@ -199,41 +201,44 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
 {
     //Find out if it was a flit or a credit
     LinkArrivalData* uptr = static_cast<LinkArrivalData* >(e->event_data.at(0));
-    uint next_tick_time = -1;
 
 #ifdef _DEBUG_INTERFACE
-    _DBG(" handle_link_arrival %d ", uptr->type);
+    _DBG(" handle_link_arrival %d ticking: %d", uptr->type, ticking);
 #endif
 
     if(uptr->type == FLIT_ID)
     {
         flits_in++;
-        in_buffer.change_push_channel(uptr->vc);
+        in_buffer.change_push_channel(0);
         in_buffer.push(uptr->ptr);
         if( uptr->ptr->type == TAIL )
         {
-	//    cout << "I came here with packets_in " << packets_in << endl;	
             packets_in++;
             total_packets_in_time += (Simulator::Now() - static_cast<TailFlit*>(uptr->ptr)->packet_originated_time);
         }
+
+        if( uptr->ptr->type == HEAD && static_cast<HeadFlit*>(uptr->ptr)->msg_class == ONE_FLIT_REQ )
+        {
+            packets_in++;
+            total_packets_in_time += (Simulator::Now() - static_cast<HeadFlit*>(uptr->ptr)->packet_originated_time);
+        }
         uptr->valid = false;
 
-            //Send a credit back since you cleared the in_buffer
+        if( !(uptr->ptr->type == TAIL || 
+             ( uptr->ptr->type == HEAD && static_cast<HeadFlit*>(uptr->ptr)->msg_class == ONE_FLIT_REQ )))
+        {
             LinkArrivalData* arrival = new LinkArrivalData();
-            VirtualChannelDescription* cr = new VirtualChannelDescription();
-            cr->vc = uptr->vc;
-
-            arrival->vc = uptr->vc;
+            arrival->vc = 0;
             arrival->type = CREDIT_ID;
-            
-
             IrisEvent* event = new IrisEvent();
             event->type = LINK_ARRIVAL_EVENT;
-            event->vc = uptr->vc;
+            event->vc = 0;
             event->event_data.push_back(arrival);
             event->src_id = address;
             Simulator::Schedule( ceil(Simulator::Now())+1, 
                                  &NetworkComponent::process_event, input_connection, event);
+
+        }
     }
     else if ( uptr->type == CREDIT_ID)
     {
@@ -264,18 +269,11 @@ void
 GenericInterface::handle_new_packet_event(IrisEvent* e)
 {
     HighLevelPacket* pkt = static_cast<HighLevelPacket*>(e->event_data.at(0));
-    LowLevelPacket* llp = new LowLevelPacket();
-    pkt->to_low_level_packet(llp);
-    out_packets[pkt->virtual_channel] = *llp;
-    out_packets[pkt->virtual_channel].flits.clear();
-    for ( uint i=0; i<llp->flits.size(); i++)
-        out_packets[pkt->virtual_channel].flits.push_back(llp->flits[i]);
+    pkt->to_low_level_packet(&out_packets[0]);
+#ifdef _DEBUG_INTERFACE
+    _DBG(" Int got new packet: %s", out_packets[0].toString().c_str());
+#endif
 
-    cout << " Int got new packet: " << out_packets[pkt->virtual_channel].toString();
-
-    llp->flits.clear();
-
-    delete llp;
     delete pkt;
 
     out_packet_flit_index[ pkt->virtual_channel ] = 0;
@@ -302,36 +300,26 @@ GenericInterface::handle_tick_event(IrisEvent* e)
 {
     ticking = false;
     /*---------- This is on the output side. From processor out to network --------- */
-    //Request to arbitrate for flits in out_buffer
-    for ( uint i=0; i<out_packets.size(); i++ )
-        if( !out_buffer.is_empty(i) 
-            && !out_arbiter.is_requested(i) && downstream_credits[i]>0 )
-        {
-       out_buffer.change_pull_channel(i);
-       Flit* f= out_buffer.pull();
-            out_arbiter.request(f,i);
-            ticking = true;
-
-#ifdef _DEBUG_INTERFACE
-    _DBG("Req out_arb vc:%d ",i);
-#endif
-        }
-
-    // out out_arbiter to next link
-    if(!out_arbiter.empty() )
-    {
-        uint winner = out_arbiter.pick_winner();
-        if( downstream_credits[winner]>0)
+    if( downstream_credits[0]>0 && out_buffer.get_occupancy(0)>0
+        && in_packet_complete )
     {
        IrisEvent* event = new IrisEvent();
        LinkArrivalData* arrival =  new LinkArrivalData();
        arrival->type = FLIT_ID;
-       arrival->vc = winner;
-       Flit* f = out_arbiter.pull_winner();
+       arrival->vc = 0;
+       out_buffer.change_pull_channel(0);
+       Flit* f= out_buffer.pull();
        downstream_credits[arrival->vc]--; 
 
-       if( f->type == TAIL )
+       if( f->type == TAIL || ( f->type == HEAD && static_cast<HeadFlit*>(f)->msg_class == ONE_FLIT_REQ) )
+       {
            packets_out++;
+           in_packet_complete = false;
+                IrisEvent* event = new IrisEvent();
+                event->type = READY_EVENT;
+                event->vc = 0;
+                Simulator::Schedule(floor(Simulator::Now())+1, &NetworkComponent::process_event, processor_connection, event);
+       }
        flits_out++;
 
        arrival->ptr = f;
@@ -348,34 +336,35 @@ GenericInterface::handle_tick_event(IrisEvent* e)
     _DBG(" FLIT_OUT_EVENT Type: vc: %d fty:%d", arrival->vc, arrival->ptr->type);
 #endif
     }
-    }
 
     //out packet to out buffer
-    for ( uint i=0; i<out_packets.size(); i++ )
-        if ( out_packets[i].size() > 0 && out_packet_flit_index[i] < out_packets[i].length && !out_buffer.is_channel_full(i))
+        if ( out_packets[0].size() > 0 && out_packet_flit_index[0] < out_packets[0].length ) //&& out_buffer.get_occupancy(0)>0)
         {
-            out_buffer.change_push_channel(i);
-            Flit* ptr = out_packets[i].get_next_flit();
+            out_buffer.change_push_channel(0);
+            Flit* ptr = out_packets[0].get_next_flit();
             out_buffer.push( ptr);
-            out_packet_flit_index[i]++;
+            out_packet_flit_index[0]++;
 
 #ifdef _DEBUG_INTERFACE
-    _DBG("Flit->OutBuffer vc:%d ftype:%d outpkt_len:%d index:%d",i, ptr->type, out_packets[i].length, out_packet_flit_index[i]);
+    _DBG("Flit->OutBuffer ftype:%d outpkt_len:%d index:%d OB_size: %d ",ptr->type, out_packets[0].length, out_packet_flit_index[0], out_buffer.get_occupancy(0));
 #endif
 
-            if(out_packet_flit_index[i] == out_packets[i].length )
+            if(out_packet_flit_index[0] == out_packets[0].length )
             {
-                out_packet_flit_index[i] = 0;
-                out_packets[i].flits.clear();
+                out_packet_flit_index[0] = 0;
+                out_packets[0].flits.clear();
+                in_packet_complete = true;
 
-                if( out_packets[i].size()<1)
+                /* 
+                if( out_packets[0].size()<1)
                 {
 
                 IrisEvent* event = new IrisEvent();
                 event->type = READY_EVENT;
-                event->vc = i;
+                event->vc = 0;
                 Simulator::Schedule(floor(Simulator::Now())+1, &NetworkComponent::process_event, processor_connection, event);
                 }
+                 * */
 
             }
             ticking = true;
@@ -385,18 +374,19 @@ GenericInterface::handle_tick_event(IrisEvent* e)
     /*---------- This is on the input side. From processor out to ntwk --------- */
     // in packets to processor
     
-    for ( uint i=0; i<in_packets.size(); i++ )
-    {		
-	if ( in_ready[i]  && in_packets_flit_index[i]!=0 && in_packets_flit_index[i] == in_packets[i].length)
+    if ( in_ready[0]  && in_packets_flit_index[0]!=0 && in_packets_flit_index[0] == in_packets[0].length)
         {
-            in_ready[i] = false;	
-            _DBG_NOARG( "Interface got a complete llp: " );
-            cout << in_packets[i].toString();
+            in_ready[0] = false;	
             HighLevelPacket* pkt = new HighLevelPacket();
-            pkt->from_low_level_packet(&in_packets[i]);
-            cout << "\n*** converted it " << pkt->toString();
+            pkt->from_low_level_packet(&in_packets[0]);
+            pkt->recv_time = Simulator::Now();
+#ifdef _DEBUG_INTERFACE
+            _DBG( "Interface got a complete llp: %s ", in_packets[0].toString().c_str());
+            _DBG("converted it %s",pkt->toString().c_str());
+#endif
 
-            LowLevelPacket* llp = &in_packets[i];
+            /* 
+            LowLevelPacket* llp = &in_packets[0];
     	for( uint k=0; k<llp->flits.size(); k++)
     	{
     	    for ( uint j=0;j<llp->flits[k]->phits.size() ;j++ )
@@ -411,62 +401,56 @@ GenericInterface::handle_tick_event(IrisEvent* e)
 
     	    llp->flits.erase(llp->flits.begin(),llp->flits.end());
     	    llp->flits.clear();
+             * */
 
-            in_packets_flit_index[i] = 0;
-            ticking = true;
+            in_packets_flit_index[0] = 0;
             IrisEvent* event = new IrisEvent();
             event->type = NEW_PACKET_EVENT;
             event->event_data.push_back(pkt);
-            event->vc = i;
+            event->src_id = address;
+            event->vc = 0;
             Simulator::Schedule(floor(Simulator::Now())+ 1, 
                                 &NetworkComponent::process_event, processor_connection, event);
 
+            LinkArrivalData* arrival = new LinkArrivalData();
+            arrival->vc = 0;
+            arrival->type = CREDIT_ID;
+            IrisEvent* event2 = new IrisEvent();
+            event2->type = LINK_ARRIVAL_EVENT;
+            event2->vc = 0;
+            event2->event_data.push_back(arrival);
+            event2->src_id = address;
+            Simulator::Schedule( ceil(Simulator::Now())+1, 
+                                 &NetworkComponent::process_event, input_connection, event2);
+            ticking = true;
 #ifdef _DEBUG_INTERFACE
-    _DBG("Packet to Processor vc: %d", i);
+    _DBG("Packet to Processor: %s", pkt->toString().c_str());
 #endif
              
         }
-    }
+        else if ( !in_ready[0] && (in_packets_flit_index[0]!=0 && in_packets_flit_index[0] == in_packets[0].length))
+        {
+            ticking = true;
+        }
 
     // arbitrate for the winner and push packets to in_buffer
-    for ( uint i=0; i<in_packets.size(); i++ )
-        if( !in_arbiter.empty()) 
-        {
-        uint winner = in_arbiter.pick_winner();
-            if( winner == i )
-                if( in_packets[i].size() == 0 || in_packets_flit_index[i] < in_packets[i].length)
-                {
-                    Flit* ptr = in_arbiter.pull_winner();
-                    in_packets[i].add(ptr);
+    if( in_buffer.get_occupancy(0) > 0 && in_packets_flit_index[0] < in_packets[0].length )
+    {
+        in_buffer.change_pull_channel(0);
+        Flit* ptr = in_buffer.pull();
+        in_packets[0].add(ptr);
 
-                    in_packets_flit_index[i]++;
-                    ticking = true;
+        in_packets_flit_index[0]++;
+        ticking = true;
 #ifdef _DEBUG_INTERFACE
-_DBG("InArbitrate vc:%d ftype:%d", i, ptr->type);
+_DBG("Inpush flit ftype:%d", ptr->type);
 #endif
-                    if( ptr->type == HEAD && static_cast<HeadFlit*>(ptr)->dst_address != node_ip)
-                    {
-                        _DBG("ERROR IncorrectDestinationException pkt_dest: %d node_ip: %d", in_packets[i].destination, node_ip); 
-                    }
-
-                }
+        if( ptr->type == HEAD && static_cast<HeadFlit*>(ptr)->dst_address != node_ip)
+        {
+            _DBG("ERROR IncorrectDestinationException pkt_dest: %d node_ip: %d", in_packets[0].destination, node_ip); 
         }
 
-    // Request arbitration for in buffer
-    for ( uint i=0; i<in_packets.size(); i++ )
-        if ( !in_arbiter.is_requested(i) && !in_buffer.is_empty(i) )
-        {
-
-            in_buffer.change_pull_channel(i);
-            Flit* ptr = in_buffer.pull();
-            in_arbiter.request( ptr, i);
-            ticking = true;
-#ifdef _DEBUG_INTERFACE
-_DBG("handle_in_arbitration vc:%d ftype:%d", i, ptr->type);
-#endif
-
-        }
-                    
+    }
 
     if(ticking)
     {

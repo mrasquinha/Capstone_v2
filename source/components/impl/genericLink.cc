@@ -79,9 +79,9 @@ GenericLink::toString () const
     str << "GenericLink: "
         << "\taddress: " << address;
     if(input_connection)
-        str << "\tinput_connection: " << static_cast<NetworkComponent*>(input_connection)->node_ip;
+        str << "\tinput_connection: " << static_cast<NetworkComponent*>(input_connection)->address;
     if(output_connection)
-        str << "\toutput_connection: " << static_cast<NetworkComponent*>(output_connection)->node_ip;
+        str << "\toutput_connection: " << static_cast<NetworkComponent*>(output_connection)->address;
     
     return str.str();
 }		/* -----  end of function GenericLink::toString  ----- */

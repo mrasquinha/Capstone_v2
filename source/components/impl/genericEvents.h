@@ -54,7 +54,7 @@
 #define START_CMD_QUEUE 1130
 #define IN_BUFFER_EVENT 1131
 #define MSHR_DELETE 1132
-
+#define SEND_TO_NI 1133
 
 #endif   /* ----- #ifndef _genericevents_h_INC  ----- */
 

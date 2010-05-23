@@ -120,7 +120,13 @@ HeadFlit::toString() const
         << "\t length: " << length
         << "\t control_bits_size: " << control_bits.size()
         << "\t payload_size: " << payload.size()
+        << "\t msg_class: " << msg_class
         << endl;
+
+    str << "Control bits: " ;
+    for ( uint i=0 ; i<control_bits.size() ; i++ )
+        str << control_bits[i] << " ";
+    str << endl;
 
     for ( uint i=0 ; i<phits.size() ; i++ )
         str << phits[i]->toString();
@@ -185,10 +191,10 @@ string BodyFlit::toString() const
 }
 
 void
-BodyFlit::populate_body_flit(vector<bool> data)
+BodyFlit::populate_body_flit()
 {
     /*  Assumption: 1 body flit = 1phit */
-        populate_phit_data(&data);
+        populate_phit_data(&bf_data);
 
     return ;
 }

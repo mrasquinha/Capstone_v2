@@ -42,7 +42,7 @@ GenericBuffer::pull ()
 {
     if( pull_channel > buffers.size() || buffers[pull_channel].size() == 0)
     {
-        fprintf( stdout, "\nERROR: Invalid pull channel");
+        fprintf( stdout, "\nERROR: **Invalid pull channel");
         exit(1);
     }
     Flit* f = buffers[pull_channel].front();

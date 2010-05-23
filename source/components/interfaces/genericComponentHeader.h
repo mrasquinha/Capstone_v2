@@ -41,11 +41,12 @@ using namespace std;
 typedef unsigned long int uniqueId;  /* assuming this will be atleast 4 bytes and hence ~4G addresses for node id's and transaction id's and so on */
 typedef unsigned long long int simTime;
 typedef unsigned int uint;
+enum message_class { INVALID_PKT, REQUEST_PKT, RESPONSE_PKT, ONE_FLIT_REQ};
 
 const unsigned int max_network_node_bits = 8;
-const unsigned int max_phy_link_bits = 128;
 const unsigned int max_transaction_id_bits = 8;
 const unsigned int max_tail_length_bits = 8;
 const unsigned int max_control_bits = 8;
+const unsigned long int max_phy_link_bits = 256;
 
 #endif   /* ----- #ifndef _genericcomponentheader_h_INC  ----- */

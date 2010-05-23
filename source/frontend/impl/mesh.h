@@ -55,8 +55,10 @@
 #include	"../../components/impl/genericInterface.h"
 //#include	"../../components/impl/mcFrontEnd.h"
 #include        "../../components/impl/genericRPG.h"
+#include        "../../components/impl/genericFlatMc.h"
 #include        "../../components/impl/genericLink.h"
 #include 	"../../MemCtrl/NI.h"
+
 
 class Mesh
 {
@@ -76,6 +78,7 @@ class Mesh
         void connect_routers(void);
         string print_stats(void);
         unsigned long long int max_sim_time;
+        void set_max_phy_link_bits ( uint a);
 
     protected:
 

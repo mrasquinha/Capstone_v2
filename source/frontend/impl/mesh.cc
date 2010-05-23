@@ -255,7 +255,7 @@ Mesh::setup()
     for ( uint i=0 ; i<no_nodes ; i++ )
     {
         processors[i]->setup( no_nodes, vcs, max_sim_time);
-        interfaces[i]->setup();
+        interfaces[i]->setup(vcs, credits);
         routers[i]->init(ports, vcs, credits, buffer_size);
     }
 
