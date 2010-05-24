@@ -22,6 +22,28 @@
 
 using namespace std;
 
+enum RouterPipeStage { INVALID, EMPTY,IB, FULL, ROUTED, SWA_REQUESTED, SW_ALLOCATED, ST, REQ_OUTVC_ARB };
+class InputBufferState
+{
+    public:
+        InputBufferState();
+        ~InputBufferState(){}
+        uint input_port;
+        uint input_channel;
+        uint output_port;
+        uint output_channel;
+        double arrival_time;
+        int length;
+        int credits_sent;
+        vector < uint > possible_ovcs;
+        vector < uint > possible_oports;
+        RouterPipeStage pipe_stage;
+        bool clear_message;
+        uint flits_in_ib;
+        string toString () const;
+
+};
+
 /*
  * =====================================================================================
  *        Class:  LinkArrivalData

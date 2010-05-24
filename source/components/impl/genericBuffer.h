@@ -19,7 +19,7 @@
 #ifndef  _genericbuffer_h_INC
 #define  _genericbuffer_h_INC
 
-#include	"../interfaces/outputBuffer.h"
+#include	"../interfaces/buffer.h"
 #include	"../../data_types/impl/flit.h"
 #include	<queue>
 #include	<vector>
@@ -38,6 +38,7 @@ class GenericBuffer: public Buffer
         ~GenericBuffer ();                             /* constructor */
         void push( Flit* f );
         Flit* pull();
+        Flit* peek();
         uint get_occupancy( uint ch ) const;
         void resize ( uint vcs, uint buffer_size );
         uint get_no_vcs() const;

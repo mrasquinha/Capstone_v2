@@ -34,6 +34,7 @@ class PToPSwitchArbiter
         void request(uint p, uint inp);
         SA_unit pick_winner( uint p);
         void clear_winner( uint p, uint ip);
+        void clear_requested( uint p, uint ip);
         bool is_empty();
         string toString() const;
         uint address;

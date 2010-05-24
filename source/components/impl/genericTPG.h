@@ -55,9 +55,11 @@ class GenericTPG : public Processor
         ~GenericTPG();
         /* stats variables */
         unsigned int packets;
+        unsigned int packets_in;
         double min_pkt_latency;
         double last_packet_out_cycle;
         unsigned long long int fwd_path_delay;
+	unsigned long long int roundTripLat;
 
         MSHR_H *mshrHandler;
         unsigned long long int max_time;

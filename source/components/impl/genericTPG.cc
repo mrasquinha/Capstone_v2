@@ -51,9 +51,11 @@ GenericTPG::setup (uint n, uint v, uint time)
     node_ip = address/3;
     
     packets = 0;
+    packets_in = 0;
     min_pkt_latency = 999999999;
     last_packet_out_cycle = 0;
     fwd_path_delay = 0;
+    roundTripLat = 0;
 
     ready.resize( vcs );
     ready.insert( ready.begin(), ready.size(), false );
@@ -78,7 +80,7 @@ GenericTPG::setup (uint n, uint v, uint time)
     trace_filename->open(trace_name.c_str(),ios::in);
     if(!trace_filename->is_open())
     {
-        cout << "Err opening trace " << endl;
+        cout << "Err opening trace " << trace_name << endl;
         exit(1);
     }
 
@@ -176,6 +178,7 @@ GenericTPG::handle_new_packet_event ( IrisEvent* e)
     last_packet_out_cycle = Simulator::Now();
     if( min_pkt_latency > lat)
         min_pkt_latency = lat;
+    packets_in++;
 #ifdef DEBUG
     _DBG( "-------------- GOT NEW PACKET ---------------\n pkt_latency: %f", lat);
     // write out the packet data to the output trace file
@@ -346,6 +349,7 @@ GenericTPG::GetNewRequest(Request *req)
         {
             vector<Request>::iterator bufferIndex = mshrHandler->writeQueue.begin();
             *req = mshrHandler->writeQueue[0];
+	    req->startTime = Simulator::Now();	
             mshrHandler->writeQueue.erase(bufferIndex);
             return true;
         }
@@ -412,10 +416,8 @@ GenericTPG::convertToBitStream(Request* req, HighLevelPacket* hlp)
     hlp->data_payload_length = hlp->data_payload_length * max_phy_link_bits;
     hlp->sent_time = req->arrivalTime;
     for ( uint i=hlp->data.size() ; i < hlp->data_payload_length; i++ )
-    {
-	bool bit = false;
         hlp->data.push_back(false);
-    }
+
 }
 
 void 
@@ -486,10 +488,13 @@ GenericTPG::print_stats() const
 {
     stringstream str;
     str << "\nTPG: " << address
-        << "\nTPG [" << node_ip << "] packets:\t " << packets
+        << "\nTPG [" << node_ip << "] packets_out:\t " << packets
         << "\nTPG [" << node_ip << "] Avg fwd_path_delay:\t " << (fwd_path_delay+0.0)/packets
         << "\nTPG [" << node_ip << "] min_pkt_latency:\t " << min_pkt_latency
         << "\nTPG [" << node_ip << "] last_packet_out_cycle:\t " << last_packet_out_cycle
+        << "\nTPG [" << node_ip << "] packet_in\t " << packets_in
+        << "\nTPG [" << node_ip << "] Avg round trip latency:\t " << (roundTripLat+0.0)/packets_in
+        << "\nTPG [" << node_ip << "] Total Unsink\t " << mshrHandler->unsink;
         ;
     return str.str();
 } /* ----- end of function GenericTPG::toString ----- */

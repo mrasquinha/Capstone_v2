@@ -26,9 +26,9 @@
 #include	"../interfaces/processor.h"
 #include	"../interfaces/buffer.h"
 #include	"../interfaces/genericComponentHeader.h"
+#include	"../impl/genericLink.h"
 #include	"genericEvents.h"
 #include	"genericBuffer.h"
-#include	"genericVcArbiter.h"
 #include	"genericData.h"
 #include	<queue>
 #include	<vector>
@@ -67,8 +67,6 @@ class GenericInterface : public Interface
 
         bool ticking;
         GenericBuffer out_buffer;
-        GenericVcArbiter out_arbiter;
-        GenericVcArbiter in_arbiter;
         GenericBuffer in_buffer;
         vector < int > downstream_credits;
 

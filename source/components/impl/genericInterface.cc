@@ -53,13 +53,6 @@ GenericInterface::setup (uint v, uint cr)
     in_ready.resize(vcs);
     in_packets_flit_index.resize(vcs);
 
-    in_arbiter.address = address;
-    out_arbiter.address = address;
-    in_arbiter.node_ip = node_ip;
-    out_arbiter.node_ip = node_ip;
-    out_arbiter.set_req_queue_size(vcs);
-    in_arbiter.set_req_queue_size(vcs);
-
     in_packets.resize(vcs);
     in_packets_valid.resize(vcs);
     out_packets.resize(vcs);
@@ -137,8 +130,6 @@ GenericInterface::toString () const
         << "\t address: " << address << " node_ip: " << node_ip
         << "\t OutputBuffers: " << out_buffer.toString()
         << "\t InputBuffer: " << in_buffer.toString()
-        << "\t out_arbiter: " << out_arbiter.toString()
-        << "\t in_arbiter: " << in_arbiter.toString()
         ;
     return str.str();
 }		/* -----  end of function GenericInterface::toString  ----- */
@@ -202,10 +193,6 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
     //Find out if it was a flit or a credit
     LinkArrivalData* uptr = static_cast<LinkArrivalData* >(e->event_data.at(0));
 
-#ifdef _DEBUG_INTERFACE
-    _DBG(" handle_link_arrival %d ticking: %d", uptr->type, ticking);
-#endif
-
     if(uptr->type == FLIT_ID)
     {
         flits_in++;
@@ -216,6 +203,9 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
             packets_in++;
             total_packets_in_time += (Simulator::Now() - static_cast<TailFlit*>(uptr->ptr)->packet_originated_time);
         }
+#ifdef _DEBUG_INTERFACE
+    _DBG(" handle_link_arrival FLIT ticking: %d type: %d type: %d", uptr->type, ticking, uptr->ptr->type);
+#endif
 
         if( uptr->ptr->type == HEAD && static_cast<HeadFlit*>(uptr->ptr)->msg_class == ONE_FLIT_REQ )
         {
@@ -235,8 +225,8 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
             event->vc = 0;
             event->event_data.push_back(arrival);
             event->src_id = address;
-            Simulator::Schedule( ceil(Simulator::Now())+1, 
-                                 &NetworkComponent::process_event, input_connection, event);
+            Simulator::Schedule( floor(Simulator::Now())+0.75, 
+                                 &NetworkComponent::process_event, static_cast<GenericLink*>(input_connection)->input_connection, event);
 
         }
     }
@@ -258,7 +248,7 @@ GenericInterface::handle_link_arrival ( IrisEvent* e)
         IrisEvent* new_event = new IrisEvent();
         new_event->type = TICK_EVENT;
         new_event->vc = e->vc;
-        Simulator::Schedule( ceil(Simulator::Now())+1, &GenericInterface::process_event, this, new_event);
+        Simulator::Schedule( floor(Simulator::Now())+1, &GenericInterface::process_event, this, new_event);
     }
     delete uptr;
     delete e;
@@ -303,22 +293,30 @@ GenericInterface::handle_tick_event(IrisEvent* e)
     if( downstream_credits[0]>0 && out_buffer.get_occupancy(0)>0
         && in_packet_complete )
     {
-       IrisEvent* event = new IrisEvent();
-       LinkArrivalData* arrival =  new LinkArrivalData();
-       arrival->type = FLIT_ID;
-       arrival->vc = 0;
        out_buffer.change_pull_channel(0);
-       Flit* f= out_buffer.pull();
+       Flit* f= out_buffer.peek();
+       if( f->type == HEAD  && downstream_credits[0] != credits)
+       {
+           _DBG_NOARG(" Not sending a new packet for now");
+       }
+       else
+       {
+            IrisEvent* event = new IrisEvent();
+            LinkArrivalData* arrival =  new LinkArrivalData();
+            arrival->type = FLIT_ID;
+            arrival->vc = 0;
+            out_buffer.change_pull_channel(0);
+            f = out_buffer.pull();
        downstream_credits[arrival->vc]--; 
 
-       if( f->type == TAIL || ( f->type == HEAD && static_cast<HeadFlit*>(f)->msg_class == ONE_FLIT_REQ) )
+       if (f->type == TAIL || ( f->type == HEAD && static_cast<HeadFlit*>(f)->msg_class == ONE_FLIT_REQ) )
        {
            packets_out++;
            in_packet_complete = false;
-                IrisEvent* event = new IrisEvent();
-                event->type = READY_EVENT;
-                event->vc = 0;
-                Simulator::Schedule(floor(Simulator::Now())+1, &NetworkComponent::process_event, processor_connection, event);
+            IrisEvent* event = new IrisEvent();
+            event->type = READY_EVENT;
+            event->vc = 0;
+            Simulator::Schedule(floor(Simulator::Now())+1, &NetworkComponent::process_event, processor_connection, event);
        }
        flits_out++;
 
@@ -331,10 +329,11 @@ GenericInterface::handle_tick_event(IrisEvent* e)
 
        ticking = true;
 
-       Simulator::Schedule(Simulator::Now()+1, &NetworkComponent::process_event, output_connection, event);
+       Simulator::Schedule(Simulator::Now()+0.75, &NetworkComponent::process_event, static_cast<GenericLink*>(output_connection)->output_connection, event);
 #ifdef _DEBUG_INTERFACE
-    _DBG(" FLIT_OUT_EVENT Type: vc: %d fty:%d", arrival->vc, arrival->ptr->type);
+    _DBG(" FLIT_OUT_EVENT credits_now: %d fty:%d", downstream_credits[0], arrival->ptr->type);
 #endif
+       }
     }
 
     //out packet to out buffer
@@ -420,11 +419,11 @@ GenericInterface::handle_tick_event(IrisEvent* e)
             event2->vc = 0;
             event2->event_data.push_back(arrival);
             event2->src_id = address;
-            Simulator::Schedule( ceil(Simulator::Now())+1, 
-                                 &NetworkComponent::process_event, input_connection, event2);
+            Simulator::Schedule( floor(Simulator::Now())+0.75, 
+                                 &NetworkComponent::process_event, static_cast<GenericLink*>(input_connection)->input_connection, event2);
             ticking = true;
 #ifdef _DEBUG_INTERFACE
-    _DBG("Packet to Processor: %s", pkt->toString().c_str());
+    _DBG("Packet to Processor. Sent credit back: %s", pkt->toString().c_str());
 #endif
              
         }

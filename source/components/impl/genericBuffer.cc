@@ -50,6 +50,18 @@ GenericBuffer::pull ()
     return f;
 }		/* -----  end of function GenericBuffer::pull  ----- */
 
+Flit*
+GenericBuffer::peek ()
+{
+    if( pull_channel > buffers.size() || buffers[pull_channel].size() == 0)
+    {
+        fprintf( stdout, "\nERROR: **Invalid pull channel");
+        exit(1);
+    }
+    Flit* f = buffers[pull_channel].front();
+    return f;
+}		/* -----  end of function GenericBuffer::pull  ----- */
+
 uint
 GenericBuffer::get_occupancy ( uint ch ) const
 {

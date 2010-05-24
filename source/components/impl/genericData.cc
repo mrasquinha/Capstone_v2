@@ -34,6 +34,54 @@ VirtualChannelDescription::VirtualChannelDescription()
 {
 }
 
+string
+InputBufferState::toString() const
+{
+    stringstream str;
+    str << "input_buffer_state"
+        << " inport: " << input_port
+        << " inch: " << input_channel
+        << " outport: " << output_port
+        << " outch: " << output_channel;
+    switch( pipe_stage)
+    {
+        case INVALID:
+            str << " INVALID";
+            break;
+        case IB:
+            str << " IB";
+            break;
+        case EMPTY:
+            str << " EMPTY";
+            break;
+        case FULL:
+            str << " FULL";
+            break;
+        case ROUTED:
+            str << " ROUTED";
+            break;
+        case SWA_REQUESTED:
+            str << " SWA_REQUESTED";
+            break;
+        case SW_ALLOCATED:
+            str << " SW_ALLOCATED";
+            break;
+        case ST:
+            str << " ST";
+            break;
+        case REQ_OUTVC_ARB:
+            str << " REQ_OUTVC_ARB";
+            break;
+    }
+
+    return str.str();
+}
+
+InputBufferState::InputBufferState()
+{
+    pipe_stage = INVALID;
+}
+
 
 #endif   /* ----- #ifndef _genericdata_cc_INC  ----- */
 

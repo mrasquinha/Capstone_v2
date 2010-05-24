@@ -30,28 +30,7 @@
 #include	"genericData.h"
 #include	"genericLink.h"
 
-enum GenericRouterNoVcsPipeStage { INVALID, EMPTY,IB, FULL, ROUTED, SWA_REQUESTED, SW_ALLOCATED, ST, REQ_OUTVC_ARB };
-
-class MessageState
-{
-    public:
-        MessageState();
-        ~MessageState(){}
-        uint input_port;
-        uint input_channel;
-        uint output_port;
-        uint output_channel;
-        double arrival_time;
-        int length;
-        int credits_sent;
-        vector < uint > possible_ovcs;
-        vector < uint > possible_oports;
-        GenericRouterNoVcsPipeStage pipe_stage;
-        bool clear_message;
-        uint flits_in_ib;
-        string toString () const;
-
-};
+extern uint send_early_credit;
 
 class GenericRouterNoVcs: public Router
 {
@@ -82,8 +61,7 @@ class GenericRouterNoVcs: public Router
     private:
         vector <GenericBuffer> in_buffers;
         vector <GenericRC> decoders;
-        vector <GenericVcArbiter> out_arbiters;
-        vector <MessageState> input_buffer_state;
+        vector <InputBufferState> input_buffer_state;
         PToPSwitchArbiter swa;
         GenericCrossbar xbar;
 

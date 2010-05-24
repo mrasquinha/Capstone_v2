@@ -150,7 +150,7 @@ for ( uint i=0; i<argc; i++)
     /* Create the mesh->routers and mesh->interfaces */
     for( uint i=0; i<no_nodes; i++)
     {
-        mesh->routers.push_back( new GenericRouterNoVcs());
+        mesh->routers.push_back( new GenericRouterVct());
         mesh->interfaces.push_back ( new GenericInterface());
     }
 
@@ -240,8 +240,8 @@ for ( uint i=0; i<argc; i++)
         for( uint j=0; j < ports ; j++)
             for( uint k=0; k < no_nodes ; k++) // Assuming is a square mesh. 
             {
-                static_cast<GenericRouterNoVcs*>(mesh->routers[i])->set_grid_x_location(j,k, grid_x[k]);
-                static_cast<GenericRouterNoVcs*>(mesh->routers[i])->set_grid_y_location(j,k, grid_y[k]);
+                static_cast<GenericRouterVct*>(mesh->routers[i])->set_grid_x_location(j,k, grid_x[k]);
+                static_cast<GenericRouterVct*>(mesh->routers[i])->set_grid_y_location(j,k, grid_y[k]);
             }
 
     mesh->connect_interface_routers();

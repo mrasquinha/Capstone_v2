@@ -36,11 +36,6 @@
 #include	"genericRouterNoVcs.h"
 using namespace std;
 
-MessageState::MessageState()
-{
-    pipe_stage = INVALID;
-}
-
 GenericRouterNoVcs::GenericRouterNoVcs ()
 {
     name = "Router" ;
@@ -340,7 +335,6 @@ GenericRouterNoVcs::do_switch_traversal()
 
                     /* Safe to send credits here as the flit is sure to empty
                      * the buffer. */
-//                    if( f->type != HEAD)
                         send_credit_back(i);
 
                 }
@@ -568,49 +562,6 @@ GenericRouterNoVcs::toString() const
 
     str << "\n Xbar ";
     str << xbar.toString();
-
-    return str.str();
-}
-
-string
-MessageState::toString() const
-{
-    stringstream str;
-    str << "input_buffer_state"
-        << " inport: " << input_port
-        << " inch: " << input_channel
-        << " outport: " << output_port
-        << " outch: " << output_channel;
-    switch( pipe_stage)
-    {
-        case INVALID:
-            str << " INVALID";
-            break;
-        case IB:
-            str << " IB";
-            break;
-        case EMPTY:
-            str << " EMPTY";
-            break;
-        case FULL:
-            str << " FULL";
-            break;
-        case ROUTED:
-            str << " ROUTED";
-            break;
-        case SWA_REQUESTED:
-            str << " SWA_REQUESTED";
-            break;
-        case SW_ALLOCATED:
-            str << " SW_ALLOCATED";
-            break;
-        case ST:
-            str << " ST";
-            break;
-        case REQ_OUTVC_ARB:
-            str << " REQ_OUTVC_ARB";
-            break;
-    }
 
     return str.str();
 }

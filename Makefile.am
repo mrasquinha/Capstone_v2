@@ -36,6 +36,7 @@ IRIS_SOURCES = \
 		  source/components/impl/ptop_swa.cc \
 		  source/components/impl/genericVcArbiterNoFlits.cc \
 		  source/components/impl/genericRouterNoVcs.cc \
+		  source/components/impl/genericRouterVct.cc \
 		  source/components/impl/genericFlatMc.cc \
 		  source/components/impl/genericTPG.cc \
 		  source/components/impl/genericRPG.cc \
@@ -125,6 +126,7 @@ noinst_HEADERS = \
 		 source/components/impl/ptop_swa.h \
 		 source/components/impl/genericVcArbiterNoFlits.h \
 		 source/components/impl/genericRouterNoVcs.h \
+		 source/components/impl/genericRouterVct.h \
 		 source/components/impl/genericTPG.h \
 		 source/components/impl/genericRPG.h \
 		 source/components/impl/genericFlatMc.h \

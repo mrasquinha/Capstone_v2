@@ -136,6 +136,13 @@ PToPSwitchArbiter::clear_winner( uint oport, uint inport)
     return;
 }
 
+void
+PToPSwitchArbiter::clear_requested( uint oport, uint inport)
+{
+    requested[oport][inport] = false;
+    return;
+}
+
 bool
 PToPSwitchArbiter::is_empty()
 {

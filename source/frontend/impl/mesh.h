@@ -52,6 +52,7 @@
 #include	<fstream>
 #include        "../../components/impl/genericTPG.h"
 #include	"../../components/impl/genericRouterNoVcs.h"
+#include	"../../components/impl/genericRouterVct.h"
 #include	"../../components/impl/genericInterface.h"
 //#include	"../../components/impl/mcFrontEnd.h"
 #include        "../../components/impl/genericRPG.h"
