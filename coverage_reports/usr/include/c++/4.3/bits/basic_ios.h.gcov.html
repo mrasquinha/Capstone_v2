@@ -101,11 +101,11 @@
 <span class="lineNum">      48 </span>                : 
 <span class="lineNum">      49 </span>                :   template&lt;typename _Facet&gt;
 <span class="lineNum">      50 </span>                :     inline const _Facet&amp;
-<span class="lineNum">      51 </span><span class="lineCov">           6829 :     __check_facet(const _Facet* __f)</span>
+<span class="lineNum">      51 </span><span class="lineCov">           3009 :     __check_facet(const _Facet* __f)</span>
 <span class="lineNum">      52 </span>                :     {
-<span class="lineNum">      53 </span><span class="lineCov">           6829 :       if (!__f)</span>
+<span class="lineNum">      53 </span><span class="lineCov">           3009 :       if (!__f)</span>
 <span class="lineNum">      54 </span><span class="lineNoCov">              0 :         __throw_bad_cast();</span>
-<span class="lineNum">      55 </span><span class="lineCov">           6829 :       return *__f;</span>
+<span class="lineNum">      55 </span><span class="lineCov">           3009 :       return *__f;</span>
 <span class="lineNum">      56 </span>                :     }
 <span class="lineNum">      57 </span>                : 
 <span class="lineNum">      58 </span>                :   // 27.4.5  Template class basic_ios
@@ -182,7 +182,7 @@
 <span class="lineNum">     129 </span>                :       */
 <span class="lineNum">     130 </span>                :       iostate
 <span class="lineNum">     131 </span><span class="lineNoCov">              0 :       rdstate() const</span>
-<span class="lineNum">     132 </span><span class="lineCov">         304989 :       { return _M_streambuf_state; }</span>
+<span class="lineNum">     132 </span><span class="lineCov">         306485 :       { return _M_streambuf_state; }</span>
 <span class="lineNum">     133 </span>                : 
 <span class="lineNum">     134 </span>                :       /**
 <span class="lineNum">     135 </span>                :        *  @brief  [Re]sets the error state.
@@ -235,7 +235,7 @@
 <span class="lineNum">     182 </span>                :       */
 <span class="lineNum">     183 </span>                :       bool
 <span class="lineNum">     184 </span><span class="lineNoCov">              0 :       eof() const</span>
-<span class="lineNum">     185 </span><span class="lineCov">         304820 :       { return (this-&gt;rdstate() &amp; eofbit) != 0; }</span>
+<span class="lineNum">     185 </span><span class="lineCov">         306316 :       { return (this-&gt;rdstate() &amp; eofbit) != 0; }</span>
 <span class="lineNum">     186 </span>                : 
 <span class="lineNum">     187 </span>                :       /**
 <span class="lineNum">     188 </span>                :        *  @brief  Fast error checking.
@@ -326,7 +326,7 @@
 <span class="lineNum">     273 </span>                :        *  destroy the streambuf held by rdbuf().
 <span class="lineNum">     274 </span>                :       */
 <span class="lineNum">     275 </span>                :       virtual
-<span class="lineNum">     276 </span><span class="lineCov">           4095 :       ~basic_ios() { }</span>
+<span class="lineNum">     276 </span><span class="lineCov">           1462 :       ~basic_ios() { }</span>
 <span class="lineNum">     277 </span>                : 
 <span class="lineNum">     278 </span>                :       // Members:
 <span class="lineNum">     279 </span>                :       /**
@@ -493,8 +493,8 @@
 <span class="lineNum">     440 </span>                :        *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/localization.html
 <span class="lineNum">     441 </span>                :       */
 <span class="lineNum">     442 </span>                :       char_type
-<span class="lineNum">     443 </span><span class="lineCov">           6829 :       widen(char __c) const</span>
-<span class="lineNum">     444 </span><span class="lineCov">           6829 :       { return __check_facet(_M_ctype).widen(__c); }</span>
+<span class="lineNum">     443 </span><span class="lineCov">           3009 :       widen(char __c) const</span>
+<span class="lineNum">     444 </span><span class="lineCov">           3009 :       { return __check_facet(_M_ctype).widen(__c); }</span>
 <span class="lineNum">     445 </span>                : 
 <span class="lineNum">     446 </span>                :     protected:
 <span class="lineNum">     447 </span>                :       // 27.4.5.1  basic_ios constructors
@@ -504,10 +504,10 @@
 <span class="lineNum">     451 </span>                :        *  The default constructor does nothing and is not normally
 <span class="lineNum">     452 </span>                :        *  accessible to users.
 <span class="lineNum">     453 </span>                :       */
-<span class="lineNum">     454 </span><span class="lineCov">           4224 :       basic_ios()</span>
+<span class="lineNum">     454 </span><span class="lineCov">           1527 :       basic_ios()</span>
 <span class="lineNum">     455 </span>                :       : ios_base(), _M_tie(0), _M_fill(char_type()), _M_fill_init(false), 
-<span class="lineNum">     456 </span><span class="lineCov">           4224 :         _M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)</span>
-<span class="lineNum">     457 </span><span class="lineCov">           4224 :       { }</span>
+<span class="lineNum">     456 </span><span class="lineCov">           1527 :         _M_streambuf(0), _M_ctype(0), _M_num_put(0), _M_num_get(0)</span>
+<span class="lineNum">     457 </span><span class="lineCov">           1527 :       { }</span>
 <span class="lineNum">     458 </span>                : 
 <span class="lineNum">     459 </span>                :       /**
 <span class="lineNum">     460 </span>                :        *  @brief  All setup is performed here.

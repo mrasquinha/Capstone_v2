@@ -55,25 +55,25 @@
 <span class="lineNum">       2 </span>                : 
 <span class="lineNum">       3 </span>                : class Simulator;
 <span class="lineNum">       4 </span>                : 
-<span class="lineNum">       5 </span><span class="lineCov">           1992 : Component::~Component()</span>
+<span class="lineNum">       5 </span><span class="lineCov">            664 : Component::~Component()</span>
 <span class="lineNum">       6 </span>                : {
 <span class="lineNum">       7 </span>                : 
-<span class="lineNum">       8 </span><span class="lineCov">           5976 : }</span>
+<span class="lineNum">       8 </span><span class="lineCov">           1992 : }</span>
 <span class="lineNum">       9 </span>                : 
-<span class="lineNum">      10 </span><span class="lineCov">           8500 : Component::Component()</span>
+<span class="lineNum">      10 </span><span class="lineCov">           1744 : Component::Component()</span>
 <span class="lineNum">      11 </span>                : {
-<span class="lineNum">      12 </span><span class="lineCov">           4250 :   Simulator::registerComponent(this, 0);</span>
-<span class="lineNum">      13 </span><span class="lineCov">           4250 : }</span>
+<span class="lineNum">      12 </span><span class="lineCov">            872 :   Simulator::registerComponent(this, 0);</span>
+<span class="lineNum">      13 </span><span class="lineCov">            872 : }</span>
 <span class="lineNum">      14 </span>                : 
 <span class="lineNum">      15 </span><span class="lineNoCov">              0 : Component::Component(int lpId)</span>
 <span class="lineNum">      16 </span>                : {
 <span class="lineNum">      17 </span><span class="lineNoCov">              0 :   Simulator::registerComponent(this, lpId);</span>
 <span class="lineNum">      18 </span><span class="lineNoCov">              0 : }</span>
 <span class="lineNum">      19 </span>                : 
-<span class="lineNum">      20 </span><span class="lineCov">           7290 : void Component::setComponentId(int id)</span>
+<span class="lineNum">      20 </span><span class="lineCov">           1480 : void Component::setComponentId(int id)</span>
 <span class="lineNum">      21 </span>                : {
-<span class="lineNum">      22 </span><span class="lineCov">           7290 :   componentId=id;</span>
-<span class="lineNum">      23 </span><span class="lineCov">           7290 : }</span>
+<span class="lineNum">      22 </span><span class="lineCov">           1480 :   componentId=id;</span>
+<span class="lineNum">      23 </span><span class="lineCov">           1480 : }</span>
 <span class="lineNum">      24 </span>                : 
 <span class="lineNum">      25 </span><span class="lineNoCov">              0 : void Component::addInputLink(Link* l)</span>
 <span class="lineNum">      26 </span>                : {
@@ -83,7 +83,7 @@
 <span class="lineNum">      30 </span><span class="lineNoCov">              0 : void Component::addOutputLink(Link* l)</span>
 <span class="lineNum">      31 </span>                : {
 <span class="lineNum">      32 </span><span class="lineNoCov">              0 :   outLinks.push_back(l);</span>
-<span class="lineNum">      33 </span><span class="lineCov">             10 : }</span>
+<span class="lineNum">      33 </span><span class="lineCov">              2 : }</span>
 </pre>
       </td>
     </tr>

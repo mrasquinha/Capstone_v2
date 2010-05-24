@@ -99,27 +99,27 @@
 <span class="lineNum">      46 </span>                :         DRAMCmd cmd;
 <span class="lineNum">      47 </span>                :         Request req;
 <span class="lineNum">      48 </span>                :         BurstLength burst;
-<span class="lineNum">      49 </span><span class="lineCov">         654834 :         void set(DRAMCmd cmdS, BurstLength burstL, Request reqI)</span>
+<span class="lineNum">      49 </span><span class="lineCov">         331823 :         void set(DRAMCmd cmdS, BurstLength burstL, Request reqI)</span>
 <span class="lineNum">      50 </span>                :         {
-<span class="lineNum">      51 </span><span class="lineCov">         654834 :             cmd = cmdS;</span>
-<span class="lineNum">      52 </span><span class="lineCov">         654834 :             req = reqI; </span>
-<span class="lineNum">      53 </span><span class="lineCov">         654834 :             burst = burstL;</span>
+<span class="lineNum">      51 </span><span class="lineCov">         331823 :             cmd = cmdS;</span>
+<span class="lineNum">      52 </span><span class="lineCov">         331823 :             req = reqI; </span>
+<span class="lineNum">      53 </span><span class="lineCov">         331823 :             burst = burstL;</span>
 <span class="lineNum">      54 </span>                :             
-<span class="lineNum">      55 </span><span class="lineCov">         654834 :             if (burst == READL)</span>
-<span class="lineNum">      56 </span><span class="lineCov">         155280 :                 req.data.size = READ_SIZE;      /// TODO needs to set this</span>
-<span class="lineNum">      57 </span><span class="lineCov">         654834 :             if (burst == WRITEL)</span>
-<span class="lineNum">      58 </span><span class="lineCov">          46411 :                 req.data.size = WRITE_SIZE;</span>
-<span class="lineNum">      59 </span><span class="lineCov">         608423 :             else if (burst == PREFETCHL)</span>
-<span class="lineNum">      60 </span><span class="lineCov">          89957 :                 req.data.size = PREFETCH_SIZE;</span>
-<span class="lineNum">      61 </span><span class="lineCov">         518466 :             else if (burst == WRITEBACKL)</span>
-<span class="lineNum">      62 </span><span class="lineCov">           8744 :                 req.data.size = WRITEBACK_SIZE; </span>
-<span class="lineNum">      63 </span><span class="lineCov">         654834 :         }</span>
-<span class="lineNum">      64 </span><span class="lineCov">     1785882666 :         DRAMCmdState () </span>
-<span class="lineNum">      65 </span><span class="lineCov">     1785882666 :         {</span>
-<span class="lineNum">      66 </span><span class="lineCov">     1785882666 :             cmd = PRECHARGE;</span>
-<span class="lineNum">      67 </span><span class="lineCov">     1785882666 :             burst = NORMAL;             </span>
-<span class="lineNum">      68 </span><span class="lineCov">     1785882666 :         };</span>
-<span class="lineNum">      69 </span><span class="lineCov">             -1 :         ~DRAMCmdState () { };</span>
+<span class="lineNum">      55 </span><span class="lineCov">         331823 :             if (burst == READL)</span>
+<span class="lineNum">      56 </span><span class="lineCov">          78807 :                 req.data.size = READ_SIZE;      /// TODO needs to set this</span>
+<span class="lineNum">      57 </span><span class="lineCov">         331823 :             if (burst == WRITEL)</span>
+<span class="lineNum">      58 </span><span class="lineCov">          23654 :                 req.data.size = WRITE_SIZE;</span>
+<span class="lineNum">      59 </span><span class="lineCov">         308169 :             else if (burst == PREFETCHL)</span>
+<span class="lineNum">      60 </span><span class="lineCov">          46345 :                 req.data.size = PREFETCH_SIZE;</span>
+<span class="lineNum">      61 </span><span class="lineCov">         261824 :             else if (burst == WRITEBACKL)</span>
+<span class="lineNum">      62 </span><span class="lineCov">           4233 :                 req.data.size = WRITEBACK_SIZE; </span>
+<span class="lineNum">      63 </span><span class="lineCov">         331823 :         }</span>
+<span class="lineNum">      64 </span><span class="lineCov">       13476654 :         DRAMCmdState () </span>
+<span class="lineNum">      65 </span><span class="lineCov">       13476654 :         {</span>
+<span class="lineNum">      66 </span><span class="lineCov">       13476654 :             cmd = PRECHARGE;</span>
+<span class="lineNum">      67 </span><span class="lineCov">       13476654 :             burst = NORMAL;             </span>
+<span class="lineNum">      68 </span><span class="lineCov">       13476654 :         };</span>
+<span class="lineNum">      69 </span><span class="lineCov">       54085318 :         ~DRAMCmdState () { };</span>
 <span class="lineNum">      70 </span>                : };
 <span class="lineNum">      71 </span>                : typedef DRAMCmdState DRAMCmdState;
 <span class="lineNum">      72 </span>                : typedef vector&lt;DRAMCmdState&gt; CmdQueue;
@@ -133,21 +133,21 @@
 <span class="lineNum">      80 </span>                :     Time prevCmdTime;
 <span class="lineNum">      81 </span><span class="lineNoCov">              0 :     BankState ()</span>
 <span class="lineNum">      82 </span>                :     {
-<span class="lineNum">      83 </span><span class="lineCov">            256 :         prevRow = 0;</span>
-<span class="lineNum">      84 </span><span class="lineCov">            256 :         prevCmd = PRECHARGE;</span>
-<span class="lineNum">      85 </span><span class="lineCov">            256 :         prevCmdTime = 0;                </span>
+<span class="lineNum">      83 </span><span class="lineCov">            128 :         prevRow = 0;</span>
+<span class="lineNum">      84 </span><span class="lineCov">            128 :         prevCmd = PRECHARGE;</span>
+<span class="lineNum">      85 </span><span class="lineCov">            128 :         prevCmdTime = 0;                </span>
 <span class="lineNum">      86 </span><span class="lineNoCov">              0 :     }   </span>
 <span class="lineNum">      87 </span>                : };
 <span class="lineNum">      88 </span>                : typedef BankState BankState; 
 <span class="lineNum">      89 </span>                : 
 <span class="lineNum">      90 </span>                : struct RankState
-<span class="lineNum">      91 </span><span class="lineCov">            288 : {</span>
+<span class="lineNum">      91 </span><span class="lineCov">            144 : {</span>
 <span class="lineNum">      92 </span>                :         BankState bank[NO_OF_BANKS];
 <span class="lineNum">      93 </span>                : };
 <span class="lineNum">      94 </span>                : typedef RankState RankState;
 <span class="lineNum">      95 </span>                : 
 <span class="lineNum">      96 </span>                : struct ChannelState
-<span class="lineNum">      97 </span><span class="lineCov">             48 : {</span>
+<span class="lineNum">      97 </span><span class="lineCov">             24 : {</span>
 <span class="lineNum">      98 </span>                :         RankState rank[NO_OF_RANKS];
 <span class="lineNum">      99 </span>                :         unsigned int prevCmdRank;
 <span class="lineNum">     100 </span>                :         unsigned int prevCmdBank;

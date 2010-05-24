@@ -247,8 +247,8 @@
 <span class="lineNum">     194 </span>                :   public:
 <span class="lineNum">     195 </span>                :       /// Destructor deallocates no buffer space.
 <span class="lineNum">     196 </span>                :       virtual 
-<span class="lineNum">     197 </span><span class="lineCov">           4095 :       ~basic_streambuf() </span>
-<span class="lineNum">     198 </span><span class="lineCov">           4095 :       { }</span>
+<span class="lineNum">     197 </span><span class="lineCov">           1462 :       ~basic_streambuf() </span>
+<span class="lineNum">     198 </span><span class="lineCov">           1462 :       { }</span>
 <span class="lineNum">     199 </span>                : 
 <span class="lineNum">     200 </span>                :       // [27.5.2.2.1] locales
 <span class="lineNum">     201 </span>                :       /**
@@ -494,11 +494,11 @@
 <span class="lineNum">     441 </span>                :        *  - the class starts with no read nor write positions available,
 <span class="lineNum">     442 </span>                :        *  - this is not an error
 <span class="lineNum">     443 </span>                :       */
-<span class="lineNum">     444 </span><span class="lineCov">           4039 :       basic_streambuf()</span>
+<span class="lineNum">     444 </span><span class="lineCov">           1406 :       basic_streambuf()</span>
 <span class="lineNum">     445 </span>                :       : _M_in_beg(0), _M_in_cur(0), _M_in_end(0), 
 <span class="lineNum">     446 </span>                :       _M_out_beg(0), _M_out_cur(0), _M_out_end(0),
-<span class="lineNum">     447 </span><span class="lineCov">           4039 :       _M_buf_locale(locale()) </span>
-<span class="lineNum">     448 </span><span class="lineCov">           4039 :       { }</span>
+<span class="lineNum">     447 </span><span class="lineCov">           1406 :       _M_buf_locale(locale()) </span>
+<span class="lineNum">     448 </span><span class="lineCov">           1406 :       { }</span>
 <span class="lineNum">     449 </span>                : 
 <span class="lineNum">     450 </span>                :       // [27.5.2.3.1] get area access
 <span class="lineNum">     451 </span>                :       //@{
@@ -519,7 +519,7 @@
 <span class="lineNum">     466 </span>                :       gptr()  const { return _M_in_cur;  }
 <span class="lineNum">     467 </span>                : 
 <span class="lineNum">     468 </span>                :       char_type* 
-<span class="lineNum">     469 </span><span class="lineCov">            208 :       egptr() const { return _M_in_end; }</span>
+<span class="lineNum">     469 </span><span class="lineCov">             72 :       egptr() const { return _M_in_end; }</span>
 <span class="lineNum">     470 </span>                :       //@}
 <span class="lineNum">     471 </span>                : 
 <span class="lineNum">     472 </span>                :       /**
@@ -560,10 +560,10 @@
 <span class="lineNum">     507 </span>                :        *  - epptr() returns the end pointer for the output sequence
 <span class="lineNum">     508 </span>                :       */
 <span class="lineNum">     509 </span>                :       char_type* 
-<span class="lineNum">     510 </span><span class="lineCov">            208 :       pbase() const { return _M_out_beg; }</span>
+<span class="lineNum">     510 </span><span class="lineCov">             72 :       pbase() const { return _M_out_beg; }</span>
 <span class="lineNum">     511 </span>                : 
 <span class="lineNum">     512 </span>                :       char_type* 
-<span class="lineNum">     513 </span><span class="lineCov">            624 :       pptr() const { return _M_out_cur; }</span>
+<span class="lineNum">     513 </span><span class="lineCov">            216 :       pptr() const { return _M_out_cur; }</span>
 <span class="lineNum">     514 </span>                : 
 <span class="lineNum">     515 </span>                :       char_type* 
 <span class="lineNum">     516 </span>                :       epptr() const { return _M_out_end; }

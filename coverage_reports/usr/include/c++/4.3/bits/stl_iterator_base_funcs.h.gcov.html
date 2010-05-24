@@ -148,7 +148,7 @@
 <span class="lineNum">      95 </span>                :       // concept requirements
 <span class="lineNum">      96 </span>                :       __glibcxx_function_requires(_RandomAccessIteratorConcept&lt;
 <span class="lineNum">      97 </span>                :                                   _RandomAccessIterator&gt;)
-<span class="lineNum">      98 </span><span class="lineCov">           6267 :       return __last - __first;</span>
+<span class="lineNum">      98 </span><span class="lineCov">           2089 :       return __last - __first;</span>
 <span class="lineNum">      99 </span>                :     }
 <span class="lineNum">     100 </span>                : 
 <span class="lineNum">     101 </span>                :   /**
@@ -169,7 +169,7 @@
 <span class="lineNum">     116 </span>                :     {
 <span class="lineNum">     117 </span>                :       // concept requirements -- taken care of in __distance
 <span class="lineNum">     118 </span>                :       return std::__distance(__first, __last,
-<span class="lineNum">     119 </span><span class="lineCov">          12534 :                              std::__iterator_category(__first));</span>
+<span class="lineNum">     119 </span><span class="lineCov">           4178 :                              std::__iterator_category(__first));</span>
 <span class="lineNum">     120 </span>                :     }
 <span class="lineNum">     121 </span>                : 
 <span class="lineNum">     122 </span>                :   template&lt;typename _InputIterator, typename _Distance&gt;

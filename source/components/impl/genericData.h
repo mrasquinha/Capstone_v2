@@ -32,6 +32,7 @@ class InputBufferState
         uint input_channel;
         uint output_port;
         uint output_channel;
+        double stat_pkt_intime;
         double arrival_time;
         int length;
         int credits_sent;

@@ -146,7 +146,7 @@
 <span class="lineNum">      93 </span>                :   */
 <span class="lineNum">      94 </span>                :   template&lt;typename _Tp, typename _Sequence = deque&lt;_Tp&gt; &gt;
 <span class="lineNum">      95 </span>                :     class queue
-<span class="lineNum">      96 </span><span class="lineCov">           2688 :     {</span>
+<span class="lineNum">      96 </span><span class="lineCov">            896 :     {</span>
 <span class="lineNum">      97 </span>                :       // concept requirements
 <span class="lineNum">      98 </span>                :       typedef typename _Sequence::value_type _Sequence_value_type;
 <span class="lineNum">      99 </span>                :       __glibcxx_class_requires(_Tp, _SGIAssignableConcept)
@@ -187,7 +187,7 @@
 <span class="lineNum">     134 </span>                : #ifndef __GXX_EXPERIMENTAL_CXX0X__
 <span class="lineNum">     135 </span>                :       explicit
 <span class="lineNum">     136 </span><span class="lineNoCov">              0 :       queue(const _Sequence&amp; __c = _Sequence())</span>
-<span class="lineNum">     137 </span><span class="lineCov">           1344 :       : c(__c) { }</span>
+<span class="lineNum">     137 </span><span class="lineCov">            448 :       : c(__c) { }</span>
 <span class="lineNum">     138 </span>                : #else
 <span class="lineNum">     139 </span>                :       explicit
 <span class="lineNum">     140 </span>                :       queue(const _Sequence&amp; __c)
@@ -213,12 +213,12 @@
 <span class="lineNum">     160 </span>                :        */
 <span class="lineNum">     161 </span>                :       bool
 <span class="lineNum">     162 </span><span class="lineNoCov">              0 :       empty() const</span>
-<span class="lineNum">     163 </span><span class="lineCov">           1152 :       { return c.empty(); }</span>
+<span class="lineNum">     163 </span><span class="lineCov">            384 :       { return c.empty(); }</span>
 <span class="lineNum">     164 </span>                : 
 <span class="lineNum">     165 </span>                :       /**  Returns the number of elements in the %queue.  */
 <span class="lineNum">     166 </span>                :       size_type
 <span class="lineNum">     167 </span><span class="lineNoCov">              0 :       size() const</span>
-<span class="lineNum">     168 </span><span class="lineCov">       67295556 :       { return c.size(); }</span>
+<span class="lineNum">     168 </span><span class="lineCov">       38784946 :       { return c.size(); }</span>
 <span class="lineNum">     169 </span>                : 
 <span class="lineNum">     170 </span>                :       /**
 <span class="lineNum">     171 </span>                :        *  Returns a read/write reference to the data at the first
@@ -228,7 +228,7 @@
 <span class="lineNum">     175 </span><span class="lineNoCov">              0 :       front()</span>
 <span class="lineNum">     176 </span>                :       {
 <span class="lineNum">     177 </span>                :         __glibcxx_requires_nonempty();
-<span class="lineNum">     178 </span><span class="lineCov">        3668204 :         return c.front();</span>
+<span class="lineNum">     178 </span><span class="lineCov">       11179088 :         return c.front();</span>
 <span class="lineNum">     179 </span>                :       }
 <span class="lineNum">     180 </span>                : 
 <span class="lineNum">     181 </span>                :       /**
@@ -276,7 +276,7 @@
 <span class="lineNum">     223 </span>                : #ifndef __GXX_EXPERIMENTAL_CXX0X__
 <span class="lineNum">     224 </span>                :       void
 <span class="lineNum">     225 </span><span class="lineNoCov">              0 :       push(const value_type&amp; __x)</span>
-<span class="lineNum">     226 </span><span class="lineCov">        1558482 :       { c.push_back(__x); }</span>
+<span class="lineNum">     226 </span><span class="lineCov">        4982099 :       { c.push_back(__x); }</span>
 <span class="lineNum">     227 </span>                : #else
 <span class="lineNum">     228 </span>                :       // NB: DR 756.
 <span class="lineNum">     229 </span>                :       template&lt;typename... _Args&gt;
@@ -300,7 +300,7 @@
 <span class="lineNum">     247 </span><span class="lineNoCov">              0 :       pop()</span>
 <span class="lineNum">     248 </span>                :       {
 <span class="lineNum">     249 </span>                :         __glibcxx_requires_nonempty();
-<span class="lineNum">     250 </span><span class="lineCov">        1558058 :         c.pop_front();</span>
+<span class="lineNum">     250 </span><span class="lineCov">        4982050 :         c.pop_front();</span>
 <span class="lineNum">     251 </span><span class="lineNoCov">              0 :       }</span>
 <span class="lineNum">     252 </span>                : 
 <span class="lineNum">     253 </span>                : #ifdef __GXX_EXPERIMENTAL_CXX0X__

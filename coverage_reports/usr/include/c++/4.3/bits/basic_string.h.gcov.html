@@ -233,8 +233,8 @@
 <span class="lineNum">     180 </span>                :           // NB: Mild hack to avoid strict-aliasing warnings.  Note that
 <span class="lineNum">     181 </span>                :           // _S_empty_rep_storage is never modified and the punning should
 <span class="lineNum">     182 </span>                :           // be reasonably safe in this case.
-<span class="lineNum">     183 </span><span class="lineCov">          18448 :           void* __p = reinterpret_cast&lt;void*&gt;(&amp;_S_empty_rep_storage);</span>
-<span class="lineNum">     184 </span><span class="lineCov">          18448 :           return *reinterpret_cast&lt;_Rep*&gt;(__p);</span>
+<span class="lineNum">     183 </span><span class="lineCov">           6854 :           void* __p = reinterpret_cast&lt;void*&gt;(&amp;_S_empty_rep_storage);</span>
+<span class="lineNum">     184 </span><span class="lineCov">           6854 :           return *reinterpret_cast&lt;_Rep*&gt;(__p);</span>
 <span class="lineNum">     185 </span>                :         }
 <span class="lineNum">     186 </span>                : 
 <span class="lineNum">     187 </span>                :         bool
@@ -251,21 +251,21 @@
 <span class="lineNum">     198 </span>                : 
 <span class="lineNum">     199 </span>                :         void
 <span class="lineNum">     200 </span><span class="lineNoCov">              0 :         _M_set_sharable()</span>
-<span class="lineNum">     201 </span><span class="lineCov">           6267 :         { this-&gt;_M_refcount = 0; }</span>
+<span class="lineNum">     201 </span><span class="lineCov">           2089 :         { this-&gt;_M_refcount = 0; }</span>
 <span class="lineNum">     202 </span>                : 
 <span class="lineNum">     203 </span>                :         void
 <span class="lineNum">     204 </span><span class="lineNoCov">              0 :         _M_set_length_and_sharable(size_type __n)</span>
 <span class="lineNum">     205 </span>                :         { 
 <span class="lineNum">     206 </span>                :           this-&gt;_M_set_sharable();  // One reference.
-<span class="lineNum">     207 </span><span class="lineCov">           6267 :           this-&gt;_M_length = __n;</span>
-<span class="lineNum">     208 </span><span class="lineCov">           6267 :           traits_type::assign(this-&gt;_M_refdata()[__n], _S_terminal);</span>
+<span class="lineNum">     207 </span><span class="lineCov">           2089 :           this-&gt;_M_length = __n;</span>
+<span class="lineNum">     208 </span><span class="lineCov">           2089 :           traits_type::assign(this-&gt;_M_refdata()[__n], _S_terminal);</span>
 <span class="lineNum">     209 </span>                :           // grrr. (per 21.3.4)
 <span class="lineNum">     210 </span>                :           // You cannot leave those LWG people alone for a second.
 <span class="lineNum">     211 </span><span class="lineNoCov">              0 :         }</span>
 <span class="lineNum">     212 </span>                : 
 <span class="lineNum">     213 </span>                :         _CharT*
 <span class="lineNum">     214 </span><span class="lineNoCov">              0 :         _M_refdata() throw()</span>
-<span class="lineNum">     215 </span><span class="lineCov">          26455 :         { return reinterpret_cast&lt;_CharT*&gt;(this + 1); }</span>
+<span class="lineNum">     215 </span><span class="lineCov">           8464 :         { return reinterpret_cast&lt;_CharT*&gt;(this + 1); }</span>
 <span class="lineNum">     216 </span>                : 
 <span class="lineNum">     217 </span>                :         _CharT*
 <span class="lineNum">     218 </span>                :         _M_grab(const _Alloc&amp; __alloc1, const _Alloc&amp; __alloc2)
@@ -279,15 +279,15 @@
 <span class="lineNum">     226 </span>                :         _S_create(size_type, size_type, const _Alloc&amp;);
 <span class="lineNum">     227 </span>                : 
 <span class="lineNum">     228 </span>                :         void
-<span class="lineNum">     229 </span><span class="lineCov">          10794 :         _M_dispose(const _Alloc&amp; __a)</span>
+<span class="lineNum">     229 </span><span class="lineCov">           4657 :         _M_dispose(const _Alloc&amp; __a)</span>
 <span class="lineNum">     230 </span>                :         {
 <span class="lineNum">     231 </span>                : #ifndef _GLIBCXX_FULLY_DYNAMIC_STRING
-<span class="lineNum">     232 </span><span class="lineCov">          10794 :           if (__builtin_expect(this != &amp;_S_empty_rep(), false))</span>
+<span class="lineNum">     232 </span><span class="lineCov">           4657 :           if (__builtin_expect(this != &amp;_S_empty_rep(), false))</span>
 <span class="lineNum">     233 </span>                : #endif
-<span class="lineNum">     234 </span><span class="lineCov">          10778 :             if (__gnu_cxx::__exchange_and_add_dispatch(&amp;this-&gt;_M_refcount,</span>
+<span class="lineNum">     234 </span><span class="lineCov">           4649 :             if (__gnu_cxx::__exchange_and_add_dispatch(&amp;this-&gt;_M_refcount,</span>
 <span class="lineNum">     235 </span>                :                                                        -1) &lt;= 0)
-<span class="lineNum">     236 </span><span class="lineCov">           9890 :               _M_destroy(__a);</span>
-<span class="lineNum">     237 </span><span class="lineCov">          10794 :         }  // XXX MT</span>
+<span class="lineNum">     236 </span><span class="lineCov">           4017 :               _M_destroy(__a);</span>
+<span class="lineNum">     237 </span><span class="lineCov">           4657 :         }  // XXX MT</span>
 <span class="lineNum">     238 </span>                : 
 <span class="lineNum">     239 </span>                :         void
 <span class="lineNum">     240 </span>                :         _M_destroy(const _Alloc&amp;) throw();
@@ -308,9 +308,9 @@
 <span class="lineNum">     255 </span>                : 
 <span class="lineNum">     256 </span>                :       // Use empty-base optimization: http://www.cantrip.org/emptyopt.html
 <span class="lineNum">     257 </span>                :       struct _Alloc_hider : _Alloc
-<span class="lineNum">     258 </span><span class="lineCov">          10794 :       {</span>
+<span class="lineNum">     258 </span><span class="lineCov">           4657 :       {</span>
 <span class="lineNum">     259 </span><span class="lineNoCov">              0 :         _Alloc_hider(_CharT* __dat, const _Alloc&amp; __a)</span>
-<span class="lineNum">     260 </span><span class="lineCov">          15724 :         : _Alloc(__a), _M_p(__dat) { }</span>
+<span class="lineNum">     260 </span><span class="lineCov">           4538 :         : _Alloc(__a), _M_p(__dat) { }</span>
 <span class="lineNum">     261 </span>                : 
 <span class="lineNum">     262 </span>                :         _CharT* _M_p; // The actual data.
 <span class="lineNum">     263 </span>                :       };
@@ -328,7 +328,7 @@
 <span class="lineNum">     275 </span>                : 
 <span class="lineNum">     276 </span>                :       _CharT*
 <span class="lineNum">     277 </span><span class="lineNoCov">              0 :       _M_data() const</span>
-<span class="lineNum">     278 </span><span class="lineCov">          20617 :       { return  _M_dataplus._M_p; }</span>
+<span class="lineNum">     278 </span><span class="lineCov">           9504 :       { return  _M_dataplus._M_p; }</span>
 <span class="lineNum">     279 </span>                : 
 <span class="lineNum">     280 </span>                :       _CharT*
 <span class="lineNum">     281 </span>                :       _M_data(_CharT* __p)
@@ -336,7 +336,7 @@
 <span class="lineNum">     283 </span>                : 
 <span class="lineNum">     284 </span>                :       _Rep*
 <span class="lineNum">     285 </span><span class="lineNoCov">              0 :       _M_rep() const</span>
-<span class="lineNum">     286 </span><span class="lineCov">          15487 :       { return &amp;((reinterpret_cast&lt;_Rep*&gt; (_M_data()))[-1]); }</span>
+<span class="lineNum">     286 </span><span class="lineCov">           6950 :       { return &amp;((reinterpret_cast&lt;_Rep*&gt; (_M_data()))[-1]); }</span>
 <span class="lineNum">     287 </span>                : 
 <span class="lineNum">     288 </span>                :       // For the internal use we have functions similar to `begin'/`end'
 <span class="lineNum">     289 </span>                :       // but they do not call _M_leak.
@@ -391,7 +391,7 @@
 <span class="lineNum">     338 </span>                :       static void
 <span class="lineNum">     339 </span><span class="lineNoCov">              0 :       _M_copy(_CharT* __d, const _CharT* __s, size_type __n)</span>
 <span class="lineNum">     340 </span>                :       {
-<span class="lineNum">     341 </span><span class="lineCov">           6267 :         if (__n == 1)</span>
+<span class="lineNum">     341 </span><span class="lineCov">           2089 :         if (__n == 1)</span>
 <span class="lineNum">     342 </span>                :           traits_type::assign(*__d, *__s);
 <span class="lineNum">     343 </span>                :         else
 <span class="lineNum">     344 </span>                :           traits_type::copy(__d, __s, __n);
@@ -434,8 +434,8 @@
 <span class="lineNum">     381 </span>                :       { _S_copy_chars(__p, __k1.base(), __k2.base()); }
 <span class="lineNum">     382 </span>                : 
 <span class="lineNum">     383 </span>                :       static void
-<span class="lineNum">     384 </span><span class="lineCov">           6267 :       _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2)</span>
-<span class="lineNum">     385 </span><span class="lineCov">          12534 :       { _M_copy(__p, __k1, __k2 - __k1); }</span>
+<span class="lineNum">     384 </span><span class="lineCov">           2089 :       _S_copy_chars(_CharT* __p, _CharT* __k1, _CharT* __k2)</span>
+<span class="lineNum">     385 </span><span class="lineCov">           4178 :       { _M_copy(__p, __k1, __k2 - __k1); }</span>
 <span class="lineNum">     386 </span>                : 
 <span class="lineNum">     387 </span>                :       static void
 <span class="lineNum">     388 </span>                :       _S_copy_chars(_CharT* __p, const _CharT* __k1, const _CharT* __k2)
@@ -462,7 +462,7 @@
 <span class="lineNum">     409 </span>                : 
 <span class="lineNum">     410 </span>                :       static _Rep&amp;
 <span class="lineNum">     411 </span><span class="lineNoCov">              0 :       _S_empty_rep()</span>
-<span class="lineNum">     412 </span><span class="lineCov">           7654 :       { return _Rep::_S_empty_rep(); }</span>
+<span class="lineNum">     412 </span><span class="lineCov">           2197 :       { return _Rep::_S_empty_rep(); }</span>
 <span class="lineNum">     413 </span>                : 
 <span class="lineNum">     414 </span>                :     public:
 <span class="lineNum">     415 </span>                :       // Construct/copy/destroy:
@@ -543,8 +543,8 @@
 <span class="lineNum">     490 </span>                :       /**
 <span class="lineNum">     491 </span>                :        *  @brief  Destroy the string instance.
 <span class="lineNum">     492 </span>                :        */
-<span class="lineNum">     493 </span><span class="lineCov">          10794 :       ~basic_string()</span>
-<span class="lineNum">     494 </span><span class="lineCov">          32382 :       { _M_rep()-&gt;_M_dispose(this-&gt;get_allocator()); }</span>
+<span class="lineNum">     493 </span><span class="lineCov">           4657 :       ~basic_string()</span>
+<span class="lineNum">     494 </span><span class="lineCov">          13971 :       { _M_rep()-&gt;_M_dispose(this-&gt;get_allocator()); }</span>
 <span class="lineNum">     495 </span>                : 
 <span class="lineNum">     496 </span>                :       /**
 <span class="lineNum">     497 </span>                :        *  @brief  Assign the value of @a str to this string.
@@ -552,7 +552,7 @@
 <span class="lineNum">     499 </span>                :        */
 <span class="lineNum">     500 </span>                :       basic_string&amp;
 <span class="lineNum">     501 </span><span class="lineNoCov">              0 :       operator=(const basic_string&amp; __str) </span>
-<span class="lineNum">     502 </span><span class="lineCov">            448 :       { return this-&gt;assign(__str); }</span>
+<span class="lineNum">     502 </span><span class="lineCov">            192 :       { return this-&gt;assign(__str); }</span>
 <span class="lineNum">     503 </span>                : 
 <span class="lineNum">     504 </span>                :       /**
 <span class="lineNum">     505 </span>                :        *  @brief  Copy contents of @a s into this string.
@@ -560,7 +560,7 @@
 <span class="lineNum">     507 </span>                :        */
 <span class="lineNum">     508 </span>                :       basic_string&amp;
 <span class="lineNum">     509 </span><span class="lineNoCov">              0 :       operator=(const _CharT* __s) </span>
-<span class="lineNum">     510 </span><span class="lineCov">           3312 :       { return this-&gt;assign(__s); }</span>
+<span class="lineNum">     510 </span><span class="lineCov">           1144 :       { return this-&gt;assign(__s); }</span>
 <span class="lineNum">     511 </span>                : 
 <span class="lineNum">     512 </span>                :       /**
 <span class="lineNum">     513 </span>                :        *  @brief  Set value to string of length 1.
@@ -657,7 +657,7 @@
 <span class="lineNum">     604 </span>                :       ///  null-termination.
 <span class="lineNum">     605 </span>                :       size_type
 <span class="lineNum">     606 </span><span class="lineNoCov">              0 :       size() const</span>
-<span class="lineNum">     607 </span><span class="lineCov">           4693 :       { return _M_rep()-&gt;_M_length; }</span>
+<span class="lineNum">     607 </span><span class="lineCov">           2293 :       { return _M_rep()-&gt;_M_length; }</span>
 <span class="lineNum">     608 </span>                : 
 <span class="lineNum">     609 </span>                :       ///  Returns the number of characters in the string, not including any
 <span class="lineNum">     610 </span>                :       ///  null-termination.
@@ -978,10 +978,10 @@
 <span class="lineNum">     925 </span>                :        *  function returns.
 <span class="lineNum">     926 </span>                :        */
 <span class="lineNum">     927 </span>                :       basic_string&amp;
-<span class="lineNum">     928 </span><span class="lineCov">           3312 :       assign(const _CharT* __s)</span>
+<span class="lineNum">     928 </span><span class="lineCov">           1144 :       assign(const _CharT* __s)</span>
 <span class="lineNum">     929 </span>                :       {
 <span class="lineNum">     930 </span>                :         __glibcxx_requires_string(__s);
-<span class="lineNum">     931 </span><span class="lineCov">           3312 :         return this-&gt;assign(__s, traits_type::length(__s));</span>
+<span class="lineNum">     931 </span><span class="lineCov">           1144 :         return this-&gt;assign(__s, traits_type::length(__s));</span>
 <span class="lineNum">     932 </span>                :       }
 <span class="lineNum">     933 </span>                : 
 <span class="lineNum">     934 </span>                :       /**
@@ -1512,10 +1512,10 @@
 <span class="lineNum">    1459 </span>                :       template&lt;class _InIterator&gt;
 <span class="lineNum">    1460 </span>                :         static _CharT*
 <span class="lineNum">    1461 </span>                :         _S_construct_aux(_InIterator __beg, _InIterator __end,
-<span class="lineNum">    1462 </span><span class="lineCov">            208 :                          const _Alloc&amp; __a, __false_type)</span>
+<span class="lineNum">    1462 </span><span class="lineCov">             72 :                          const _Alloc&amp; __a, __false_type)</span>
 <span class="lineNum">    1463 </span>                :         {
 <span class="lineNum">    1464 </span>                :           typedef typename iterator_traits&lt;_InIterator&gt;::iterator_category _Tag;
-<span class="lineNum">    1465 </span><span class="lineCov">            208 :           return _S_construct(__beg, __end, __a, _Tag());</span>
+<span class="lineNum">    1465 </span><span class="lineCov">             72 :           return _S_construct(__beg, __end, __a, _Tag());</span>
 <span class="lineNum">    1466 </span>                :         }
 <span class="lineNum">    1467 </span>                : 
 <span class="lineNum">    1468 </span>                :       // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -1528,10 +1528,10 @@
 <span class="lineNum">    1475 </span>                : 
 <span class="lineNum">    1476 </span>                :       template&lt;class _InIterator&gt;
 <span class="lineNum">    1477 </span>                :         static _CharT*
-<span class="lineNum">    1478 </span><span class="lineCov">            208 :         _S_construct(_InIterator __beg, _InIterator __end, const _Alloc&amp; __a)</span>
+<span class="lineNum">    1478 </span><span class="lineCov">             72 :         _S_construct(_InIterator __beg, _InIterator __end, const _Alloc&amp; __a)</span>
 <span class="lineNum">    1479 </span>                :         {
 <span class="lineNum">    1480 </span>                :           typedef typename std::__is_integer&lt;_InIterator&gt;::__type _Integral;
-<span class="lineNum">    1481 </span><span class="lineCov">            208 :           return _S_construct_aux(__beg, __end, __a, _Integral());</span>
+<span class="lineNum">    1481 </span><span class="lineCov">             72 :           return _S_construct_aux(__beg, __end, __a, _Integral());</span>
 <span class="lineNum">    1482 </span>                :         }
 <span class="lineNum">    1483 </span>                : 
 <span class="lineNum">    1484 </span>                :       // For Input Iterators, used in istreambuf_iterators, etc.
@@ -1585,7 +1585,7 @@
 <span class="lineNum">    1532 </span>                :       */
 <span class="lineNum">    1533 </span>                :       const _CharT*
 <span class="lineNum">    1534 </span><span class="lineNoCov">              0 :       c_str() const</span>
-<span class="lineNum">    1535 </span><span class="lineCov">            352 :       { return _M_data(); }</span>
+<span class="lineNum">    1535 </span><span class="lineCov">            176 :       { return _M_data(); }</span>
 <span class="lineNum">    1536 </span>                : 
 <span class="lineNum">    1537 </span>                :       /**
 <span class="lineNum">    1538 </span>                :        *  @brief  Return const pointer to contents.
@@ -1595,14 +1595,14 @@
 <span class="lineNum">    1542 </span>                :       */
 <span class="lineNum">    1543 </span>                :       const _CharT*
 <span class="lineNum">    1544 </span><span class="lineNoCov">              0 :       data() const</span>
-<span class="lineNum">    1545 </span><span class="lineCov">           4778 :       { return _M_data(); }</span>
+<span class="lineNum">    1545 </span><span class="lineCov">           2378 :       { return _M_data(); }</span>
 <span class="lineNum">    1546 </span>                : 
 <span class="lineNum">    1547 </span>                :       /**
 <span class="lineNum">    1548 </span>                :        *  @brief  Return copy of allocator used to construct this string.
 <span class="lineNum">    1549 </span>                :       */
 <span class="lineNum">    1550 </span>                :       allocator_type
 <span class="lineNum">    1551 </span><span class="lineNoCov">              0 :       get_allocator() const</span>
-<span class="lineNum">    1552 </span><span class="lineCov">          10794 :       { return _M_dataplus; }</span>
+<span class="lineNum">    1552 </span><span class="lineCov">           4657 :       { return _M_dataplus; }</span>
 <span class="lineNum">    1553 </span>                : 
 <span class="lineNum">    1554 </span>                :       /**
 <span class="lineNum">    1555 </span>                :        *  @brief  Find position of a C substring.
@@ -2119,7 +2119,7 @@
 <span class="lineNum">    2066 </span>                :     inline basic_string&lt;_CharT, _Traits, _Alloc&gt;::
 <span class="lineNum">    2067 </span><span class="lineNoCov">              0 :     basic_string()</span>
 <span class="lineNum">    2068 </span>                : #ifndef _GLIBCXX_FULLY_DYNAMIC_STRING
-<span class="lineNum">    2069 </span><span class="lineCov">           7654 :     : _M_dataplus(_S_empty_rep()._M_refdata(), _Alloc()) { }</span>
+<span class="lineNum">    2069 </span><span class="lineCov">           2197 :     : _M_dataplus(_S_empty_rep()._M_refdata(), _Alloc()) { }</span>
 <span class="lineNum">    2070 </span>                : #else
 <span class="lineNum">    2071 </span>                :     : _M_dataplus(_S_construct(size_type(), _CharT(), _Alloc()), _Alloc()) { }
 <span class="lineNum">    2072 </span>                : #endif
@@ -2471,11 +2471,11 @@
 <span class="lineNum">    2418 </span>                :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;
 <span class="lineNum">    2419 </span>                :     inline basic_ostream&lt;_CharT, _Traits&gt;&amp;
 <span class="lineNum">    2420 </span>                :     operator&lt;&lt;(basic_ostream&lt;_CharT, _Traits&gt;&amp; __os,
-<span class="lineNum">    2421 </span><span class="lineCov">           4608 :                const basic_string&lt;_CharT, _Traits, _Alloc&gt;&amp; __str)</span>
+<span class="lineNum">    2421 </span><span class="lineCov">           2208 :                const basic_string&lt;_CharT, _Traits, _Alloc&gt;&amp; __str)</span>
 <span class="lineNum">    2422 </span>                :     {
 <span class="lineNum">    2423 </span>                :       // _GLIBCXX_RESOLVE_LIB_DEFECTS
 <span class="lineNum">    2424 </span>                :       // 586. string inserter not a formatted function
-<span class="lineNum">    2425 </span><span class="lineCov">           9216 :       return __ostream_insert(__os, __str.data(), __str.size());</span>
+<span class="lineNum">    2425 </span><span class="lineCov">           4416 :       return __ostream_insert(__os, __str.data(), __str.size());</span>
 <span class="lineNum">    2426 </span>                :     }
 <span class="lineNum">    2427 </span>                : 
 <span class="lineNum">    2428 </span>                :   /**

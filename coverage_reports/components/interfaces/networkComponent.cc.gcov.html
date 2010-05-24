@@ -79,18 +79,18 @@
 <span class="lineNum">      26 </span>                :  * Description:  constructor
 <span class="lineNum">      27 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      28 </span>                :  */
-<span class="lineNum">      29 </span><span class="lineCov">           3040 : NetworkComponent::NetworkComponent ()</span>
+<span class="lineNum">      29 </span><span class="lineCov">            608 : NetworkComponent::NetworkComponent ()</span>
 <span class="lineNum">      30 </span>                : {
 <span class="lineNum">      31 </span>                :     /*  For now component writers are meant to set the id of the base
 <span class="lineNum">      32 </span>                :      *  component class and i use that for the address. May want to check this
 <span class="lineNum">      33 </span>                :      *  after discussions on what the component id is meant for. */
-<span class="lineNum">      34 </span><span class="lineCov">           6080 :     address = myId();</span>
+<span class="lineNum">      34 </span><span class="lineCov">           1216 :     address = myId();</span>
 <span class="lineNum">      35 </span>                : 
-<span class="lineNum">      36 </span><span class="lineCov">           3040 : }  /* -----  end of method NetworkComponent::NetworkComponent  (constructor)  ----- */</span>
+<span class="lineNum">      36 </span><span class="lineCov">            608 : }  /* -----  end of method NetworkComponent::NetworkComponent  (constructor)  ----- */</span>
 <span class="lineNum">      37 </span>                : 
-<span class="lineNum">      38 </span><span class="lineCov">           1824 : NetworkComponent::~NetworkComponent ()</span>
+<span class="lineNum">      38 </span><span class="lineCov">            608 : NetworkComponent::~NetworkComponent ()</span>
 <span class="lineNum">      39 </span>                : {
-<span class="lineNum">      40 </span><span class="lineCov">           1824 : }               /* -----  end of function NetworkComponent::~NetworkComponent  ----- */</span>
+<span class="lineNum">      40 </span><span class="lineCov">            608 : }               /* -----  end of function NetworkComponent::~NetworkComponent  ----- */</span>
 <span class="lineNum">      41 </span>                : 
 <span class="lineNum">      42 </span>                : string
 <span class="lineNum">      43 </span><span class="lineNoCov">              0 : NetworkComponent::toString () const</span>
@@ -101,7 +101,7 @@
 <span class="lineNum">      48 </span>                :         &lt;&lt; &quot;\t type: &quot; &lt;&lt; type
 <span class="lineNum">      49 </span><span class="lineNoCov">              0 :         &lt;&lt; endl;</span>
 <span class="lineNum">      50 </span><span class="lineNoCov">              0 :     return str.str();</span>
-<span class="lineNum">      51 </span><span class="lineCov">             10 : }               /* -----  end of method NetworkComponent::toString  ----- */</span>
+<span class="lineNum">      51 </span><span class="lineCov">              2 : }               /* -----  end of method NetworkComponent::toString  ----- */</span>
 <span class="lineNum">      52 </span>                : 
 <span class="lineNum">      53 </span>                : #endif   /* ----- #ifndef _networkcomponent_cc_INC  ----- */
 </pre>

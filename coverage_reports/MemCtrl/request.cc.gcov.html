@@ -78,32 +78,32 @@
 <span class="lineNum">      25 </span>                :  * Description:  constructor
 <span class="lineNum">      26 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      27 </span>                :  */
-<span class="lineNum">      28 </span><span class="lineCov">     1799948212 : Request::Request()</span>
+<span class="lineNum">      28 </span><span class="lineCov">       20846274 : Request::Request()</span>
 <span class="lineNum">      29 </span>                : {
-<span class="lineNum">      30 </span><span class="lineCov">     1799948212 :     mark = true;    </span>
-<span class="lineNum">      31 </span><span class="lineCov">     1799948212 :     channelNo = NO_OF_CHANNELS+1;</span>
-<span class="lineNum">      32 </span><span class="lineCov">     1799948212 :     dimmNo = 0;    </span>
-<span class="lineNum">      33 </span><span class="lineCov">     1799948212 :     rankNo = NO_OF_RANKS+1;    </span>
-<span class="lineNum">      34 </span><span class="lineCov">     1799948212 :     bankNo = NO_OF_BANKS+1;    </span>
-<span class="lineNum">      35 </span><span class="lineCov">     1799948212 :     columnNo = NO_OF_COLUMNS+1;</span>
-<span class="lineNum">      36 </span><span class="lineCov">     1799948212 :     rowNo = NO_OF_ROWS+1;</span>
+<span class="lineNum">      30 </span><span class="lineCov">       20846274 :     mark = true;    </span>
+<span class="lineNum">      31 </span><span class="lineCov">       20846274 :     channelNo = NO_OF_CHANNELS+1;</span>
+<span class="lineNum">      32 </span><span class="lineCov">       20846274 :     dimmNo = 0;    </span>
+<span class="lineNum">      33 </span><span class="lineCov">       20846274 :     rankNo = NO_OF_RANKS+1;    </span>
+<span class="lineNum">      34 </span><span class="lineCov">       20846274 :     bankNo = NO_OF_BANKS+1;    </span>
+<span class="lineNum">      35 </span><span class="lineCov">       20846274 :     columnNo = NO_OF_COLUMNS+1;</span>
+<span class="lineNum">      36 </span><span class="lineCov">       20846274 :     rowNo = NO_OF_ROWS+1;</span>
 <span class="lineNum">      37 </span>                : //    cmdType = CACHE_READ;
-<span class="lineNum">      38 </span><span class="lineCov">     1799948212 :     threadId = 0;</span>
-<span class="lineNum">      39 </span><span class="lineCov">     1799948212 :     address = 0;</span>
+<span class="lineNum">      38 </span><span class="lineCov">       20846274 :     threadId = 0;</span>
+<span class="lineNum">      39 </span><span class="lineCov">       20846274 :     address = 0;</span>
 <span class="lineNum">      40 </span>                :     
-<span class="lineNum">      41 </span><span class="lineCov">     1799948212 :     tag = 0;    </span>
+<span class="lineNum">      41 </span><span class="lineCov">       20846274 :     tag = 0;    </span>
 <span class="lineNum">      42 </span>                : //    indexWhenScheduled = 0;
-<span class="lineNum">      43 </span><span class="lineCov">     1799948212 :     local = true;</span>
-<span class="lineNum">      44 </span><span class="lineCov">     1799948212 :     scheduledInMSHR = false;</span>
-<span class="lineNum">      45 </span><span class="lineCov">     1799948212 :     serviced = false;</span>
+<span class="lineNum">      43 </span><span class="lineCov">       20846274 :     local = true;</span>
+<span class="lineNum">      44 </span><span class="lineCov">       20846274 :     scheduledInMSHR = false;</span>
+<span class="lineNum">      45 </span><span class="lineCov">       20846274 :     serviced = false;</span>
 <span class="lineNum">      46 </span>                :     
-<span class="lineNum">      47 </span><span class="lineCov">     1799948212 :     busInsertionTime = 0;</span>
-<span class="lineNum">      48 </span><span class="lineCov">     1799948212 :     rbufferInsertionTime = 0;</span>
-<span class="lineNum">      49 </span><span class="lineCov">     1799948212 :     cbufferInsertionTime = 0;</span>
-<span class="lineNum">      50 </span><span class="lineCov">     1799948212 :     arrivalTime = 0;</span>
-<span class="lineNum">      51 </span><span class="lineCov">     1799948212 :     retireTime = 0;</span>
-<span class="lineNum">      52 </span><span class="lineCov">     1799948212 :     startTime = 0;      </span>
-<span class="lineNum">      53 </span><span class="lineCov">     1799948212 : }</span>
+<span class="lineNum">      47 </span><span class="lineCov">       20846274 :     busInsertionTime = 0;</span>
+<span class="lineNum">      48 </span><span class="lineCov">       20846274 :     rbufferInsertionTime = 0;</span>
+<span class="lineNum">      49 </span><span class="lineCov">       20846274 :     cbufferInsertionTime = 0;</span>
+<span class="lineNum">      50 </span><span class="lineCov">       20846274 :     arrivalTime = 0;</span>
+<span class="lineNum">      51 </span><span class="lineCov">       20846274 :     retireTime = 0;</span>
+<span class="lineNum">      52 </span><span class="lineCov">       20846274 :     startTime = 0;      </span>
+<span class="lineNum">      53 </span><span class="lineCov">       20846274 : }</span>
 <span class="lineNum">      54 </span>                : 
 <span class="lineNum">      55 </span>                : /*
 <span class="lineNum">      56 </span>                :  *--------------------------------------------------------------------------------------
@@ -112,10 +112,10 @@
 <span class="lineNum">      59 </span>                :  * Description:  destructor
 <span class="lineNum">      60 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      61 </span>                :  */
-<span class="lineNum">      62 </span><span class="lineCov">             -1 : Request::~Request()</span>
+<span class="lineNum">      62 </span><span class="lineCov">       65173560 : Request::~Request()</span>
 <span class="lineNum">      63 </span>                : {
 <span class="lineNum">      64 </span>                : 
-<span class="lineNum">      65 </span><span class="lineCov">             -1 : }</span>
+<span class="lineNum">      65 </span><span class="lineCov">       65173562 : }</span>
 </pre>
       </td>
     </tr>

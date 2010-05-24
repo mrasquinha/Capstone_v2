@@ -180,30 +180,30 @@
 <span class="lineNum">     127 </span>                :       _CharT*
 <span class="lineNum">     128 </span>                :       basic_string&lt;_CharT, _Traits, _Alloc&gt;::
 <span class="lineNum">     129 </span>                :       _S_construct(_InIterator __beg, _InIterator __end, const _Alloc&amp; __a,
-<span class="lineNum">     130 </span><span class="lineCov">           6267 :                    forward_iterator_tag)</span>
+<span class="lineNum">     130 </span><span class="lineCov">           2089 :                    forward_iterator_tag)</span>
 <span class="lineNum">     131 </span>                :       {
 <span class="lineNum">     132 </span>                : #ifndef _GLIBCXX_FULLY_DYNAMIC_STRING
-<span class="lineNum">     133 </span><span class="lineCov">          12534 :         if (__beg == __end &amp;&amp; __a == _Alloc())</span>
+<span class="lineNum">     133 </span><span class="lineCov">           4178 :         if (__beg == __end &amp;&amp; __a == _Alloc())</span>
 <span class="lineNum">     134 </span><span class="lineNoCov">              0 :           return _S_empty_rep()._M_refdata();</span>
 <span class="lineNum">     135 </span>                : #endif
 <span class="lineNum">     136 </span>                :         // NB: Not required, but considered best practice.
-<span class="lineNum">     137 </span><span class="lineCov">           6267 :         if (__builtin_expect(__gnu_cxx::__is_null_pointer(__beg)</span>
+<span class="lineNum">     137 </span><span class="lineCov">           2089 :         if (__builtin_expect(__gnu_cxx::__is_null_pointer(__beg)</span>
 <span class="lineNum">     138 </span>                :                              &amp;&amp; __beg != __end, 0))
 <span class="lineNum">     139 </span><span class="lineNoCov">              0 :           __throw_logic_error(__N(&quot;basic_string::_S_construct NULL not valid&quot;));</span>
 <span class="lineNum">     140 </span>                : 
 <span class="lineNum">     141 </span>                :         const size_type __dnew = static_cast&lt;size_type&gt;(std::distance(__beg,
-<span class="lineNum">     142 </span><span class="lineCov">          12534 :                                                                       __end));</span>
+<span class="lineNum">     142 </span><span class="lineCov">           4178 :                                                                       __end));</span>
 <span class="lineNum">     143 </span>                :         // Check for out_of_range and length_error exceptions.
-<span class="lineNum">     144 </span><span class="lineCov">           6267 :         _Rep* __r = _Rep::_S_create(__dnew, size_type(0), __a);</span>
+<span class="lineNum">     144 </span><span class="lineCov">           2089 :         _Rep* __r = _Rep::_S_create(__dnew, size_type(0), __a);</span>
 <span class="lineNum">     145 </span>                :         try
-<span class="lineNum">     146 </span><span class="lineCov">           6267 :           { _S_copy_chars(__r-&gt;_M_refdata(), __beg, __end); }</span>
+<span class="lineNum">     146 </span><span class="lineCov">           2089 :           { _S_copy_chars(__r-&gt;_M_refdata(), __beg, __end); }</span>
 <span class="lineNum">     147 </span><span class="lineNoCov">              0 :         catch(...)</span>
 <span class="lineNum">     148 </span>                :           {
 <span class="lineNum">     149 </span><span class="lineNoCov">              0 :             __r-&gt;_M_destroy(__a);</span>
 <span class="lineNum">     150 </span><span class="lineNoCov">              0 :             __throw_exception_again;</span>
 <span class="lineNum">     151 </span>                :           }
 <span class="lineNum">     152 </span>                :         __r-&gt;_M_set_length_and_sharable(__dnew);
-<span class="lineNum">     153 </span><span class="lineCov">           6267 :         return __r-&gt;_M_refdata();</span>
+<span class="lineNum">     153 </span><span class="lineCov">           2089 :         return __r-&gt;_M_refdata();</span>
 <span class="lineNum">     154 </span>                :       }
 <span class="lineNum">     155 </span>                : 
 <span class="lineNum">     156 </span>                :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;
@@ -285,7 +285,7 @@
 <span class="lineNum">     232 </span>                :     template&lt;typename _InputIterator&gt;
 <span class="lineNum">     233 </span>                :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::
 <span class="lineNum">     234 </span>                :     basic_string(_InputIterator __beg, _InputIterator __end, const _Alloc&amp; __a)
-<span class="lineNum">     235 </span><span class="lineCov">            208 :     : _M_dataplus(_S_construct(__beg, __end, __a), __a)</span>
+<span class="lineNum">     235 </span><span class="lineCov">             72 :     : _M_dataplus(_S_construct(__beg, __end, __a), __a)</span>
 <span class="lineNum">     236 </span>                :     { }
 <span class="lineNum">     237 </span>                : 
 <span class="lineNum">     238 </span>                :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;

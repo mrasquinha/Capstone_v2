@@ -273,8 +273,8 @@
 <span class="lineNum">     220 </span>                :        *  @brief  Returns true if the external file is open.
 <span class="lineNum">     221 </span>                :       */
 <span class="lineNum">     222 </span>                :       bool
-<span class="lineNum">     223 </span><span class="lineCov">            240 :       is_open() const throw()</span>
-<span class="lineNum">     224 </span><span class="lineCov">            240 :       { return _M_file.is_open(); }</span>
+<span class="lineNum">     223 </span><span class="lineCov">            120 :       is_open() const throw()</span>
+<span class="lineNum">     224 </span><span class="lineCov">            120 :       { return _M_file.is_open(); }</span>
 <span class="lineNum">     225 </span>                : 
 <span class="lineNum">     226 </span>                :       /**
 <span class="lineNum">     227 </span>                :        *  @brief  Opens an external file.
@@ -525,7 +525,7 @@
 <span class="lineNum">     472 </span>                :       */
 <span class="lineNum">     473 </span>                :       bool
 <span class="lineNum">     474 </span><span class="lineNoCov">              0 :       is_open()</span>
-<span class="lineNum">     475 </span><span class="lineCov">            112 :       { return _M_filebuf.is_open(); }</span>
+<span class="lineNum">     475 </span><span class="lineCov">             56 :       { return _M_filebuf.is_open(); }</span>
 <span class="lineNum">     476 </span>                : 
 <span class="lineNum">     477 </span>                :       // _GLIBCXX_RESOLVE_LIB_DEFECTS
 <span class="lineNum">     478 </span>                :       // 365. Lack of const-qualification in clause 27
@@ -545,15 +545,15 @@
 <span class="lineNum">     492 </span>                :        *  .c_str() before passing it to this constructor.
 <span class="lineNum">     493 </span>                :       */
 <span class="lineNum">     494 </span>                :       void
-<span class="lineNum">     495 </span><span class="lineCov">            113 :       open(const char* __s, ios_base::openmode __mode = ios_base::in)</span>
+<span class="lineNum">     495 </span><span class="lineCov">             57 :       open(const char* __s, ios_base::openmode __mode = ios_base::in)</span>
 <span class="lineNum">     496 </span>                :       {
-<span class="lineNum">     497 </span><span class="lineCov">            113 :         if (!_M_filebuf.open(__s, __mode | ios_base::in))</span>
+<span class="lineNum">     497 </span><span class="lineCov">             57 :         if (!_M_filebuf.open(__s, __mode | ios_base::in))</span>
 <span class="lineNum">     498 </span><span class="lineNoCov">              0 :           this-&gt;setstate(ios_base::failbit);</span>
 <span class="lineNum">     499 </span>                :         else
 <span class="lineNum">     500 </span>                :           // _GLIBCXX_RESOLVE_LIB_DEFECTS
 <span class="lineNum">     501 </span>                :           // 409. Closing an fstream should clear error state
-<span class="lineNum">     502 </span><span class="lineCov">            113 :           this-&gt;clear();</span>
-<span class="lineNum">     503 </span><span class="lineCov">            113 :       }</span>
+<span class="lineNum">     502 </span><span class="lineCov">             57 :           this-&gt;clear();</span>
+<span class="lineNum">     503 </span><span class="lineCov">             57 :       }</span>
 <span class="lineNum">     504 </span>                : 
 <span class="lineNum">     505 </span>                :       /**
 <span class="lineNum">     506 </span>                :        *  @brief  Close the file.
@@ -562,11 +562,11 @@
 <span class="lineNum">     509 </span>                :        *  fails, @c failbit is set in the stream's error state.
 <span class="lineNum">     510 </span>                :       */
 <span class="lineNum">     511 </span>                :       void
-<span class="lineNum">     512 </span><span class="lineCov">            113 :       close()</span>
+<span class="lineNum">     512 </span><span class="lineCov">             57 :       close()</span>
 <span class="lineNum">     513 </span>                :       {
-<span class="lineNum">     514 </span><span class="lineCov">            113 :         if (!_M_filebuf.close())</span>
+<span class="lineNum">     514 </span><span class="lineCov">             57 :         if (!_M_filebuf.close())</span>
 <span class="lineNum">     515 </span><span class="lineNoCov">              0 :           this-&gt;setstate(ios_base::failbit);</span>
-<span class="lineNum">     516 </span><span class="lineCov">            113 :       }</span>
+<span class="lineNum">     516 </span><span class="lineCov">             57 :       }</span>
 <span class="lineNum">     517 </span>                :     };
 <span class="lineNum">     518 </span>                : 
 <span class="lineNum">     519 </span>                : 
@@ -606,8 +606,8 @@
 <span class="lineNum">     553 </span>                :        *  @c &amp;sb to the base class initializer.  Does not open any files
 <span class="lineNum">     554 </span>                :        *  (you haven't given it a filename to open).
 <span class="lineNum">     555 </span>                :       */
-<span class="lineNum">     556 </span><span class="lineCov">            128 :       basic_ofstream(): __ostream_type(), _M_filebuf()</span>
-<span class="lineNum">     557 </span><span class="lineCov">            128 :       { this-&gt;init(&amp;_M_filebuf); }</span>
+<span class="lineNum">     556 </span><span class="lineCov">             64 :       basic_ofstream(): __ostream_type(), _M_filebuf()</span>
+<span class="lineNum">     557 </span><span class="lineCov">             64 :       { this-&gt;init(&amp;_M_filebuf); }</span>
 <span class="lineNum">     558 </span>                : 
 <span class="lineNum">     559 </span>                :       /**
 <span class="lineNum">     560 </span>                :        *  @brief  Create an output file stream.
@@ -655,7 +655,7 @@
 <span class="lineNum">     602 </span>                :       */
 <span class="lineNum">     603 </span>                :       bool
 <span class="lineNum">     604 </span><span class="lineNoCov">              0 :       is_open()</span>
-<span class="lineNum">     605 </span><span class="lineCov">            128 :       { return _M_filebuf.is_open(); }</span>
+<span class="lineNum">     605 </span><span class="lineCov">             64 :       { return _M_filebuf.is_open(); }</span>
 <span class="lineNum">     606 </span>                : 
 <span class="lineNum">     607 </span>                :       // _GLIBCXX_RESOLVE_LIB_DEFECTS
 <span class="lineNum">     608 </span>                :       // 365. Lack of const-qualification in clause 27
@@ -676,15 +676,15 @@
 <span class="lineNum">     623 </span>                :       */
 <span class="lineNum">     624 </span>                :       void
 <span class="lineNum">     625 </span>                :       open(const char* __s,
-<span class="lineNum">     626 </span><span class="lineCov">            128 :            ios_base::openmode __mode = ios_base::out | ios_base::trunc)</span>
+<span class="lineNum">     626 </span><span class="lineCov">             64 :            ios_base::openmode __mode = ios_base::out | ios_base::trunc)</span>
 <span class="lineNum">     627 </span>                :       {
-<span class="lineNum">     628 </span><span class="lineCov">            128 :         if (!_M_filebuf.open(__s, __mode | ios_base::out))</span>
+<span class="lineNum">     628 </span><span class="lineCov">             64 :         if (!_M_filebuf.open(__s, __mode | ios_base::out))</span>
 <span class="lineNum">     629 </span><span class="lineNoCov">              0 :           this-&gt;setstate(ios_base::failbit);</span>
 <span class="lineNum">     630 </span>                :         else
 <span class="lineNum">     631 </span>                :           // _GLIBCXX_RESOLVE_LIB_DEFECTS
 <span class="lineNum">     632 </span>                :           // 409. Closing an fstream should clear error state
-<span class="lineNum">     633 </span><span class="lineCov">            128 :           this-&gt;clear();</span>
-<span class="lineNum">     634 </span><span class="lineCov">            128 :       }</span>
+<span class="lineNum">     633 </span><span class="lineCov">             64 :           this-&gt;clear();</span>
+<span class="lineNum">     634 </span><span class="lineCov">             64 :       }</span>
 <span class="lineNum">     635 </span>                : 
 <span class="lineNum">     636 </span>                :       /**
 <span class="lineNum">     637 </span>                :        *  @brief  Close the file.
@@ -693,11 +693,11 @@
 <span class="lineNum">     640 </span>                :        *  fails, @c failbit is set in the stream's error state.
 <span class="lineNum">     641 </span>                :       */
 <span class="lineNum">     642 </span>                :       void
-<span class="lineNum">     643 </span><span class="lineCov">            112 :       close()</span>
+<span class="lineNum">     643 </span><span class="lineCov">             56 :       close()</span>
 <span class="lineNum">     644 </span>                :       {
-<span class="lineNum">     645 </span><span class="lineCov">            112 :         if (!_M_filebuf.close())</span>
+<span class="lineNum">     645 </span><span class="lineCov">             56 :         if (!_M_filebuf.close())</span>
 <span class="lineNum">     646 </span><span class="lineNoCov">              0 :           this-&gt;setstate(ios_base::failbit);</span>
-<span class="lineNum">     647 </span><span class="lineCov">            112 :       }</span>
+<span class="lineNum">     647 </span><span class="lineCov">             56 :       }</span>
 <span class="lineNum">     648 </span>                :     };
 <span class="lineNum">     649 </span>                : 
 <span class="lineNum">     650 </span>                : 

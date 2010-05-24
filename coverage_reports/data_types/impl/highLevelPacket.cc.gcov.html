@@ -81,23 +81,23 @@
 <span class="lineNum">      28 </span>                :  * Description:  constructor
 <span class="lineNum">      29 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      30 </span>                :  */
-<span class="lineNum">      31 </span><span class="lineCov">         275263 : HighLevelPacket::HighLevelPacket ()</span>
+<span class="lineNum">      31 </span><span class="lineCov">         603434 : HighLevelPacket::HighLevelPacket ()</span>
 <span class="lineNum">      32 </span>                : {
-<span class="lineNum">      33 </span><span class="lineCov">         275263 :     source = -1;</span>
-<span class="lineNum">      34 </span><span class="lineCov">         275263 :     destination = -1;</span>
-<span class="lineNum">      35 </span><span class="lineCov">         275263 :     vn = VN0;</span>
-<span class="lineNum">      36 </span><span class="lineCov">         275263 :     msg_class = INVALID_PKT;</span>
-<span class="lineNum">      37 </span><span class="lineCov">         275263 :     transaction_id = 0;</span>
-<span class="lineNum">      38 </span><span class="lineCov">         275263 :     virtual_channel = 0;</span>
-<span class="lineNum">      39 </span><span class="lineCov">         275263 :     data_payload_length = 0;</span>
-<span class="lineNum">      40 </span><span class="lineCov">         275263 :     sent_time = Simulator::Now();</span>
-<span class="lineNum">      41 </span><span class="lineCov">         275263 :     recv_time = 0;</span>
-<span class="lineNum">      42 </span><span class="lineCov">         275263 : }  /* -----  end of method HighLevelPacket::HighLevelPacket  (constructor)  ----- */</span>
+<span class="lineNum">      33 </span><span class="lineCov">         603434 :     source = -1;</span>
+<span class="lineNum">      34 </span><span class="lineCov">         603434 :     destination = -1;</span>
+<span class="lineNum">      35 </span><span class="lineCov">         603434 :     vn = VN0;</span>
+<span class="lineNum">      36 </span><span class="lineCov">         603434 :     msg_class = INVALID_PKT;</span>
+<span class="lineNum">      37 </span><span class="lineCov">         603434 :     transaction_id = 0;</span>
+<span class="lineNum">      38 </span><span class="lineCov">         603434 :     virtual_channel = 0;</span>
+<span class="lineNum">      39 </span><span class="lineCov">         603434 :     data_payload_length = 0;</span>
+<span class="lineNum">      40 </span><span class="lineCov">         603434 :     sent_time = Simulator::Now();</span>
+<span class="lineNum">      41 </span><span class="lineCov">         603434 :     recv_time = 0;</span>
+<span class="lineNum">      42 </span><span class="lineCov">         603434 : }  /* -----  end of method HighLevelPacket::HighLevelPacket  (constructor)  ----- */</span>
 <span class="lineNum">      43 </span>                : 
-<span class="lineNum">      44 </span><span class="lineCov">         275260 : HighLevelPacket::~HighLevelPacket()</span>
+<span class="lineNum">      44 </span><span class="lineCov">         603433 : HighLevelPacket::~HighLevelPacket()</span>
 <span class="lineNum">      45 </span>                : {
-<span class="lineNum">      46 </span><span class="lineCov">         275260 :     data.clear();</span>
-<span class="lineNum">      47 </span><span class="lineCov">         550520 : }</span>
+<span class="lineNum">      46 </span><span class="lineCov">         603433 :     data.clear();</span>
+<span class="lineNum">      47 </span><span class="lineCov">        1206866 : }</span>
 <span class="lineNum">      48 </span>                : 
 <span class="lineNum">      49 </span><span class="lineNoCov">              0 : string HighLevelPacket::toString() const</span>
 <span class="lineNum">      50 </span>                : {
@@ -132,82 +132,82 @@
 <span class="lineNum">      79 </span>                : /* This function instantiates a low level packet. One needs to explicitly
 <span class="lineNum">      80 </span>                :  * destroy it if used */
 <span class="lineNum">      81 </span>                : void
-<span class="lineNum">      82 </span><span class="lineCov">         137822 : HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)</span>
+<span class="lineNum">      82 </span><span class="lineCov">         301736 : HighLevelPacket::to_low_level_packet(LowLevelPacket* pkt)</span>
 <span class="lineNum">      83 </span>                : {
-<span class="lineNum">      84 </span><span class="lineCov">         137822 :     pkt-&gt;source = source;</span>
-<span class="lineNum">      85 </span><span class="lineCov">         137822 :     pkt-&gt;destination = destination;</span>
-<span class="lineNum">      86 </span><span class="lineCov">         137822 :     pkt-&gt;transaction_id = transaction_id;</span>
-<span class="lineNum">      87 </span><span class="lineCov">         137822 :     pkt-&gt;sent_time = sent_time;</span>
-<span class="lineNum">      88 </span><span class="lineCov">         137822 :     pkt-&gt;msg_class = msg_class;</span>
-<span class="lineNum">      89 </span><span class="lineCov">         137822 :     pkt-&gt;addr = addr;</span>
-<span class="lineNum">      90 </span><span class="lineCov">         137822 :     if( msg_class == REQUEST_PKT)</span>
+<span class="lineNum">      84 </span><span class="lineCov">         301736 :     pkt-&gt;source = source;</span>
+<span class="lineNum">      85 </span><span class="lineCov">         301736 :     pkt-&gt;destination = destination;</span>
+<span class="lineNum">      86 </span><span class="lineCov">         301736 :     pkt-&gt;transaction_id = transaction_id;</span>
+<span class="lineNum">      87 </span><span class="lineCov">         301736 :     pkt-&gt;sent_time = sent_time;</span>
+<span class="lineNum">      88 </span><span class="lineCov">         301736 :     pkt-&gt;msg_class = msg_class;</span>
+<span class="lineNum">      89 </span><span class="lineCov">         301736 :     pkt-&gt;addr = addr;</span>
+<span class="lineNum">      90 </span><span class="lineCov">         301736 :     if( msg_class == REQUEST_PKT)</span>
 <span class="lineNum">      91 </span>                :     {
 <span class="lineNum">      92 </span><span class="lineNoCov">              0 :         pkt-&gt;length = 2;</span>
 <span class="lineNum">      93 </span>                :     }
-<span class="lineNum">      94 </span><span class="lineCov">         137822 :     else if( msg_class == ONE_FLIT_REQ)</span>
+<span class="lineNum">      94 </span><span class="lineCov">         301736 :     else if( msg_class == ONE_FLIT_REQ)</span>
 <span class="lineNum">      95 </span>                :     {
-<span class="lineNum">      96 </span><span class="lineCov">          68642 :         pkt-&gt;length = 1;</span>
+<span class="lineNum">      96 </span><span class="lineCov">         148849 :         pkt-&gt;length = 1;</span>
 <span class="lineNum">      97 </span>                :     }
 <span class="lineNum">      98 </span>                :     else
 <span class="lineNum">      99 </span>                :     {
-<span class="lineNum">     100 </span><span class="lineCov">          69180 :         pkt-&gt;length = ((this-&gt;data_payload_length+0.0)/max_phy_link_bits) + 2; // data_payload_length is the number of bits of data;</span>
+<span class="lineNum">     100 </span><span class="lineCov">         152887 :         pkt-&gt;length = ((this-&gt;data_payload_length+0.0)/max_phy_link_bits) + 2; // data_payload_length is the number of bits of data;</span>
 <span class="lineNum">     101 </span>                :     }
-<span class="lineNum">     102 </span><span class="lineCov">         137822 :     pkt-&gt;virtual_channel = virtual_channel;</span>
+<span class="lineNum">     102 </span><span class="lineCov">         301736 :     pkt-&gt;virtual_channel = virtual_channel;</span>
 <span class="lineNum">     103 </span>                : 
-<span class="lineNum">     104 </span><span class="lineCov">         137822 :     HeadFlit *hf = new HeadFlit();</span>
-<span class="lineNum">     105 </span><span class="lineCov">         137822 :     hf-&gt;control_bits.resize(CONTROL_VECTOR_SIZE);</span>
-<span class="lineNum">     106 </span><span class="lineCov">         137822 :     pkt-&gt;control_bits.resize(CONTROL_VECTOR_SIZE);</span>
+<span class="lineNum">     104 </span><span class="lineCov">         301736 :     HeadFlit *hf = new HeadFlit();</span>
+<span class="lineNum">     105 </span><span class="lineCov">         301736 :     hf-&gt;control_bits.resize(CONTROL_VECTOR_SIZE);</span>
+<span class="lineNum">     106 </span><span class="lineCov">         301736 :     pkt-&gt;control_bits.resize(CONTROL_VECTOR_SIZE);</span>
 <span class="lineNum">     107 </span>                : 
 <span class="lineNum">     108 </span>                :     /*  Create the mask based on message class and vc and virtual network */
-<span class="lineNum">     109 </span><span class="lineCov">         137822 :     uint vc_mask = virtual_channel &amp; 0x0f;</span>
-<span class="lineNum">     110 </span><span class="lineCov">         137822 :     uint vn_mask = (vn &amp; 0x0f) &lt;&lt; 4;</span>
-<span class="lineNum">     111 </span><span class="lineCov">         137822 :     uint mc_mask = (msg_class &amp; 0x0f) &lt;&lt; 8;</span>
-<span class="lineNum">     112 </span><span class="lineCov">         137822 :     uint mask = vc_mask | vn_mask | mc_mask;</span>
-<span class="lineNum">     113 </span><span class="lineCov">        4685948 :     for ( uint i=0 ; i&lt; pkt-&gt;control_bits.size() ;i++ )</span>
+<span class="lineNum">     109 </span><span class="lineCov">         301736 :     uint vc_mask = virtual_channel &amp; 0x0f;</span>
+<span class="lineNum">     110 </span><span class="lineCov">         301736 :     uint vn_mask = (vn &amp; 0x0f) &lt;&lt; 4;</span>
+<span class="lineNum">     111 </span><span class="lineCov">         301736 :     uint mc_mask = (msg_class &amp; 0x0f) &lt;&lt; 8;</span>
+<span class="lineNum">     112 </span><span class="lineCov">         301736 :     uint mask = vc_mask | vn_mask | mc_mask;</span>
+<span class="lineNum">     113 </span><span class="lineCov">       10259024 :     for ( uint i=0 ; i&lt; pkt-&gt;control_bits.size() ;i++ )</span>
 <span class="lineNum">     114 </span>                :     {
-<span class="lineNum">     115 </span><span class="lineCov">        2205152 :         pkt-&gt;control_bits[i] = ( mask &gt;&gt; i ) &amp; 0x01;</span>
-<span class="lineNum">     116 </span><span class="lineCov">        2205152 :         hf-&gt;control_bits[i] = ( mask &gt;&gt; i ) &amp; 0x01;</span>
+<span class="lineNum">     115 </span><span class="lineCov">        4827776 :         pkt-&gt;control_bits[i] = ( mask &gt;&gt; i ) &amp; 0x01;</span>
+<span class="lineNum">     116 </span><span class="lineCov">        4827776 :         hf-&gt;control_bits[i] = ( mask &gt;&gt; i ) &amp; 0x01;</span>
 <span class="lineNum">     117 </span>                :     }
 <span class="lineNum">     118 </span>                : 
-<span class="lineNum">     119 </span><span class="lineCov">         137822 :     if( msg_class == REQUEST_PKT || msg_class == ONE_FLIT_REQ)</span>
-<span class="lineNum">     120 </span><span class="lineCov">       35281988 :         for( uint i=0; i&lt;this-&gt;data.size(); i++)</span>
+<span class="lineNum">     119 </span><span class="lineCov">         301736 :     if( msg_class == REQUEST_PKT || msg_class == ONE_FLIT_REQ)</span>
+<span class="lineNum">     120 </span><span class="lineCov">       76508386 :         for( uint i=0; i&lt;this-&gt;data.size(); i++)</span>
 <span class="lineNum">     121 </span>                :         {
-<span class="lineNum">     122 </span><span class="lineCov">       35144704 :             hf-&gt;payload.push_back(this-&gt;data[i]);</span>
+<span class="lineNum">     122 </span><span class="lineCov">       76210688 :             hf-&gt;payload.push_back(this-&gt;data[i]);</span>
 <span class="lineNum">     123 </span>                :         }
 <span class="lineNum">     124 </span>                : 
-<span class="lineNum">     125 </span><span class="lineCov">         137822 :     hf-&gt;packet_originated_time = pkt-&gt;sent_time;</span>
-<span class="lineNum">     126 </span><span class="lineCov">         137822 :     hf-&gt;addr = addr;</span>
-<span class="lineNum">     127 </span><span class="lineCov">         137822 :     hf-&gt;src_address = source;</span>
-<span class="lineNum">     128 </span><span class="lineCov">         137822 :     hf-&gt;dst_address = destination;</span>
-<span class="lineNum">     129 </span><span class="lineCov">         137822 :     hf-&gt;transaction_id = transaction_id;</span>
-<span class="lineNum">     130 </span><span class="lineCov">         137822 :     hf-&gt;length = pkt-&gt;length;</span>
-<span class="lineNum">     131 </span><span class="lineCov">         137822 :     hf-&gt;vc = virtual_channel;</span>
-<span class="lineNum">     132 </span><span class="lineCov">         137822 :     hf-&gt;msg_class = msg_class;</span>
-<span class="lineNum">     133 </span><span class="lineCov">         137822 :     hf-&gt;populate_head_flit();</span>
-<span class="lineNum">     134 </span><span class="lineCov">         137822 :     pkt-&gt;flits.push_back(hf);</span>
+<span class="lineNum">     125 </span><span class="lineCov">         301736 :     hf-&gt;packet_originated_time = pkt-&gt;sent_time;</span>
+<span class="lineNum">     126 </span><span class="lineCov">         301736 :     hf-&gt;addr = addr;</span>
+<span class="lineNum">     127 </span><span class="lineCov">         301736 :     hf-&gt;src_address = source;</span>
+<span class="lineNum">     128 </span><span class="lineCov">         301736 :     hf-&gt;dst_address = destination;</span>
+<span class="lineNum">     129 </span><span class="lineCov">         301736 :     hf-&gt;transaction_id = transaction_id;</span>
+<span class="lineNum">     130 </span><span class="lineCov">         301736 :     hf-&gt;length = pkt-&gt;length;</span>
+<span class="lineNum">     131 </span><span class="lineCov">         301736 :     hf-&gt;vc = virtual_channel;</span>
+<span class="lineNum">     132 </span><span class="lineCov">         301736 :     hf-&gt;msg_class = msg_class;</span>
+<span class="lineNum">     133 </span><span class="lineCov">         301736 :     hf-&gt;populate_head_flit();</span>
+<span class="lineNum">     134 </span><span class="lineCov">         301736 :     pkt-&gt;flits.push_back(hf);</span>
 <span class="lineNum">     135 </span>                : 
-<span class="lineNum">     136 </span><span class="lineCov">         137822 :     if( msg_class == RESPONSE_PKT)</span>
+<span class="lineNum">     136 </span><span class="lineCov">         301736 :     if( msg_class == RESPONSE_PKT)</span>
 <span class="lineNum">     137 </span>                :     {
 <span class="lineNum">     138 </span>                :     vector&lt; bool&gt; temp;
-<span class="lineNum">     139 </span><span class="lineCov">         138360 :     uint no_of_body_flits = ceil(this-&gt;data.size()*1.0/max_phy_link_bits);</span>
-<span class="lineNum">     140 </span><span class="lineCov">         138360 :     for ( uint i=0 ; i&lt;no_of_body_flits ; i++ )</span>
+<span class="lineNum">     139 </span><span class="lineCov">         305774 :     uint no_of_body_flits = ceil(this-&gt;data.size()*1.0/max_phy_link_bits);</span>
+<span class="lineNum">     140 </span><span class="lineCov">         305774 :     for ( uint i=0 ; i&lt;no_of_body_flits ; i++ )</span>
 <span class="lineNum">     141 </span>                :     {
-<span class="lineNum">     142 </span><span class="lineCov">          69180 :         BodyFlit* bf = new BodyFlit();</span>
-<span class="lineNum">     143 </span><span class="lineCov">       35489340 :         for ( uint j=0 ; j&lt;max_phy_link_bits &amp;&amp; (i*max_phy_link_bits + j)&lt; data.size() ; j++ )</span>
-<span class="lineNum">     144 </span><span class="lineCov">       35420160 :             bf-&gt;bf_data.push_back(this-&gt;data[i*max_phy_link_bits + j]);</span>
+<span class="lineNum">     142 </span><span class="lineCov">         152887 :         BodyFlit* bf = new BodyFlit();</span>
+<span class="lineNum">     143 </span><span class="lineCov">       78431031 :         for ( uint j=0 ; j&lt;max_phy_link_bits &amp;&amp; (i*max_phy_link_bits + j)&lt; data.size() ; j++ )</span>
+<span class="lineNum">     144 </span><span class="lineCov">       78278144 :             bf-&gt;bf_data.push_back(this-&gt;data[i*max_phy_link_bits + j]);</span>
 <span class="lineNum">     145 </span>                : 
-<span class="lineNum">     146 </span><span class="lineCov">          69180 :         bf-&gt;populate_body_flit();</span>
-<span class="lineNum">     147 </span><span class="lineCov">          69180 :         pkt-&gt;flits.push_back(bf);</span>
+<span class="lineNum">     146 </span><span class="lineCov">         152887 :         bf-&gt;populate_body_flit();</span>
+<span class="lineNum">     147 </span><span class="lineCov">         152887 :         pkt-&gt;flits.push_back(bf);</span>
 <span class="lineNum">     148 </span>                :         temp.clear();
 <span class="lineNum">     149 </span>                :     }
 <span class="lineNum">     150 </span>                :     }
 <span class="lineNum">     151 </span>                : 
-<span class="lineNum">     152 </span><span class="lineCov">         137822 :     if( msg_class == REQUEST_PKT || msg_class == RESPONSE_PKT)</span>
+<span class="lineNum">     152 </span><span class="lineCov">         301736 :     if( msg_class == REQUEST_PKT || msg_class == RESPONSE_PKT)</span>
 <span class="lineNum">     153 </span>                :     {
-<span class="lineNum">     154 </span><span class="lineCov">          69180 :         TailFlit* tf = new TailFlit();</span>
-<span class="lineNum">     155 </span><span class="lineCov">          69180 :         tf-&gt;packet_originated_time = pkt-&gt;sent_time;</span>
-<span class="lineNum">     156 </span><span class="lineCov">          69180 :         tf-&gt;populate_tail_flit();</span>
-<span class="lineNum">     157 </span><span class="lineCov">          69180 :         pkt-&gt;flits.push_back(tf);</span>
+<span class="lineNum">     154 </span><span class="lineCov">         152887 :         TailFlit* tf = new TailFlit();</span>
+<span class="lineNum">     155 </span><span class="lineCov">         152887 :         tf-&gt;packet_originated_time = pkt-&gt;sent_time;</span>
+<span class="lineNum">     156 </span><span class="lineCov">         152887 :         tf-&gt;populate_tail_flit();</span>
+<span class="lineNum">     157 </span><span class="lineCov">         152887 :         pkt-&gt;flits.push_back(tf);</span>
 <span class="lineNum">     158 </span>                :     }
 <span class="lineNum">     159 </span>                : 
 <span class="lineNum">     160 </span>                :     /* Compute the number of head flits required based on source addr dest
@@ -217,31 +217,31 @@
 <span class="lineNum">     164 </span>                : }
 <span class="lineNum">     165 </span>                : 
 <span class="lineNum">     166 </span>                : void
-<span class="lineNum">     167 </span><span class="lineCov">         137441 : HighLevelPacket::from_low_level_packet ( LowLevelPacket* llp )</span>
+<span class="lineNum">     167 </span><span class="lineCov">         301698 : HighLevelPacket::from_low_level_packet ( LowLevelPacket* llp )</span>
 <span class="lineNum">     168 </span>                : {
-<span class="lineNum">     169 </span><span class="lineCov">         137441 :     source = llp-&gt;source;</span>
-<span class="lineNum">     170 </span><span class="lineCov">         137441 :     destination = llp-&gt;destination;</span>
-<span class="lineNum">     171 </span><span class="lineCov">         137441 :     transaction_id = llp-&gt;transaction_id;</span>
-<span class="lineNum">     172 </span><span class="lineCov">         137441 :     data_payload_length = llp-&gt;length;</span>
-<span class="lineNum">     173 </span><span class="lineCov">         137441 :     sent_time = llp-&gt;sent_time;</span>
-<span class="lineNum">     174 </span><span class="lineCov">         137441 :     virtual_channel = llp-&gt;virtual_channel;</span>
-<span class="lineNum">     175 </span><span class="lineCov">         137441 :     msg_class = llp-&gt;msg_class;</span>
-<span class="lineNum">     176 </span><span class="lineCov">         137441 :     addr = llp-&gt;addr;</span>
+<span class="lineNum">     169 </span><span class="lineCov">         301698 :     source = llp-&gt;source;</span>
+<span class="lineNum">     170 </span><span class="lineCov">         301698 :     destination = llp-&gt;destination;</span>
+<span class="lineNum">     171 </span><span class="lineCov">         301698 :     transaction_id = llp-&gt;transaction_id;</span>
+<span class="lineNum">     172 </span><span class="lineCov">         301698 :     data_payload_length = llp-&gt;length;</span>
+<span class="lineNum">     173 </span><span class="lineCov">         301698 :     sent_time = llp-&gt;sent_time;</span>
+<span class="lineNum">     174 </span><span class="lineCov">         301698 :     virtual_channel = llp-&gt;virtual_channel;</span>
+<span class="lineNum">     175 </span><span class="lineCov">         301698 :     msg_class = llp-&gt;msg_class;</span>
+<span class="lineNum">     176 </span><span class="lineCov">         301698 :     addr = llp-&gt;addr;</span>
 <span class="lineNum">     177 </span>                : 
 <span class="lineNum">     178 </span>                : //    assert( llp-&gt;flits.size()&gt;0);
 <span class="lineNum">     179 </span>                : 
 <span class="lineNum">     180 </span>                : //    HeadFlit* hf = static_cast&lt;HeadFlit*&gt;(llp-&gt;flits[0]);
-<span class="lineNum">     181 </span><span class="lineCov">         137441 :     uint mask = 0;</span>
-<span class="lineNum">     182 </span><span class="lineCov">        4672994 :     for (uint i=0; i&lt;llp-&gt;control_bits.size(); i++)</span>
-<span class="lineNum">     183 </span><span class="lineCov">        4398112 :         mask = (mask &lt;&lt;i)|(llp-&gt;control_bits[i] &amp; 0x01);</span>
+<span class="lineNum">     181 </span><span class="lineCov">         301698 :     uint mask = 0;</span>
+<span class="lineNum">     182 </span><span class="lineCov">       10257732 :     for (uint i=0; i&lt;llp-&gt;control_bits.size(); i++)</span>
+<span class="lineNum">     183 </span><span class="lineCov">        9654336 :         mask = (mask &lt;&lt;i)|(llp-&gt;control_bits[i] &amp; 0x01);</span>
 <span class="lineNum">     184 </span>                : 
 <span class="lineNum">     185 </span>                :     /*  Need to check this mask propagation: The VC aint right */
 <span class="lineNum">     186 </span>                :     //virtual_channel = (mask &amp; 0x00c0)&gt;&gt;6;
-<span class="lineNum">     187 </span><span class="lineCov">         137441 :     switch ((mask &amp; 0x00f0) &gt;&gt; 4)</span>
+<span class="lineNum">     187 </span><span class="lineCov">         301698 :     switch ((mask &amp; 0x00f0) &gt;&gt; 4)</span>
 <span class="lineNum">     188 </span>                :     {
 <span class="lineNum">     189 </span>                :         case 0:
-<span class="lineNum">     190 </span><span class="lineCov">         137441 :             vn = VN0;</span>
-<span class="lineNum">     191 </span><span class="lineCov">         137441 :             break;</span>
+<span class="lineNum">     190 </span><span class="lineCov">         301698 :             vn = VN0;</span>
+<span class="lineNum">     191 </span><span class="lineCov">         301698 :             break;</span>
 <span class="lineNum">     192 </span>                :         case 1:
 <span class="lineNum">     193 </span><span class="lineNoCov">              0 :             vn = VN1;</span>
 <span class="lineNum">     194 </span><span class="lineNoCov">              0 :             break;</span>
@@ -270,8 +270,8 @@
 <span class="lineNum">     217 </span>                : 
 <span class="lineNum">     218 </span>                : //    if( msg_class == REQUEST_PKT || msg_class == ONE_FLIT_REQ)
 <span class="lineNum">     219 </span>                : //    {
-<span class="lineNum">     220 </span><span class="lineCov">       70644674 :         for( uint i=0; i&lt;llp-&gt;payload.size(); i++)</span>
-<span class="lineNum">     221 </span><span class="lineCov">       70369792 :             data.push_back( llp-&gt;payload[i]);</span>
+<span class="lineNum">     220 </span><span class="lineCov">      155072772 :         for( uint i=0; i&lt;llp-&gt;payload.size(); i++)</span>
+<span class="lineNum">     221 </span><span class="lineCov">      154469376 :             data.push_back( llp-&gt;payload[i]);</span>
 <span class="lineNum">     222 </span>                : //    }
 <span class="lineNum">     223 </span>                : /*
 <span class="lineNum">     224 </span>                :     else
@@ -284,11 +284,11 @@
 <span class="lineNum">     231 </span>                :     }
 <span class="lineNum">     232 </span>                : */
 <span class="lineNum">     233 </span>                :         
-<span class="lineNum">     234 </span><span class="lineCov">         137441 :     llp-&gt;flits.clear();</span>
-<span class="lineNum">     235 </span><span class="lineCov">         137441 :     llp-&gt;control_bits.clear();</span>
-<span class="lineNum">     236 </span><span class="lineCov">         137441 :     llp-&gt;payload.clear();</span>
+<span class="lineNum">     234 </span><span class="lineCov">         301698 :     llp-&gt;flits.clear();</span>
+<span class="lineNum">     235 </span><span class="lineCov">         301698 :     llp-&gt;control_bits.clear();</span>
+<span class="lineNum">     236 </span><span class="lineCov">         301698 :     llp-&gt;payload.clear();</span>
 <span class="lineNum">     237 </span>                :     return ;
-<span class="lineNum">     238 </span><span class="lineCov">             10 : }               /* -----  end of function HighLevelPacket::from_low_level_packet  ----- */</span>
+<span class="lineNum">     238 </span><span class="lineCov">              2 : }               /* -----  end of function HighLevelPacket::from_low_level_packet  ----- */</span>
 <span class="lineNum">     239 </span>                : 
 <span class="lineNum">     240 </span>                : #endif   /* ----- #ifndef _highlevelpacket_cc_INC  ----- */
 <span class="lineNum">     241 </span>                : 

@@ -30,14 +30,14 @@
           <td class="headerValue" width="20%">2010-05-24</td>
           <td width="20%"></td>
           <td class="headerItem" width="20%">Instrumented&nbsp;lines:</td>
-          <td class="headerValue" width="20%">16</td>
+          <td class="headerValue" width="20%">14</td>
         </tr>
         <tr>
           <td class="headerItem" width="20%">Code&nbsp;covered:</td>
-          <td class="headerValue" width="20%">87.5 %</td>
+          <td class="headerValue" width="20%">85.7 %</td>
           <td width="20%"></td>
           <td class="headerItem" width="20%">Executed&nbsp;lines:</td>
-          <td class="headerValue" width="20%">14</td>
+          <td class="headerValue" width="20%">12</td>
         </tr>
         </table>
       </td>
@@ -84,10 +84,10 @@
 <span class="lineNum">      31 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      32 </span>                :  */
 <span class="lineNum">      33 </span>                : 
-<span class="lineNum">      34 </span><span class="lineCov">             16 : CmdBusHandler::CmdBusHandler()</span>
+<span class="lineNum">      34 </span><span class="lineCov">              8 : CmdBusHandler::CmdBusHandler()</span>
 <span class="lineNum">      35 </span>                : {
 <span class="lineNum">      36 </span>                :     
-<span class="lineNum">      37 </span><span class="lineCov">             16 : }</span>
+<span class="lineNum">      37 </span><span class="lineCov">              8 : }</span>
 <span class="lineNum">      38 </span>                : 
 <span class="lineNum">      39 </span>                : /*
 <span class="lineNum">      40 </span>                :  *--------------------------------------------------------------------------------------
@@ -108,23 +108,23 @@
 <span class="lineNum">      55 </span>                :  * Description:  
 <span class="lineNum">      56 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      57 </span>                :  */
-<span class="lineNum">      58 </span><span class="lineCov">         654784 : void CmdBusHandler::process_event(IrisEvent* e)</span>
+<span class="lineNum">      58 </span><span class="lineCov">         331803 : void CmdBusHandler::process_event(IrisEvent* e)</span>
 <span class="lineNum">      59 </span>                : {
-<span class="lineNum">      60 </span><span class="lineCov">         654784 :     DRAMCmdState *cmd = new DRAMCmdState();</span>
-<span class="lineNum">      61 </span><span class="lineCov">         654784 :     IrisEvent *event = new IrisEvent();</span>
-<span class="lineNum">      62 </span><span class="lineCov">         654784 :     *cmd = *((DRAMCmdState*)e-&gt;event_data.at(0));    //TODO needs to set this through manifold kernel's links</span>
-<span class="lineNum">      63 </span><span class="lineCov">         654784 :     event-&gt;src = (Component*)this;</span>
-<span class="lineNum">      64 </span><span class="lineCov">         654784 :     event-&gt;dst = (Component*)child;</span>
-<span class="lineNum">      65 </span><span class="lineCov">         654784 :     event-&gt;type = START_READ;        </span>
-<span class="lineNum">      66 </span><span class="lineCov">         654784 :     event-&gt;event_data.push_back((void*)cmd); //TODO needs to set this through manifold kernel's links</span>
+<span class="lineNum">      60 </span>                :   //  DRAMCmdState *cmd = new DRAMCmdState();
+<span class="lineNum">      61 </span><span class="lineCov">         331803 :     IrisEvent *event = new IrisEvent();</span>
+<span class="lineNum">      62 </span><span class="lineCov">         331803 :     DRAMCmdState* cmd = ((DRAMCmdState*)e-&gt;event_data.at(0));        //TODO needs to set this through manifold kernel's links</span>
+<span class="lineNum">      63 </span><span class="lineCov">         331803 :     event-&gt;src = (Component*)this;</span>
+<span class="lineNum">      64 </span><span class="lineCov">         331803 :     event-&gt;dst = (Component*)child;</span>
+<span class="lineNum">      65 </span><span class="lineCov">         331803 :     event-&gt;type = START_READ;        </span>
+<span class="lineNum">      66 </span><span class="lineCov">         331803 :     event-&gt;event_data.push_back((void*)cmd); //TODO needs to set this through manifold kernel's links</span>
 <span class="lineNum">      67 </span>                : #ifdef DEEP_DEBUG
 <span class="lineNum">      68 </span>                :     cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: &quot; &lt;&lt; hex &lt;&lt; cmd-&gt;req.address &lt;&lt; &quot;: Sending &quot; &lt;&lt; dec &lt;&lt; cmd-&gt;cmd &lt;&lt; &quot; to DRAM &quot; &lt;&lt; endl;       
 <span class="lineNum">      69 </span>                : #endif
-<span class="lineNum">      70 </span><span class="lineCov">         654784 :     Simulator::Schedule(Simulator::Now()+t_CMD, &amp;DRAMChannel::process_event, (DRAMChannel*)event-&gt;dst, event);  </span>
+<span class="lineNum">      70 </span><span class="lineCov">         331803 :     Simulator::Schedule(Simulator::Now()+t_CMD, &amp;DRAMChannel::process_event, (DRAMChannel*)event-&gt;dst, event);  </span>
 <span class="lineNum">      71 </span>                : 
-<span class="lineNum">      72 </span><span class="lineCov">        1309568 :     delete (DRAMCmdState*)e-&gt;event_data.at(0);       </span>
-<span class="lineNum">      73 </span><span class="lineCov">         654784 :     delete e;</span>
-<span class="lineNum">      74 </span><span class="lineCov">         654788 : }</span>
+<span class="lineNum">      72 </span>                :  //   delete (DRAMCmdState*)e-&gt;event_data.at(0);     
+<span class="lineNum">      73 </span><span class="lineCov">         331803 :     delete e;</span>
+<span class="lineNum">      74 </span><span class="lineCov">         331805 : }</span>
 <span class="lineNum">      75 </span>                : 
 </pre>
       </td>

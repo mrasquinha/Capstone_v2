@@ -271,12 +271,11 @@ GenericRouterNoVcs::do_switch_traversal()
         if( input_buffer_state[i].pipe_stage == ST)
         {
                 uint oport = input_buffer_state[i].output_port;
-                uint och = input_buffer_state[i].output_channel;
                 uint iport = input_buffer_state[i].input_port;
                 uint ich = input_buffer_state[i].input_channel;
-                if( !xbar.is_empty(oport,och) 
+                if( !xbar.is_empty(oport,0) 
                     && input_buffer_state[i].flits_in_ib > 0
-                    && downstream_credits[oport][och]>0 )
+                    && downstream_credits[oport][0]>0 )
                 {
                     in_buffers[iport].change_pull_channel(ich);
                     Flit* f = in_buffers[iport].pull();
@@ -286,7 +285,7 @@ GenericRouterNoVcs::do_switch_traversal()
 
                     LinkArrivalData* data = new LinkArrivalData();
                     data->type = FLIT_ID;
-                    data->vc = och;
+                    data->vc = 0;
                     data->ptr = f;
 #ifdef _DEEP_DEBUG
                     _DBG(" FLIT OUT ftype: %d ", f->type);
@@ -312,7 +311,7 @@ GenericRouterNoVcs::do_switch_traversal()
                     Simulator::Schedule( Simulator::Now()+1,
                                      &NetworkComponent::process_event,
                                      output_connections[oport],event);
-                    downstream_credits[oport][och]--;
+                    downstream_credits[oport][0]--;
                     if( f->type == TAIL || (f->type == HEAD && static_cast<HeadFlit*>(f)->msg_class == ONE_FLIT_REQ))
                     {
                         input_buffer_state[i].clear_message = true;
@@ -320,7 +319,7 @@ GenericRouterNoVcs::do_switch_traversal()
                         swa.clear_winner(input_buffer_state[i].output_port, input_buffer_state[i].input_port);
                         xbar.pull(input_buffer_state[i].output_port,input_buffer_state[i].output_channel);
 #ifdef _DEBUG_ROUTER
-    _DBG(" Tail FO clear pkt for inport %d inch %d oport %d och %d ", iport, ich, oport, och);
+    _DBG(" Tail FO clear pkt for inport %d inch %d oport %d ", iport, ich, oport);
 #endif
                         /* Update packet stats */
                         double lat = Simulator::Now() - input_buffer_state[i].arrival_time;
@@ -329,7 +328,7 @@ GenericRouterNoVcs::do_switch_traversal()
                     else
                     {
 #ifdef _DEBUG_ROUTER
-    _DBG(" Flit out for inport %d inch %d oport %d och %d fty: %d ", iport, ich, oport, och, f->type);
+    _DBG(" Flit out for inport %d inch %d oport %d fty: %d ", iport, ich, oport, f->type);
 #endif
                     }
 
@@ -347,14 +346,14 @@ GenericRouterNoVcs::do_switch_traversal()
 #endif
 //                        ticking = true;
                     }
-                    else if (xbar.is_empty(oport,och))
+                    else if (xbar.is_empty(oport,0))
                     {
                         _DBG_NOARG(" switch was allocated but crossbar is empty ");
                     }
-                    else if (downstream_credits[oport][och] == 0)
+                    else if (downstream_credits[oport][0] == 0)
                     {
 #ifdef _DEBUG_ROUTER
-                        _DBG(" Waiting for downstream credits on oport %d och %d ", oport, och);
+                        _DBG(" Waiting for downstream credits on oport %d ", oport);
 #endif
 //                       ticking = true;
                     }
@@ -474,7 +473,6 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
             uint iport = input_buffer_state[i].input_port;
             uint ich = input_buffer_state[i].input_channel;
             uint oport = input_buffer_state[i].output_port ;
-            uint och = input_buffer_state[i].output_channel; 
 
             if ((input_buffer_state[i].pipe_stage == ST || input_buffer_state[i].pipe_stage == IB )
 //			|| input_buffer_state[i].pipe_stage == SWA_REQUESTED 
@@ -488,7 +486,7 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
                     /*! \brief Sending credits back for body+tail: Condition being
                      * HEAD in ST and having downstream credits 
                         */
-//                    if( input_buffer_state[i].pipe_stage == ST && downstream_credits[oport][och] > 0)
+//                    if( input_buffer_state[i].pipe_stage == ST && downstream_credits[oport][0] > 0)
 //                        send_credit_back(i);
                 }
     }
@@ -501,16 +499,15 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
             uint iport = input_buffer_state[i].input_port;
             uint ich = input_buffer_state[i].input_channel;
             uint oport = input_buffer_state[i].possible_oports[0];
-            uint och = input_buffer_state[i].possible_ovcs[0]; 
             //input_buffer_state[i].pipe_stage = ROUTED;
             if( !swa.is_requested(oport,iport) 
-                && downstream_credits[oport][och] > 0)
+                && downstream_credits[oport][0] > 0)
             {
                 swa.request(oport, iport);
                 input_buffer_state[i].pipe_stage = SWA_REQUESTED;
                 ticking = true;
 #ifdef _DEBUG_ROUTER
-                _DBG(" Req SWA for inport %d inch %d oport %d och %d ", iport, ich,oport,och);
+                _DBG(" Req SWA for inport %d inch %d oport %d ", iport, ich,oport);
 #endif
             }
 #ifdef _DEBUG_ROUTER
@@ -518,11 +515,11 @@ GenericRouterNoVcs::handle_tick_event ( IrisEvent* e )
             {
                 if (swa.is_requested(oport, iport))
                 {
-                    _DBG("Cant req SWA. SWA full inport:%d inch:%d oport:%d och:%d",iport,ich,oport,och);
+                    _DBG("Cant req SWA. SWA full inport:%d inch:%d oport:%d ",iport,ich,oport);
                 }
                 else if(downstream_credits[input_buffer_state[i].possible_oports[0]][input_buffer_state[i].possible_ovcs[0]] == 0)
                 {
-                    _DBG("Not requesting SWA. No downstream credits for oport:%d och:%d",oport,och);
+                    _DBG("Not requesting SWA. No downstream credits for oport:%d ",oport);
                 }
             }
 #endif

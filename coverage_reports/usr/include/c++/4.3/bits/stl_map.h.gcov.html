@@ -142,7 +142,7 @@
 <span class="lineNum">      89 </span>                :   template &lt;typename _Key, typename _Tp, typename _Compare = std::less&lt;_Key&gt;,
 <span class="lineNum">      90 </span>                :             typename _Alloc = std::allocator&lt;std::pair&lt;const _Key, _Tp&gt; &gt; &gt;
 <span class="lineNum">      91 </span>                :     class map
-<span class="lineNum">      92 </span><span class="lineCov">              5 :     {</span>
+<span class="lineNum">      92 </span><span class="lineCov">              1 :     {</span>
 <span class="lineNum">      93 </span>                :     public:
 <span class="lineNum">      94 </span>                :       typedef _Key                                          key_type;
 <span class="lineNum">      95 </span>                :       typedef _Tp                                           mapped_type;
@@ -206,7 +206,7 @@
 <span class="lineNum">     153 </span>                :        *  @brief  Default constructor creates no elements.
 <span class="lineNum">     154 </span>                :        */
 <span class="lineNum">     155 </span><span class="lineNoCov">              0 :       map()</span>
-<span class="lineNum">     156 </span><span class="lineCov">             15 :       : _M_t() { }</span>
+<span class="lineNum">     156 </span><span class="lineCov">              6 :       : _M_t() { }</span>
 <span class="lineNum">     157 </span>                : 
 <span class="lineNum">     158 </span>                :       /**
 <span class="lineNum">     159 </span>                :        *  @brief  Creates a %map with no elements.
@@ -344,7 +344,7 @@
 <span class="lineNum">     291 </span>                :        */
 <span class="lineNum">     292 </span>                :       iterator
 <span class="lineNum">     293 </span><span class="lineNoCov">              0 :       end()</span>
-<span class="lineNum">     294 </span><span class="lineCov">           4250 :       { return _M_t.end(); }</span>
+<span class="lineNum">     294 </span><span class="lineCov">            872 :       { return _M_t.end(); }</span>
 <span class="lineNum">     295 </span>                : 
 <span class="lineNum">     296 </span>                :       /**
 <span class="lineNum">     297 </span>                :        *  Returns a read-only (constant) iterator that points one past the last
@@ -461,16 +461,16 @@
 <span class="lineNum">     408 </span>                :        *  Lookup requires logarithmic time.
 <span class="lineNum">     409 </span>                :        */
 <span class="lineNum">     410 </span>                :       mapped_type&amp;
-<span class="lineNum">     411 </span><span class="lineCov">           4250 :       operator[](const key_type&amp; __k)</span>
+<span class="lineNum">     411 </span><span class="lineCov">            872 :       operator[](const key_type&amp; __k)</span>
 <span class="lineNum">     412 </span>                :       {
 <span class="lineNum">     413 </span>                :         // concept requirements
 <span class="lineNum">     414 </span>                :         __glibcxx_function_requires(_DefaultConstructibleConcept&lt;mapped_type&gt;)
 <span class="lineNum">     415 </span>                : 
 <span class="lineNum">     416 </span>                :         iterator __i = lower_bound(__k);
 <span class="lineNum">     417 </span>                :         // __i-&gt;first is greater than or equivalent to __k.
-<span class="lineNum">     418 </span><span class="lineCov">           4250 :         if (__i == end() || key_comp()(__k, (*__i).first))</span>
-<span class="lineNum">     419 </span><span class="lineCov">           8500 :           __i = insert(__i, value_type(__k, mapped_type()));</span>
-<span class="lineNum">     420 </span><span class="lineCov">           4250 :         return (*__i).second;</span>
+<span class="lineNum">     418 </span><span class="lineCov">            872 :         if (__i == end() || key_comp()(__k, (*__i).first))</span>
+<span class="lineNum">     419 </span><span class="lineCov">           1744 :           __i = insert(__i, value_type(__k, mapped_type()));</span>
+<span class="lineNum">     420 </span><span class="lineCov">            872 :         return (*__i).second;</span>
 <span class="lineNum">     421 </span>                :       }
 <span class="lineNum">     422 </span>                : 
 <span class="lineNum">     423 </span>                :       // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -518,8 +518,8 @@
 <span class="lineNum">     465 </span>                :        *  Insertion requires logarithmic time.
 <span class="lineNum">     466 </span>                :        */
 <span class="lineNum">     467 </span>                :       std::pair&lt;iterator, bool&gt;
-<span class="lineNum">     468 </span><span class="lineCov">            640 :       insert(const value_type&amp; __x)</span>
-<span class="lineNum">     469 </span><span class="lineCov">            640 :       { return _M_t._M_insert_unique(__x); }</span>
+<span class="lineNum">     468 </span><span class="lineCov">            320 :       insert(const value_type&amp; __x)</span>
+<span class="lineNum">     469 </span><span class="lineCov">            320 :       { return _M_t._M_insert_unique(__x); }</span>
 <span class="lineNum">     470 </span>                : 
 <span class="lineNum">     471 </span>                :       /**
 <span class="lineNum">     472 </span>                :        *  @brief Attempts to insert a std::pair into the %map.
@@ -545,8 +545,8 @@
 <span class="lineNum">     492 </span>                :        *  Insertion requires logarithmic time (if the hint is not taken).
 <span class="lineNum">     493 </span>                :        */
 <span class="lineNum">     494 </span>                :       iterator
-<span class="lineNum">     495 </span><span class="lineCov">           4250 :       insert(iterator __position, const value_type&amp; __x)</span>
-<span class="lineNum">     496 </span><span class="lineCov">           4250 :       { return _M_t._M_insert_unique_(__position, __x); }</span>
+<span class="lineNum">     495 </span><span class="lineCov">            872 :       insert(iterator __position, const value_type&amp; __x)</span>
+<span class="lineNum">     496 </span><span class="lineCov">            872 :       { return _M_t._M_insert_unique_(__position, __x); }</span>
 <span class="lineNum">     497 </span>                : 
 <span class="lineNum">     498 </span>                :       /**
 <span class="lineNum">     499 </span>                :        *  @brief Template function that attempts to insert a range of elements.
@@ -632,7 +632,7 @@
 <span class="lineNum">     579 </span>                :        */
 <span class="lineNum">     580 </span>                :       void
 <span class="lineNum">     581 </span><span class="lineNoCov">              0 :       clear()</span>
-<span class="lineNum">     582 </span><span class="lineCov">              2 :       { _M_t.clear(); }</span>
+<span class="lineNum">     582 </span><span class="lineCov">              1 :       { _M_t.clear(); }</span>
 <span class="lineNum">     583 </span>                : 
 <span class="lineNum">     584 </span>                :       // observers
 <span class="lineNum">     585 </span>                :       /**
@@ -664,8 +664,8 @@
 <span class="lineNum">     611 </span>                :        *  past-the-end ( @c end() ) iterator.
 <span class="lineNum">     612 </span>                :        */
 <span class="lineNum">     613 </span>                :       iterator
-<span class="lineNum">     614 </span><span class="lineCov">            768 :       find(const key_type&amp; __x)</span>
-<span class="lineNum">     615 </span><span class="lineCov">            768 :       { return _M_t.find(__x); }</span>
+<span class="lineNum">     614 </span><span class="lineCov">            384 :       find(const key_type&amp; __x)</span>
+<span class="lineNum">     615 </span><span class="lineCov">            384 :       { return _M_t.find(__x); }</span>
 <span class="lineNum">     616 </span>                : 
 <span class="lineNum">     617 </span>                :       /**
 <span class="lineNum">     618 </span>                :        *  @brief Tries to locate an element in a %map.
@@ -707,7 +707,7 @@
 <span class="lineNum">     654 </span>                :        */
 <span class="lineNum">     655 </span>                :       iterator
 <span class="lineNum">     656 </span><span class="lineNoCov">              0 :       lower_bound(const key_type&amp; __x)</span>
-<span class="lineNum">     657 </span><span class="lineCov">           4250 :       { return _M_t.lower_bound(__x); }</span>
+<span class="lineNum">     657 </span><span class="lineCov">            872 :       { return _M_t.lower_bound(__x); }</span>
 <span class="lineNum">     658 </span>                : 
 <span class="lineNum">     659 </span>                :       /**
 <span class="lineNum">     660 </span>                :        *  @brief Finds the beginning of a subsequence matching given key.

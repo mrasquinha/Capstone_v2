@@ -327,17 +327,17 @@
 <span class="lineNum">     274 </span>                : fread (void *__restrict __ptr, size_t __size, size_t __n,
 <span class="lineNum">     275 </span><span class="lineNoCov">              0 :        FILE *__restrict __stream)</span>
 <span class="lineNum">     276 </span>                : {
-<span class="lineNum">     277 </span><span class="lineCov">      367388112 :   if (__bos0 (__ptr) != (size_t) -1)</span>
+<span class="lineNum">     277 </span><span class="lineCov">      369268848 :   if (__bos0 (__ptr) != (size_t) -1)</span>
 <span class="lineNum">     278 </span>                :     {
-<span class="lineNum">     279 </span><span class="lineCov">      367388112 :       if (!__builtin_constant_p (__size)</span>
+<span class="lineNum">     279 </span><span class="lineCov">      369268848 :       if (!__builtin_constant_p (__size)</span>
 <span class="lineNum">     280 </span>                :           || !__builtin_constant_p (__n)
 <span class="lineNum">     281 </span>                :           || (__size | __n) &gt;= (((size_t) 1) &lt;&lt; (8 * sizeof (size_t) / 2)))
 <span class="lineNum">     282 </span><span class="lineNoCov">              0 :         return __fread_chk (__ptr, __bos0 (__ptr), __size, __n, __stream);</span>
 <span class="lineNum">     283 </span>                : 
-<span class="lineNum">     284 </span><span class="lineCov">      367388112 :       if (__size * __n &gt; __bos0 (__ptr))</span>
+<span class="lineNum">     284 </span><span class="lineCov">      369268848 :       if (__size * __n &gt; __bos0 (__ptr))</span>
 <span class="lineNum">     285 </span><span class="lineNoCov">              0 :         return __fread_chk_warn (__ptr, __bos0 (__ptr), __size, __n, __stream);</span>
 <span class="lineNum">     286 </span>                :     }
-<span class="lineNum">     287 </span><span class="lineCov">      367388112 :   return __fread_alias (__ptr, __size, __n, __stream);</span>
+<span class="lineNum">     287 </span><span class="lineCov">      369268848 :   return __fread_alias (__ptr, __size, __n, __stream);</span>
 <span class="lineNum">     288 </span>                : }
 <span class="lineNum">     289 </span>                : 
 <span class="lineNum">     290 </span>                : #ifdef __USE_GNU

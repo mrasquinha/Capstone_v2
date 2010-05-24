@@ -143,7 +143,7 @@
 <span class="lineNum">      90 </span>                :   template&lt;typename _Key, typename _Compare = std::less&lt;_Key&gt;,
 <span class="lineNum">      91 </span>                :            typename _Alloc = std::allocator&lt;_Key&gt; &gt;
 <span class="lineNum">      92 </span>                :     class set
-<span class="lineNum">      93 </span><span class="lineCov">              5 :     {</span>
+<span class="lineNum">      93 </span><span class="lineCov">              1 :     {</span>
 <span class="lineNum">      94 </span>                :       // concept requirements
 <span class="lineNum">      95 </span>                :       typedef typename _Alloc::value_type                   _Alloc_value_type;
 <span class="lineNum">      96 </span>                :       __glibcxx_class_requires(_Key, _SGIAssignableConcept)
@@ -192,7 +192,7 @@
 <span class="lineNum">     139 </span>                :        *  @brief  Default constructor creates no elements.
 <span class="lineNum">     140 </span>                :        */
 <span class="lineNum">     141 </span><span class="lineNoCov">              0 :       set()</span>
-<span class="lineNum">     142 </span><span class="lineCov">              5 :       : _M_t() { }</span>
+<span class="lineNum">     142 </span><span class="lineCov">              1 :       : _M_t() { }</span>
 <span class="lineNum">     143 </span>                : 
 <span class="lineNum">     144 </span>                :       /**
 <span class="lineNum">     145 </span>                :        *  @brief  Creates a %set with no elements.
@@ -312,7 +312,7 @@
 <span class="lineNum">     259 </span>                :        */
 <span class="lineNum">     260 </span>                :       iterator
 <span class="lineNum">     261 </span><span class="lineNoCov">              0 :       begin() const</span>
-<span class="lineNum">     262 </span><span class="lineCov">       53954035 :       { return _M_t.begin(); }</span>
+<span class="lineNum">     262 </span><span class="lineCov">       43851286 :       { return _M_t.begin(); }</span>
 <span class="lineNum">     263 </span>                : 
 <span class="lineNum">     264 </span>                :       /**
 <span class="lineNum">     265 </span>                :        *  Returns a read-only (constant) iterator that points one past the last
@@ -382,7 +382,7 @@
 <span class="lineNum">     329 </span>                :       ///  Returns true if the %set is empty.
 <span class="lineNum">     330 </span>                :       bool
 <span class="lineNum">     331 </span><span class="lineNoCov">              0 :       empty() const</span>
-<span class="lineNum">     332 </span><span class="lineCov">      107908076 :       { return _M_t.empty(); }</span>
+<span class="lineNum">     332 </span><span class="lineCov">       87702574 :       { return _M_t.empty(); }</span>
 <span class="lineNum">     333 </span>                : 
 <span class="lineNum">     334 </span>                :       ///  Returns the size of the %set.
 <span class="lineNum">     335 </span>                :       size_type
@@ -428,10 +428,10 @@
 <span class="lineNum">     375 </span>                :        *  Insertion requires logarithmic time.
 <span class="lineNum">     376 </span>                :        */
 <span class="lineNum">     377 </span>                :       std::pair&lt;iterator, bool&gt;
-<span class="lineNum">     378 </span><span class="lineCov">       45810099 :       insert(const value_type&amp; __x)</span>
+<span class="lineNum">     378 </span><span class="lineCov">       43851377 :       insert(const value_type&amp; __x)</span>
 <span class="lineNum">     379 </span>                :       {
 <span class="lineNum">     380 </span>                :         std::pair&lt;typename _Rep_type::iterator, bool&gt; __p =
-<span class="lineNum">     381 </span><span class="lineCov">       45810099 :           _M_t._M_insert_unique(__x);</span>
+<span class="lineNum">     381 </span><span class="lineCov">       43851377 :           _M_t._M_insert_unique(__x);</span>
 <span class="lineNum">     382 </span>                :         return std::pair&lt;iterator, bool&gt;(__p.first, __p.second);
 <span class="lineNum">     383 </span>                :       }
 <span class="lineNum">     384 </span>                : 
@@ -483,7 +483,7 @@
 <span class="lineNum">     430 </span>                :        */
 <span class="lineNum">     431 </span>                :       void
 <span class="lineNum">     432 </span><span class="lineNoCov">              0 :       erase(iterator __position)</span>
-<span class="lineNum">     433 </span><span class="lineCov">       53954035 :       { _M_t.erase(__position); }</span>
+<span class="lineNum">     433 </span><span class="lineCov">       43851286 :       { _M_t.erase(__position); }</span>
 <span class="lineNum">     434 </span>                : 
 <span class="lineNum">     435 </span>                :       /**
 <span class="lineNum">     436 </span>                :        *  @brief Erases elements according to the provided key.

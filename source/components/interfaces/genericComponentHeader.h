@@ -40,6 +40,7 @@ using namespace std;
 
 typedef unsigned long int uniqueId;  /* assuming this will be atleast 4 bytes and hence ~4G addresses for node id's and transaction id's and so on */
 typedef unsigned long long int simTime;
+typedef unsigned long long int ullint;
 typedef unsigned int uint;
 enum message_class { INVALID_PKT, REQUEST_PKT, RESPONSE_PKT, ONE_FLIT_REQ};
 

@@ -119,9 +119,9 @@
 <span class="lineNum">      66 </span>                :   static inline _Atomic_word
 <span class="lineNum">      67 </span><span class="lineNoCov">              0 :   __exchange_and_add_single(_Atomic_word* __mem, int __val)</span>
 <span class="lineNum">      68 </span>                :   {
-<span class="lineNum">      69 </span><span class="lineCov">          10778 :     _Atomic_word __result = *__mem;</span>
-<span class="lineNum">      70 </span><span class="lineCov">          10778 :     *__mem += __val;</span>
-<span class="lineNum">      71 </span><span class="lineCov">          10778 :     return __result;</span>
+<span class="lineNum">      69 </span><span class="lineCov">           4649 :     _Atomic_word __result = *__mem;</span>
+<span class="lineNum">      70 </span><span class="lineCov">           4649 :     *__mem += __val;</span>
+<span class="lineNum">      71 </span><span class="lineCov">           4649 :     return __result;</span>
 <span class="lineNum">      72 </span>                :   }
 <span class="lineNum">      73 </span>                : 
 <span class="lineNum">      74 </span>                :   static inline void
@@ -130,13 +130,13 @@
 <span class="lineNum">      77 </span>                : 
 <span class="lineNum">      78 </span>                :   static inline _Atomic_word
 <span class="lineNum">      79 </span>                :   __attribute__ ((__unused__))
-<span class="lineNum">      80 </span><span class="lineCov">          10778 :   __exchange_and_add_dispatch(_Atomic_word* __mem, int __val)</span>
+<span class="lineNum">      80 </span><span class="lineCov">           4649 :   __exchange_and_add_dispatch(_Atomic_word* __mem, int __val)</span>
 <span class="lineNum">      81 </span>                :   {
 <span class="lineNum">      82 </span>                : #ifdef __GTHREADS
-<span class="lineNum">      83 </span><span class="lineCov">          10778 :     if (__gthread_active_p())</span>
+<span class="lineNum">      83 </span><span class="lineCov">           4649 :     if (__gthread_active_p())</span>
 <span class="lineNum">      84 </span><span class="lineNoCov">              0 :       return __exchange_and_add(__mem, __val);</span>
 <span class="lineNum">      85 </span>                :     else
-<span class="lineNum">      86 </span><span class="lineCov">          10778 :       return __exchange_and_add_single(__mem, __val);</span>
+<span class="lineNum">      86 </span><span class="lineCov">           4649 :       return __exchange_and_add_single(__mem, __val);</span>
 <span class="lineNum">      87 </span>                : #else
 <span class="lineNum">      88 </span>                :     return __exchange_and_add_single(__mem, __val);
 <span class="lineNum">      89 </span>                : #endif

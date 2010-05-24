@@ -921,10 +921,10 @@
 <span class="lineNum">     868 </span>                :        *  @return  The converted character.
 <span class="lineNum">     869 </span>                :       */
 <span class="lineNum">     870 </span>                :       char_type
-<span class="lineNum">     871 </span><span class="lineCov">           6829 :       widen(char __c) const</span>
+<span class="lineNum">     871 </span><span class="lineCov">           3009 :       widen(char __c) const</span>
 <span class="lineNum">     872 </span>                :       {
-<span class="lineNum">     873 </span><span class="lineCov">           6829 :         if (_M_widen_ok)</span>
-<span class="lineNum">     874 </span><span class="lineCov">           6828 :           return _M_widen[static_cast&lt;unsigned char&gt;(__c)];</span>
+<span class="lineNum">     873 </span><span class="lineCov">           3009 :         if (_M_widen_ok)</span>
+<span class="lineNum">     874 </span><span class="lineCov">           3008 :           return _M_widen[static_cast&lt;unsigned char&gt;(__c)];</span>
 <span class="lineNum">     875 </span><span class="lineCov">              1 :         this-&gt;_M_widen_init();</span>
 <span class="lineNum">     876 </span><span class="lineCov">              1 :         return this-&gt;do_widen(__c);</span>
 <span class="lineNum">     877 </span>                :       }

@@ -148,15 +148,15 @@
 <span class="lineNum">      95 </span>                :         struct rebind
 <span class="lineNum">      96 </span>                :         { typedef allocator&lt;_Tp1&gt; other; };
 <span class="lineNum">      97 </span>                : 
-<span class="lineNum">      98 </span><span class="lineCov">       54911736 :       allocator() throw() { }</span>
+<span class="lineNum">      98 </span><span class="lineCov">       47393558 :       allocator() throw() { }</span>
 <span class="lineNum">      99 </span>                : 
 <span class="lineNum">     100 </span><span class="lineNoCov">              0 :       allocator(const allocator&amp; __a) throw()</span>
-<span class="lineNum">     101 </span><span class="lineCov">          33824 :       : __glibcxx_base_allocator&lt;_Tp&gt;(__a) { }</span>
+<span class="lineNum">     101 </span><span class="lineCov">          11982 :       : __glibcxx_base_allocator&lt;_Tp&gt;(__a) { }</span>
 <span class="lineNum">     102 </span>                : 
 <span class="lineNum">     103 </span>                :       template&lt;typename _Tp1&gt;
-<span class="lineNum">     104 </span><span class="lineCov">      549354869 :         allocator(const allocator&lt;_Tp1&gt;&amp;) throw() { }</span>
+<span class="lineNum">     104 </span><span class="lineCov">       87710002 :         allocator(const allocator&lt;_Tp1&gt;&amp;) throw() { }</span>
 <span class="lineNum">     105 </span>                : 
-<span class="lineNum">     106 </span><span class="lineCov">      604280123 :       ~allocator() throw() { }</span>
+<span class="lineNum">     106 </span><span class="lineCov">      135112249 :       ~allocator() throw() { }</span>
 <span class="lineNum">     107 </span>                : 
 <span class="lineNum">     108 </span>                :       // Inherit everything else.
 <span class="lineNum">     109 </span>                :     };

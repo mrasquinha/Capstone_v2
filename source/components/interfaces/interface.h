@@ -45,6 +45,8 @@ class Interface: public NetworkComponent
         virtual void set_no_vcs( uint cr ) = 0;
         virtual void process_event( IrisEvent* e) = 0;
         virtual string print_stats () = 0;
+        virtual ullint get_packets_out () = 0;
+        virtual ullint get_flits_out () = 0;
 
     protected:
 

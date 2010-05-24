@@ -117,46 +117,46 @@
 <span class="lineNum">      64 </span>                :  * Description:  
 <span class="lineNum">      65 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      66 </span>                :  */
-<span class="lineNum">      67 </span><span class="lineCov">         316030 : void MSHR_H::process_event(IrisEvent* e)</span>
+<span class="lineNum">      67 </span><span class="lineCov">         316852 : void MSHR_H::process_event(IrisEvent* e)</span>
 <span class="lineNum">      68 </span>                : {
 <span class="lineNum">      69 </span>                :     Addr_t addr;
 <span class="lineNum">      70 </span>                :     UInt thread_id;
 <span class="lineNum">      71 </span>                :     Time time;
 <span class="lineNum">      72 </span>                :     UInt cmd;
 <span class="lineNum">      73 </span>                :         
-<span class="lineNum">      74 </span><span class="lineCov">         316030 :     if (e-&gt;type == MSHR_DELETE)</span>
+<span class="lineNum">      74 </span><span class="lineCov">         316852 :     if (e-&gt;type == MSHR_DELETE)</span>
 <span class="lineNum">      75 </span>                :     {
-<span class="lineNum">      76 </span><span class="lineCov">         147965 :         Request * req = new Request();</span>
-<span class="lineNum">      77 </span><span class="lineCov">         147965 :         *req = *((Request*)e-&gt;event_data.at(0));</span>
-<span class="lineNum">      78 </span><span class="lineCov">         147965 :         DeleteInMSHR(req);      </span>
+<span class="lineNum">      76 </span><span class="lineCov">         148647 :         Request * req = new Request();</span>
+<span class="lineNum">      77 </span><span class="lineCov">         148647 :         *req = *((Request*)e-&gt;event_data.at(0));</span>
+<span class="lineNum">      78 </span><span class="lineCov">         148647 :         DeleteInMSHR(req);      </span>
 <span class="lineNum">      79 </span>                : //      cout &lt;&lt; &quot;I came here in MSHR DELETE with &quot; &lt;&lt; hex &lt;&lt; req-&gt;address &lt;&lt; &quot;  &quot; &lt;&lt; id &lt;&lt; endl; 
 <span class="lineNum">      80 </span>                : 
-<span class="lineNum">      81 </span><span class="lineCov">         147965 :         if (waiting)            </span>
+<span class="lineNum">      81 </span><span class="lineCov">         148647 :         if (waiting)            </span>
 <span class="lineNum">      82 </span>                :         {   
-<span class="lineNum">      83 </span><span class="lineCov">          15754 :             unsink += (Simulator::Now()-lastFullTime);</span>
-<span class="lineNum">      84 </span><span class="lineCov">          15754 :             *req = waitingForMSHR;</span>
-<span class="lineNum">      85 </span><span class="lineCov">          15754 :             waiting = false;    </span>
+<span class="lineNum">      83 </span><span class="lineCov">          15110 :             unsink += (Simulator::Now()-lastFullTime);</span>
+<span class="lineNum">      84 </span><span class="lineCov">          15110 :             *req = waitingForMSHR;</span>
+<span class="lineNum">      85 </span><span class="lineCov">          15110 :             waiting = false;    </span>
 <span class="lineNum">      86 </span>                :         
-<span class="lineNum">      87 </span><span class="lineCov">          15754 :             IrisEvent *event = new IrisEvent(); </span>
-<span class="lineNum">      88 </span><span class="lineCov">          15754 :             event-&gt;src = (Component*)this;</span>
-<span class="lineNum">      89 </span><span class="lineCov">          15754 :             event-&gt;dst = (Component*)this;</span>
-<span class="lineNum">      90 </span><span class="lineCov">          15754 :             event-&gt;event_data.push_back(req);        </span>
-<span class="lineNum">      91 </span><span class="lineCov">          15754 :             Simulator::Schedule(Simulator::Now()+1, &amp;MSHR_H::process_event, (MSHR_H*)event-&gt;dst, event);</span>
+<span class="lineNum">      87 </span><span class="lineCov">          15110 :             IrisEvent *event = new IrisEvent(); </span>
+<span class="lineNum">      88 </span><span class="lineCov">          15110 :             event-&gt;src = (Component*)this;</span>
+<span class="lineNum">      89 </span><span class="lineCov">          15110 :             event-&gt;dst = (Component*)this;</span>
+<span class="lineNum">      90 </span><span class="lineCov">          15110 :             event-&gt;event_data.push_back(req);        </span>
+<span class="lineNum">      91 </span><span class="lineCov">          15110 :             Simulator::Schedule(Simulator::Now()+1, &amp;MSHR_H::process_event, (MSHR_H*)event-&gt;dst, event);</span>
 <span class="lineNum">      92 </span>                :             
-<span class="lineNum">      93 </span><span class="lineCov">          15754 :             IrisEvent *event2 = new IrisEvent();        </span>
-<span class="lineNum">      94 </span><span class="lineCov">          15754 :             event2-&gt;src = (Component*)this;</span>
-<span class="lineNum">      95 </span><span class="lineCov">          15754 :             event2-&gt;dst = (Component*)parent;</span>
-<span class="lineNum">      96 </span><span class="lineCov">          15754 :             event2-&gt;type = OUT_PULL_EVENT;   </span>
-<span class="lineNum">      97 </span><span class="lineCov">          15754 :             Simulator::Schedule(Simulator::Now()+1, &amp;GenericTPG::process_event, (GenericTPG*)event2-&gt;dst, event2);</span>
+<span class="lineNum">      93 </span><span class="lineCov">          15110 :             IrisEvent *event2 = new IrisEvent();        </span>
+<span class="lineNum">      94 </span><span class="lineCov">          15110 :             event2-&gt;src = (Component*)this;</span>
+<span class="lineNum">      95 </span><span class="lineCov">          15110 :             event2-&gt;dst = (Component*)parent;</span>
+<span class="lineNum">      96 </span><span class="lineCov">          15110 :             event2-&gt;type = OUT_PULL_EVENT;   </span>
+<span class="lineNum">      97 </span><span class="lineCov">          15110 :             Simulator::Schedule(Simulator::Now()+1, &amp;GenericTPG::process_event, (GenericTPG*)event2-&gt;dst, event2);</span>
 <span class="lineNum">      98 </span>                :         }
 <span class="lineNum">      99 </span>                :         else
-<span class="lineNum">     100 </span><span class="lineCov">         132211 :             delete req;</span>
+<span class="lineNum">     100 </span><span class="lineCov">         133537 :             delete req;</span>
 <span class="lineNum">     101 </span>                :     }           
-<span class="lineNum">     102 </span><span class="lineCov">         336130 :     else if (mshr.size() &gt;= MSHR_SIZE &amp;&amp; !waiting)</span>
+<span class="lineNum">     102 </span><span class="lineCov">         336410 :     else if (mshr.size() &gt;= MSHR_SIZE &amp;&amp; !waiting)</span>
 <span class="lineNum">     103 </span>                :     {
-<span class="lineNum">     104 </span><span class="lineCov">          15754 :         lastFullTime = Simulator::Now();</span>
-<span class="lineNum">     105 </span><span class="lineCov">          15754 :         waitingForMSHR = *((Request*)e-&gt;event_data.at(0));</span>
-<span class="lineNum">     106 </span><span class="lineCov">          15754 :         waiting = true;</span>
+<span class="lineNum">     104 </span><span class="lineCov">          15118 :         lastFullTime = Simulator::Now();</span>
+<span class="lineNum">     105 </span><span class="lineCov">          15118 :         waitingForMSHR = *((Request*)e-&gt;event_data.at(0));</span>
+<span class="lineNum">     106 </span><span class="lineCov">          15118 :         waiting = true;</span>
 <span class="lineNum">     107 </span>                : /*      unsink++;
 <span class="lineNum">     108 </span>                :         Request * req = new Request();  
 <span class="lineNum">     109 </span>                :         IrisEvent *event = new IrisEvent();
@@ -170,35 +170,35 @@
 <span class="lineNum">     117 </span>                : #endif
 <span class="lineNum">     118 </span>                : //      Simulator::Schedule(Simulator::Now()+1, &amp;MSHR_H::process_event, (MSHR_H*)event-&gt;dst, event);  
 <span class="lineNum">     119 </span>                :     }
-<span class="lineNum">     120 </span><span class="lineCov">         152311 :     else if (!waiting)</span>
+<span class="lineNum">     120 </span><span class="lineCov">         153087 :     else if (!waiting)</span>
 <span class="lineNum">     121 </span>                :     {
-<span class="lineNum">     122 </span><span class="lineCov">         152311 :         Request * req = new Request();</span>
-<span class="lineNum">     123 </span><span class="lineCov">         152311 :         *req = *((Request*)e-&gt;event_data.at(0));     //TODO needs to set this through manifold kernel's links</span>
-<span class="lineNum">     124 </span><span class="lineCov">         152311 :         assert( req-&gt;arrivalTime &lt; max_sim_time);</span>
-<span class="lineNum">     125 </span><span class="lineCov">         152311 :         req-&gt;startTime = Simulator::Now();</span>
-<span class="lineNum">     126 </span><span class="lineCov">         152311 :         if (req-&gt;cmdType!=CACHE_WRITEBACK)</span>
-<span class="lineNum">     127 </span><span class="lineCov">         148092 :             mshr.push_back(*req);</span>
+<span class="lineNum">     122 </span><span class="lineCov">         153087 :         Request * req = new Request();</span>
+<span class="lineNum">     123 </span><span class="lineCov">         153087 :         *req = *((Request*)e-&gt;event_data.at(0));     //TODO needs to set this through manifold kernel's links</span>
+<span class="lineNum">     124 </span><span class="lineCov">         153087 :         assert( req-&gt;arrivalTime &lt; max_sim_time);</span>
+<span class="lineNum">     125 </span><span class="lineCov">         153087 :         req-&gt;startTime = Simulator::Now();</span>
+<span class="lineNum">     126 </span><span class="lineCov">         153087 :         if (req-&gt;cmdType!=CACHE_WRITEBACK)</span>
+<span class="lineNum">     127 </span><span class="lineCov">         148853 :             mshr.push_back(*req);</span>
 <span class="lineNum">     128 </span>                :         else
-<span class="lineNum">     129 </span><span class="lineCov">           4219 :             writeQueue.push_back(*req);  </span>
+<span class="lineNum">     129 </span><span class="lineCov">           4234 :             writeQueue.push_back(*req);  </span>
 <span class="lineNum">     130 </span>                :         
 <span class="lineNum">     131 </span>                :                 
 <span class="lineNum">     132 </span>                : #ifdef DEEP_DEBUG
 <span class="lineNum">     133 </span>                :         cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: &quot; &lt;&lt; hex &lt;&lt; req-&gt;address &lt;&lt; &quot;: &quot; &lt;&lt; id &lt;&lt; &quot; PUSHED IN MSHR of size &quot; &lt;&lt; mshr.size() &lt;&lt; endl;
 <span class="lineNum">     134 </span>                : #endif
-<span class="lineNum">     135 </span><span class="lineCov">         152311 :         delete req;</span>
-<span class="lineNum">     136 </span><span class="lineCov">         304622 :         if (!trace_filename.eof())</span>
+<span class="lineNum">     135 </span><span class="lineCov">         153087 :         delete req;</span>
+<span class="lineNum">     136 </span><span class="lineCov">         306174 :         if (!trace_filename.eof())</span>
 <span class="lineNum">     137 </span>                :         {
-<span class="lineNum">     138 </span><span class="lineCov">         152311 :             trace_filename &gt;&gt; hex &gt;&gt; addr;</span>
-<span class="lineNum">     139 </span><span class="lineCov">         152311 :             trace_filename &gt;&gt; thread_id;  </span>
-<span class="lineNum">     140 </span><span class="lineCov">         152311 :             trace_filename &gt;&gt; dec &gt;&gt; time;</span>
-<span class="lineNum">     141 </span><span class="lineCov">         152311 :             trace_filename &gt;&gt; dec &gt;&gt; cmd; </span>
+<span class="lineNum">     138 </span><span class="lineCov">         153087 :             trace_filename &gt;&gt; hex &gt;&gt; addr;</span>
+<span class="lineNum">     139 </span><span class="lineCov">         153087 :             trace_filename &gt;&gt; thread_id;  </span>
+<span class="lineNum">     140 </span><span class="lineCov">         153087 :             trace_filename &gt;&gt; dec &gt;&gt; time;</span>
+<span class="lineNum">     141 </span><span class="lineCov">         153087 :             trace_filename &gt;&gt; dec &gt;&gt; cmd; </span>
 <span class="lineNum">     142 </span>                : 
 <span class="lineNum">     143 </span>                : //          if (!trace_filename.eof())
 <span class="lineNum">     144 </span>                : //          if (Simulator::Now() &gt; 100000)
 <span class="lineNum">     145 </span>                : //              done = 1;               
 <span class="lineNum">     146 </span>                :             
-<span class="lineNum">     147 </span><span class="lineCov">         152311 :             time = time+lastFinishTime;</span>
-<span class="lineNum">     148 </span><span class="lineCov">         304622 :             if (trace_filename.eof())</span>
+<span class="lineNum">     147 </span><span class="lineCov">         153087 :             time = time+lastFinishTime;</span>
+<span class="lineNum">     148 </span><span class="lineCov">         306174 :             if (trace_filename.eof())</span>
 <span class="lineNum">     149 </span>                :             {
 <span class="lineNum">     150 </span><span class="lineNoCov">              0 :                 if (done == 0)</span>
 <span class="lineNum">     151 </span>                :                 {
@@ -234,85 +234,85 @@
 <span class="lineNum">     181 </span>                :         
 <span class="lineNum">     182 </span>                :         
 <span class="lineNum">     183 </span>                : 
-<span class="lineNum">     184 </span><span class="lineCov">         152311 :         Request *req2 = new Request();</span>
-<span class="lineNum">     185 </span><span class="lineCov">         152311 :         req2-&gt;cmdType = (Command_t)cmd;</span>
-<span class="lineNum">     186 </span><span class="lineCov">         152311 :         req2-&gt;address = addr;</span>
-<span class="lineNum">     187 </span><span class="lineCov">         152311 :         req2-&gt;arrivalTime = time+unsink;</span>
-<span class="lineNum">     188 </span><span class="lineCov">         152311 :         req2-&gt;threadId = id;</span>
-<span class="lineNum">     189 </span><span class="lineCov">         152311 :         req2-&gt;address = GlobalAddrMap(req2-&gt;address,id);</span>
-<span class="lineNum">     190 </span><span class="lineCov">         152311 :         IrisEvent *event = new IrisEvent();</span>
-<span class="lineNum">     191 </span><span class="lineCov">         152311 :         event-&gt;src = (Component*)this;</span>
-<span class="lineNum">     192 </span><span class="lineCov">         152311 :         event-&gt;dst = (Component*)this;</span>
-<span class="lineNum">     193 </span><span class="lineCov">         152311 :         event-&gt;event_data.push_back(req2);</span>
-<span class="lineNum">     194 </span><span class="lineCov">         152311 :         event-&gt;type = 0;     </span>
-<span class="lineNum">     195 </span><span class="lineCov">         152311 :         Simulator::Schedule(time+unsink, &amp;MSHR_H::process_event, (MSHR_H*)event-&gt;dst, event);</span>
-<span class="lineNum">     196 </span><span class="lineCov">         152311 :         nextReq = *req2; </span>
+<span class="lineNum">     184 </span><span class="lineCov">         153087 :         Request *req2 = new Request();</span>
+<span class="lineNum">     185 </span><span class="lineCov">         153087 :         req2-&gt;cmdType = (Command_t)cmd;</span>
+<span class="lineNum">     186 </span><span class="lineCov">         153087 :         req2-&gt;address = addr;</span>
+<span class="lineNum">     187 </span><span class="lineCov">         153087 :         req2-&gt;arrivalTime = time+unsink;</span>
+<span class="lineNum">     188 </span><span class="lineCov">         153087 :         req2-&gt;threadId = id;</span>
+<span class="lineNum">     189 </span><span class="lineCov">         153087 :         req2-&gt;address = GlobalAddrMap(req2-&gt;address,id);</span>
+<span class="lineNum">     190 </span><span class="lineCov">         153087 :         IrisEvent *event = new IrisEvent();</span>
+<span class="lineNum">     191 </span><span class="lineCov">         153087 :         event-&gt;src = (Component*)this;</span>
+<span class="lineNum">     192 </span><span class="lineCov">         153087 :         event-&gt;dst = (Component*)this;</span>
+<span class="lineNum">     193 </span><span class="lineCov">         153087 :         event-&gt;event_data.push_back(req2);</span>
+<span class="lineNum">     194 </span><span class="lineCov">         153087 :         event-&gt;type = 0;     </span>
+<span class="lineNum">     195 </span><span class="lineCov">         153087 :         Simulator::Schedule(time+unsink, &amp;MSHR_H::process_event, (MSHR_H*)event-&gt;dst, event);</span>
+<span class="lineNum">     196 </span><span class="lineCov">         153087 :         nextReq = *req2; </span>
 <span class="lineNum">     197 </span>                :         
 <span class="lineNum">     198 </span>                :                  
-<span class="lineNum">     199 </span><span class="lineCov">         152311 :             IrisEvent *event3 = new IrisEvent();        </span>
-<span class="lineNum">     200 </span><span class="lineCov">         152311 :             event3-&gt;src = (Component*)this;</span>
-<span class="lineNum">     201 </span><span class="lineCov">         152311 :             event3-&gt;dst = (Component*)parent;</span>
-<span class="lineNum">     202 </span><span class="lineCov">         152311 :             event3-&gt;type = OUT_PULL_EVENT;   </span>
-<span class="lineNum">     203 </span><span class="lineCov">         152311 :             Simulator::Schedule(Simulator::Now()+1, &amp;GenericTPG::process_event, (GenericTPG*)event3-&gt;dst, event3);</span>
+<span class="lineNum">     199 </span><span class="lineCov">         153087 :             IrisEvent *event3 = new IrisEvent();        </span>
+<span class="lineNum">     200 </span><span class="lineCov">         153087 :             event3-&gt;src = (Component*)this;</span>
+<span class="lineNum">     201 </span><span class="lineCov">         153087 :             event3-&gt;dst = (Component*)parent;</span>
+<span class="lineNum">     202 </span><span class="lineCov">         153087 :             event3-&gt;type = OUT_PULL_EVENT;   </span>
+<span class="lineNum">     203 </span><span class="lineCov">         153087 :             Simulator::Schedule(Simulator::Now()+1, &amp;GenericTPG::process_event, (GenericTPG*)event3-&gt;dst, event3);</span>
 <span class="lineNum">     204 </span>                :     }
 <span class="lineNum">     205 </span>                :     else
 <span class="lineNum">     206 </span><span class="lineNoCov">              0 :         cout &lt;&lt; &quot;I should never come in else of MSHR&quot; &lt;&lt; endl;    </span>
-<span class="lineNum">     207 </span><span class="lineCov">         316030 :     delete (Request*)e-&gt;event_data.at(0);    </span>
-<span class="lineNum">     208 </span><span class="lineCov">         316030 :     delete e;</span>
-<span class="lineNum">     209 </span><span class="lineCov">         316030 : }</span>
+<span class="lineNum">     207 </span><span class="lineCov">         316852 :     delete (Request*)e-&gt;event_data.at(0);    </span>
+<span class="lineNum">     208 </span><span class="lineCov">         316852 :     delete e;</span>
+<span class="lineNum">     209 </span><span class="lineCov">         316852 : }</span>
 <span class="lineNum">     210 </span>                : 
 <span class="lineNum">     211 </span>                : int THREAD_BITS_POSITION;
-<span class="lineNum">     212 </span><span class="lineCov">         152367 : Addr_t MSHR_H::GlobalAddrMap(Addr_t addr, UInt threadId)</span>
+<span class="lineNum">     212 </span><span class="lineCov">         153143 : Addr_t MSHR_H::GlobalAddrMap(Addr_t addr, UInt threadId)</span>
 <span class="lineNum">     213 </span>                : {
 <span class="lineNum">     214 </span>                :     Addr_t newAddr;
-<span class="lineNum">     215 </span><span class="lineCov">         152367 :     unsigned int threadBits = ceil(log2(NO_OF_THREADS));</span>
-<span class="lineNum">     216 </span><span class="lineCov">         152367 :     unsigned int threadBitsPos = THREAD_BITS_POSITION;</span>
-<span class="lineNum">     217 </span><span class="lineCov">         152367 :     Addr_t lowerMask = (Addr_t)pow(2.0,threadBitsPos*1.0)-1;</span>
-<span class="lineNum">     218 </span><span class="lineCov">         152367 :     Addr_t upperMask = 0xFFFFFFFF &lt;&lt; threadBitsPos;</span>
-<span class="lineNum">     219 </span><span class="lineCov">         152367 :     Addr_t lowerAddr = addr &amp; lowerMask;</span>
-<span class="lineNum">     220 </span><span class="lineCov">         152367 :     Addr_t upperAddr = addr &amp; upperMask;</span>
-<span class="lineNum">     221 </span><span class="lineCov">         152367 :     Addr_t threadAddr = (threadId &amp; ((Addr_t)pow(2.0,threadBits*1.0)-1));</span>
-<span class="lineNum">     222 </span><span class="lineCov">         152367 :     newAddr = lowerAddr | (threadAddr &lt;&lt; threadBitsPos)| (upperAddr &lt;&lt; threadBits);</span>
+<span class="lineNum">     215 </span><span class="lineCov">         153143 :     unsigned int threadBits = ceil(log2(NO_OF_THREADS));</span>
+<span class="lineNum">     216 </span><span class="lineCov">         153143 :     unsigned int threadBitsPos = THREAD_BITS_POSITION;</span>
+<span class="lineNum">     217 </span><span class="lineCov">         153143 :     Addr_t lowerMask = (Addr_t)pow(2.0,threadBitsPos*1.0)-1;</span>
+<span class="lineNum">     218 </span><span class="lineCov">         153143 :     Addr_t upperMask = 0xFFFFFFFF &lt;&lt; threadBitsPos;</span>
+<span class="lineNum">     219 </span><span class="lineCov">         153143 :     Addr_t lowerAddr = addr &amp; lowerMask;</span>
+<span class="lineNum">     220 </span><span class="lineCov">         153143 :     Addr_t upperAddr = addr &amp; upperMask;</span>
+<span class="lineNum">     221 </span><span class="lineCov">         153143 :     Addr_t threadAddr = (threadId &amp; ((Addr_t)pow(2.0,threadBits*1.0)-1));</span>
+<span class="lineNum">     222 </span><span class="lineCov">         153143 :     newAddr = lowerAddr | (threadAddr &lt;&lt; threadBitsPos)| (upperAddr &lt;&lt; threadBits);</span>
 <span class="lineNum">     223 </span>                : //    cout &lt;&lt; hex &lt;&lt; addr &lt;&lt; &quot;, &quot; &lt;&lt; threadId &lt;&lt; &quot;, &quot; &lt;&lt; newAddr &lt;&lt; endl; 
-<span class="lineNum">     224 </span><span class="lineCov">         152367 :     return newAddr;</span>
+<span class="lineNum">     224 </span><span class="lineCov">         153143 :     return newAddr;</span>
 <span class="lineNum">     225 </span>                : }
 <span class="lineNum">     226 </span>                : 
-<span class="lineNum">     227 </span><span class="lineCov">         147965 : void MSHR_H::DeleteInMSHR(Request* req)</span>
+<span class="lineNum">     227 </span><span class="lineCov">         148647 : void MSHR_H::DeleteInMSHR(Request* req)</span>
 <span class="lineNum">     228 </span>                : {
-<span class="lineNum">     229 </span><span class="lineCov">         147965 :     vector&lt;Request&gt;::iterator index = mshr.begin();</span>
-<span class="lineNum">     230 </span><span class="lineCov">         590318 :     for (unsigned int i=0; i&lt;mshr.size(); i++)</span>
+<span class="lineNum">     229 </span><span class="lineCov">         148647 :     vector&lt;Request&gt;::iterator index = mshr.begin();</span>
+<span class="lineNum">     230 </span><span class="lineCov">         573838 :     for (unsigned int i=0; i&lt;mshr.size(); i++)</span>
 <span class="lineNum">     231 </span>                :     {
-<span class="lineNum">     232 </span><span class="lineCov">         590318 :         if (mshr[i].address == req-&gt;address)</span>
+<span class="lineNum">     232 </span><span class="lineCov">         573838 :         if (mshr[i].address == req-&gt;address)</span>
 <span class="lineNum">     233 </span>                :         {       
-<span class="lineNum">     234 </span><span class="lineCov">         147965 :             lastScheduledIndex--;               </span>
-<span class="lineNum">     235 </span><span class="lineCov">         295930 :             mshr.erase(i+index);</span>
-<span class="lineNum">     236 </span><span class="lineCov">         295930 :             ((GenericTPG*)parent)-&gt;roundTripLat += (Simulator::Now() - mshr[i].startTime);    </span>
+<span class="lineNum">     234 </span><span class="lineCov">         148647 :             lastScheduledIndex--;               </span>
+<span class="lineNum">     235 </span><span class="lineCov">         297294 :             mshr.erase(i+index);</span>
+<span class="lineNum">     236 </span><span class="lineCov">         297294 :             ((GenericTPG*)parent)-&gt;roundTripLat += (Simulator::Now() - mshr[i].startTime);    </span>
 <span class="lineNum">     237 </span>                : #ifdef DEEP_DEBUG
 <span class="lineNum">     238 </span>                :             cout &lt;&lt; Simulator::Now() &lt;&lt; hex &lt;&lt; &quot;: Deletion Time of Request &quot; &lt;&lt; req-&gt;address &lt;&lt; dec &lt;&lt; &quot;, of Thread &quot; &lt;&lt; id &lt;&lt; &quot;, &quot; &lt;&lt; endl;
 <span class="lineNum">     239 </span>                : #endif  
-<span class="lineNum">     240 </span><span class="lineCov">         147965 :              break;</span>
+<span class="lineNum">     240 </span><span class="lineCov">         148647 :              break;</span>
 <span class="lineNum">     241 </span>                :         }
 <span class="lineNum">     242 </span>                :      }
-<span class="lineNum">     243 </span><span class="lineCov">         147965 :      cout &lt;&lt; dec; </span>
-<span class="lineNum">     244 </span><span class="lineCov">         147965 : }</span>
+<span class="lineNum">     243 </span><span class="lineCov">         148647 :      cout &lt;&lt; dec; </span>
+<span class="lineNum">     244 </span><span class="lineCov">         148647 : }</span>
 <span class="lineNum">     245 </span>                : 
-<span class="lineNum">     246 </span><span class="lineCov">         152311 : void MSHR_H::demap_addr(Addr_t oldAddress, Addr_t newAddress)</span>
+<span class="lineNum">     246 </span><span class="lineCov">         153083 : void MSHR_H::demap_addr(Addr_t oldAddress, Addr_t newAddress)</span>
 <span class="lineNum">     247 </span>                : {
-<span class="lineNum">     248 </span><span class="lineCov">         152311 :     vector&lt;Request&gt;::iterator index = mshr.begin();</span>
-<span class="lineNum">     249 </span><span class="lineCov">        1297496 :     for (unsigned int i=0; i&lt;mshr.size(); i++)</span>
+<span class="lineNum">     248 </span><span class="lineCov">         153083 :     vector&lt;Request&gt;::iterator index = mshr.begin();</span>
+<span class="lineNum">     249 </span><span class="lineCov">        1278466 :     for (unsigned int i=0; i&lt;mshr.size(); i++)</span>
 <span class="lineNum">     250 </span>                :     {
-<span class="lineNum">     251 </span><span class="lineCov">        1289058 :         if (mshr[i].address == oldAddress)</span>
+<span class="lineNum">     251 </span><span class="lineCov">        1269998 :         if (mshr[i].address == oldAddress)</span>
 <span class="lineNum">     252 </span>                :         {
-<span class="lineNum">     253 </span><span class="lineCov">         296184 :             mshr[i].address = newAddress;</span>
+<span class="lineNum">     253 </span><span class="lineCov">         297698 :             mshr[i].address = newAddress;</span>
 <span class="lineNum">     254 </span>                : #ifdef DEEP_DEBUG
 <span class="lineNum">     255 </span>                :             cout &lt;&lt; Simulator::Now() &lt;&lt; hex &lt;&lt; &quot;: Replace Address &quot; &lt;&lt; oldAddress &lt;&lt; &quot; in MSHR of Thread &quot; &lt;&lt; id &lt;&lt; &quot; to &quot; &lt;&lt; mshr[i].address &lt;&lt; endl;
 <span class="lineNum">     256 </span>                : #endif  
 <span class="lineNum">     257 </span>                :             //cout &lt;&lt; hex &lt;&lt;  oldAddress &lt;&lt; &quot; hihi &quot; &lt;&lt; newAddress &lt;&lt; endl;
-<span class="lineNum">     258 </span><span class="lineCov">         148092 :              break;</span>
+<span class="lineNum">     258 </span><span class="lineCov">         148849 :              break;</span>
 <span class="lineNum">     259 </span>                :         }
 <span class="lineNum">     260 </span>                :      }
 <span class="lineNum">     261 </span>                : 
-<span class="lineNum">     262 </span><span class="lineCov">         152311 : }</span>
+<span class="lineNum">     262 </span><span class="lineCov">         153083 : }</span>
 </pre>
       </td>
     </tr>

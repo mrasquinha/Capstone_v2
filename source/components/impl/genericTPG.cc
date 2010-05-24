@@ -75,7 +75,7 @@ GenericTPG::setup (uint n, uint v, uint time)
 #endif    
  //   mc->stats->doneOnce[i] = &mshrHandler[i].done; 
     trace_filename = &mshrHandler->trace_filename; 
-    mshrHandler->filename = trace_name.c_str();	
+    mshrHandler->filename = const_cast<char*>(trace_name.c_str());	
 
     trace_filename->open(trace_name.c_str(),ios::in);
     if(!trace_filename->is_open())
@@ -231,7 +231,6 @@ GenericTPG::handle_out_pull_event ( IrisEvent* e )
 #else
     Request* next_req = GetNextRequest();
 #endif
-    MTRand mtrand1;
     if( next_req)
     {
         packets++;
@@ -250,7 +249,7 @@ GenericTPG::handle_out_pull_event ( IrisEvent* e )
 #ifdef DEEP_DEBUG
         cout << endl << dec << node_ip << " ^^Sending to " << hlp->destination << endl;
 #endif
-        hlp->transaction_id = mtrand1.randInt(1000);
+        hlp->transaction_id = 1000;
         if( hlp->destination == node_ip )
             hlp->destination = 3; //(hlp->destination + 1) % max_nodes;
 
@@ -457,7 +456,7 @@ GenericTPG::map_addr(unsigned long long int *addr)
     unsigned int temp = MC_ADDR_BITS;   
     unsigned int temp2 = temp-(int)log2(no_mcs);   
     unsigned int lower_mask = pow(2.0,temp2*1.0)-1;
-    unsigned long long int upper_mask = (0xFFFFFFFFFFFF)-(pow(2.0,temp*1.0)-1);
+    unsigned long long int upper_mask = (0xFFFFFFFF)-(pow(2.0,temp*1.0)-1);
     unsigned int lower_addr = (*addr) & lower_mask;
     unsigned long long int upper_addr = ((*addr) & upper_mask) >> (int)log2(no_mcs);
     short int mc_addr = ((*addr) >> temp2) & (no_mcs-1);

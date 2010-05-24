@@ -100,16 +100,16 @@
 <span class="lineNum">      47 </span>                :         void Init();
 <span class="lineNum">      48 </span>                :         void StartRefresh();
 <span class="lineNum">      49 </span>                :         UInt id;
-<span class="lineNum">      50 </span><span class="lineCov">             16 :         MC ()</span>
+<span class="lineNum">      50 </span><span class="lineCov">              8 :         MC ()</span>
 <span class="lineNum">      51 </span>                :         {
-<span class="lineNum">      52 </span><span class="lineCov">             16 :             stats = new Statistic();</span>
+<span class="lineNum">      52 </span><span class="lineCov">              8 :             stats = new Statistic();</span>
 <span class="lineNum">      53 </span>                :         //    ni = new NI();    
-<span class="lineNum">      54 </span><span class="lineCov">             16 :             reqH = new RequestHandler();</span>
-<span class="lineNum">      55 </span><span class="lineCov">             16 :             refMgr = new RefreshMgr();</span>
-<span class="lineNum">      56 </span><span class="lineCov">             16 :             bus = new Bus();</span>
-<span class="lineNum">      57 </span><span class="lineCov">             16 :             dram = new DRAM();</span>
-<span class="lineNum">      58 </span><span class="lineCov">             16 :             responseH = new ResponseHandler();          </span>
-<span class="lineNum">      59 </span><span class="lineCov">             16 :         };</span>
+<span class="lineNum">      54 </span><span class="lineCov">              8 :             reqH = new RequestHandler();</span>
+<span class="lineNum">      55 </span><span class="lineCov">              8 :             refMgr = new RefreshMgr();</span>
+<span class="lineNum">      56 </span><span class="lineCov">              8 :             bus = new Bus();</span>
+<span class="lineNum">      57 </span><span class="lineCov">              8 :             dram = new DRAM();</span>
+<span class="lineNum">      58 </span><span class="lineCov">              8 :             responseH = new ResponseHandler();          </span>
+<span class="lineNum">      59 </span><span class="lineCov">              8 :         };</span>
 <span class="lineNum">      60 </span><span class="lineNoCov">              0 :         ~MC () </span>
 <span class="lineNum">      61 </span>                :         {
 <span class="lineNum">      62 </span><span class="lineNoCov">              0 :             delete reqH;</span>

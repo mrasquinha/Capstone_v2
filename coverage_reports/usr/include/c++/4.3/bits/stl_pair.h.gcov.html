@@ -139,7 +139,7 @@
 <span class="lineNum">      86 </span>                : 
 <span class="lineNum">      87 </span>                :       /** Two objects may be passed to a @c pair constructor to be copied.  */
 <span class="lineNum">      88 </span><span class="lineNoCov">              0 :       pair(const _T1&amp; __a, const _T2&amp; __b)</span>
-<span class="lineNum">      89 </span><span class="lineCov">       91625733 :       : first(__a), second(__b) { }</span>
+<span class="lineNum">      89 </span><span class="lineCov">       87704267 :       : first(__a), second(__b) { }</span>
 <span class="lineNum">      90 </span>                : 
 <span class="lineNum">      91 </span>                : #ifdef __GXX_EXPERIMENTAL_CXX0X__
 <span class="lineNum">      92 </span>                :       template&lt;class _U1, class _U2&gt;
@@ -156,7 +156,7 @@
 <span class="lineNum">     103 </span>                :       template&lt;class _U1, class _U2&gt;
 <span class="lineNum">     104 </span><span class="lineNoCov">              0 :         pair(const pair&lt;_U1, _U2&gt;&amp; __p)</span>
 <span class="lineNum">     105 </span>                :         : first(__p.first),
-<span class="lineNum">     106 </span><span class="lineCov">            640 :           second(__p.second) { }</span>
+<span class="lineNum">     106 </span><span class="lineCov">            320 :           second(__p.second) { }</span>
 <span class="lineNum">     107 </span>                : 
 <span class="lineNum">     108 </span>                : #ifdef __GXX_EXPERIMENTAL_CXX0X__
 <span class="lineNum">     109 </span>                :       template&lt;class _U1, class _U2&gt;

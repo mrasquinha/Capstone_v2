@@ -55,6 +55,8 @@ class GenericInterface : public Interface
         string toString() const;
         void process_event( IrisEvent* e);
         string print_stats();
+        ullint get_packets_out();
+        ullint get_flits_out();
 
     protected:
 
@@ -88,11 +90,11 @@ class GenericInterface : public Interface
         void handle_link_arrival( IrisEvent* e);
 
         /* stats */
-        uint flits_in;
-        uint packets_in;
-        uint flits_out;
-        uint packets_out;
-        uint total_packets_in_time;
+        ullint flits_in;
+        ullint packets_in;
+        ullint flits_out;
+        ullint packets_out;
+        ullint total_packets_in_time;
 
 }; /* -----  end of class GenericInterface  ----- */
 

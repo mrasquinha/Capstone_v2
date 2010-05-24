@@ -27,6 +27,7 @@
 #include        "../../MemCtrl/mshr.cc"
 #include	<string.h>
 #include	<time.h>
+#include	<algorithm>
 
 unsigned int no_nodes=0, no_mcs=0;
 unsigned long long int max_sim_time = 10000;
@@ -34,7 +35,8 @@ unsigned int MC_ADDR_BITS = 22;
 int
 main ( int argc, char *argv[] )
 {
-    uint sim_start_time = time(NULL);
+    struct timeval sim_start_time;
+    gettimeofday(&sim_start_time,0);
     if(argc<2)
     {
         cout << "Error: Requires config file for input parameters\n";
@@ -266,7 +268,21 @@ for ( uint i=0; i<argc; i++)
 
     cerr << mesh->print_stats();
 
-    cerr << " Simulation Time: " << (time(NULL)-sim_start_time) << endl;
+    unsigned long long int tot_pkts = 0;
+    unsigned long long int tot_flits = 0;
+    for ( uint i=0 ; i<no_nodes ; i++ )
+        tot_pkts += mesh->interfaces[i]->get_packets_out();
+
+    for ( uint i=0 ; i<no_nodes ; i++ )
+        tot_flits += mesh->interfaces[i]->get_flits_out();
+
+    struct timeval tv;
+    gettimeofday(&tv,0);
+    cerr << " Simulation Time: " << tv.tv_usec - sim_start_time.tv_usec << " microseconds. " << endl;
+    cerr << " Simulation Time: " << tv.tv_usec << " microseconds. " << endl;
+    cerr << " Simulation Time: " << sim_start_time.tv_usec << " microseconds. " << endl;
+    cerr << " No of pkts per usec: " << (tot_pkts+0.0)/(tv.tv_usec - sim_start_time.tv_usec) << endl;
+    cerr << " No of flits per usec: " << (tot_flits+0.0)/(tv.tv_usec - sim_start_time.tv_usec) << endl;
     cerr << "------------ End SimIris ---------------------" << endl;
 
     delete mesh;

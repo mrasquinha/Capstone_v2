@@ -73,56 +73,56 @@
 <span class="lineNum">      20 </span>                : 
 <span class="lineNum">      21 </span>                : #include        &quot;genericBuffer.h&quot;
 <span class="lineNum">      22 </span>                : 
-<span class="lineNum">      23 </span><span class="lineCov">           3328 : GenericBuffer::GenericBuffer ()</span>
+<span class="lineNum">      23 </span><span class="lineCov">            768 : GenericBuffer::GenericBuffer ()</span>
 <span class="lineNum">      24 </span>                : {
-<span class="lineNum">      25 </span><span class="lineCov">            832 :     pull_channel = 0;</span>
-<span class="lineNum">      26 </span><span class="lineCov">            832 :     push_channel = 0;</span>
-<span class="lineNum">      27 </span><span class="lineCov">            832 : }               /* -----  end of function GenericBuffer::GenericBuffer  ----- */</span>
+<span class="lineNum">      25 </span><span class="lineCov">            192 :     pull_channel = 0;</span>
+<span class="lineNum">      26 </span><span class="lineCov">            192 :     push_channel = 0;</span>
+<span class="lineNum">      27 </span><span class="lineCov">            192 : }               /* -----  end of function GenericBuffer::GenericBuffer  ----- */</span>
 <span class="lineNum">      28 </span>                : 
-<span class="lineNum">      29 </span><span class="lineCov">           1536 : GenericBuffer::~GenericBuffer ()</span>
+<span class="lineNum">      29 </span><span class="lineCov">            512 : GenericBuffer::~GenericBuffer ()</span>
 <span class="lineNum">      30 </span>                : {
-<span class="lineNum">      31 </span><span class="lineCov">           6144 : }</span>
+<span class="lineNum">      31 </span><span class="lineCov">           2048 : }</span>
 <span class="lineNum">      32 </span>                : 
 <span class="lineNum">      33 </span>                : void
-<span class="lineNum">      34 </span><span class="lineCov">        1558482 : GenericBuffer::push ( Flit* f )</span>
+<span class="lineNum">      34 </span><span class="lineCov">        4982099 : GenericBuffer::push ( Flit* f )</span>
 <span class="lineNum">      35 </span>                : {
-<span class="lineNum">      36 </span><span class="lineCov">        1558482 :     buffers[push_channel].push(f);</span>
+<span class="lineNum">      36 </span><span class="lineCov">        4982099 :     buffers[push_channel].push(f);</span>
 <span class="lineNum">      37 </span>                :     return;
 <span class="lineNum">      38 </span>                : }               /* -----  end of function GenericBuffer::push  ----- */
 <span class="lineNum">      39 </span>                : 
 <span class="lineNum">      40 </span>                : Flit*
-<span class="lineNum">      41 </span><span class="lineCov">        1558058 : GenericBuffer::pull ()</span>
+<span class="lineNum">      41 </span><span class="lineCov">        4982050 : GenericBuffer::pull ()</span>
 <span class="lineNum">      42 </span>                : {
-<span class="lineNum">      43 </span><span class="lineCov">        4674174 :     if( pull_channel &gt; buffers.size() || buffers[pull_channel].size() == 0)</span>
+<span class="lineNum">      43 </span><span class="lineCov">       14946150 :     if( pull_channel &gt; buffers.size() || buffers[pull_channel].size() == 0)</span>
 <span class="lineNum">      44 </span>                :     {
 <span class="lineNum">      45 </span><span class="lineNoCov">              0 :         fprintf( stdout, &quot;\nERROR: **Invalid pull channel&quot;);</span>
 <span class="lineNum">      46 </span><span class="lineNoCov">              0 :         exit(1);</span>
 <span class="lineNum">      47 </span>                :     }
-<span class="lineNum">      48 </span><span class="lineCov">        3116116 :     Flit* f = buffers[pull_channel].front();</span>
-<span class="lineNum">      49 </span><span class="lineCov">        1558058 :     buffers[pull_channel].pop();</span>
-<span class="lineNum">      50 </span><span class="lineCov">        1558058 :     return f;</span>
+<span class="lineNum">      48 </span><span class="lineCov">        9964100 :     Flit* f = buffers[pull_channel].front();</span>
+<span class="lineNum">      49 </span><span class="lineCov">        4982050 :     buffers[pull_channel].pop();</span>
+<span class="lineNum">      50 </span><span class="lineCov">        4982050 :     return f;</span>
 <span class="lineNum">      51 </span>                : }               /* -----  end of function GenericBuffer::pull  ----- */
 <span class="lineNum">      52 </span>                : 
 <span class="lineNum">      53 </span>                : Flit*
-<span class="lineNum">      54 </span><span class="lineCov">         276044 : GenericBuffer::peek ()</span>
+<span class="lineNum">      54 </span><span class="lineCov">         607494 : GenericBuffer::peek ()</span>
 <span class="lineNum">      55 </span>                : {
-<span class="lineNum">      56 </span><span class="lineCov">         828132 :     if( pull_channel &gt; buffers.size() || buffers[pull_channel].size() == 0)</span>
+<span class="lineNum">      56 </span><span class="lineCov">        1822482 :     if( pull_channel &gt; buffers.size() || buffers[pull_channel].size() == 0)</span>
 <span class="lineNum">      57 </span>                :     {
 <span class="lineNum">      58 </span><span class="lineNoCov">              0 :         fprintf( stdout, &quot;\nERROR: **Invalid pull channel&quot;);</span>
 <span class="lineNum">      59 </span><span class="lineNoCov">              0 :         exit(1);</span>
 <span class="lineNum">      60 </span>                :     }
-<span class="lineNum">      61 </span><span class="lineCov">         552088 :     Flit* f = buffers[pull_channel].front();</span>
-<span class="lineNum">      62 </span><span class="lineCov">         276044 :     return f;</span>
+<span class="lineNum">      61 </span><span class="lineCov">        1214988 :     Flit* f = buffers[pull_channel].front();</span>
+<span class="lineNum">      62 </span><span class="lineCov">         607494 :     return f;</span>
 <span class="lineNum">      63 </span>                : }               /* -----  end of function GenericBuffer::pull  ----- */
 <span class="lineNum">      64 </span>                : 
 <span class="lineNum">      65 </span>                : uint
-<span class="lineNum">      66 </span><span class="lineCov">       65461454 : GenericBuffer::get_occupancy ( uint ch ) const</span>
+<span class="lineNum">      66 </span><span class="lineCov">       33195402 : GenericBuffer::get_occupancy ( uint ch ) const</span>
 <span class="lineNum">      67 </span>                : {
-<span class="lineNum">      68 </span><span class="lineCov">      130922908 :     return buffers[ch].size();</span>
+<span class="lineNum">      68 </span><span class="lineCov">       66390804 :     return buffers[ch].size();</span>
 <span class="lineNum">      69 </span>                : }               /* -----  end of function GenericBuffer::get_occupancy  ----- */
 <span class="lineNum">      70 </span>                : 
 <span class="lineNum">      71 </span>                : void
-<span class="lineNum">      72 </span><span class="lineCov">           1344 : GenericBuffer::resize( uint v, uint bs )</span>
+<span class="lineNum">      72 </span><span class="lineCov">            448 : GenericBuffer::resize( uint v, uint bs )</span>
 <span class="lineNum">      73 </span>                : {
 <span class="lineNum">      74 </span>                :     /* 
 <span class="lineNum">      75 </span>                :     for ( uint i = vcs; i&lt;buffers.size(); i++ )
@@ -132,9 +132,9 @@
 <span class="lineNum">      79 </span>                :             buffers[i].pop();
 <span class="lineNum">      80 </span>                :         }
 <span class="lineNum">      81 </span>                :      * */
-<span class="lineNum">      82 </span><span class="lineCov">           1344 :     vcs =v;</span>
-<span class="lineNum">      83 </span><span class="lineCov">           1344 :     buffer_size = bs;</span>
-<span class="lineNum">      84 </span><span class="lineCov">           1344 :     buffers.resize(vcs);</span>
+<span class="lineNum">      82 </span><span class="lineCov">            448 :     vcs =v;</span>
+<span class="lineNum">      83 </span><span class="lineCov">            448 :     buffer_size = bs;</span>
+<span class="lineNum">      84 </span><span class="lineCov">            448 :     buffers.resize(vcs);</span>
 <span class="lineNum">      85 </span>                :     return;
 <span class="lineNum">      86 </span>                : }               /* -----  end of function GenericBuffer::change_vcs  ----- */
 <span class="lineNum">      87 </span>                : 
@@ -147,17 +147,17 @@
 <span class="lineNum">      94 </span>                : }
 <span class="lineNum">      95 </span>                : 
 <span class="lineNum">      96 </span>                : void
-<span class="lineNum">      97 </span><span class="lineCov">        1834102 : GenericBuffer::change_pull_channel ( uint ch )</span>
+<span class="lineNum">      97 </span><span class="lineCov">        5589544 : GenericBuffer::change_pull_channel ( uint ch )</span>
 <span class="lineNum">      98 </span>                : {
-<span class="lineNum">      99 </span><span class="lineCov">        1834102 :     assert(ch&lt;vcs);</span>
-<span class="lineNum">     100 </span><span class="lineCov">        1834102 :     pull_channel = ch;</span>
+<span class="lineNum">      99 </span><span class="lineCov">        5589544 :     assert(ch&lt;vcs);</span>
+<span class="lineNum">     100 </span><span class="lineCov">        5589544 :     pull_channel = ch;</span>
 <span class="lineNum">     101 </span>                :     return;
 <span class="lineNum">     102 </span>                : }               /* -----  end of function GenericBuffer::change_pull_channel  ----- */
 <span class="lineNum">     103 </span>                : 
 <span class="lineNum">     104 </span>                : void
-<span class="lineNum">     105 </span><span class="lineCov">        1558482 : GenericBuffer::change_push_channel ( uint ch )</span>
+<span class="lineNum">     105 </span><span class="lineCov">        4982099 : GenericBuffer::change_push_channel ( uint ch )</span>
 <span class="lineNum">     106 </span>                : {
-<span class="lineNum">     107 </span><span class="lineCov">        1558482 :     push_channel = ch;</span>
+<span class="lineNum">     107 </span><span class="lineCov">        4982099 :     push_channel = ch;</span>
 <span class="lineNum">     108 </span>                :     return;
 <span class="lineNum">     109 </span>                : }               /* -----  end of function GenericBuffer::change_pull_channel  ----- */
 <span class="lineNum">     110 </span>                : 
@@ -188,16 +188,16 @@
 <span class="lineNum">     135 </span>                : }               /* -----  end of function GenericBuffer::empty  ----- */
 <span class="lineNum">     136 </span>                : 
 <span class="lineNum">     137 </span>                : string
-<span class="lineNum">     138 </span><span class="lineCov">            576 : GenericBuffer::toString () const</span>
+<span class="lineNum">     138 </span><span class="lineCov">            192 : GenericBuffer::toString () const</span>
 <span class="lineNum">     139 </span>                : {
-<span class="lineNum">     140 </span><span class="lineCov">            576 :     stringstream str;</span>
+<span class="lineNum">     140 </span><span class="lineCov">            192 :     stringstream str;</span>
 <span class="lineNum">     141 </span>                :     str &lt;&lt; &quot;GenericBuffer&quot;
 <span class="lineNum">     142 </span>                :         &lt;&lt; &quot;\t buffer_size: &quot; &lt;&lt; buffer_size
-<span class="lineNum">     143 </span><span class="lineCov">           2304 :         &lt;&lt; &quot;\t No of buffers: &quot; &lt;&lt; buffers.size() &lt;&lt; &quot;\n&quot;;</span>
-<span class="lineNum">     144 </span><span class="lineCov">           1728 :     for( uint i=0; i&lt;buffers.size() &amp;&amp; !buffers[i].empty(); i++)</span>
+<span class="lineNum">     143 </span><span class="lineCov">            768 :         &lt;&lt; &quot;\t No of buffers: &quot; &lt;&lt; buffers.size() &lt;&lt; &quot;\n&quot;;</span>
+<span class="lineNum">     144 </span><span class="lineCov">            576 :     for( uint i=0; i&lt;buffers.size() &amp;&amp; !buffers[i].empty(); i++)</span>
 <span class="lineNum">     145 </span><span class="lineNoCov">              0 :             str &lt;&lt; buffers[i].front()-&gt;toString();</span>
-<span class="lineNum">     146 </span><span class="lineCov">            576 :     return str.str();</span>
-<span class="lineNum">     147 </span><span class="lineCov">             10 : }               /* -----  end of function GenericBuffer::toString  ----- */</span>
+<span class="lineNum">     146 </span><span class="lineCov">            192 :     return str.str();</span>
+<span class="lineNum">     147 </span><span class="lineCov">              2 : }               /* -----  end of function GenericBuffer::toString  ----- */</span>
 <span class="lineNum">     148 </span>                : 
 <span class="lineNum">     149 </span>                : #endif   /* ----- #ifndef _genericbuffer_cc_INC  ----- */
 <span class="lineNum">     150 </span>                : 

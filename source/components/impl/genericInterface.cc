@@ -295,11 +295,7 @@ GenericInterface::handle_tick_event(IrisEvent* e)
     {
        out_buffer.change_pull_channel(0);
        Flit* f= out_buffer.peek();
-       if( f->type == HEAD  && downstream_credits[0] != credits)
-       {
-           _DBG_NOARG(" Not sending a new packet for now");
-       }
-       else
+       if(!( f->type == HEAD  && downstream_credits[0] != credits))
        {
             IrisEvent* event = new IrisEvent();
             LinkArrivalData* arrival =  new LinkArrivalData();
@@ -478,6 +474,18 @@ GenericInterface::print_stats()
         ;
     return str.str();
 
+}
+
+ullint
+GenericInterface::get_flits_out()
+{
+    return flits_out;
+}
+
+ullint
+GenericInterface::get_packets_out()
+{
+    return packets_out;
 }
 
 #endif   /* ----- #ifndef _genericinterface_cc_INC  ----- */

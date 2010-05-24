@@ -77,8 +77,8 @@
 <span class="lineNum">      24 </span>                : class EventBase 
 <span class="lineNum">      25 </span><span class="lineNoCov">              0 : {</span>
 <span class="lineNum">      26 </span>                :  public:
-<span class="lineNum">      27 </span><span class="lineCov">       47425545 :   EventBase(double t) : time(t), uid(nextUID++) {}</span>
-<span class="lineNum">      28 </span><span class="lineCov">       47425545 :     EventBase(double t, int u) : time(t), uid(u) {}</span>
+<span class="lineNum">      27 </span><span class="lineCov">       43851377 :   EventBase(double t) : time(t), uid(nextUID++) {}</span>
+<span class="lineNum">      28 </span><span class="lineCov">       43851377 :     EventBase(double t, int u) : time(t), uid(u) {}</span>
 <span class="lineNum">      29 </span>                :       virtual void CallHandler() = 0;  // All subclasses must implement CallHandler
 <span class="lineNum">      30 </span>                :  public:
 <span class="lineNum">      31 </span>                :       double time;   // Timestamp for the event
@@ -92,7 +92,7 @@
 <span class="lineNum">      39 </span>                : class EventId : public EventBase
 <span class="lineNum">      40 </span><span class="lineNoCov">              0 : {</span>
 <span class="lineNum">      41 </span>                : public:
-<span class="lineNum">      42 </span><span class="lineCov">       94851090 :   EventId(double t, int u) : EventBase(t, u) {}</span>
+<span class="lineNum">      42 </span><span class="lineCov">       87702754 :   EventId(double t, int u) : EventBase(t, u) {}</span>
 <span class="lineNum">      43 </span><span class="lineNoCov">              0 :   void CallHandler() {}</span>
 <span class="lineNum">      44 </span>                : };
 <span class="lineNum">      45 </span>                : 
@@ -120,7 +120,7 @@
 <span class="lineNum">      67 </span>                : {
 <span class="lineNum">      68 </span>                : public:
 <span class="lineNum">      69 </span><span class="lineNoCov">              0 :   Event1(double t, void (T::*f)(U1), OBJ* obj0, T1 t1_0)</span>
-<span class="lineNum">      70 </span><span class="lineCov">       94851084 :     : EventBase(t), handler(f), obj(obj0), t1(t1_0){}</span>
+<span class="lineNum">      70 </span><span class="lineCov">       87702752 :     : EventBase(t), handler(f), obj(obj0), t1(t1_0){}</span>
 <span class="lineNum">      71 </span>                :   void (T::*handler)(U1);
 <span class="lineNum">      72 </span>                :   OBJ*      obj;
 <span class="lineNum">      73 </span>                :   T1        t1;
@@ -129,10 +129,10 @@
 <span class="lineNum">      76 </span>                : };
 <span class="lineNum">      77 </span>                : 
 <span class="lineNum">      78 </span>                : template &lt;typename T, typename OBJ, typename U1, typename T1&gt;
-<span class="lineNum">      79 </span><span class="lineCov">       47149836 : void Event1&lt;T, OBJ, U1, T1&gt;::CallHandler()</span>
+<span class="lineNum">      79 </span><span class="lineCov">       43851285 : void Event1&lt;T, OBJ, U1, T1&gt;::CallHandler()</span>
 <span class="lineNum">      80 </span>                : {
-<span class="lineNum">      81 </span><span class="lineCov">       47149836 :   (obj-&gt;*handler)(t1);</span>
-<span class="lineNum">      82 </span><span class="lineCov">       47149836 : }</span>
+<span class="lineNum">      81 </span><span class="lineCov">       43851285 :   (obj-&gt;*handler)(t1);</span>
+<span class="lineNum">      82 </span><span class="lineCov">       43851285 : }</span>
 <span class="lineNum">      83 </span>                : 
 <span class="lineNum">      84 </span>                : template&lt;typename T, typename OBJ,
 <span class="lineNum">      85 </span>                :          typename U1, typename T1, 
@@ -222,7 +222,7 @@
 <span class="lineNum">     169 </span>                : {
 <span class="lineNum">     170 </span>                : public:
 <span class="lineNum">     171 </span><span class="lineNoCov">              0 :   Event0Stat(double t, void (*f)(void))</span>
-<span class="lineNum">     172 </span><span class="lineCov">              6 :     : EventBase(t), handler(f){}</span>
+<span class="lineNum">     172 </span><span class="lineCov">              2 :     : EventBase(t), handler(f){}</span>
 <span class="lineNum">     173 </span>                :   void (*handler)(void);
 <span class="lineNum">     174 </span>                : public:
 <span class="lineNum">     175 </span>                :   void CallHandler();
@@ -324,9 +324,9 @@
 <span class="lineNum">     271 </span>                : public:
 <span class="lineNum">     272 </span><span class="lineNoCov">              0 :   event_less() { }</span>
 <span class="lineNum">     273 </span><span class="lineNoCov">              0 :   inline bool operator()(EventBase* const &amp; l, const EventBase* const &amp; r) const {</span>
-<span class="lineNum">     274 </span><span class="lineCov">     1100744465 :     if(l-&gt;time &lt; r-&gt;time) return true;</span>
-<span class="lineNum">     275 </span><span class="lineCov">      847390004 :     if (l-&gt;time == r-&gt;time) return l-&gt;uid &lt; r-&gt;uid;</span>
-<span class="lineNum">     276 </span><span class="lineCov">       66759696 :     return false;</span>
+<span class="lineNum">     274 </span><span class="lineCov">      477074204 :     if(l-&gt;time &lt; r-&gt;time) return true;</span>
+<span class="lineNum">     275 </span><span class="lineCov">      332875779 :     if (l-&gt;time == r-&gt;time) return l-&gt;uid &lt; r-&gt;uid;</span>
+<span class="lineNum">     276 </span><span class="lineCov">       55151689 :     return false;</span>
 <span class="lineNum">     277 </span>                :   }
 <span class="lineNum">     278 </span>                : };
 <span class="lineNum">     279 </span>                : 
@@ -337,7 +337,7 @@
 <span class="lineNum">     284 </span>                : class ComponentDescription
 <span class="lineNum">     285 </span>                : {
 <span class="lineNum">     286 </span>                :  public:
-<span class="lineNum">     287 </span><span class="lineCov">           4250 :   ComponentDescription(int lp, Component* obj):lpId(lp), ptr(obj){}</span>
+<span class="lineNum">     287 </span><span class="lineCov">            872 :   ComponentDescription(int lp, Component* obj):lpId(lp), ptr(obj){}</span>
 <span class="lineNum">     288 </span>                :   int lpId;
 <span class="lineNum">     289 </span>                :   Component* ptr;
 <span class="lineNum">     290 </span>                : };
@@ -368,11 +368,11 @@
 <span class="lineNum">     315 </span>                : 
 <span class="lineNum">     316 </span>                :   template &lt;typename T, typename OBJ,
 <span class="lineNum">     317 </span>                :     typename U1, typename T1&gt;
-<span class="lineNum">     318 </span><span class="lineCov">       47425542 :     static EventId Schedule(double t, void(T::*handler)(U1), OBJ* obj, T1 t1)</span>
+<span class="lineNum">     318 </span><span class="lineCov">       43851376 :     static EventId Schedule(double t, void(T::*handler)(U1), OBJ* obj, T1 t1)</span>
 <span class="lineNum">     319 </span>                :   {
-<span class="lineNum">     320 </span><span class="lineCov">       94851084 :     EventBase* ev = new Event1&lt;T, OBJ, U1, T1&gt;(t, handler, obj, t1);</span>
-<span class="lineNum">     321 </span><span class="lineCov">       47425542 :     events.insert(ev);</span>
-<span class="lineNum">     322 </span><span class="lineCov">       47425542 :     return EventId(t, ev-&gt;uid);</span>
+<span class="lineNum">     320 </span><span class="lineCov">       87702752 :     EventBase* ev = new Event1&lt;T, OBJ, U1, T1&gt;(t, handler, obj, t1);</span>
+<span class="lineNum">     321 </span><span class="lineCov">       43851376 :     events.insert(ev);</span>
+<span class="lineNum">     322 </span><span class="lineCov">       43851376 :     return EventId(t, ev-&gt;uid);</span>
 <span class="lineNum">     323 </span>                :   }
 <span class="lineNum">     324 </span>                : 
 <span class="lineNum">     325 </span>                :   template &lt;typename T, typename OBJ,
@@ -409,11 +409,11 @@
 <span class="lineNum">     356 </span>                :   }
 <span class="lineNum">     357 </span>                : 
 <span class="lineNum">     358 </span>                :   // Schedulers for static callback functions
-<span class="lineNum">     359 </span><span class="lineCov">              3 :   static EventId Schedule(double t, void(*handler)(void))</span>
+<span class="lineNum">     359 </span><span class="lineCov">              1 :   static EventId Schedule(double t, void(*handler)(void))</span>
 <span class="lineNum">     360 </span>                :   {
-<span class="lineNum">     361 </span><span class="lineCov">              6 :     EventBase* ev = new Event0Stat(t, handler);</span>
-<span class="lineNum">     362 </span><span class="lineCov">              3 :     events.insert(ev);</span>
-<span class="lineNum">     363 </span><span class="lineCov">              3 :     return EventId(t, ev-&gt;uid);</span>
+<span class="lineNum">     361 </span><span class="lineCov">              2 :     EventBase* ev = new Event0Stat(t, handler);</span>
+<span class="lineNum">     362 </span><span class="lineCov">              1 :     events.insert(ev);</span>
+<span class="lineNum">     363 </span><span class="lineCov">              1 :     return EventId(t, ev-&gt;uid);</span>
 <span class="lineNum">     364 </span>                :   }
 <span class="lineNum">     365 </span>                : 
 <span class="lineNum">     366 </span>                :   template &lt;typename U1, typename T1&gt;

@@ -178,15 +178,15 @@
 <span class="lineNum">     125 </span>                : protected:
 <span class="lineNum">     126 </span>                :         void initialize( const uint32 oneSeed );
 <span class="lineNum">     127 </span>                :         void reload();
-<span class="lineNum">     128 </span><span class="lineCov">      367388112 :         uint32 hiBit( const uint32 u ) const { return u &amp; 0x80000000UL; }</span>
-<span class="lineNum">     129 </span><span class="lineCov">      367388112 :         uint32 loBit( const uint32 u ) const { return u &amp; 0x00000001UL; }</span>
-<span class="lineNum">     130 </span><span class="lineCov">      367388112 :         uint32 loBits( const uint32 u ) const { return u &amp; 0x7fffffffUL; }</span>
+<span class="lineNum">     128 </span><span class="lineCov">      369268848 :         uint32 hiBit( const uint32 u ) const { return u &amp; 0x80000000UL; }</span>
+<span class="lineNum">     129 </span><span class="lineCov">      369268848 :         uint32 loBit( const uint32 u ) const { return u &amp; 0x00000001UL; }</span>
+<span class="lineNum">     130 </span><span class="lineCov">      369268848 :         uint32 loBits( const uint32 u ) const { return u &amp; 0x7fffffffUL; }</span>
 <span class="lineNum">     131 </span><span class="lineNoCov">              0 :         uint32 mixBits( const uint32 u, const uint32 v ) const</span>
-<span class="lineNum">     132 </span><span class="lineCov">      367388112 :                 { return hiBit(u) | loBits(v); }</span>
+<span class="lineNum">     132 </span><span class="lineCov">      369268848 :                 { return hiBit(u) | loBits(v); }</span>
 <span class="lineNum">     133 </span><span class="lineNoCov">              0 :         uint32 magic( const uint32 u ) const</span>
-<span class="lineNum">     134 </span><span class="lineCov">      367388112 :                 { return loBit(u) ? 0x9908b0dfUL : 0x0UL; }</span>
+<span class="lineNum">     134 </span><span class="lineCov">      369268848 :                 { return loBit(u) ? 0x9908b0dfUL : 0x0UL; }</span>
 <span class="lineNum">     135 </span><span class="lineNoCov">              0 :         uint32 twist( const uint32 m, const uint32 s0, const uint32 s1 ) const</span>
-<span class="lineNum">     136 </span><span class="lineCov">      734776224 :                 { return m ^ (mixBits(s0,s1)&gt;&gt;1) ^ magic(s1); }</span>
+<span class="lineNum">     136 </span><span class="lineCov">      738537696 :                 { return m ^ (mixBits(s0,s1)&gt;&gt;1) ^ magic(s1); }</span>
 <span class="lineNum">     137 </span>                :         static uint32 hash( time_t t, clock_t c );
 <span class="lineNum">     138 </span>                : };
 <span class="lineNum">     139 </span>                : 
@@ -223,32 +223,32 @@
 <span class="lineNum">     170 </span>                :         // See Knuth TAOCP Vol 2, 3rd Ed, p.106 for multiplier.
 <span class="lineNum">     171 </span>                :         // In previous versions, most significant bits (MSBs) of the seed affect
 <span class="lineNum">     172 </span>                :         // only MSBs of the state array.  Modified 9 Jan 2002 by Makoto Matsumoto.
-<span class="lineNum">     173 </span><span class="lineCov">         588763 :         register uint32 *s = state;</span>
-<span class="lineNum">     174 </span><span class="lineCov">         588763 :         register uint32 *r = state;</span>
-<span class="lineNum">     175 </span><span class="lineCov">         588763 :         register int i = 1;</span>
-<span class="lineNum">     176 </span><span class="lineCov">         588763 :         *s++ = seed &amp; 0xffffffffUL;</span>
-<span class="lineNum">     177 </span><span class="lineCov">      366799349 :         for( ; i &lt; N; ++i )</span>
+<span class="lineNum">     173 </span><span class="lineCov">         591777 :         register uint32 *s = state;</span>
+<span class="lineNum">     174 </span><span class="lineCov">         591777 :         register uint32 *r = state;</span>
+<span class="lineNum">     175 </span><span class="lineCov">         591777 :         register int i = 1;</span>
+<span class="lineNum">     176 </span><span class="lineCov">         591777 :         *s++ = seed &amp; 0xffffffffUL;</span>
+<span class="lineNum">     177 </span><span class="lineCov">      368677071 :         for( ; i &lt; N; ++i )</span>
 <span class="lineNum">     178 </span>                :         {
-<span class="lineNum">     179 </span><span class="lineCov">      366799349 :                 *s++ = ( 1812433253UL * ( *r ^ (*r &gt;&gt; 30) ) + i ) &amp; 0xffffffffUL;</span>
-<span class="lineNum">     180 </span><span class="lineCov">      366799349 :                 r++;</span>
+<span class="lineNum">     179 </span><span class="lineCov">      368677071 :                 *s++ = ( 1812433253UL * ( *r ^ (*r &gt;&gt; 30) ) + i ) &amp; 0xffffffffUL;</span>
+<span class="lineNum">     180 </span><span class="lineCov">      368677071 :                 r++;</span>
 <span class="lineNum">     181 </span>                :         }
 <span class="lineNum">     182 </span><span class="lineNoCov">              0 : }</span>
 <span class="lineNum">     183 </span>                : 
-<span class="lineNum">     184 </span><span class="lineCov">         588763 : inline void MTRand::reload()</span>
+<span class="lineNum">     184 </span><span class="lineCov">         591777 : inline void MTRand::reload()</span>
 <span class="lineNum">     185 </span>                : {
 <span class="lineNum">     186 </span>                :         // Generate N new values in state
 <span class="lineNum">     187 </span>                :         // Made clearer and faster by Matthew Bellew (matthew.bellew@home.com)
 <span class="lineNum">     188 </span>                :         static const int MmN = int(M) - int(N);  // in case enums are unsigned
-<span class="lineNum">     189 </span><span class="lineCov">         588763 :         register uint32 *p = state;</span>
+<span class="lineNum">     189 </span><span class="lineCov">         591777 :         register uint32 *p = state;</span>
 <span class="lineNum">     190 </span>                :         register int i;
-<span class="lineNum">     191 </span><span class="lineCov">      134237964 :         for( i = N - M; i--; ++p )</span>
-<span class="lineNum">     192 </span><span class="lineCov">      267298402 :                 *p = twist( p[M], p[0], p[1] );</span>
-<span class="lineNum">     193 </span><span class="lineCov">      233738911 :         for( i = M; --i; ++p )</span>
-<span class="lineNum">     194 </span><span class="lineCov">      466300296 :                 *p = twist( p[MmN], p[0], p[1] );</span>
-<span class="lineNum">     195 </span><span class="lineCov">        1177526 :         *p = twist( p[MmN], p[0], state[0] );</span>
+<span class="lineNum">     191 </span><span class="lineCov">      134925156 :         for( i = N - M; i--; ++p )</span>
+<span class="lineNum">     192 </span><span class="lineCov">      268666758 :                 *p = twist( p[M], p[0], p[1] );</span>
+<span class="lineNum">     193 </span><span class="lineCov">      234935469 :         for( i = M; --i; ++p )</span>
+<span class="lineNum">     194 </span><span class="lineCov">      468687384 :                 *p = twist( p[MmN], p[0], p[1] );</span>
+<span class="lineNum">     195 </span><span class="lineCov">        1183554 :         *p = twist( p[MmN], p[0], state[0] );</span>
 <span class="lineNum">     196 </span>                :         
-<span class="lineNum">     197 </span><span class="lineCov">         588763 :         left = N, pNext = state;</span>
-<span class="lineNum">     198 </span><span class="lineCov">         588763 : }</span>
+<span class="lineNum">     197 </span><span class="lineCov">         591777 :         left = N, pNext = state;</span>
+<span class="lineNum">     198 </span><span class="lineCov">         591777 : }</span>
 <span class="lineNum">     199 </span>                : 
 <span class="lineNum">     200 </span><span class="lineNoCov">              0 : inline void MTRand::seed( const uint32 oneSeed )</span>
 <span class="lineNum">     201 </span>                : {
@@ -257,7 +257,7 @@
 <span class="lineNum">     204 </span><span class="lineNoCov">              0 :         reload();</span>
 <span class="lineNum">     205 </span><span class="lineNoCov">              0 : }</span>
 <span class="lineNum">     206 </span>                : 
-<span class="lineNum">     207 </span><span class="lineCov">         588763 : inline void MTRand::seed( uint32 *const bigSeed, const uint32 seedLength )</span>
+<span class="lineNum">     207 </span><span class="lineCov">         591777 : inline void MTRand::seed( uint32 *const bigSeed, const uint32 seedLength )</span>
 <span class="lineNum">     208 </span>                : {
 <span class="lineNum">     209 </span>                :         // Seed the generator with an array of uint32's
 <span class="lineNum">     210 </span>                :         // There are 2^19937-1 possible initial states.  This function allows
@@ -266,49 +266,49 @@
 <span class="lineNum">     213 </span>                :         // in each element are discarded.
 <span class="lineNum">     214 </span>                :         // Just call seed() if you want to get array from /dev/urandom
 <span class="lineNum">     215 </span>                :         initialize(19650218UL);
-<span class="lineNum">     216 </span><span class="lineCov">         588763 :         register int i = 1;</span>
-<span class="lineNum">     217 </span><span class="lineCov">         588763 :         register uint32 j = 0;</span>
-<span class="lineNum">     218 </span><span class="lineCov">         588763 :         register int k = ( N &gt; seedLength ? N : seedLength );</span>
-<span class="lineNum">     219 </span><span class="lineCov">      367976875 :         for( ; k; --k )</span>
+<span class="lineNum">     216 </span><span class="lineCov">         591777 :         register int i = 1;</span>
+<span class="lineNum">     217 </span><span class="lineCov">         591777 :         register uint32 j = 0;</span>
+<span class="lineNum">     218 </span><span class="lineCov">         591777 :         register int k = ( N &gt; seedLength ? N : seedLength );</span>
+<span class="lineNum">     219 </span><span class="lineCov">      369860625 :         for( ; k; --k )</span>
 <span class="lineNum">     220 </span>                :         {
 <span class="lineNum">     221 </span>                :                 state[i] =
-<span class="lineNum">     222 </span><span class="lineCov">      367388112 :                 state[i] ^ ( (state[i-1] ^ (state[i-1] &gt;&gt; 30)) * 1664525UL );</span>
-<span class="lineNum">     223 </span><span class="lineCov">      367388112 :                 state[i] += ( bigSeed[j] &amp; 0xffffffffUL ) + j;</span>
-<span class="lineNum">     224 </span><span class="lineCov">      367388112 :                 state[i] &amp;= 0xffffffffUL;</span>
-<span class="lineNum">     225 </span><span class="lineCov">      367388112 :                 ++i;  ++j;</span>
-<span class="lineNum">     226 </span><span class="lineCov">      367388112 :                 if( i &gt;= N ) { state[0] = state[N-1];  i = 1; }</span>
-<span class="lineNum">     227 </span><span class="lineCov">      367388112 :                 if( j &gt;= seedLength ) j = 0;</span>
+<span class="lineNum">     222 </span><span class="lineCov">      369268848 :                 state[i] ^ ( (state[i-1] ^ (state[i-1] &gt;&gt; 30)) * 1664525UL );</span>
+<span class="lineNum">     223 </span><span class="lineCov">      369268848 :                 state[i] += ( bigSeed[j] &amp; 0xffffffffUL ) + j;</span>
+<span class="lineNum">     224 </span><span class="lineCov">      369268848 :                 state[i] &amp;= 0xffffffffUL;</span>
+<span class="lineNum">     225 </span><span class="lineCov">      369268848 :                 ++i;  ++j;</span>
+<span class="lineNum">     226 </span><span class="lineCov">      369268848 :                 if( i &gt;= N ) { state[0] = state[N-1];  i = 1; }</span>
+<span class="lineNum">     227 </span><span class="lineCov">      369268848 :                 if( j &gt;= seedLength ) j = 0;</span>
 <span class="lineNum">     228 </span>                :         }
-<span class="lineNum">     229 </span><span class="lineCov">      367388112 :         for( k = N - 1; k; --k )</span>
+<span class="lineNum">     229 </span><span class="lineCov">      369268848 :         for( k = N - 1; k; --k )</span>
 <span class="lineNum">     230 </span>                :         {
 <span class="lineNum">     231 </span>                :                 state[i] =
-<span class="lineNum">     232 </span><span class="lineCov">      366799349 :                 state[i] ^ ( (state[i-1] ^ (state[i-1] &gt;&gt; 30)) * 1566083941UL );</span>
-<span class="lineNum">     233 </span><span class="lineCov">      366799349 :                 state[i] -= i;</span>
-<span class="lineNum">     234 </span><span class="lineCov">      366799349 :                 state[i] &amp;= 0xffffffffUL;</span>
-<span class="lineNum">     235 </span><span class="lineCov">      366799349 :                 ++i;</span>
-<span class="lineNum">     236 </span><span class="lineCov">      366799349 :                 if( i &gt;= N ) { state[0] = state[N-1];  i = 1; }</span>
+<span class="lineNum">     232 </span><span class="lineCov">      368677071 :                 state[i] ^ ( (state[i-1] ^ (state[i-1] &gt;&gt; 30)) * 1566083941UL );</span>
+<span class="lineNum">     233 </span><span class="lineCov">      368677071 :                 state[i] -= i;</span>
+<span class="lineNum">     234 </span><span class="lineCov">      368677071 :                 state[i] &amp;= 0xffffffffUL;</span>
+<span class="lineNum">     235 </span><span class="lineCov">      368677071 :                 ++i;</span>
+<span class="lineNum">     236 </span><span class="lineCov">      368677071 :                 if( i &gt;= N ) { state[0] = state[N-1];  i = 1; }</span>
 <span class="lineNum">     237 </span>                :         }
-<span class="lineNum">     238 </span><span class="lineCov">         588763 :         state[0] = 0x80000000UL;  // MSB is 1, assuring non-zero initial array</span>
-<span class="lineNum">     239 </span><span class="lineCov">         588763 :         reload();</span>
-<span class="lineNum">     240 </span><span class="lineCov">         588763 : }</span>
+<span class="lineNum">     238 </span><span class="lineCov">         591777 :         state[0] = 0x80000000UL;  // MSB is 1, assuring non-zero initial array</span>
+<span class="lineNum">     239 </span><span class="lineCov">         591777 :         reload();</span>
+<span class="lineNum">     240 </span><span class="lineCov">         591777 : }</span>
 <span class="lineNum">     241 </span>                : 
-<span class="lineNum">     242 </span><span class="lineCov">         588763 : inline void MTRand::seed()</span>
+<span class="lineNum">     242 </span><span class="lineCov">         591777 : inline void MTRand::seed()</span>
 <span class="lineNum">     243 </span>                : {
 <span class="lineNum">     244 </span>                :         // Seed the generator with an array from /dev/urandom if available
 <span class="lineNum">     245 </span>                :         // Otherwise use a hash of time() and clock() values
 <span class="lineNum">     246 </span>                :         
 <span class="lineNum">     247 </span>                :         // First try getting an array from /dev/urandom
-<span class="lineNum">     248 </span><span class="lineCov">         588763 :         FILE* urandom = fopen( &quot;/dev/urandom&quot;, &quot;rb&quot; );</span>
-<span class="lineNum">     249 </span><span class="lineCov">         588763 :         if( urandom )</span>
+<span class="lineNum">     248 </span><span class="lineCov">         591777 :         FILE* urandom = fopen( &quot;/dev/urandom&quot;, &quot;rb&quot; );</span>
+<span class="lineNum">     249 </span><span class="lineCov">         591777 :         if( urandom )</span>
 <span class="lineNum">     250 </span>                :         {
 <span class="lineNum">     251 </span>                :                 uint32 bigSeed[N];
-<span class="lineNum">     252 </span><span class="lineCov">         588763 :                 register uint32 *s = bigSeed;</span>
-<span class="lineNum">     253 </span><span class="lineCov">         588763 :                 register int i = N;</span>
-<span class="lineNum">     254 </span><span class="lineCov">         588763 :                 register bool success = true;</span>
-<span class="lineNum">     255 </span><span class="lineCov">      368565638 :                 while( success &amp;&amp; i-- )</span>
-<span class="lineNum">     256 </span><span class="lineCov">      734776224 :                         success = fread( s++, sizeof(uint32), 1, urandom );</span>
-<span class="lineNum">     257 </span><span class="lineCov">         588763 :                 fclose(urandom);</span>
-<span class="lineNum">     258 </span><span class="lineCov">         588763 :                 if( success ) { seed( bigSeed, N );  return; }</span>
+<span class="lineNum">     252 </span><span class="lineCov">         591777 :                 register uint32 *s = bigSeed;</span>
+<span class="lineNum">     253 </span><span class="lineCov">         591777 :                 register int i = N;</span>
+<span class="lineNum">     254 </span><span class="lineCov">         591777 :                 register bool success = true;</span>
+<span class="lineNum">     255 </span><span class="lineCov">      370452402 :                 while( success &amp;&amp; i-- )</span>
+<span class="lineNum">     256 </span><span class="lineCov">      738537696 :                         success = fread( s++, sizeof(uint32), 1, urandom );</span>
+<span class="lineNum">     257 </span><span class="lineCov">         591777 :                 fclose(urandom);</span>
+<span class="lineNum">     258 </span><span class="lineCov">         591777 :                 if( success ) { seed( bigSeed, N );  return; }</span>
 <span class="lineNum">     259 </span>                :         }
 <span class="lineNum">     260 </span>                :         
 <span class="lineNum">     261 </span>                :         // Was not successful, so use time() and clock() instead
@@ -322,7 +322,7 @@
 <span class="lineNum">     269 </span><span class="lineNoCov">              0 :         { seed(bigSeed,seedLength); }</span>
 <span class="lineNum">     270 </span>                : 
 <span class="lineNum">     271 </span><span class="lineNoCov">              0 : inline MTRand::MTRand()</span>
-<span class="lineNum">     272 </span><span class="lineCov">        1161565 :         { seed(); }</span>
+<span class="lineNum">     272 </span><span class="lineCov">         591777 :         { seed(); }</span>
 <span class="lineNum">     273 </span>                : 
 <span class="lineNum">     274 </span><span class="lineNoCov">              0 : inline MTRand::MTRand( const MTRand&amp; o )</span>
 <span class="lineNum">     275 </span>                : {
@@ -334,39 +334,39 @@
 <span class="lineNum">     281 </span><span class="lineNoCov">              0 :         pNext = &amp;state[N-left];</span>
 <span class="lineNum">     282 </span><span class="lineNoCov">              0 : }</span>
 <span class="lineNum">     283 </span>                : 
-<span class="lineNum">     284 </span><span class="lineCov">         605818 : inline MTRand::uint32 MTRand::randInt()</span>
+<span class="lineNum">     284 </span><span class="lineCov">         308899 : inline MTRand::uint32 MTRand::randInt()</span>
 <span class="lineNum">     285 </span>                : {
 <span class="lineNum">     286 </span>                :         // Pull a 32-bit integer from the generator state
 <span class="lineNum">     287 </span>                :         // Every other access function simply transforms the numbers extracted here
 <span class="lineNum">     288 </span>                :         
-<span class="lineNum">     289 </span><span class="lineCov">         605818 :         if( left == 0 ) reload();</span>
-<span class="lineNum">     290 </span><span class="lineCov">         605818 :         --left;</span>
+<span class="lineNum">     289 </span><span class="lineCov">         308899 :         if( left == 0 ) reload();</span>
+<span class="lineNum">     290 </span><span class="lineCov">         308899 :         --left;</span>
 <span class="lineNum">     291 </span>                :         
 <span class="lineNum">     292 </span>                :         register uint32 s1;
-<span class="lineNum">     293 </span><span class="lineCov">         605818 :         s1 = *pNext++;</span>
-<span class="lineNum">     294 </span><span class="lineCov">         605818 :         s1 ^= (s1 &gt;&gt; 11);</span>
-<span class="lineNum">     295 </span><span class="lineCov">         605818 :         s1 ^= (s1 &lt;&lt;  7) &amp; 0x9d2c5680UL;</span>
-<span class="lineNum">     296 </span><span class="lineCov">         605818 :         s1 ^= (s1 &lt;&lt; 15) &amp; 0xefc60000UL;</span>
-<span class="lineNum">     297 </span><span class="lineCov">         605818 :         return ( s1 ^ (s1 &gt;&gt; 18) );</span>
+<span class="lineNum">     293 </span><span class="lineCov">         308899 :         s1 = *pNext++;</span>
+<span class="lineNum">     294 </span><span class="lineCov">         308899 :         s1 ^= (s1 &gt;&gt; 11);</span>
+<span class="lineNum">     295 </span><span class="lineCov">         308899 :         s1 ^= (s1 &lt;&lt;  7) &amp; 0x9d2c5680UL;</span>
+<span class="lineNum">     296 </span><span class="lineCov">         308899 :         s1 ^= (s1 &lt;&lt; 15) &amp; 0xefc60000UL;</span>
+<span class="lineNum">     297 </span><span class="lineCov">         308899 :         return ( s1 ^ (s1 &gt;&gt; 18) );</span>
 <span class="lineNum">     298 </span>                : }
 <span class="lineNum">     299 </span>                : 
-<span class="lineNum">     300 </span><span class="lineCov">         592158 : inline MTRand::uint32 MTRand::randInt( const uint32 n )</span>
+<span class="lineNum">     300 </span><span class="lineCov">         301864 : inline MTRand::uint32 MTRand::randInt( const uint32 n )</span>
 <span class="lineNum">     301 </span>                : {
 <span class="lineNum">     302 </span>                :         // Find which bits are used in n
 <span class="lineNum">     303 </span>                :         // Optimized by Magnus Jonsson (magnus@smartelectronix.com)
-<span class="lineNum">     304 </span><span class="lineCov">         592158 :         uint32 used = n;</span>
-<span class="lineNum">     305 </span><span class="lineCov">         592158 :         used |= used &gt;&gt; 1;</span>
-<span class="lineNum">     306 </span><span class="lineCov">         592158 :         used |= used &gt;&gt; 2;</span>
-<span class="lineNum">     307 </span><span class="lineCov">         592158 :         used |= used &gt;&gt; 4;</span>
-<span class="lineNum">     308 </span><span class="lineCov">         592158 :         used |= used &gt;&gt; 8;</span>
-<span class="lineNum">     309 </span><span class="lineCov">         592158 :         used |= used &gt;&gt; 16;</span>
+<span class="lineNum">     304 </span><span class="lineCov">         301864 :         uint32 used = n;</span>
+<span class="lineNum">     305 </span><span class="lineCov">         301864 :         used |= used &gt;&gt; 1;</span>
+<span class="lineNum">     306 </span><span class="lineCov">         301864 :         used |= used &gt;&gt; 2;</span>
+<span class="lineNum">     307 </span><span class="lineCov">         301864 :         used |= used &gt;&gt; 4;</span>
+<span class="lineNum">     308 </span><span class="lineCov">         301864 :         used |= used &gt;&gt; 8;</span>
+<span class="lineNum">     309 </span><span class="lineCov">         301864 :         used |= used &gt;&gt; 16;</span>
 <span class="lineNum">     310 </span>                :         
 <span class="lineNum">     311 </span>                :         // Draw numbers until one is found in [0,n]
 <span class="lineNum">     312 </span>                :         uint32 i;
-<span class="lineNum">     313 </span><span class="lineCov">         605818 :         do</span>
-<span class="lineNum">     314 </span><span class="lineCov">         605818 :                 i = randInt() &amp; used;  // toss unused bits to shorten search</span>
+<span class="lineNum">     313 </span><span class="lineCov">         308899 :         do</span>
+<span class="lineNum">     314 </span><span class="lineCov">         308899 :                 i = randInt() &amp; used;  // toss unused bits to shorten search</span>
 <span class="lineNum">     315 </span>                :         while( i &gt; n );
-<span class="lineNum">     316 </span><span class="lineCov">         592158 :         return i;</span>
+<span class="lineNum">     316 </span><span class="lineCov">         301864 :         return i;</span>
 <span class="lineNum">     317 </span>                : }
 <span class="lineNum">     318 </span>                : 
 <span class="lineNum">     319 </span><span class="lineNoCov">              0 : inline double MTRand::rand()</span>

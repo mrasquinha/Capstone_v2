@@ -84,14 +84,14 @@
 <span class="lineNum">      31 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      32 </span>                :  */
 <span class="lineNum">      33 </span>                : 
-<span class="lineNum">      34 </span><span class="lineCov">             16 : ResponseHandler::ResponseHandler()</span>
+<span class="lineNum">      34 </span><span class="lineCov">              8 : ResponseHandler::ResponseHandler()</span>
 <span class="lineNum">      35 </span>                : {
-<span class="lineNum">      36 </span><span class="lineCov">             16 :     bufferFull = false;</span>
-<span class="lineNum">      37 </span><span class="lineCov">             16 :     stoppedQueue = false;       </span>
-<span class="lineNum">      38 </span><span class="lineCov">             16 :     responseBuffer.clear();</span>
-<span class="lineNum">      39 </span><span class="lineCov">           8208 :     for (unsigned int i=0; i&lt;RESPONSE_BUFFER_SIZE; i++)</span>
+<span class="lineNum">      36 </span><span class="lineCov">              8 :     bufferFull = false;</span>
+<span class="lineNum">      37 </span><span class="lineCov">              8 :     stoppedQueue = false;       </span>
+<span class="lineNum">      38 </span><span class="lineCov">              8 :     responseBuffer.clear();</span>
+<span class="lineNum">      39 </span><span class="lineCov">           4104 :     for (unsigned int i=0; i&lt;RESPONSE_BUFFER_SIZE; i++)</span>
 <span class="lineNum">      40 </span>                :     {
-<span class="lineNum">      41 </span><span class="lineCov">           8192 :         serviced[i] = false;</span>
+<span class="lineNum">      41 </span><span class="lineCov">           4096 :         serviced[i] = false;</span>
 <span class="lineNum">      42 </span>                :     }
 <span class="lineNum">      43 </span><span class="lineNoCov">              0 : }</span>
 <span class="lineNum">      44 </span>                : 
@@ -114,17 +114,17 @@
 <span class="lineNum">      61 </span>                :  * Description:  bool ResponseHandler::IsBufferFull()
 <span class="lineNum">      62 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      63 </span>                :  */
-<span class="lineNum">      64 </span><span class="lineCov">         874810 : void ResponseHandler::process_event(IrisEvent* e)</span>
+<span class="lineNum">      64 </span><span class="lineCov">         446248 : void ResponseHandler::process_event(IrisEvent* e)</span>
 <span class="lineNum">      65 </span>                : {
-<span class="lineNum">      66 </span><span class="lineCov">         874810 :     Request *req = new Request();       </span>
-<span class="lineNum">      67 </span><span class="lineCov">         874810 :     DRAMCmdState cmd;   </span>
+<span class="lineNum">      66 </span><span class="lineCov">         446248 :     Request *req = new Request();       </span>
+<span class="lineNum">      67 </span><span class="lineCov">         446248 :     DRAMCmdState cmd;   </span>
 <span class="lineNum">      68 </span>                :     int index;  
-<span class="lineNum">      69 </span><span class="lineCov">         874810 :     vector&lt;Request&gt;::iterator bufferIndex = responseBuffer.begin();       </span>
-<span class="lineNum">      70 </span><span class="lineCov">         874810 :     switch (e-&gt;type)</span>
+<span class="lineNum">      69 </span><span class="lineCov">         446248 :     vector&lt;Request&gt;::iterator bufferIndex = responseBuffer.begin();       </span>
+<span class="lineNum">      70 </span><span class="lineCov">         446248 :     switch (e-&gt;type)</span>
 <span class="lineNum">      71 </span>                :     {   
 <span class="lineNum">      72 </span>                :         case PUSH_BUFFER:
-<span class="lineNum">      73 </span><span class="lineCov">         291648 :              *req = *((Request*)e-&gt;event_data.at(0));</span>
-<span class="lineNum">      74 </span><span class="lineCov">         291648 :              responseBuffer.push_back(*req);</span>
+<span class="lineNum">      73 </span><span class="lineCov">         148805 :              *req = *((Request*)e-&gt;event_data.at(0));</span>
+<span class="lineNum">      74 </span><span class="lineCov">         148805 :              responseBuffer.push_back(*req);</span>
 <span class="lineNum">      75 </span>                : #ifdef DEEP_DEBUG
 <span class="lineNum">      76 </span>                :             cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: &quot; &lt;&lt; hex &lt;&lt; req-&gt;address &lt;&lt; &quot;: I am in ResponseHandler PUSH BUFFER with &quot; &lt;&lt; dec &lt;&lt; req-&gt;cmdType &lt;&lt; &quot; and tag &quot; &lt;&lt; req-&gt;tag &lt;&lt; endl;
 <span class="lineNum">      77 </span>                : #endif
@@ -140,16 +140,16 @@
 <span class="lineNum">      87 </span>                :                 cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: &quot; &lt;&lt; hex &lt;&lt; req-&gt;address &lt;&lt; &quot;: Response handler have sent a stop cmd queue signal &quot; &lt;&lt; dec &lt;&lt; req-&gt;cmdType &lt;&lt; &quot; and tag &quot; &lt;&lt; req-&gt;tag &lt;&lt; endl;
 <span class="lineNum">      88 </span>                : #endif
 <span class="lineNum">      89 </span>                :             }
-<span class="lineNum">      90 </span><span class="lineCov">         291648 : */          delete (Request*)e-&gt;event_data.at(0);    </span>
+<span class="lineNum">      90 </span><span class="lineCov">         148805 : */          delete (Request*)e-&gt;event_data.at(0);    </span>
 <span class="lineNum">      91 </span>                :         break;
 <span class="lineNum">      92 </span>                :         case REPLY:
-<span class="lineNum">      93 </span><span class="lineCov">         291599 :              cmd = *((DRAMCmdState*)e-&gt;event_data.at(0));</span>
-<span class="lineNum">      94 </span><span class="lineCov">         291599 :              index = SearchBuffer(&amp;cmd);            // Search the req, returns the index</span>
-<span class="lineNum">      95 </span><span class="lineCov">         583198 :                 responseBuffer[index].busInsertionTime = cmd.req.busInsertionTime;      </span>
-<span class="lineNum">      96 </span><span class="lineCov">         583198 :                 *req = responseBuffer[index];</span>
-<span class="lineNum">      97 </span><span class="lineCov">         583198 :                 responseBuffer[index].serviced = true;</span>
-<span class="lineNum">      98 </span><span class="lineCov">         583198 :                 responseBuffer[index].retireTime = Simulator::Now()+1;</span>
-<span class="lineNum">      99 </span><span class="lineCov">         583198 :                 delete (DRAMCmdState*)e-&gt;event_data.at(0);</span>
+<span class="lineNum">      93 </span><span class="lineCov">         148790 :              cmd = *((DRAMCmdState*)e-&gt;event_data.at(0));</span>
+<span class="lineNum">      94 </span><span class="lineCov">         148790 :              index = SearchBuffer(&amp;cmd);            // Search the req, returns the index</span>
+<span class="lineNum">      95 </span><span class="lineCov">         297580 :                 responseBuffer[index].busInsertionTime = cmd.req.busInsertionTime;      </span>
+<span class="lineNum">      96 </span><span class="lineCov">         297580 :                 *req = responseBuffer[index];</span>
+<span class="lineNum">      97 </span><span class="lineCov">         297580 :                 responseBuffer[index].serviced = true;</span>
+<span class="lineNum">      98 </span><span class="lineCov">         297580 :                 responseBuffer[index].retireTime = Simulator::Now()+1;</span>
+<span class="lineNum">      99 </span><span class="lineCov">         297580 :                 delete (DRAMCmdState*)e-&gt;event_data.at(0);</span>
 <span class="lineNum">     100 </span>                : #ifdef DEEP_DEBUG
 <span class="lineNum">     101 </span>                :               cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: &quot; &lt;&lt; hex &lt;&lt; cmd.req.address &lt;&lt; &quot;: I am in Response Handler REPLY with tag &quot; &lt;&lt; dec &lt;&lt; cmd.req.tag &lt;&lt; endl;
 <span class="lineNum">     102 </span>                : #endif  
@@ -165,20 +165,20 @@
 <span class="lineNum">     112 </span>                :         case OUT_PULL_EVENT:
 <span class="lineNum">     113 </span>                :             out_pull_scheduled = false;
 <span class="lineNum">     114 </span>                :                * */
-<span class="lineNum">     115 </span><span class="lineCov">         583198 :              if (((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.empty() ) //&amp;&amp; !((NI*)((MC*)mc)-&gt;parent)-&gt;sending)</span>
+<span class="lineNum">     115 </span><span class="lineCov">         297580 :              if (((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.empty() ) //&amp;&amp; !((NI*)((MC*)mc)-&gt;parent)-&gt;sending)</span>
 <span class="lineNum">     116 </span>                :              {
-<span class="lineNum">     117 </span><span class="lineCov">         197426 :                 index = SendServiced();</span>
-<span class="lineNum">     118 </span><span class="lineCov">         394852 :                  *req = responseBuffer[index];</span>
-<span class="lineNum">     119 </span><span class="lineCov">         197426 :                 ((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.push_back(*req);        // put the request into NI queue if its free</span>
-<span class="lineNum">     120 </span><span class="lineCov">         197426 :                 responseBuffer.erase(index+bufferIndex);                // delete the req from response buffer</span>
-<span class="lineNum">     121 </span><span class="lineCov">         197426 :                 IrisEvent* ev = new IrisEvent();</span>
-<span class="lineNum">     122 </span><span class="lineCov">         197426 :                 ev-&gt;type = OUT_PULL_EVENT;</span>
-<span class="lineNum">     123 </span><span class="lineCov">         197426 :                 ev-&gt;dst = ((MC*)mc)-&gt;parent;</span>
-<span class="lineNum">     124 </span><span class="lineCov">         197426 :                 Simulator::Schedule(Simulator::Now()+1, &amp;NI::process_event, (NI*)ev-&gt;dst, ev);   </span>
+<span class="lineNum">     117 </span><span class="lineCov">         108448 :                 index = SendServiced();</span>
+<span class="lineNum">     118 </span><span class="lineCov">         216896 :                  *req = responseBuffer[index];</span>
+<span class="lineNum">     119 </span><span class="lineCov">         108448 :                 ((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.push_back(*req);        // put the request into NI queue if its free</span>
+<span class="lineNum">     120 </span><span class="lineCov">         108448 :                 responseBuffer.erase(index+bufferIndex);                // delete the req from response buffer</span>
+<span class="lineNum">     121 </span><span class="lineCov">         108448 :                 IrisEvent* ev = new IrisEvent();</span>
+<span class="lineNum">     122 </span><span class="lineCov">         108448 :                 ev-&gt;type = OUT_PULL_EVENT;</span>
+<span class="lineNum">     123 </span><span class="lineCov">         108448 :                 ev-&gt;dst = ((MC*)mc)-&gt;parent;</span>
+<span class="lineNum">     124 </span><span class="lineCov">         108448 :                 Simulator::Schedule(Simulator::Now()+1, &amp;NI::process_event, (NI*)ev-&gt;dst, ev);   </span>
 <span class="lineNum">     125 </span>                : #ifdef DEBUG        
 <span class="lineNum">     126 </span>                :         cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: &quot; &lt;&lt; hex &lt;&lt; cmd.req.address &lt;&lt; &quot;: Total Time taken by request &quot; &lt;&lt; dec &lt;&lt; req-&gt;retireTime - req-&gt;arrivalTime &lt;&lt; endl;
 <span class="lineNum">     127 </span>                : #endif   
-<span class="lineNum">     128 </span><span class="lineCov">         197426 :                 ((MC*)mc)-&gt;stats-&gt;CollectStatsPerRequest(req);</span>
+<span class="lineNum">     128 </span><span class="lineCov">         108448 :                 ((MC*)mc)-&gt;stats-&gt;CollectStatsPerRequest(req);</span>
 <span class="lineNum">     129 </span>                :             
 <span class="lineNum">     130 </span>                : /*  
 <span class="lineNum">     131 </span>                :                 index = SendServiced();
@@ -198,13 +198,13 @@
 <span class="lineNum">     145 </span>                :             }
 <span class="lineNum">     146 </span>                : */            else
 <span class="lineNum">     147 </span>                :              {
-<span class="lineNum">     148 </span><span class="lineCov">         188346 :                 responseBuffer[index].serviced = true;</span>
+<span class="lineNum">     148 </span><span class="lineCov">          80684 :                 responseBuffer[index].serviced = true;</span>
 <span class="lineNum">     149 </span>                :              }
 <span class="lineNum">     150 </span>                : 
 <span class="lineNum">     151 </span>                :           
 <span class="lineNum">     152 </span>                :              break;     
 <span class="lineNum">     153 </span>                :         case SEND_TO_NI:     
-<span class="lineNum">     154 </span><span class="lineCov">         291563 :                   index = SendServiced();       </span>
+<span class="lineNum">     154 </span><span class="lineCov">         148653 :                   index = SendServiced();       </span>
 <span class="lineNum">     155 </span>                :     /*              if(index == -1)
 <span class="lineNum">     156 </span>                :                     out_pull_scheduled = false;
 <span class="lineNum">     157 </span>                :                  else
@@ -219,22 +219,22 @@
 <span class="lineNum">     166 </span>                :             }
 <span class="lineNum">     167 </span>                :              break;
 <span class="lineNum">     168 </span>                :       */          
-<span class="lineNum">     169 </span><span class="lineCov">         583126 :                 *req = responseBuffer[index];</span>
+<span class="lineNum">     169 </span><span class="lineCov">         297306 :                 *req = responseBuffer[index];</span>
 <span class="lineNum">     170 </span>                :                 
 <span class="lineNum">     171 </span>                :      //           cout &lt;&lt; &quot;Don't know whats happening2&quot; &lt;&lt; endl; 
-<span class="lineNum">     172 </span><span class="lineCov">         388095 :                 if(index != -1 &amp;&amp; ((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.empty() )</span>
+<span class="lineNum">     172 </span><span class="lineCov">         189856 :                 if(index != -1 &amp;&amp; ((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.empty() )</span>
 <span class="lineNum">     173 </span>                :                 {
 <span class="lineNum">     174 </span>                :      //           cout &lt;&lt; &quot;Don't know whats happening3&quot; &lt;&lt; endl; 
-<span class="lineNum">     175 </span><span class="lineCov">          94144 :                     ((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.push_back(*req);    // put the request into NI queue if its free</span>
-<span class="lineNum">     176 </span><span class="lineCov">         188288 :                      assert(responseBuffer[index].serviced == true);                    </span>
-<span class="lineNum">     177 </span><span class="lineCov">          94144 :                     responseBuffer.erase(index+bufferIndex);            // delete the req from response buffer</span>
-<span class="lineNum">     178 </span><span class="lineCov">          94144 :                     IrisEvent* ev = new IrisEvent();</span>
-<span class="lineNum">     179 </span><span class="lineCov">          94144 :                     ev-&gt;type = OUT_PULL_EVENT;</span>
-<span class="lineNum">     180 </span><span class="lineCov">          94144 :                     ev-&gt;dst = ((MC*)mc)-&gt;parent;</span>
-<span class="lineNum">     181 </span><span class="lineCov">          94144 :                     Simulator::Schedule(Simulator::Now()+1, &amp;NI::process_event, (NI*)ev-&gt;dst, ev);</span>
-<span class="lineNum">     182 </span><span class="lineCov">          94144 :                     serviced[index] = false;   </span>
+<span class="lineNum">     175 </span><span class="lineCov">          40208 :                     ((NI*)((MC*)mc)-&gt;parent)-&gt;niQueue.push_back(*req);    // put the request into NI queue if its free</span>
+<span class="lineNum">     176 </span><span class="lineCov">          80416 :                      assert(responseBuffer[index].serviced == true);                    </span>
+<span class="lineNum">     177 </span><span class="lineCov">          40208 :                     responseBuffer.erase(index+bufferIndex);            // delete the req from response buffer</span>
+<span class="lineNum">     178 </span><span class="lineCov">          40208 :                     IrisEvent* ev = new IrisEvent();</span>
+<span class="lineNum">     179 </span><span class="lineCov">          40208 :                     ev-&gt;type = OUT_PULL_EVENT;</span>
+<span class="lineNum">     180 </span><span class="lineCov">          40208 :                     ev-&gt;dst = ((MC*)mc)-&gt;parent;</span>
+<span class="lineNum">     181 </span><span class="lineCov">          40208 :                     Simulator::Schedule(Simulator::Now()+1, &amp;NI::process_event, (NI*)ev-&gt;dst, ev);</span>
+<span class="lineNum">     182 </span><span class="lineCov">          40208 :                     serviced[index] = false;   </span>
 <span class="lineNum">     183 </span>                :  
-<span class="lineNum">     184 </span><span class="lineCov">          94144 :                     ((MC*)mc)-&gt;stats-&gt;CollectStatsPerRequest(req);</span>
+<span class="lineNum">     184 </span><span class="lineCov">          40208 :                     ((MC*)mc)-&gt;stats-&gt;CollectStatsPerRequest(req);</span>
 <span class="lineNum">     185 </span>                :                 }
 <span class="lineNum">     186 </span>                :                 else
 <span class="lineNum">     187 </span>                :                 {   
@@ -246,47 +246,47 @@
 <span class="lineNum">     193 </span>                :         default:
 <span class="lineNum">     194 </span><span class="lineNoCov">              0 :                 cout &lt;&lt; dec &lt;&lt; Simulator::Now() &lt;&lt; &quot;: I should not come to default of process event in response handler\n&quot;;</span>
 <span class="lineNum">     195 </span>                :     }           
-<span class="lineNum">     196 </span><span class="lineCov">         874810 :     delete req; </span>
-<span class="lineNum">     197 </span><span class="lineCov">         874810 :     delete e;</span>
-<span class="lineNum">     198 </span><span class="lineCov">         874810 : }</span>
+<span class="lineNum">     196 </span><span class="lineCov">         446248 :     delete req; </span>
+<span class="lineNum">     197 </span><span class="lineCov">         446248 :     delete e;</span>
+<span class="lineNum">     198 </span><span class="lineCov">         446248 : }</span>
 <span class="lineNum">     199 </span>                : 
-<span class="lineNum">     200 </span><span class="lineCov">         488989 : unsigned int ResponseHandler::SendServiced()</span>
+<span class="lineNum">     200 </span><span class="lineCov">         257101 : unsigned int ResponseHandler::SendServiced()</span>
 <span class="lineNum">     201 </span>                : {               
-<span class="lineNum">     202 </span><span class="lineCov">        2419956 :     for (unsigned int i=0; i&lt;responseBuffer.size(); i++)</span>
+<span class="lineNum">     202 </span><span class="lineCov">        1341934 :     for (unsigned int i=0; i&lt;responseBuffer.size(); i++)</span>
 <span class="lineNum">     203 </span>                :     {
-<span class="lineNum">     204 </span><span class="lineCov">        2029894 :         if (responseBuffer[i].serviced)</span>
+<span class="lineNum">     204 </span><span class="lineCov">        1127034 :         if (responseBuffer[i].serviced)</span>
 <span class="lineNum">     205 </span>                :         {       
-<span class="lineNum">     206 </span><span class="lineCov">         293958 :             return i;</span>
+<span class="lineNum">     206 </span><span class="lineCov">         149651 :             return i;</span>
 <span class="lineNum">     207 </span>                :         }
 <span class="lineNum">     208 </span>                :     }       
-<span class="lineNum">     209 </span><span class="lineCov">         195031 :     return -1;</span>
+<span class="lineNum">     209 </span><span class="lineCov">         107450 :     return -1;</span>
 <span class="lineNum">     210 </span>                : }
 <span class="lineNum">     211 </span>                : ///////// Search the response buffer. Find the request, erase it from the buffer and return it ////////
 <span class="lineNum">     212 </span>                : 
-<span class="lineNum">     213 </span><span class="lineCov">         291599 : unsigned int ResponseHandler::SearchBuffer(DRAMCmdState *cmd)</span>
+<span class="lineNum">     213 </span><span class="lineCov">         148790 : unsigned int ResponseHandler::SearchBuffer(DRAMCmdState *cmd)</span>
 <span class="lineNum">     214 </span>                : {               
-<span class="lineNum">     215 </span><span class="lineCov">        8235906 :     for (unsigned int i=0; i&lt;responseBuffer.size(); i++)</span>
+<span class="lineNum">     215 </span><span class="lineCov">        3336028 :     for (unsigned int i=0; i&lt;responseBuffer.size(); i++)</span>
 <span class="lineNum">     216 </span>                :     {
-<span class="lineNum">     217 </span><span class="lineCov">        8235906 :         if (responseBuffer[i].tag == cmd-&gt;req.tag)</span>
+<span class="lineNum">     217 </span><span class="lineCov">        3336028 :         if (responseBuffer[i].tag == cmd-&gt;req.tag)</span>
 <span class="lineNum">     218 </span>                :         {       
-<span class="lineNum">     219 </span><span class="lineCov">         291599 :             return i;</span>
+<span class="lineNum">     219 </span><span class="lineCov">         148790 :             return i;</span>
 <span class="lineNum">     220 </span>                :         }
 <span class="lineNum">     221 </span>                :     }       
 <span class="lineNum">     222 </span><span class="lineNoCov">              0 :     cout &lt;&lt; &quot;Error: scheduled cmd could not be found in Response Buffer\n&quot;;</span>
 <span class="lineNum">     223 </span><span class="lineNoCov">              0 :     return -1;  </span>
 <span class="lineNum">     224 </span>                : }
 <span class="lineNum">     225 </span>                : 
-<span class="lineNum">     226 </span><span class="lineCov">        6960162 : bool ResponseHandler::IsBufferFull()</span>
+<span class="lineNum">     226 </span><span class="lineCov">        3619621 : bool ResponseHandler::IsBufferFull()</span>
 <span class="lineNum">     227 </span>                : {
-<span class="lineNum">     228 </span><span class="lineCov">       13920324 :     if ( responseBuffer.size() &gt; RESPONSE_BUFFER_SIZE-3 )</span>
+<span class="lineNum">     228 </span><span class="lineCov">        7239242 :     if ( responseBuffer.size() &gt; RESPONSE_BUFFER_SIZE-3 )</span>
 <span class="lineNum">     229 </span>                :     {
 <span class="lineNum">     230 </span><span class="lineNoCov">              0 :         bufferFull = true;      </span>
 <span class="lineNum">     231 </span><span class="lineNoCov">              0 :         return true;</span>
 <span class="lineNum">     232 </span>                :     }
 <span class="lineNum">     233 </span>                :     else
 <span class="lineNum">     234 </span>                :     { 
-<span class="lineNum">     235 </span><span class="lineCov">        6960162 :         bufferFull = false;</span>
-<span class="lineNum">     236 </span><span class="lineCov">        6960162 :         return false;</span>
+<span class="lineNum">     235 </span><span class="lineCov">        3619621 :         bufferFull = false;</span>
+<span class="lineNum">     236 </span><span class="lineCov">        3619621 :         return false;</span>
 <span class="lineNum">     237 </span>                :     }
 <span class="lineNum">     238 </span>                : }
 <span class="lineNum">     239 </span>                : 
@@ -302,7 +302,7 @@
 <span class="lineNum">     249 </span>                : {
 <span class="lineNum">     250 </span>                : //      cout &lt;&lt; bufferId &lt;&lt;endl;
 <span class="lineNum">     251 </span><span class="lineNoCov">              0 :         return &quot;ResponseHandler&quot;;</span>
-<span class="lineNum">     252 </span><span class="lineCov">              4 : }</span>
+<span class="lineNum">     252 </span><span class="lineCov">              2 : }</span>
 </pre>
       </td>
     </tr>

@@ -82,10 +82,10 @@
 <span class="lineNum">      29 </span>                :  *--------------------------------------------------------------------------------------
 <span class="lineNum">      30 </span>                :  */
 <span class="lineNum">      31 </span>                : 
-<span class="lineNum">      32 </span><span class="lineCov">             16 : Bus::Bus()</span>
+<span class="lineNum">      32 </span><span class="lineCov">              8 : Bus::Bus()</span>
 <span class="lineNum">      33 </span>                : {
 <span class="lineNum">      34 </span>                : 
-<span class="lineNum">      35 </span><span class="lineCov">             16 : }</span>
+<span class="lineNum">      35 </span><span class="lineCov">              8 : }</span>
 <span class="lineNum">      36 </span>                : 
 <span class="lineNum">      37 </span>                : /*
 <span class="lineNum">      38 </span>                :  *--------------------------------------------------------------------------------------
@@ -111,22 +111,22 @@
 <span class="lineNum">      58 </span><span class="lineNoCov">              0 :    delete e;</span>
 <span class="lineNum">      59 </span><span class="lineNoCov">              0 : }</span>
 <span class="lineNum">      60 </span>                : 
-<span class="lineNum">      61 </span><span class="lineCov">             16 : void Bus::SetLinks()</span>
+<span class="lineNum">      61 </span><span class="lineCov">              8 : void Bus::SetLinks()</span>
 <span class="lineNum">      62 </span>                : {
-<span class="lineNum">      63 </span><span class="lineCov">             32 :     for(short i=0; i&lt;NO_OF_CHANNELS; i++)</span>
+<span class="lineNum">      63 </span><span class="lineCov">             16 :     for(short i=0; i&lt;NO_OF_CHANNELS; i++)</span>
 <span class="lineNum">      64 </span>                :     {
-<span class="lineNum">      65 </span><span class="lineCov">             16 :         dataBus[i].parent = this;</span>
-<span class="lineNum">      66 </span><span class="lineCov">             16 :         cmdBus[i].parent = this;</span>
-<span class="lineNum">      67 </span><span class="lineCov">             16 :         dataBus[i].child1 = (Component*)(&amp;((DRAM*)child1)-&gt;dc[i]);       // dram side link</span>
-<span class="lineNum">      68 </span><span class="lineCov">             16 :         dataBus[i].child2 = (Component*)child2;                                 // response side link   </span>
-<span class="lineNum">      69 </span><span class="lineCov">             16 :         cmdBus[i].child = (Component*)(&amp;((DRAM*)child1)-&gt;dc[i]);</span>
+<span class="lineNum">      65 </span><span class="lineCov">              8 :         dataBus[i].parent = this;</span>
+<span class="lineNum">      66 </span><span class="lineCov">              8 :         cmdBus[i].parent = this;</span>
+<span class="lineNum">      67 </span><span class="lineCov">              8 :         dataBus[i].child1 = (Component*)(&amp;((DRAM*)child1)-&gt;dc[i]);       // dram side link</span>
+<span class="lineNum">      68 </span><span class="lineCov">              8 :         dataBus[i].child2 = (Component*)child2;                                 // response side link   </span>
+<span class="lineNum">      69 </span><span class="lineCov">              8 :         cmdBus[i].child = (Component*)(&amp;((DRAM*)child1)-&gt;dc[i]);</span>
 <span class="lineNum">      70 </span>                :     }   
-<span class="lineNum">      71 </span><span class="lineCov">             16 : }</span>
+<span class="lineNum">      71 </span><span class="lineCov">              8 : }</span>
 <span class="lineNum">      72 </span><span class="lineNoCov">              0 : std::string Bus::toString()</span>
 <span class="lineNum">      73 </span>                : {
 <span class="lineNum">      74 </span>                : //      cout &lt;&lt; bufferId &lt;&lt;endl;
 <span class="lineNum">      75 </span><span class="lineNoCov">              0 :         return &quot;Bus&quot;;</span>
-<span class="lineNum">      76 </span><span class="lineCov">              4 : }</span>
+<span class="lineNum">      76 </span><span class="lineCov">              2 : }</span>
 <span class="lineNum">      77 </span>                : 
 <span class="lineNum">      78 </span>                : 
 </pre>

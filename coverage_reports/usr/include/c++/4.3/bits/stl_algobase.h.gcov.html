@@ -265,9 +265,9 @@
 <span class="lineNum">     212 </span>                :       // concept requirements
 <span class="lineNum">     213 </span>                :       __glibcxx_function_requires(_LessThanComparableConcept&lt;_Tp&gt;)
 <span class="lineNum">     214 </span>                :       //return  __a &lt; __b ? __b : __a;
-<span class="lineNum">     215 </span><span class="lineCov">       14491548 :       if (__a &lt; __b)</span>
-<span class="lineNum">     216 </span><span class="lineCov">       12281540 :         return __b;</span>
-<span class="lineNum">     217 </span><span class="lineCov">        2210008 :       return __a;</span>
+<span class="lineNum">     215 </span><span class="lineCov">       18794167 :       if (__a &lt; __b)</span>
+<span class="lineNum">     216 </span><span class="lineCov">       13971610 :         return __b;</span>
+<span class="lineNum">     217 </span><span class="lineCov">        4822557 :       return __a;</span>
 <span class="lineNum">     218 </span>                :     }
 <span class="lineNum">     219 </span>                : 
 <span class="lineNum">     220 </span>                :   /**
@@ -319,7 +319,7 @@
 <span class="lineNum">     266 </span>                :     {
 <span class="lineNum">     267 </span>                :       static _Iterator
 <span class="lineNum">     268 </span><span class="lineNoCov">              0 :       __b(_Iterator __it)</span>
-<span class="lineNum">     269 </span><span class="lineCov">      127886611 :       { return __it; }</span>
+<span class="lineNum">     269 </span><span class="lineCov">       84274927 :       { return __it; }</span>
 <span class="lineNum">     270 </span>                :     };
 <span class="lineNum">     271 </span>                : 
 <span class="lineNum">     272 </span>                :   template&lt;typename _Iterator&gt;
@@ -327,7 +327,7 @@
 <span class="lineNum">     274 </span>                :     {
 <span class="lineNum">     275 </span>                :       static typename _Iterator::iterator_type
 <span class="lineNum">     276 </span><span class="lineNoCov">              0 :       __b(_Iterator __it)</span>
-<span class="lineNum">     277 </span><span class="lineCov">        2507601 :       { return __it.base(); }</span>
+<span class="lineNum">     277 </span><span class="lineCov">        1712238 :       { return __it.base(); }</span>
 <span class="lineNum">     278 </span>                :     };
 <span class="lineNum">     279 </span>                : 
 <span class="lineNum">     280 </span>                :   // Likewise, for move_iterator.
@@ -337,7 +337,7 @@
 <span class="lineNum">     284 </span>                :     {
 <span class="lineNum">     285 </span>                :       static _Iterator
 <span class="lineNum">     286 </span><span class="lineNoCov">              0 :       __b(_Iterator __it)</span>
-<span class="lineNum">     287 </span><span class="lineCov">       95184967 :       { return __it; }</span>
+<span class="lineNum">     287 </span><span class="lineCov">       63749415 :       { return __it; }</span>
 <span class="lineNum">     288 </span>                :     };
 <span class="lineNum">     289 </span>                : 
 <span class="lineNum">     290 </span>                :   template&lt;typename _Iterator&gt;
@@ -387,16 +387,16 @@
 <span class="lineNum">     334 </span>                :     {
 <span class="lineNum">     335 </span>                :       template&lt;typename _II, typename _OI&gt;
 <span class="lineNum">     336 </span>                :         static _OI
-<span class="lineNum">     337 </span><span class="lineCov">       27750295 :         __copy_m(_II __first, _II __last, _OI __result)</span>
+<span class="lineNum">     337 </span><span class="lineCov">       14750364 :         __copy_m(_II __first, _II __last, _OI __result)</span>
 <span class="lineNum">     338 </span>                :         { 
 <span class="lineNum">     339 </span>                :           typedef typename iterator_traits&lt;_II&gt;::difference_type _Distance;
-<span class="lineNum">     340 </span><span class="lineCov">       31391695 :           for(_Distance __n = __last - __first; __n &gt; 0; --__n)</span>
+<span class="lineNum">     340 </span><span class="lineCov">       17856776 :           for(_Distance __n = __last - __first; __n &gt; 0; --__n)</span>
 <span class="lineNum">     341 </span>                :             {
-<span class="lineNum">     342 </span><span class="lineCov">        3641400 :               *__result = *__first;</span>
-<span class="lineNum">     343 </span><span class="lineCov">        3641400 :               ++__first;</span>
-<span class="lineNum">     344 </span><span class="lineCov">        3641400 :               ++__result;</span>
+<span class="lineNum">     342 </span><span class="lineCov">        3106412 :               *__result = *__first;</span>
+<span class="lineNum">     343 </span><span class="lineCov">        3106412 :               ++__first;</span>
+<span class="lineNum">     344 </span><span class="lineCov">        3106412 :               ++__result;</span>
 <span class="lineNum">     345 </span>                :             }
-<span class="lineNum">     346 </span><span class="lineCov">       27750295 :           return __result;</span>
+<span class="lineNum">     346 </span><span class="lineCov">       14750364 :           return __result;</span>
 <span class="lineNum">     347 </span>                :         }
 <span class="lineNum">     348 </span>                :     };
 <span class="lineNum">     349 </span>                : 
@@ -425,17 +425,17 @@
 <span class="lineNum">     372 </span>                :     {
 <span class="lineNum">     373 </span>                :       template&lt;typename _Tp&gt;
 <span class="lineNum">     374 </span>                :         static _Tp*
-<span class="lineNum">     375 </span><span class="lineCov">       39672473 :         __copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)</span>
+<span class="lineNum">     375 </span><span class="lineCov">       34245871 :         __copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)</span>
 <span class="lineNum">     376 </span>                :         {
-<span class="lineNum">     377 </span><span class="lineCov">       39672473 :           __builtin_memmove(__result, __first,</span>
+<span class="lineNum">     377 </span><span class="lineCov">       34245871 :           __builtin_memmove(__result, __first,</span>
 <span class="lineNum">     378 </span>                :                             sizeof(_Tp) * (__last - __first));
-<span class="lineNum">     379 </span><span class="lineCov">       39672473 :           return __result + (__last - __first);</span>
+<span class="lineNum">     379 </span><span class="lineCov">       34245871 :           return __result + (__last - __first);</span>
 <span class="lineNum">     380 </span>                :         }
 <span class="lineNum">     381 </span>                :     };
 <span class="lineNum">     382 </span>                : 
 <span class="lineNum">     383 </span>                :   template&lt;bool _IsMove, typename _II, typename _OI&gt;
 <span class="lineNum">     384 </span>                :     inline _OI
-<span class="lineNum">     385 </span><span class="lineCov">       26919804 :     __copy_move_a(_II __first, _II __last, _OI __result)</span>
+<span class="lineNum">     385 </span><span class="lineCov">       14181410 :     __copy_move_a(_II __first, _II __last, _OI __result)</span>
 <span class="lineNum">     386 </span>                :     {
 <span class="lineNum">     387 </span>                :       typedef typename iterator_traits&lt;_II&gt;::value_type _ValueTypeI;
 <span class="lineNum">     388 </span>                :       typedef typename iterator_traits&lt;_OI&gt;::value_type _ValueTypeO;
@@ -443,10 +443,10 @@
 <span class="lineNum">     390 </span>                :       const bool __simple = (__is_pod(_ValueTypeI)
 <span class="lineNum">     391 </span>                :                              &amp;&amp; __is_pointer&lt;_II&gt;::__value
 <span class="lineNum">     392 </span>                :                              &amp;&amp; __is_pointer&lt;_OI&gt;::__value
-<span class="lineNum">     393 </span><span class="lineCov">       67426224 :                              &amp;&amp; __are_same&lt;_ValueTypeI, _ValueTypeO&gt;::__value);</span>
+<span class="lineNum">     393 </span><span class="lineCov">       48996235 :                              &amp;&amp; __are_same&lt;_ValueTypeI, _ValueTypeO&gt;::__value);</span>
 <span class="lineNum">     394 </span>                : 
 <span class="lineNum">     395 </span>                :       return std::__copy_move&lt;_IsMove, __simple,
-<span class="lineNum">     396 </span><span class="lineCov">       67429296 :                               _Category&gt;::__copy_m(__first, __last, __result);</span>
+<span class="lineNum">     396 </span><span class="lineCov">       48997259 :                               _Category&gt;::__copy_m(__first, __last, __result);</span>
 <span class="lineNum">     397 </span>                :     }
 <span class="lineNum">     398 </span>                : 
 <span class="lineNum">     399 </span>                :   // Helpers for streambuf iterators (either istream or ostream).
@@ -480,12 +480,12 @@
 <span class="lineNum">     427 </span>                : 
 <span class="lineNum">     428 </span>                :   template&lt;bool _IsMove, typename _II, typename _OI&gt;
 <span class="lineNum">     429 </span>                :     inline _OI
-<span class="lineNum">     430 </span><span class="lineCov">       27758359 :     __copy_move_a2(_II __first, _II __last, _OI __result)</span>
+<span class="lineNum">     430 </span><span class="lineCov">       14753052 :     __copy_move_a2(_II __first, _II __last, _OI __result)</span>
 <span class="lineNum">     431 </span>                :     {
 <span class="lineNum">     432 </span>                :       return _OI(std::__copy_move_a&lt;_IsMove&gt;
 <span class="lineNum">     433 </span>                :                  (std::__niter_base&lt;_II&gt;::__b(__first),
 <span class="lineNum">     434 </span>                :                   std::__niter_base&lt;_II&gt;::__b(__last),
-<span class="lineNum">     435 </span><span class="lineCov">      150693237 :                   std::__niter_base&lt;_OI&gt;::__b(__result)));</span>
+<span class="lineNum">     435 </span><span class="lineCov">       93252703 :                   std::__niter_base&lt;_OI&gt;::__b(__result)));</span>
 <span class="lineNum">     436 </span>                :     }
 <span class="lineNum">     437 </span>                : 
 <span class="lineNum">     438 </span>                :   /**
@@ -506,7 +506,7 @@
 <span class="lineNum">     453 </span>                :   */
 <span class="lineNum">     454 </span>                :   template&lt;typename _II, typename _OI&gt;
 <span class="lineNum">     455 </span>                :     inline _OI
-<span class="lineNum">     456 </span><span class="lineCov">       27758359 :     copy(_II __first, _II __last, _OI __result)</span>
+<span class="lineNum">     456 </span><span class="lineCov">       14753052 :     copy(_II __first, _II __last, _OI __result)</span>
 <span class="lineNum">     457 </span>                :     {
 <span class="lineNum">     458 </span>                :       // concept requirements
 <span class="lineNum">     459 </span>                :       __glibcxx_function_requires(_InputIteratorConcept&lt;_II&gt;)
@@ -516,7 +516,7 @@
 <span class="lineNum">     463 </span>                : 
 <span class="lineNum">     464 </span>                :       return (std::__copy_move_a2&lt;__is_move_iterator&lt;_II&gt;::__value&gt;
 <span class="lineNum">     465 </span>                :               (std::__miter_base&lt;_II&gt;::__b(__first),
-<span class="lineNum">     466 </span><span class="lineCov">      122946014 :                std::__miter_base&lt;_II&gt;::__b(__last), __result));</span>
+<span class="lineNum">     466 </span><span class="lineCov">       78503363 :                std::__miter_base&lt;_II&gt;::__b(__last), __result));</span>
 <span class="lineNum">     467 </span>                :     }
 <span class="lineNum">     468 </span>                : 
 <span class="lineNum">     469 </span>                : #ifdef __GXX_EXPERIMENTAL_CXX0X__
@@ -589,12 +589,12 @@
 <span class="lineNum">     536 </span>                :     {
 <span class="lineNum">     537 </span>                :       template&lt;typename _BI1, typename _BI2&gt;
 <span class="lineNum">     538 </span>                :         static _BI2
-<span class="lineNum">     539 </span><span class="lineCov">            192 :         __copy_move_b(_BI1 __first, _BI1 __last, _BI2 __result)</span>
+<span class="lineNum">     539 </span><span class="lineCov">             64 :         __copy_move_b(_BI1 __first, _BI1 __last, _BI2 __result)</span>
 <span class="lineNum">     540 </span>                :         {
 <span class="lineNum">     541 </span>                :           typename iterator_traits&lt;_BI1&gt;::difference_type __n;
-<span class="lineNum">     542 </span><span class="lineCov">            384 :           for (__n = __last - __first; __n &gt; 0; --__n)</span>
+<span class="lineNum">     542 </span><span class="lineCov">            128 :           for (__n = __last - __first; __n &gt; 0; --__n)</span>
 <span class="lineNum">     543 </span><span class="lineNoCov">              0 :             *--__result = *--__last;</span>
-<span class="lineNum">     544 </span><span class="lineCov">            192 :           return __result;</span>
+<span class="lineNum">     544 </span><span class="lineCov">             64 :           return __result;</span>
 <span class="lineNum">     545 </span>                :         }
 <span class="lineNum">     546 </span>                :     };
 <span class="lineNum">     547 </span>                : 
@@ -629,7 +629,7 @@
 <span class="lineNum">     576 </span>                : 
 <span class="lineNum">     577 </span>                :   template&lt;bool _IsMove, typename _BI1, typename _BI2&gt;
 <span class="lineNum">     578 </span>                :     inline _BI2
-<span class="lineNum">     579 </span><span class="lineCov">            192 :     __copy_move_backward_a(_BI1 __first, _BI1 __last, _BI2 __result)</span>
+<span class="lineNum">     579 </span><span class="lineCov">             64 :     __copy_move_backward_a(_BI1 __first, _BI1 __last, _BI2 __result)</span>
 <span class="lineNum">     580 </span>                :     {
 <span class="lineNum">     581 </span>                :       typedef typename iterator_traits&lt;_BI1&gt;::value_type _ValueType1;
 <span class="lineNum">     582 </span>                :       typedef typename iterator_traits&lt;_BI2&gt;::value_type _ValueType2;
@@ -637,22 +637,22 @@
 <span class="lineNum">     584 </span>                :       const bool __simple = (__is_pod(_ValueType1)
 <span class="lineNum">     585 </span>                :                              &amp;&amp; __is_pointer&lt;_BI1&gt;::__value
 <span class="lineNum">     586 </span>                :                              &amp;&amp; __is_pointer&lt;_BI2&gt;::__value
-<span class="lineNum">     587 </span><span class="lineCov">            192 :                              &amp;&amp; __are_same&lt;_ValueType1, _ValueType2&gt;::__value);</span>
+<span class="lineNum">     587 </span><span class="lineCov">             64 :                              &amp;&amp; __are_same&lt;_ValueType1, _ValueType2&gt;::__value);</span>
 <span class="lineNum">     588 </span>                : 
 <span class="lineNum">     589 </span>                :       return std::__copy_move_backward&lt;_IsMove, __simple,
 <span class="lineNum">     590 </span>                :                                        _Category&gt;::__copy_move_b(__first,
 <span class="lineNum">     591 </span>                :                                                                  __last,
-<span class="lineNum">     592 </span><span class="lineCov">            192 :                                                                  __result);</span>
+<span class="lineNum">     592 </span><span class="lineCov">             64 :                                                                  __result);</span>
 <span class="lineNum">     593 </span>                :     }
 <span class="lineNum">     594 </span>                : 
 <span class="lineNum">     595 </span>                :   template&lt;bool _IsMove, typename _BI1, typename _BI2&gt;
 <span class="lineNum">     596 </span>                :     inline _BI2
-<span class="lineNum">     597 </span><span class="lineCov">            192 :     __copy_move_backward_a2(_BI1 __first, _BI1 __last, _BI2 __result)</span>
+<span class="lineNum">     597 </span><span class="lineCov">             64 :     __copy_move_backward_a2(_BI1 __first, _BI1 __last, _BI2 __result)</span>
 <span class="lineNum">     598 </span>                :     {
 <span class="lineNum">     599 </span>                :       return _BI2(std::__copy_move_backward_a&lt;_IsMove&gt;
 <span class="lineNum">     600 </span>                :                   (std::__niter_base&lt;_BI1&gt;::__b(__first),
 <span class="lineNum">     601 </span>                :                    std::__niter_base&lt;_BI1&gt;::__b(__last),
-<span class="lineNum">     602 </span><span class="lineCov">            768 :                    std::__niter_base&lt;_BI2&gt;::__b(__result)));</span>
+<span class="lineNum">     602 </span><span class="lineCov">            256 :                    std::__niter_base&lt;_BI2&gt;::__b(__result)));</span>
 <span class="lineNum">     603 </span>                :     }
 <span class="lineNum">     604 </span>                : 
 <span class="lineNum">     605 </span>                :   /**
@@ -674,7 +674,7 @@
 <span class="lineNum">     621 </span>                :   */
 <span class="lineNum">     622 </span>                :   template&lt;typename _BI1, typename _BI2&gt;
 <span class="lineNum">     623 </span>                :     inline _BI2
-<span class="lineNum">     624 </span><span class="lineCov">            192 :     copy_backward(_BI1 __first, _BI1 __last, _BI2 __result)</span>
+<span class="lineNum">     624 </span><span class="lineCov">             64 :     copy_backward(_BI1 __first, _BI1 __last, _BI2 __result)</span>
 <span class="lineNum">     625 </span>                :     {
 <span class="lineNum">     626 </span>                :       // concept requirements
 <span class="lineNum">     627 </span>                :       __glibcxx_function_requires(_BidirectionalIteratorConcept&lt;_BI1&gt;)
@@ -686,7 +686,7 @@
 <span class="lineNum">     633 </span>                : 
 <span class="lineNum">     634 </span>                :       return (std::__copy_move_backward_a2&lt;__is_move_iterator&lt;_BI1&gt;::__value&gt;
 <span class="lineNum">     635 </span>                :               (std::__miter_base&lt;_BI1&gt;::__b(__first),
-<span class="lineNum">     636 </span><span class="lineCov">            576 :                std::__miter_base&lt;_BI1&gt;::__b(__last), __result));</span>
+<span class="lineNum">     636 </span><span class="lineCov">            192 :                std::__miter_base&lt;_BI1&gt;::__b(__last), __result));</span>
 <span class="lineNum">     637 </span>                :     }
 <span class="lineNum">     638 </span>                : 
 <span class="lineNum">     639 </span>                : #ifdef __GXX_EXPERIMENTAL_CXX0X__
@@ -745,7 +745,7 @@
 <span class="lineNum">     692 </span>                :     __fill_a(_ForwardIterator __first, _ForwardIterator __last,
 <span class="lineNum">     693 </span><span class="lineNoCov">              0 :              const _Tp&amp; __value)</span>
 <span class="lineNum">     694 </span>                :     {
-<span class="lineNum">     695 </span><span class="lineCov">        3723778 :       const _Tp __tmp = __value;</span>
+<span class="lineNum">     695 </span><span class="lineCov">        3741164 :       const _Tp __tmp = __value;</span>
 <span class="lineNum">     696 </span><span class="lineNoCov">              0 :       for (; __first != __last; ++__first)</span>
 <span class="lineNum">     697 </span><span class="lineNoCov">              0 :         *__first = __tmp;</span>
 <span class="lineNum">     698 </span><span class="lineNoCov">              0 :     }</span>
@@ -790,9 +790,9 @@
 <span class="lineNum">     737 </span>                :     __gnu_cxx::__enable_if&lt;!__is_scalar&lt;_Tp&gt;::__value, _OutputIterator&gt;::__type
 <span class="lineNum">     738 </span><span class="lineNoCov">              0 :     __fill_n_a(_OutputIterator __first, _Size __n, const _Tp&amp; __value)</span>
 <span class="lineNum">     739 </span>                :     {
-<span class="lineNum">     740 </span><span class="lineCov">            960 :       for (; __n &gt; 0; --__n, ++__first)</span>
-<span class="lineNum">     741 </span><span class="lineCov">            960 :         *__first = __value;</span>
-<span class="lineNum">     742 </span><span class="lineCov">            960 :       return __first;</span>
+<span class="lineNum">     740 </span><span class="lineCov">            320 :       for (; __n &gt; 0; --__n, ++__first)</span>
+<span class="lineNum">     741 </span><span class="lineCov">            320 :         *__first = __value;</span>
+<span class="lineNum">     742 </span><span class="lineCov">            320 :       return __first;</span>
 <span class="lineNum">     743 </span>                :     }
 <span class="lineNum">     744 </span>                : 
 <span class="lineNum">     745 </span>                :   template&lt;typename _OutputIterator, typename _Size, typename _Tp&gt;
@@ -800,10 +800,10 @@
 <span class="lineNum">     747 </span>                :     __gnu_cxx::__enable_if&lt;__is_scalar&lt;_Tp&gt;::__value, _OutputIterator&gt;::__type
 <span class="lineNum">     748 </span><span class="lineNoCov">              0 :     __fill_n_a(_OutputIterator __first, _Size __n, const _Tp&amp; __value)</span>
 <span class="lineNum">     749 </span>                :     {
-<span class="lineNum">     750 </span><span class="lineCov">        3725956 :       const _Tp __tmp = __value;</span>
-<span class="lineNum">     751 </span><span class="lineCov">        3767170 :       for (; __n &gt; 0; --__n, ++__first)</span>
-<span class="lineNum">     752 </span><span class="lineCov">        3767170 :         *__first = __tmp;</span>
-<span class="lineNum">     753 </span><span class="lineCov">        3725956 :       return __first;</span>
+<span class="lineNum">     750 </span><span class="lineCov">        3743150 :       const _Tp __tmp = __value;</span>
+<span class="lineNum">     751 </span><span class="lineCov">        3784364 :       for (; __n &gt; 0; --__n, ++__first)</span>
+<span class="lineNum">     752 </span><span class="lineCov">        3784364 :         *__first = __tmp;</span>
+<span class="lineNum">     753 </span><span class="lineCov">        3743150 :       return __first;</span>
 <span class="lineNum">     754 </span>                :     }
 <span class="lineNum">     755 </span>                : 
 <span class="lineNum">     756 </span>                :   template&lt;typename _Size, typename _Tp&gt;
@@ -834,7 +834,7 @@
 <span class="lineNum">     781 </span>                :       __glibcxx_function_requires(_OutputIteratorConcept&lt;_OI, _Tp&gt;)
 <span class="lineNum">     782 </span>                : 
 <span class="lineNum">     783 </span>                :       return _OI(std::__fill_n_a(std::__niter_base&lt;_OI&gt;::__b(__first),
-<span class="lineNum">     784 </span><span class="lineCov">        3726916 :                                  __n, __value));</span>
+<span class="lineNum">     784 </span><span class="lineCov">        3743470 :                                  __n, __value));</span>
 <span class="lineNum">     785 </span>                :     }
 <span class="lineNum">     786 </span>                : 
 <span class="lineNum">     787 </span>                :   template&lt;bool _BoolType&gt;

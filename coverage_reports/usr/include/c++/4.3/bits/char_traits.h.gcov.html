@@ -296,7 +296,7 @@
 <span class="lineNum">     243 </span>                : 
 <span class="lineNum">     244 </span>                :       static void
 <span class="lineNum">     245 </span><span class="lineNoCov">              0 :       assign(char_type&amp; __c1, const char_type&amp; __c2)</span>
-<span class="lineNum">     246 </span><span class="lineCov">           6267 :       { __c1 = __c2; }</span>
+<span class="lineNum">     246 </span><span class="lineCov">           2089 :       { __c1 = __c2; }</span>
 <span class="lineNum">     247 </span>                : 
 <span class="lineNum">     248 </span>                :       static bool
 <span class="lineNum">     249 </span><span class="lineNoCov">              0 :       eq(const char_type&amp; __c1, const char_type&amp; __c2)</span>
@@ -312,7 +312,7 @@
 <span class="lineNum">     259 </span>                : 
 <span class="lineNum">     260 </span>                :       static size_t
 <span class="lineNum">     261 </span><span class="lineNoCov">              0 :       length(const char_type* __s)</span>
-<span class="lineNum">     262 </span><span class="lineCov">          22232 :       { return __builtin_strlen(__s); }</span>
+<span class="lineNum">     262 </span><span class="lineCov">           7452 :       { return __builtin_strlen(__s); }</span>
 <span class="lineNum">     263 </span>                : 
 <span class="lineNum">     264 </span>                :       static const char_type*
 <span class="lineNum">     265 </span><span class="lineNoCov">              0 :       find(const char_type* __s, size_t __n, const char_type&amp; __a)</span>
@@ -324,7 +324,7 @@
 <span class="lineNum">     271 </span>                : 
 <span class="lineNum">     272 </span>                :       static char_type*
 <span class="lineNum">     273 </span><span class="lineNoCov">              0 :       copy(char_type* __s1, const char_type* __s2, size_t __n)</span>
-<span class="lineNum">     274 </span><span class="lineCov">           6267 :       { return static_cast&lt;char_type*&gt;(__builtin_memcpy(__s1, __s2, __n)); }</span>
+<span class="lineNum">     274 </span><span class="lineCov">           2089 :       { return static_cast&lt;char_type*&gt;(__builtin_memcpy(__s1, __s2, __n)); }</span>
 <span class="lineNum">     275 </span>                : 
 <span class="lineNum">     276 </span>                :       static char_type*
 <span class="lineNum">     277 </span><span class="lineNoCov">              0 :       assign(char_type* __s, size_t __n, char_type __a)</span>
